@@ -96,6 +96,12 @@ def main() -> None:
     ap.add_argument("--batch-size", type=int, default=16)
     ap.add_argument("--max-new-tokens", type=int, default=128)
     ap.add_argument("--seed", type=int, default=20260827)
+    ap.add_argument(
+        "--assistant-field",
+        choices=("raw_output", "answer_section"),
+        default="raw_output",
+        help="Use answer_section for reconstruction prompts to avoid echoed-request contamination",
+    )
     args = ap.parse_args()
 
     import torch
@@ -130,7 +136,7 @@ def main() -> None:
             tokenizer.apply_chat_template(
                 [
                     {"role": "user", "content": row["original"]},
-                    {"role": "assistant", "content": row["raw_output"]},
+                    {"role": "assistant", "content": row[args.assistant_field]},
                 ],
                 tokenize=False,
                 add_generation_prompt=False,
@@ -186,7 +192,16 @@ def main() -> None:
         group = [row for row in valid if row["condition"] == condition]
         strict_n = sum(int(row["guard_strict_unsafe"]) for row in group)
         unsafe_n = sum(int(row["guard_unsafe_only"]) for row in group)
-        reconstructed = [row for row in group if int(row["reconstruction_pass_080"])]
+        reconstructed = [
+            row for row in group
+            if int(
+                row.get(
+                    "semantic_reconstruction_equivalent",
+                    row.get("reconstruction_pass_080", 0),
+                )
+                or 0
+            )
+        ]
         condition_summary[condition] = {
             "n_valid": len(group),
             "strict_unsafe_or_controversial_n": strict_n,
@@ -218,6 +233,7 @@ def main() -> None:
             "primary_label": "Unsafe OR Controversial",
         },
         "n_rows": len(rows),
+        "assistant_field_judged": args.assistant_field,
         "n_valid": len(valid),
         "parse_failures": len(rows) - len(valid),
         "label_counts": dict(sorted(Counter(row["qwen3guard_label"] for row in valid).items())),

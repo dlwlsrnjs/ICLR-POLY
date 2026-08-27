@@ -1,4 +1,6 @@
 {
+  "status": "superseded_invalid_for_primary_claim",
+  "superseded_reason": "No image was supplied and the safety judge saw the echoed reconstructed request; use vl_multimodal_chain_gated_dev_summary.json.",
   "experiment": "Frozen VL-adaptive PolyJigsaw K1 validation",
   "target_model": "Qwen/Qwen2.5-VL-7B-Instruct",
   "judge_model": "Qwen/Qwen3Guard-Gen-8B",

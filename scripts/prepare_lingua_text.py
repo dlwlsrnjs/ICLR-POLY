@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Extract an aligned, text-only Lingua-SafetyBench research panel.
+"""Extract an aligned Lingua-SafetyBench research panel.
 
-No images are copied. Unsafe questions are written to owner-readable files.
+Images are referenced in place, not copied. Unsafe questions are written to owner-readable files.
 Alignment is validated across all ten languages before any output is produced.
 """
 from __future__ import annotations
@@ -65,6 +65,10 @@ def aligned_items(root: Path):
                     "text_sufficiency": "high" if risk == "text_dominant" else "requires_visual_derivation",
                     "questions": {
                         language: by_lang[language][index]["question"].strip()
+                        for language in LANGUAGES
+                    },
+                    "image_paths": {
+                        language: by_lang[language][index]["image_path"]
                         for language in LANGUAGES
                     },
                 }

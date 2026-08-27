@@ -1,5 +1,10 @@
 # VL-adaptive PolyJigsaw 검증 보고서
 
+> **Superseded / 최종 근거로 사용 금지:** 이 실행은 이미지를 넣지 않은 text-only
+> ablation이었고, safety judge가 `[RECONSTRUCTED]` 인용까지 포함한 raw output을
+> 판정해 ASR이 오염됐다. 올바른 이미지 포함·answer-only·semantic reconstruction
+> gated 결과는 `VL_MULTIMODAL_GATED_DEV_REPORT.md`를 사용한다.
+
 ## 결론
 
 Qwen2.5-VL-7B-Instruct를 **이미지 없이 text-only로 동일하게 사용**한 paired validation에서,
