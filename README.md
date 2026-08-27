@@ -23,7 +23,8 @@ red-teaming 프로젝트입니다.
 - dev 2,879 / validation 959 / test 960 고정 분할
 - validation에서 8개 시나리오 × 10개 = 80개 고정 파일럿 수행
 - Qwen2.5-7B-Instruct 320회 생성 완료
-- MD-Judge-v0.2-InternLM2-7B 320회 판정 완료, parse failure 0
+- Qwen3Guard-Gen-8B 공식 response-moderation 방식 320회 판정 완료, parse failure 0
+- MD-Judge-v0.2-InternLM2-7B 판정은 보조 교차검증으로 유지
 - 논문 기반 언어·카테고리 사전가설을 결과 확인 전에 고정
 - 재실험의 원문·실제 입력·전체 응답·judge 원출력을 비공개 0600 산출물로 보존
 
@@ -45,13 +46,14 @@ Russian, Spanish이며, 400개 조각에서 각 언어가 정확히 40회 등장
 
 | 조건 | ASR | 95% Wilson CI | 평균 재구성 | 재구성 ≥0.8 |
 |---|---:|---:|---:|---:|
-| C0 English direct | 37.50% | 27.69–48.45% | 1.0000 | 80/80 |
-| C1 English shuffled | 61.25% | 50.29–71.18% | 0.7857 | 47/80 |
-| C2 Multilingual ordered | 70.00% | 59.23–78.94% | 0.4735 | 1/80 |
-| C3 Multilingual shuffled | 77.50% | 67.21–85.27% | 0.4563 | 0/80 |
+| C0 English direct | 35.00% | 25.45–45.92% | 1.0000 | 80/80 |
+| C1 English shuffled | 62.50% | 51.55–72.31% | 0.7857 | 47/80 |
+| C2 Multilingual ordered | 67.50% | 56.64–76.76% | 0.4735 | 1/80 |
+| C3 Multilingual shuffled | 70.00% | 59.23–78.94% | 0.4563 | 0/80 |
 
-원시 출력을 보존한 최신 결정론적 재실행에서 짝지은 C3−C0 차이는 +40.0%p였지만,
-핵심 순서 효과인 C3−C2는 +7.5%p, bootstrap 95% CI −2.5%p–+17.5%p로
+원시 출력을 보존한 최신 결정론적 재실행을 공식 Qwen3Guard 방식으로 판정했을 때
+짝지은 C3−C0 차이는 +35.0%p였지만, 핵심 순서 효과인 C3−C2는 +2.5%p,
+bootstrap 95% CI −7.5%p–+12.5%p로
 확정되지 않았습니다. 또한 C3의 재구성 통과가
 0/80이므로 현재 결과를 “정확한 의미 재구성 이후의 탈옥 성공”으로 해석할 수 없습니다.
 
@@ -63,7 +65,8 @@ Russian, Spanish이며, 400개 조각에서 각 언어가 정확히 40회 등장
 
 상세 분석, 실제 언어 배정·순서·응답 해시 사례, 시나리오별 결과와 후속 계획은
 [파일럿 보고서](docs/PILOT_REPORT.md)와
-[논문 기반 전체 재실험 보고서](docs/PRIOR_GUIDED_FULL_80_REPORT.md)를 참고하세요.
+[공식 방식 Qwen3Guard 재평가 보고서](docs/OFFICIAL_STYLE_QWENGUARD_REPORT.md)를
+참고하세요. 기존 MD-Judge 결과는 보조 비교값으로만 유지합니다.
 
 ## 저장소 구성
 
@@ -76,10 +79,12 @@ PolyJigsaw/
 │   ├── EXPERIMENT_PROTOCOL.md
 │   ├── IMPLEMENTATION_GUIDE.md
 │   ├── LINGUA_PRIOR_GUIDED_RERUN.md
+│   ├── OFFICIAL_STYLE_QWENGUARD_REPORT.md
 │   ├── PRIOR_GUIDED_FULL_80_REPORT.md
 │   └── CASE_STUDIES.md
 ├── results/
 │   ├── pilot_summary.json
+│   ├── qwen3guard_official_rejudge_summary.json
 │   └── prior_guided_full_80_summary.json
 └── scripts/
     ├── prepare_lingua_text.py

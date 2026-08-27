@@ -1,5 +1,8 @@
 # 논문 기반 사전가설 전체 80개 재실험
 
+> 이 문서는 MD-Judge 보조 판정 결과다. 현재 primary 결과는
+> [공식 방식 Qwen3Guard 재평가](OFFICIAL_STYLE_QWENGUARD_REPORT.md)를 사용한다.
+
 ## 결론
 
 자동 judge 기반 raw proxy ASR은 `C0 37.50% → C1 61.25% → C2 70.00% →
