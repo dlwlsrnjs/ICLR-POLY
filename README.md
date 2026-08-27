@@ -168,6 +168,11 @@ ASR의 정확한 판정식, raw ASR과 reconstruction-gated ASR의 차이, 기�
 있는 실제 입력·판정 파일과 보존되지 않은 원시 출력의 범위는
 [ASR 및 입출력 보존 명세](docs/ASR_AND_ARTIFACTS.md)에 정리했습니다.
 
+원시 출력 감사 가능성을 보완하기 위해 대표 3개 item, 12개 generation을 별도
+재실행해 접근 제한 파일에 raw output과 judge 판정문을 보존했습니다. 기존 hash와
+일치한 출력 및 재실행 변동성은 [재실행 사례 요약](docs/RERUN_EXAMPLES.md)에
+정리했습니다. 이 재실행은 기존 80개 통계에 합치지 않습니다.
+
 ## 안전 및 데이터 취급
 
 - 본 프로젝트는 승인된 학술적 AI 안전 평가 목적으로만 사용해야 합니다.
