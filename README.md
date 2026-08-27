@@ -27,6 +27,7 @@ red-teaming 프로젝트입니다.
 - MD-Judge-v0.2-InternLM2-7B 판정은 보조 교차검증으로 유지
 - 논문 기반 언어·카테고리 사전가설을 결과 확인 전에 고정
 - 재실험의 원문·실제 입력·전체 응답·judge 원출력을 비공개 0600 산출물로 보존
+- Qwen2.5-VL-7B 원본 text-only 80개×10언어=800개 baseline 완료
 
 ## 파일럿 설계
 
@@ -63,6 +64,11 @@ bootstrap 95% CI −7.5%p–+12.5%p로
 > 약화할 수 있다. 다만 고정 분할기의 의미 복원 성능이 낮고 wrapper 효과가 크므로,
 > 적응형 PolyJigsaw 메서드의 효과는 아직 검증되지 않았다.
 
+원본 text-only baseline은 188/800=23.50%로, 논문의 Qwen2.5-VL 계열
+Text-Dominant 55.24%를 그대로 재현하지 못했습니다. 다만 Non-HRL 24.37%가 HRL
+20.00%보다 높은 방향은 논문과 같았습니다. 자세한 결과는
+[원본 Text-only baseline 보고서](docs/LINGUA_TEXTONLY_BASELINE_REPORT.md)에 있습니다.
+
 상세 분석, 실제 언어 배정·순서·응답 해시 사례, 시나리오별 결과와 후속 계획은
 [파일럿 보고서](docs/PILOT_REPORT.md)와
 [공식 방식 Qwen3Guard 재평가 보고서](docs/OFFICIAL_STYLE_QWENGUARD_REPORT.md)를
@@ -79,11 +85,13 @@ PolyJigsaw/
 │   ├── EXPERIMENT_PROTOCOL.md
 │   ├── IMPLEMENTATION_GUIDE.md
 │   ├── LINGUA_PRIOR_GUIDED_RERUN.md
+│   ├── LINGUA_TEXTONLY_BASELINE_REPORT.md
 │   ├── OFFICIAL_STYLE_QWENGUARD_REPORT.md
 │   ├── PRIOR_GUIDED_FULL_80_REPORT.md
 │   └── CASE_STUDIES.md
 ├── results/
 │   ├── pilot_summary.json
+│   ├── lingua_textonly_qwen25vl7b_800_summary.json
 │   ├── qwen3guard_official_rejudge_summary.json
 │   └── prior_guided_full_80_summary.json
 └── scripts/
