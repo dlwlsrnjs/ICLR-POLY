@@ -64,7 +64,8 @@ PolyJigsaw/
 ├── requirements.txt
 ├── docs/
 │   ├── PILOT_REPORT.md
-│   └── EXPERIMENT_PROTOCOL.md
+│   ├── EXPERIMENT_PROTOCOL.md
+│   └── IMPLEMENTATION_GUIDE.md
 ├── results/
 │   └── pilot_summary.json
 └── scripts/
@@ -140,6 +141,11 @@ device 인자를 `cuda:0`으로 바꿉니다. 공유 서버에서 비어 있지 
 구체적인 B0–B7 대조군, reward, gate와 성공 기준은
 [실험 프로토콜](docs/EXPERIMENT_PROTOCOL.md)과
 [파일럿 보고서](docs/PILOT_REPORT.md)에 정리되어 있습니다.
+
+전체 파이프라인을 함수 단위로 이해하려면
+[메서드·코드 구현 가이드](docs/IMPLEMENTATION_GUIDE.md)를 참고하세요. 데이터 정렬,
+조각 경계 선택, 언어 균형, NLLB 번역, Qwen 생성, MD-Judge 호환 처리와 paired
+bootstrap 구현을 순서대로 설명합니다.
 
 ## 안전 및 데이터 취급
 
