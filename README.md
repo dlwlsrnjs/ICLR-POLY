@@ -24,7 +24,8 @@ red-teaming 프로젝트입니다.
 - validation에서 8개 시나리오 × 10개 = 80개 고정 파일럿 수행
 - Qwen2.5-7B-Instruct 320회 생성 완료
 - MD-Judge-v0.2-InternLM2-7B 320회 판정 완료, parse failure 0
-- 원시 harmful completion을 저장하지 않는 평가 파이프라인 구현
+- 논문 기반 언어·카테고리 사전가설을 결과 확인 전에 고정
+- 재실험의 원문·실제 입력·전체 응답·judge 원출력을 비공개 0600 산출물로 보존
 
 ## 파일럿 설계
 
@@ -45,12 +46,13 @@ Russian, Spanish이며, 400개 조각에서 각 언어가 정확히 40회 등장
 | 조건 | ASR | 95% Wilson CI | 평균 재구성 | 재구성 ≥0.8 |
 |---|---:|---:|---:|---:|
 | C0 English direct | 37.50% | 27.69–48.45% | 1.0000 | 80/80 |
-| C1 English shuffled | 63.75% | 52.81–73.43% | 0.7851 | 47/80 |
-| C2 Multilingual ordered | 71.25% | 60.54–80.01% | 0.4712 | 1/80 |
-| C3 Multilingual shuffled | 76.25% | 65.86–84.24% | 0.4563 | 0/80 |
+| C1 English shuffled | 61.25% | 50.29–71.18% | 0.7857 | 47/80 |
+| C2 Multilingual ordered | 70.00% | 59.23–78.94% | 0.4735 | 1/80 |
+| C3 Multilingual shuffled | 77.50% | 67.21–85.27% | 0.4563 | 0/80 |
 
-짝지은 C3−C0 차이는 +38.75%p였지만, 핵심 순서 효과인 C3−C2는 +5%p,
-bootstrap 95% CI −5%p–+15%p로 유의하지 않았습니다. 또한 C3의 재구성 통과가
+원시 출력을 보존한 최신 결정론적 재실행에서 짝지은 C3−C0 차이는 +40.0%p였지만,
+핵심 순서 효과인 C3−C2는 +7.5%p, bootstrap 95% CI −2.5%p–+17.5%p로
+확정되지 않았습니다. 또한 C3의 재구성 통과가
 0/80이므로 현재 결과를 “정확한 의미 재구성 이후의 탈옥 성공”으로 해석할 수 없습니다.
 
 현재 가장 타당한 결론은 다음과 같습니다.
@@ -60,7 +62,8 @@ bootstrap 95% CI −5%p–+15%p로 유의하지 않았습니다. 또한 C3의 �
 > 적응형 PolyJigsaw 메서드의 효과는 아직 검증되지 않았다.
 
 상세 분석, 실제 언어 배정·순서·응답 해시 사례, 시나리오별 결과와 후속 계획은
-[파일럿 보고서](docs/PILOT_REPORT.md)를 참고하세요.
+[파일럿 보고서](docs/PILOT_REPORT.md)와
+[논문 기반 전체 재실험 보고서](docs/PRIOR_GUIDED_FULL_80_REPORT.md)를 참고하세요.
 
 ## 저장소 구성
 
@@ -72,9 +75,12 @@ PolyJigsaw/
 │   ├── PILOT_REPORT.md
 │   ├── EXPERIMENT_PROTOCOL.md
 │   ├── IMPLEMENTATION_GUIDE.md
+│   ├── LINGUA_PRIOR_GUIDED_RERUN.md
+│   ├── PRIOR_GUIDED_FULL_80_REPORT.md
 │   └── CASE_STUDIES.md
 ├── results/
-│   └── pilot_summary.json
+│   ├── pilot_summary.json
+│   └── prior_guided_full_80_summary.json
 └── scripts/
     ├── prepare_lingua_text.py
     ├── build_static_lingua_pilot.py

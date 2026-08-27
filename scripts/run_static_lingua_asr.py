@@ -38,6 +38,26 @@ def extract_reconstruction(output: str) -> str:
     return match.group(1).strip() if match else ""
 
 
+def extract_answer(output: str) -> str:
+    match = re.search(r"\[ANSWER\]\s*(.*)$", output, flags=re.IGNORECASE | re.DOTALL)
+    return match.group(1).strip() if match else output.strip()
+
+
+def secure_write(path: Path, text: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+    with os.fdopen(fd, "w", encoding="utf-8") as handle:
+        handle.write(text)
+    os.chmod(path, 0o600)
+
+
+def secure_jsonl(path: Path, rows: list[dict]) -> None:
+    secure_write(
+        path,
+        "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows),
+    )
+
+
 def wilson(k: int, n: int, z: float = 1.96) -> list[float]:
     if not n:
         return [0.0, 0.0]
@@ -146,6 +166,10 @@ def main() -> None:
     ap.add_argument("--seed", type=int, default=20260827)
     ap.add_argument("--target-device", default="cpu", help="device for the evaluated model")
     ap.add_argument("--judge-device", default="cpu", help="device for the independent safety judge")
+    ap.add_argument(
+        "--persist-raw", action="store_true",
+        help="store prompts, target completions, and full judge outputs as mode-0600 JSONL",
+    )
     args = ap.parse_args()
 
     import torch
@@ -157,6 +181,9 @@ def main() -> None:
         DynamicCache.get_max_length = lambda self: None
     torch.set_num_threads(min(32, os.cpu_count() or 1))
     records = [json.loads(line) for line in Path(args.data).open(encoding="utf-8")]
+    outdir = Path(args.outdir)
+    outdir.mkdir(parents=True, exist_ok=True)
+    os.chmod(outdir, 0o700)
     metadata, prompts = [], []
     for record in records:
         for condition in CONDITIONS:
@@ -174,6 +201,22 @@ def main() -> None:
     del model, tokenizer
     gc.collect()
 
+    if args.persist_raw:
+        target_rows = []
+        for (record, condition), prompt, answer in zip(metadata, prompts, answers):
+            target_rows.append({
+                "item_id": record["item_id"],
+                "scenario": record["scenario"],
+                "risk_type": record["risk_type"],
+                "condition": condition,
+                "language_assignment": record["language_assignment"],
+                "original": record["original"],
+                "prompt": prompt,
+                "raw_output": answer,
+                "response_sha256": hashlib.sha256(answer.encode()).hexdigest(),
+            })
+        secure_jsonl(outdir / "restricted_target_outputs.jsonl", target_rows)
+
     rows = []
     pairs = []
     for (record, condition), answer in zip(metadata, answers):
@@ -189,6 +232,11 @@ def main() -> None:
             "refusal_heuristic": int(any(marker in answer.lower() for marker in REFUSALS)),
             "response_chars": len(answer),
             "response_sha256": hashlib.sha256(answer.encode()).hexdigest(),
+            "original": record["original"] if args.persist_raw else "",
+            "prompt": record["prompts"][condition] if args.persist_raw else "",
+            "raw_output": answer if args.persist_raw else "",
+            "reconstructed": reconstructed if args.persist_raw else "",
+            "answer_section": extract_answer(answer) if args.persist_raw else "",
         })
         pairs.append((record["original"], answer))
 
@@ -210,16 +258,17 @@ def main() -> None:
         row["judge_valid"] = int(unsafe is not None)
         row["judge_unsafe"] = "" if unsafe is None else int(unsafe)
         row["judge_score"] = "" if score is None else score
+        row["judge_output"] = judgment if args.persist_raw else ""
     del answers, judgments, pairs, judge_model, judge_tok
     gc.collect()
 
-    outdir = Path(args.outdir)
-    outdir.mkdir(parents=True, exist_ok=True)
     result_path = outdir / "results.csv"
     with result_path.open("w", encoding="utf-8-sig", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=list(rows[0]))
         writer.writeheader(); writer.writerows(rows)
     os.chmod(result_path, 0o600)
+    if args.persist_raw:
+        secure_jsonl(outdir / "restricted_full_audit.jsonl", rows)
 
     valid_rows = [r for r in rows if r["judge_valid"]]
     condition_summary = {}
@@ -249,10 +298,20 @@ def main() -> None:
         "conditions": condition_summary,
         "primary_paired_contrast": paired_bootstrap(valid_rows, "multilingual_ordered", "multilingual_shuffled", args.seed),
         "secondary_paired_contrast": paired_bootstrap(valid_rows, "english_direct", "multilingual_shuffled", args.seed + 1),
-        "raw_prompts_or_responses_persisted": False,
+        "raw_prompts_or_responses_persisted": args.persist_raw,
+        "paper_prior": {
+            "paper": "Lingua-SafetyBench v2, arXiv:2601.22737",
+            "qwen_hrl": ["English", "Chinese"],
+            "qwen_non_hrl": ["Arabic", "Finnish", "French", "German", "Japanese", "Norwegian", "Russian", "Spanish"],
+            "higher_language_asr_reported": ["Finnish", "Japanese", "German"],
+            "lower_language_asr_reported": ["English", "Norwegian"],
+            "higher_risk_scenarios": ["Physical Harm", "Malware Generation", "Illegal Activity"],
+            "lower_risk_scenarios": ["Economic Harm", "Sex"],
+            "note": "Prior fixed before this run; all 80 balanced items retained to avoid outcome-based selection.",
+        },
     }
     summary_path = outdir / "summary.json"
-    summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    secure_write(summary_path, json.dumps(summary, ensure_ascii=False, indent=2) + "\n")
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
 
