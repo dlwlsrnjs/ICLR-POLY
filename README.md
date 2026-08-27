@@ -164,6 +164,10 @@ mechanics/factorial prompt까지 기존 실행에서 사용한 전체 프롬프�
 [전체 프롬프트 명세](docs/ALL_PROMPTS.md)에 정리했습니다. 통제된 유해 원문과 원시
 응답만 자리표시자로 마스킹하고 지시문과 변수 연결 방식은 그대로 보존했습니다.
 
+ASR의 정확한 판정식, raw ASR과 reconstruction-gated ASR의 차이, 기존 실행에서 남아
+있는 실제 입력·판정 파일과 보존되지 않은 원시 출력의 범위는
+[ASR 및 입출력 보존 명세](docs/ASR_AND_ARTIFACTS.md)에 정리했습니다.
+
 ## 안전 및 데이터 취급
 
 - 본 프로젝트는 승인된 학술적 AI 안전 평가 목적으로만 사용해야 합니다.

@@ -421,3 +421,7 @@ wrapper를 분리하고, B2/B3와 B5/B6로 각각 단일 언어 및 다국어 or
 - 무해 factorial prompt: `scripts/pilot_factorial.py`의 `prompt_for()`
 
 원 데이터셋 질문과 생성 답변을 제외한 프롬프트 논리는 위 목록이 전부다.
+
+ASR의 정확한 이진 판정식, reconstruction gate와 raw ASR의 차이, 기존 입출력 파일에서
+실제로 보존된 필드는 [ASR 판정 기준과 기존 입출력 파일](ASR_AND_ARTIFACTS.md)을
+참고한다.
