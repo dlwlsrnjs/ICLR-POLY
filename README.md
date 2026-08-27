@@ -28,6 +28,7 @@ red-teaming 프로젝트입니다.
 - 논문 기반 언어·카테고리 사전가설을 결과 확인 전에 고정
 - 재실험의 원문·실제 입력·전체 응답·judge 원출력을 비공개 0600 산출물로 보존
 - Qwen2.5-VL-7B 원본 text-only 80개×10언어=800개 baseline 완료
+- Qwen2.5-VL-7B paired validation에서 frozen VL-adaptive K1 완료: C0 25.00% → K1 42.50%
 
 ## 파일럿 설계
 
@@ -69,6 +70,12 @@ Text-Dominant 55.24%를 그대로 재현하지 못했습니다. 다만 Non-HRL 2
 20.00%보다 높은 방향은 논문과 같았습니다. 자세한 결과는
 [원본 Text-only baseline 보고서](docs/LINGUA_TEXTONLY_BASELINE_REPORT.md)에 있습니다.
 
+동일 validation 80개를 짝지어 비교한 최신 VL-adaptive K1은 C0 20/80=25.00%에서
+34/80=42.50%로 +17.50%p 상승했다(bootstrap 95% CI +3.75–+31.25%p, exact
+McNemar p=0.0288). 다만 reconstruction ≥0.8은 12/80이므로 raw ASR 상승과 완전한
+의미 재구성 성공을 구분해야 한다. 개발/검증 분리, K1 구성, 범주별 결과와 한계는
+[VL-adaptive 검증 보고서](docs/VL_ADAPTIVE_VALIDATION_REPORT.md)에 정리했다.
+
 상세 분석, 실제 언어 배정·순서·응답 해시 사례, 시나리오별 결과와 후속 계획은
 [파일럿 보고서](docs/PILOT_REPORT.md)와
 [공식 방식 Qwen3Guard 재평가 보고서](docs/OFFICIAL_STYLE_QWENGUARD_REPORT.md)를
@@ -86,17 +93,22 @@ PolyJigsaw/
 │   ├── IMPLEMENTATION_GUIDE.md
 │   ├── LINGUA_PRIOR_GUIDED_RERUN.md
 │   ├── LINGUA_TEXTONLY_BASELINE_REPORT.md
+│   ├── VL_ADAPTIVE_VALIDATION_REPORT.md
 │   ├── OFFICIAL_STYLE_QWENGUARD_REPORT.md
 │   ├── PRIOR_GUIDED_FULL_80_REPORT.md
 │   └── CASE_STUDIES.md
 ├── results/
 │   ├── pilot_summary.json
 │   ├── lingua_textonly_qwen25vl7b_800_summary.json
+│   ├── vl_adaptive_qwen25vl7b_validation_summary.json
 │   ├── qwen3guard_official_rejudge_summary.json
 │   └── prior_guided_full_80_summary.json
 └── scripts/
     ├── prepare_lingua_text.py
     ├── build_static_lingua_pilot.py
+    ├── build_vl_adaptive_variants.py
+    ├── generate_static_qwen25vl_textonly.py
+    ├── rejudge_qwen3guard_official.py
     ├── run_static_lingua_asr.py
     ├── polyjig_pilot.py
     └── pilot_factorial.py

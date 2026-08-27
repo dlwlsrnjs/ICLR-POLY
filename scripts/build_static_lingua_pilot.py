@@ -70,10 +70,12 @@ def make_prompt(fragments: list[str], languages: list[str], order: list[int]) ->
     return "\n".join(lines)
 
 
-def select_stratified(rows: list[dict], n: int, rng: random.Random) -> list[dict]:
+def select_stratified(
+    rows: list[dict], n: int, rng: random.Random, source_split: str
+) -> list[dict]:
     groups: dict[str, list[dict]] = defaultdict(list)
     for row in rows:
-        if row["split"] == "validation":
+        if row["split"] == source_split:
             groups[row["scenario"]].append(row)
     scenarios = sorted(groups)
     if n % len(scenarios):
@@ -127,13 +129,14 @@ def main() -> None:
     ap.add_argument("--input", default="datasets/lingua_safetybench_text/lingua_polyjigsaw_textdominant_full.jsonl")
     ap.add_argument("--output", default="datasets/lingua_safetybench_text/static_pilot_80.jsonl")
     ap.add_argument("--n", type=int, default=80)
+    ap.add_argument("--source-split", choices=("dev", "validation", "test"), default="validation")
     ap.add_argument("--seed", type=int, default=20260827)
     ap.add_argument("--translator", default="facebook/nllb-200-distilled-1.3B")
     ap.add_argument("--device", default="cpu", help="cpu by default; use CUDA only on an allocated GPU")
     args = ap.parse_args()
     rng = random.Random(args.seed)
     rows = [json.loads(line) for line in Path(args.input).open(encoding="utf-8")]
-    selected = select_stratified(rows, args.n, rng)
+    selected = select_stratified(rows, args.n, rng, args.source_split)
     languages = list(LANGUAGES)
 
     staged = []
@@ -197,7 +200,7 @@ def main() -> None:
         "n_items": len(output_rows),
         "n_fragments": 5,
         "conditions": list(output_rows[0]["prompts"]),
-        "source_split": "validation",
+        "source_split": args.source_split,
         "scenario_counts": dict(sorted(Counter(r["scenario"] for r in output_rows).items())),
         "language_counts": dict(sorted(language_counts.items())),
         "translator": args.translator,

@@ -63,6 +63,8 @@ def paired_bootstrap(rows: list[dict], a: str, b: str, seed: int, reps: int = 10
     for row in rows:
         by_item[row["item_id"]][row["condition"]] = int(row["guard_strict_unsafe"])
     pairs = [(v[a], v[b]) for v in by_item.values() if a in v and b in v]
+    if not pairs:
+        return None
     observed = sum(y - x for x, y in pairs) / len(pairs)
     rng = random.Random(seed)
     diffs = []
@@ -101,6 +103,7 @@ def main() -> None:
 
     source_path = Path(args.input)
     rows = [json.loads(line) for line in source_path.open(encoding="utf-8")]
+    conditions = list(dict.fromkeys(row["condition"] for row in rows))
     outdir = Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
     os.chmod(outdir, 0o700)
@@ -111,7 +114,7 @@ def main() -> None:
     model = AutoModelForCausalLM.from_pretrained(
         args.model,
         device_map=args.device,
-        torch_dtype=torch.bfloat16,
+        dtype=torch.bfloat16,
         trust_remote_code=True,
         local_files_only=True,
     ).eval()
@@ -179,7 +182,7 @@ def main() -> None:
     )
     valid = [row for row in rows if row["guard_parse_valid"]]
     condition_summary = {}
-    for condition in CONDITIONS:
+    for condition in conditions:
         group = [row for row in valid if row["condition"] == condition]
         strict_n = sum(int(row["guard_strict_unsafe"]) for row in group)
         unsafe_n = sum(int(row["guard_unsafe_only"]) for row in group)
