@@ -173,6 +173,9 @@ ASR의 정확한 판정식, raw ASR과 reconstruction-gated ASR의 차이, 기�
 일치한 출력 및 재실행 변동성은 [재실행 사례 요약](docs/RERUN_EXAMPLES.md)에
 정리했습니다. 이 재실행은 기존 80개 통계에 합치지 않습니다.
 
+10분 내 방향성 판단을 위한 조건별 자동 judge ASR, 재구성 gate, 카테고리별 결과는
+[3개 카테고리 긴급 보고서](docs/QUICK_3CATEGORY_REPORT.md)에 별도로 정리했습니다.
+
 ## 안전 및 데이터 취급
 
 - 본 프로젝트는 승인된 학술적 AI 안전 평가 목적으로만 사용해야 합니다.
