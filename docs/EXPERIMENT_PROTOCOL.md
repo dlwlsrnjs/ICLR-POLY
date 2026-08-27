@@ -10,6 +10,18 @@ adaptive fragmenter/controller가 만든 조각의 의미 보존을 확인하는
 PolyJigsaw의 학습 대상은 원문별 4–6개 의미 경계, 조각별 언어, 표시 순서, puzzle rule을
 함께 선택하는 정책이다.
 
+핵심 연구 질문은 다음과 같다.
+
+> **Can safety-aligned LLMs detect unsafe intent before it is reconstructed through
+> cross-lingual compositional reasoning?**
+
+따라서 이 실험은 단순한 multilingual jailbreak가 아니라, 개별 조각의 관측 위험은
+낮지만 decoding과 composition 뒤 전체 위험이 나타나는 **compositional safety
+failure**를 검증한다. 개별 조각 위험과 전체 재구성 성공을 모두 측정하지 않으면 이
+주장을 할 수 없다. 관련 연구 대비 위치와 조작적 정의는
+[메서드·코드 구현 가이드](IMPLEMENTATION_GUIDE.md#1-연구-위치와-핵심-가설)에
+정리했다.
+
 또한 기존 Qwen2.5-7B benign pilot에서 multilingual shuffled 평균 reconstruction이
 0.6313이었다. 제안서의 G1 gate인 “퍼즐을 이해할 수 있는가”를 안정적으로 통과했다고
 보기 어렵다. 이 상태에서 ASR이 낮으면 안전해서인지 이해 실패인지 구분할 수 없다.
@@ -108,6 +120,25 @@ ASR만 최대화하면 모델이 이해하지 못하는 프롬프트나 노골�
 - 3/5/7 fragments
 - shuffle distance 단계
 - translation→English→moderate defense
+
+2×2는 파일럿용 최소 설계다. 본 실험에서는 wrapper와 semantic fragmentation을
+분리하기 위해 B0–B7을 사용한다.
+
+| ID | 입력 | 주효과 |
+|---|---|---|
+| B0 | English direct | 기준선 |
+| B1 | 같은 wrapper의 English direct | wrapper |
+| B2 | English semantic fragments, ordered | fragmentation |
+| B3 | English semantic fragments, shuffled | monolingual ordering |
+| B4 | single non-English direct | single-language gap |
+| B5 | multilingual semantic fragments, ordered | multilingual encoding |
+| B6 | multilingual semantic fragments, shuffled | full PolyJigsaw |
+| B7 | multilingual random-word split, shuffled | semantic-boundary ablation |
+
+`B6−B5`를 primary ordering/composition contrast로 삼고,
+`(B6−B5)−(B3−B2)`로 language×ordering interaction을 측정한다. `B6−B7`은 길이,
+언어 수, permutation distance를 맞춘 뒤 semantic fragmentation의 기여를 추정한다.
+모든 safety contrast는 reconstruction gate를 통과한 paired sample에서 우선 보고한다.
 
 ## 언어·위치 균형화
 

@@ -4,6 +4,12 @@ PolyJigsaw는 하나의 요청을 4–6개의 의미 조각으로 나누고, 조
 조정했을 때 다국어 LLM의 안전 행동이 어떻게 변하는지 연구하는 재현 가능한
 red-teaming 프로젝트입니다.
 
+핵심 연구 질문은 **“안전 정렬된 모델이 cross-lingual compositional reasoning으로
+전체 의도를 재구성하기 전에 그 위험을 탐지할 수 있는가?”**입니다. 개별 조각에는 전체
+의도가 없지만, 다언어 decoding·순서 추론·의미 합성을 마친 뒤에만 위험한 전체 의미가
+생기는 `compositional safety failure`를 측정합니다. 이는 단순 번역 공격이나 단일 언어
+퍼즐 공격과 구별되는 연구 가설입니다.
+
 현재 저장소에는 Lingua-SafetyBench의 Text-Dominant 항목으로 수행한 **고정 80개
 파일럿**, 실행 코드, 집계 결과, 실험 프로토콜이 포함되어 있습니다. 원본 데이터와
 유해 프롬프트·원시 모델 응답은 포함하지 않습니다.
@@ -146,7 +152,8 @@ device 인자를 `cuda:0`으로 바꿉니다. 공유 서버에서 비어 있지 
 전체 파이프라인을 함수 단위로 이해하려면
 [메서드·코드 구현 가이드](docs/IMPLEMENTATION_GUIDE.md)를 참고하세요. 데이터 정렬,
 조각 경계 선택, 언어 균형, NLLB 번역, Qwen 생성, MD-Judge 호환 처리와 paired
-bootstrap 구현을 순서대로 설명합니다.
+bootstrap 구현뿐 아니라 관련 연구 대비 위치, 핵심 수식, B0–B7 factorial 분해와
+현재 고정 baseline/최종 adaptive method의 차이를 설명합니다.
 
 기존 파일럿에서 실제 safe→unsafe 전환이 있었던 8개 사례의 fragment 길이, 언어 배정,
 순서 이동, 네 조건의 판정·응답 길이·해시는

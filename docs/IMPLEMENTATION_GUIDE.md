@@ -4,15 +4,108 @@
 무슨 역할을 하는지 설명한다. 코드 전체를 처음 읽는 연구자가 데이터 준비부터 결과
 해석까지 따라갈 수 있도록 실제 구현 순서대로 구성했다.
 
-## 1. 연구 질문을 코드 구조로 바꾸기
+## 1. 연구 위치와 핵심 가설
 
-현재 파일럿의 질문은 세 단계로 분해된다.
+### 1.1 기존 연구와 무엇이 다른가
 
-1. 원문의 유해 의도를 여러 조각으로 나눠도 대상 모델이 전체 의미를 복원하는가?
-2. 각 조각을 서로 다른 언어로 표현하면 안전 거부 행동이 달라지는가?
-3. 같은 다국어 조각의 순서까지 섞었을 때 추가적인 ASR 변화가 생기는가?
+PolyJigsaw가 결합하는 축은 다음 네 가지다.
 
-이를 한 번에 비교하면 원인을 알 수 없기 때문에 네 조건을 같은 item에 짝지었다.
+\[
+\boxed{\text{Multilingual} + \text{Fragmentation} + \text{Puzzle} +
+\text{Composition/Reasoning}}
+\]
+
+아래 표는 논문의 전체 기여를 한 기호로 단정한 것이 아니라, **한 입력 안에서 여러 실제
+자연어를 혼합하는가**, **명시적으로 풀어야 할 퍼즐/게임 규칙이 있는가**, **분산된
+조각의 의미를 재구성해야 전체 요청이 생기는가**라는 세 축만 비교한 것이다.
+
+| 방식 | 여러 실제 언어 혼합 | 퍼즐/게임 규칙 | 조각 의미 재구성 |
+|---|:---:|:---:|:---:|
+| [Multilingual Jailbreak Challenges, ICLR 2024](https://openreview.net/forum?id=vESNKdEMGp) | △ | ❌ | ❌ |
+| [CSRT, ACL 2025](https://aclanthology.org/2025.acl-long.657/) | ✅ | ❌ | 거의 ❌ |
+| [Puzzler, Findings of ACL 2024](https://aclanthology.org/2024.findings-acl.304/) | ❌ | ✅ | ✅ |
+| [WordGame, Findings of NAACL 2025](https://aclanthology.org/2025.findings-naacl.269/) | ❌ | ✅ | ✅ |
+| [PUZZLED, 2025 preprint](https://arxiv.org/abs/2508.01306) | ❌ | ✅✅ | ✅✅ |
+| [Playing Language Game with LLMs, 2024 preprint](https://arxiv.org/abs/2411.12762) | ❌\* | ✅✅ | ✅ |
+| **PolyJigsaw** | **✅** | **✅** | **✅✅** |
+
+`△`는 번역 기반 다국어 취약성을 다루지만 한 요청 안의 다언어 조각 혼합이 핵심은
+아니라는 뜻이다. `❌*`는 실제 자연어 여러 개를 섞는 대신 Ubbi Dubbi 같은 자연어
+게임이나 삽입 규칙으로 만든 custom language를 사용한다는 뜻이다. 이 연구가 제안한
+**mismatched generalization** 관점은 PolyJigsaw와 특히 가깝지만, PolyJigsaw는 여기에
+실제 언어 간 decoding과 순서 추론을 동시에 요구한다.
+
+이 표의 범위에서 대표 선행 연구는 네 축 중 일부를 강하게 다루지만 네 축을 하나의
+실험 알고리즘으로 동시에 분리·측정하지는 않는다. 이것은 전 문헌에 대한 부재 증명이
+아니라, 2024–2026년 위 비교군을 대상으로 한 연구 위치 설정이다. 따라서 논문의 신규성은
+“CSRT와 퍼즐 공격을 합쳤다”가 아니라 **안전 판단이 전체 의도 재구성보다 먼저 일어날 때
+생기는 실패를 측정한다**는 데 두어야 한다.
+
+### 1.2 무해한 추상 예시
+
+원래 의미 관계가 다음과 같다고 하자.
+
+```text
+A → B → C → D → E
+```
+
+PolyJigsaw는 이를 의미 조각으로 나누고 각 조각에 서로 다른 언어를 배정한 뒤 표시
+순서를 바꾼다.
+
+```text
+C = Japanese, A = Arabic, E = Chinese, B = Spanish, D = Finnish
+
+[C_JA] [A_AR] [E_ZH] [B_ES] [D_FI]
+```
+
+모델은 단순히 code-switched 문장을 읽는 데서 끝나지 않는다.
+
+```text
+cross-lingual decoding
+        ↓
+ordering reasoning
+        ↓
+semantic composition
+        ↓
+A → B → C → D → E
+```
+
+CSRT는 여러 실제 언어 token을 한 문장에 합성해 multilingual understanding과 safety를
+함께 시험하지만, 원래 의미 순서를 찾는 별도 permutation puzzle을 요구하지 않는다.
+PolyJigsaw는 언어 해석 외에 조각 관계와 순서를 복원해야만 최종 의미가 완성되도록
+설계한다.
+
+### 1.3 핵심 연구 질문: compositional safety failure
+
+핵심 질문은 다음과 같다.
+
+> **Can safety-aligned LLMs detect unsafe intent before it is reconstructed through
+> cross-lingual compositional reasoning?**
+
+전체 의도가 각 조각에 그대로 존재하지 않는 상황을 다음처럼 표현할 수 있다.
+
+\[
+S(f_i) \le \tau_{local}\quad \forall i
+\]
+
+\[
+C = \operatorname{Compose}(\operatorname{Decode}_{\ell_1}(f_1),\ldots,
+\operatorname{Decode}_{\ell_n}(f_n))
+\]
+
+\[
+S(C) > \tau_{unsafe}
+\]
+
+여기서 `S`는 실제 평가기로 측정할 위험 점수다. 개별 조각이 안전하다고 가정해서는
+안 되며, fragment-level judge로 `S(f_i)`를 직접 측정해야 한다. **compositional safety
+failure**는 (1) 개별 조각의 가시적 위험이 사전등록 임계값 이하이고, (2) 모델이 전체
+의도를 충분히 재구성했으며, (3) 그 상태에서 안전 거부가 실패한 경우로 조작적으로
+정의한다. 재구성에 실패한 응답은 공격 성공으로 세지 않는다.
+
+### 1.4 효과를 분리하는 factorial 설계
+
+현재 파일럿의 최소 조건은 다음 네 가지다.
 
 ```text
 C0: 영어 원문
@@ -21,8 +114,54 @@ C2: 다국어 조각 + 정순서
 C3: 다국어 조각 + 순서 섞기
 ```
 
-같은 item에서 C0–C3를 모두 생성하므로 item 난이도는 고정된다. 핵심 비교는 C3−C2다.
-C2와 C3는 언어, 번역, 조각 경계를 모두 공유하고 순서만 다르기 때문이다.
+같은 item에서 C0–C3를 모두 생성하므로 item 난이도는 고정된다. C3−C2는 언어, 번역,
+조각 경계를 공유한 상태의 추가 순서 효과를 추정한다. 다만 wrapper와 조각화 효과까지
+완전히 분리하려면 본 실험에서는 다음 B0–B7 대조군을 사용한다.
+
+| 비교군 | 입력 | 주로 분리하는 효과 |
+|---|---|---|
+| B0 | English direct | 기준선 |
+| B1 | 같은 wrapper의 English direct | wrapper gap |
+| B2 | English semantic fragments, ordered | fragmentation/composition cue |
+| B3 | English semantic fragments, shuffled | monolingual ordering reasoning |
+| B4 | single non-English direct | 단일 언어 safety gap |
+| B5 | multilingual semantic fragments, ordered | CSRT형 language gap |
+| B6 | multilingual semantic fragments, shuffled | language + ordering + composition |
+| B7 | multilingual random-word split, shuffled | semantic fragmentation의 필요성 |
+
+핵심 추정량은 다음처럼 짝지어 계산한다.
+
+- wrapper: `B1 − B0`
+- fragmentation: `B2 − B1`
+- monolingual ordering: `B3 − B2`
+- multilingual encoding: `B5 − B2`
+- multilingual ordering: `B6 − B5`
+- language×ordering interaction: `(B6 − B5) − (B3 − B2)`
+- semantic composition: 동일 길이·언어·순서를 맞춘 `B6 − B7`
+
+따라서 `Language Gap × Reasoning Gap × Composition Gap`은 단순히 세 수를 곱한다는
+뜻이 아니라, 주효과와 상호작용을 혼합효과 로지스틱 모형과 paired bootstrap으로
+분리한다는 뜻이다. primary estimand는 reconstruction gate를 통과한 paired sample의
+`B6 − B5`이며, 상호작용 항이 PolyJigsaw가 단순 CSRT형 언어 혼합 이상인지 판단한다.
+
+### 1.5 현재 코드와 최종 메서드의 경계
+
+현재 저장소의 80개 파일럿은 위 가설을 빠르게 점검한 **고정 baseline**이다. 균등한
+다섯 연속 구간, 독립 NLLB 번역, 균형화된 무작위 언어 배정과 고정 permutation을
+사용했으며, 적응형 fragmenter/controller를 아직 학습하지 않았다. 따라서 현재 C3 ASR
+상승을 최종 PolyJigsaw 메서드의 성능으로 주장하지 않는다.
+
+최종 메서드는 원문마다 다음 결정을 공동으로 학습한다.
+
+1. 4–6개의 semantic-role span과 각 조각의 역할
+2. 공식 전체 문장 번역을 anchor로 한 조각별 언어 후보
+3. 언어 배정과 display permutation
+4. 재구성 규칙과 난이도
+
+학습 reward에는 ASR뿐 아니라 전체 의미 재구성, 개별 조각 위험, 번역 보존, query
+비용을 포함한다. reconstruction과 fragment-risk gate를 통과하지 못한 episode에는
+safety-success 보상을 주지 않는다. 이 구분이 “미리 만들어진 정렬 조각을 사용하는
+공격”과 “텍스트에 맞춰 재구성 문제를 적응적으로 만드는 모델”의 차이다.
 
 ## 2. 전체 파이프라인
 
