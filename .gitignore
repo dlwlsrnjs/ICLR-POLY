@@ -1,0 +1,20 @@
+# Controlled benchmark material and generated model data
+datasets/
+polyjig_outputs/
+*.jsonl
+results/results.csv
+
+# Models, caches, credentials, and local environments
+.env
+.deps/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.cache/
+huggingface/
+
+# Editor and OS files
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,5 @@
+accelerate>=1.0
+einops>=0.8
+sentencepiece>=0.2
+torch>=2.4
+transformers>=4.57,<5
