@@ -1,6 +1,7 @@
 # Controlled benchmark material and generated model data
 datasets/
 polyjig_outputs/
+private_artifacts/
 *.jsonl
 results/results.csv
 

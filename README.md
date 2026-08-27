@@ -65,7 +65,8 @@ PolyJigsaw/
 ├── docs/
 │   ├── PILOT_REPORT.md
 │   ├── EXPERIMENT_PROTOCOL.md
-│   └── IMPLEMENTATION_GUIDE.md
+│   ├── IMPLEMENTATION_GUIDE.md
+│   └── CASE_STUDIES.md
 ├── results/
 │   └── pilot_summary.json
 └── scripts/
@@ -146,6 +147,10 @@ device 인자를 `cuda:0`으로 바꿉니다. 공유 서버에서 비어 있지 
 [메서드·코드 구현 가이드](docs/IMPLEMENTATION_GUIDE.md)를 참고하세요. 데이터 정렬,
 조각 경계 선택, 언어 균형, NLLB 번역, Qwen 생성, MD-Judge 호환 처리와 paired
 bootstrap 구현을 순서대로 설명합니다.
+
+기존 파일럿에서 실제 safe→unsafe 전환이 있었던 8개 사례의 fragment 길이, 언어 배정,
+순서 이동, 네 조건의 판정·응답 길이·해시는
+[사례 분석](docs/CASE_STUDIES.md)에 정리했습니다.
 
 ## 안전 및 데이터 취급
 
