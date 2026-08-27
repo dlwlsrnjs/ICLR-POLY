@@ -29,6 +29,7 @@ red-teaming 프로젝트입니다.
 - 재실험의 원문·실제 입력·전체 응답·judge 원출력을 비공개 0600 산출물로 보존
 - Qwen2.5-VL-7B 원본 text-only 80개×10언어=800개 baseline 완료
 - 원본 이미지 포함 Qwen2.5-VL-7B dev 재검증 완료: raw ASR 상승과 reconstruction-gated 실패를 분리
+- 카드 연결 게임 ablation 완료: English K0 gated ASR 48.75%, multilingual K1 17.50%
 
 ## 파일럿 설계
 
@@ -78,6 +79,12 @@ lossless-chain 후보의 raw answer ASR은 C0 23.75%에서 45.00%로 상승했�
 자세한 수정 이유와 결과는 [멀티모달 gated dev 보고서](docs/VL_MULTIMODAL_GATED_DEV_REPORT.md)에
 정리했다. 이전 text-only 42.50% 결과는 평가 오염이 확인되어 superseded 상태다.
 
+후속 카드 연결 게임에서는 공격·유해성 표현 없이 START→END 규칙, payload 보존,
+조립 후 수행만 지시했다. English K0는 reconstruction-gated ASR이 C0 23.75%에서
+48.75%로 상승했지만, 비영어 한 조각을 넣은 K1은 17.50%였다. 게임 mechanics에는
+효과가 있으나 현재 fragment 번역·정렬이 병목이라는 결론이다. 자세한 결과는
+[VL 카드게임 보고서](docs/VL_GAME_DEV_REPORT.md)에 정리했다.
+
 상세 분석, 실제 언어 배정·순서·응답 해시 사례, 시나리오별 결과와 후속 계획은
 [파일럿 보고서](docs/PILOT_REPORT.md)와
 [공식 방식 Qwen3Guard 재평가 보고서](docs/OFFICIAL_STYLE_QWENGUARD_REPORT.md)를
@@ -97,6 +104,7 @@ PolyJigsaw/
 │   ├── LINGUA_TEXTONLY_BASELINE_REPORT.md
 │   ├── VL_ADAPTIVE_VALIDATION_REPORT.md
 │   ├── VL_MULTIMODAL_GATED_DEV_REPORT.md
+│   ├── VL_GAME_DEV_REPORT.md
 │   ├── OFFICIAL_STYLE_QWENGUARD_REPORT.md
 │   ├── PRIOR_GUIDED_FULL_80_REPORT.md
 │   └── CASE_STUDIES.md
@@ -105,6 +113,8 @@ PolyJigsaw/
 │   ├── lingua_textonly_qwen25vl7b_800_summary.json
 │   ├── vl_adaptive_qwen25vl7b_validation_summary.json
 │   ├── vl_multimodal_chain_gated_dev_summary.json
+│   ├── vl_multimodal_game_k0_gated_dev_summary.json
+│   ├── vl_multimodal_game_gated_dev_summary.json
 │   ├── qwen3guard_official_rejudge_summary.json
 │   └── prior_guided_full_80_summary.json
 └── scripts/

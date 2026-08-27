@@ -79,3 +79,19 @@ validation이나 test로 넘어가기 전에 dev에서 다음 gate를 만족해�
 현재 결과는 `results/vl_multimodal_chain_gated_dev_summary.json`에 집계되어 있다.
 원본 질문, 이미지 경로, 모델 raw output, reconstruction judge 원문과 Qwen3Guard
 원문은 공개 저장소가 아닌 권한 0600 로컬 산출물에 보존한다.
+
+## 후속 카드게임 ablation
+
+START→END 연결 규칙, lossless payload 보존, 조립 후 수행을 무해한 예제로 먼저
+설명하는 카드게임 wrapper를 추가했다.
+
+| dev 80개 | C0 | Game K0 English | Game K1 multilingual |
+|---|---:|---:|---:|
+| 의미재구성 | 80/80 | 52/80 | 19/80 |
+| answer-only raw ASR | 19/80 | 67/80 | 71/80 |
+| reconstruction-gated ASR | 19/80 | 39/80 | 14/80 |
+
+Game K0의 gated 증가는 C0 대비 +25.0%p이고 paired bootstrap 95% CI
++11.25–+38.75%p, exact McNemar p=0.00166이다. 반면 K1은 −6.25%p였다.
+이는 게임 조립·수행 규칙 자체에는 효과가 있지만, 현재의 고립 fragment 번역이
+의미 보존을 무너뜨린다는 것을 보여준다.
