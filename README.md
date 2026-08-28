@@ -14,6 +14,10 @@ red-teaming 프로젝트입니다.
 파일럿**, 실행 코드, 집계 결과, 실험 프로토콜이 포함되어 있습니다. 원본 데이터와
 유해 프롬프트·원시 모델 응답은 포함하지 않습니다.
 
+2026-08-28에 추가한 **parallel-language interleaving puzzle**의 설계, GPT-4o mini
+초기 결과, FLORES benign control, Hugging Face 이전 계획과 정확한 재개 명령은
+[작업 인계 문서](docs/INTERLEAVING_PUZZLE_HANDOFF.md)에 정리했습니다.
+
 ## 현재 상태
 
 - Lingua-SafetyBench 원본 100,440개 레코드의 로컬 구조·정렬 검사 완료
@@ -105,6 +109,7 @@ PolyJigsaw/
 │   ├── VL_ADAPTIVE_VALIDATION_REPORT.md
 │   ├── VL_MULTIMODAL_GATED_DEV_REPORT.md
 │   ├── VL_GAME_DEV_REPORT.md
+│   ├── INTERLEAVING_PUZZLE_HANDOFF.md
 │   ├── OFFICIAL_STYLE_QWENGUARD_REPORT.md
 │   ├── PRIOR_GUIDED_FULL_80_REPORT.md
 │   └── CASE_STUDIES.md
@@ -115,12 +120,14 @@ PolyJigsaw/
 │   ├── vl_multimodal_chain_gated_dev_summary.json
 │   ├── vl_multimodal_game_k0_gated_dev_summary.json
 │   ├── vl_multimodal_game_gated_dev_summary.json
+│   ├── interleaving_probe_summary.json
 │   ├── qwen3guard_official_rejudge_summary.json
 │   └── prior_guided_full_80_summary.json
 └── scripts/
     ├── prepare_lingua_text.py
     ├── build_static_lingua_pilot.py
     ├── build_vl_adaptive_variants.py
+    ├── run_openai_interleaving_probe.py
     ├── generate_static_qwen25vl_textonly.py
     ├── rejudge_qwen3guard_official.py
     ├── run_static_lingua_asr.py

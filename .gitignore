@@ -4,6 +4,7 @@ polyjig_outputs/
 private_artifacts/
 *.jsonl
 results/results.csv
+results/gpt4omini_*.json
 
 # Models, caches, credentials, and local environments
 .env
