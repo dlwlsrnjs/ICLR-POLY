@@ -48,7 +48,14 @@ def main() -> None:
     records = [json.loads(line) for line in Path(args.data).open(encoding="utf-8")]
     if args.limit:
         records = records[:args.limit]
-    jobs = [(record, condition) for record in records for condition in args.conditions]
+    jobs = [
+        (record, condition)
+        for record in records
+        for condition in args.conditions
+        if condition in record.get("prompts", {})
+    ]
+    if not jobs:
+        raise ValueError("No requested condition is present in the input records")
     processor = AutoProcessor.from_pretrained(
         args.target, local_files_only=True, use_fast=False
     )
@@ -120,7 +127,7 @@ def main() -> None:
     secure_write(audit, "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows))
     summary = {
         "design": "paired Qwen2.5-VL original-image generation",
-        "n_items": len(records),
+        "n_items": len({record["item_id"] for record, _ in jobs}),
         "n_generations": len(rows),
         "conditions": args.conditions,
         "images_supplied": True,
