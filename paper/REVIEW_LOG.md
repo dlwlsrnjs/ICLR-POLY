@@ -99,3 +99,11 @@ row (running); a second reconstruction judge; optional true-frontier target.
   run_encoding.sh (reviewer-required experiment) to run after InternLM + thinking-full.
 OPEN experiments queued: InternLM full row; thinking-full; encoding baseline; (todo) second
 reconstruction judge for gate validation; (optional) true frontier target.
+
+## Iter 43-46 — style pass + language-selection rationale (user directives)
+- Removed all em-dashes (31) and "but" constructions (10); normalized word en-dashes to hyphens;
+  softened AI-ish adverbs (crucially/notably). Academic tone; will re-check periodically.
+- Added \subsection{Language selection}: fixed pre-registered order (English anchor + Chinese,
+  French, Arabic, Russian, ...), rationale = front-load script/family diversity so small n spans
+  distinct writing systems; n selected on dev by gated ASR (n=4 peak, recon 0.95); cited prior
+  multilingual-ASR evidence (Yong, Deng, Wang) that diverse/low-resource combinations raise ASR.

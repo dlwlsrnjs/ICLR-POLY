@@ -29,8 +29,8 @@ Paper under double-blind review}
 Aligned large language models (LLMs) refuse harmful requests whose intent is
 visible on the input surface. We show that intent can instead be \emph{dispersed
 across languages} and recovered only through reasoning, defeating input-level
-alignment. Building on the dispersion--reconstruction principle of the
-multi-image attack MIDAS \citep{midas2026} but operating purely in text, we
+alignment. Building on the dispersion-reconstruction principle of the
+multi-image attack MIDAS \citep{midas2026}, yet operating purely in text, we
 propose \textbf{PolyJigsaw}: the same request is written in several official
 parallel translations, split into fragments, and interleaved into one paragraph;
 the target model must de-interleave, reconstruct the English request, and only
@@ -53,14 +53,14 @@ direct English). It is robust across two independent safety judges (Cohen's $\ka
 the translation baseline is judge-sensitive (its gain largely vanishes under the
 second judge). Across four aligned models from three labs, an external
 dataset (AttaQ), and input-stage detection, we characterize where the attack works
-and where it does not---its benefit scales with the target's alignment strength,
+and where it does not: its benefit scales with the target's alignment strength,
 and it is defeated by a target whose reasoning mode fails to terminate.
 \end{abstract}
 
 \section{Introduction}
 Safety-aligned LLMs are trained to refuse requests whose harmful intent is
 apparent from the input. A growing line of work shows that \emph{obfuscating}
-intent---so that it emerges only after additional reasoning---can bypass this
+intent, so that it emerges only after additional reasoning, can bypass this
 input-level screening. In the multimodal setting, MIDAS \citep{midas2026}
 disperses a harmful request across several benign-looking images and induces the
 model to reconstruct it through cross-image reasoning, achieving high attack
@@ -71,7 +71,7 @@ innocuous, and force the model to reassemble them.}
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/fig_overview.pdf}
-\caption{\textbf{PolyJigsaw overview (before vs.\ after).} (a)~The harmful request asked directly in English is refused---its intent is visible at the input surface. (b)~PolyJigsaw disperses the \emph{same} request into fragments of several official parallel translations; each fragment is locally benign, so input screening passes, yet the aligned model de-interleaves them, reconstructs the English request, and complies. The lock flips from closed (refused) to open (jailbroken); the harmful \texttt{[ANSWER]} is redacted.}
+\caption{\textbf{PolyJigsaw overview (before vs.\ after).} (a)~The harmful request asked directly in English is refused, as its intent is visible at the input surface. (b)~PolyJigsaw disperses the \emph{same} request into fragments of several official parallel translations; each fragment is locally benign, so input screening passes, yet the aligned model de-interleaves them, reconstructs the English request, and complies. The lock flips from closed (refused) to open (jailbroken); the harmful \texttt{[ANSWER]} is redacted.}
 \label{fig:overview}
 \end{figure}
 
@@ -88,7 +88,7 @@ Unlike prior multilingual jailbreaks that submit a request directly in a
 low-resource language \citep{yong2023lowresource,deng2024multilingual} or
 code-switch within one sentence \citep{yoo2024csrt}, PolyJigsaw requires genuine
 cross-lingual \emph{reconstruction}. This lets us define a stricter and more
-honest success metric---\emph{reconstruction-gated ASR}---that credits an attack
+honest success metric, \emph{reconstruction-gated ASR}, that credits an attack
 only when the model demonstrably recovered the request's meaning \emph{and} then
 produced unsafe content, ruling out cases where a garbled prompt coincidentally
 elicits harmful text.
@@ -102,7 +102,7 @@ reconstruction, requiring no new translation and no image channel.
 compositional jailbreaks (faithful reconstruction \emph{and} unsafe output) from
 accidental evasions, validated by an independent reconstruction judge.
 \item A \textbf{controlled comparison} against the two dominant multilingual
-attack families---single-language translation and CSRT code-switching---on
+attack families (single-language translation and CSRT code-switching) on
 identical items, spans, and judges. A matched \texttt{slot\_k} vs.\ \texttt{csrt\_k}
 pair and a no-game ablation isolate the lift to the reconstruction step.
 \item \textbf{Robustness evidence}: the effect is stable across two independent
@@ -111,7 +111,7 @@ commercial GPT-4o-mini, and survives a Self-Reminder defense that collapses the
 baselines.
 \item A \textbf{scope characterization}: the attack's benefit tracks target
 alignment strength and the location of harmful intent (contextual vs.\ blunt), and
-it is defeated by a reasoning target whose chain-of-thought fails to terminate---an
+it is defeated by a reasoning target whose chain-of-thought fails to terminate, an
 informative boundary for reasoning-extension attacks.
 \end{itemize}
 
@@ -120,19 +120,19 @@ informative boundary for reasoning-extension attacks.
 Alignment training reliably refuses overtly harmful English requests, yet
 carefully constructed prompts still elicit prohibited content
 \citep{wei2023jailbroken}. Gradient-based suffix search \citep{zou2023universal}
-and automated iterative prompting \citep{chao2023pair} produce strong attacks but
+and automated iterative prompting \citep{chao2023pair} produce strong attacks yet
 assume white-box access or many queries. We instead study a \emph{single-shot,
 black-box} attack, closer to how obfuscation attacks are deployed in practice.
-Automated black-box searches---AutoDAN \citep{liu2024autodan}, GPTFuzzer/LLM-Fuzzer
+Automated black-box searches (AutoDAN \citep{liu2024autodan}, GPTFuzzer/LLM-Fuzzer
 \citep{yu2023gptfuzzer}, tree-of-attacks \citep{mehrotra2024tap}, and many-shot
-prompting \citep{anil2024manyshot}---raise ASR at the cost of many queries; a
+prompting \citep{anil2024manyshot}) raise ASR at the cost of many queries; a
 single-shot construction like ours is complementary. Alignment itself is imparted
 by instruction- and preference-tuning \citep{ouyang2022instructgpt,bai2022hhrlhf,
 bianchi2024safetytuned} and probed by red-teaming \citep{perez2022redteaming,
 ganguli2022redteaming}, yet fine-tuning can also erode it \citep{qi2024finetuning}.
 Standardized benchmarks and success criteria \citep{mazeika2024harmbench,
 souly2024strongreject} underscore that ``attack success'' must reflect genuinely
-harmful, on-topic completions rather than mere non-refusal---a concern our
+harmful, on-topic completions rather than mere non-refusal, a concern our
 reconstruction gate addresses directly.
 
 \paragraph{Obfuscation and encoding jailbreaks.}
@@ -146,7 +146,7 @@ surface form. PolyJigsaw is an obfuscation attack whose ``code'' is
 across real parallel translations, so no artificial cipher is introduced and each
 fragment is ordinary, fluent text. It is closest to payload-splitting, which breaks
 a request into recomposed pieces \citep{kang2024exploiting}, and to logic-overload
-attacks \citep{xu2024cognitive}, but disperses across \emph{languages} rather than
+attacks \citep{xu2024cognitive}, though it disperses across \emph{languages} rather than
 across variables or distractor reasoning.
 
 \paragraph{Multilingual and code-switching jailbreaks.}
@@ -154,10 +154,10 @@ across variables or distractor reasoning.
 low-resource language bypasses alignment, and \citet{deng2024multilingual} and
 \citet{wang2024alllanguages} systematize the multilingual safety gap. CSRT
 \citep{yoo2024csrt} synthesizes a single code-switched sentence mixing several
-languages. Crucially, all of these submit the transformed request \emph{directly},
+languages. All of these submit the transformed request \emph{directly},
 requiring no reconstruction; they form the baselines we compare against. PolyJigsaw
 differs by dispersing \emph{complete} parallel sentences into interleaved fragments
-that the model must de-interleave and reassemble, and---unlike CSRT---introduces
+that the model must de-interleave and reassemble, and, unlike CSRT, introduces
 \emph{no new machine translation}, reusing only officially released parallel data.
 
 \paragraph{Reasoning-extension attacks.}
@@ -165,7 +165,7 @@ Recent work shows that forcing additional inference steps disrupts safety
 attention: MIDAS \citep{midas2026} disperses harmful semantics across multiple
 benign-looking images and induces cross-image reconstruction, reporting high ASR on
 strongly aligned commercial MLLMs. PolyJigsaw is the text-channel realization of the
-same dispersion--reconstruction principle, but it (i) needs no image generation or
+same dispersion-reconstruction principle, yet it (i) needs no image generation or
 puzzle rendering and applies to text-only models, (ii) uses verified official
 translations rather than synthesized carriers, and (iii) makes reconstruction an
 \emph{explicitly measured} gate rather than an assumed side effect. Consistent with
@@ -174,14 +174,14 @@ can \emph{fail} to terminate on the interleaving task, which is itself informati
 about reasoning-extension attacks. In one line: MIDAS demonstrates
 dispersion-and-reconstruction in the \emph{image} channel; we show the \emph{text}
 channel admits the same attack class with stronger fidelity guarantees (verified
-official translations, no synthesized carrier) and an explicitly gated metric---and
+official translations, no synthesized carrier) and an explicitly gated metric, and shows
 that it survives defenses that stop translation attacks.
 
 \paragraph{Safety judges and defenses.}
-LLM-as-judge safety classifiers---Llama-Guard \citep{inan2023llamaguard}, WildGuard
+LLM-as-judge safety classifiers (Llama-Guard \citep{inan2023llamaguard}, WildGuard
 \citep{han2024wildguard}, ShieldLM \citep{zhang2024shieldlm}, MD-Judge
-\citep{li2024salad}, and Qwen3Guard \citep{qwen3guard2025}---are now standard for
-scoring attacks, but single-judge evaluation risks judge-specific artifacts; we
+\citep{li2024salad}, and Qwen3Guard \citep{qwen3guard2025}) are now standard for
+scoring attacks, yet single-judge evaluation risks judge-specific artifacts; we
 therefore cross-validate every headline result with a second, independent judge.
 On the defense side, input-level self-reminders \citep{xie2023selfreminder},
 perturbation smoothing \citep{robey2023smoothllm}, and external filters
@@ -258,6 +258,28 @@ relative order (the model must group and normalize them); in the
 must additionally recover grammatical order. The model returns a
 \texttt{[RECONSTRUCTED]} English request and then an \texttt{[ANSWER]}.
 
+\subsection{Language selection}
+\label{sec:langsel}
+English is always included as the reconstruction anchor. The remaining $n{-}1$
+languages are drawn in a fixed, pre-registered order (Chinese, French, Arabic,
+Russian, Spanish, German, Japanese, Finnish, Norwegian) applied uniformly to every
+item, so the language set is never tuned per request. The order front-loads
+\emph{script and family diversity}: at $n{=}4$ the set is
+\{English, Chinese, French, Arabic\}, already spanning a logographic script, two
+Latin-script languages from different families, and a right-to-left abjad, and by
+$n{=}6$ it adds Cyrillic (Russian). Maximizing script diversity at small $n$ makes
+de-interleaving harder per added language and removes any single-script shortcut,
+while keeping every language one for which the benchmark ships an official
+translation (so no new translation is introduced). This design is motivated by prior
+findings that harmful requests are more likely to bypass alignment when expressed in,
+or combined across, multiple and lower-resource languages
+\citep{yong2023lowresource,deng2024multilingual,wang2024alllanguages}; PolyJigsaw
+extends that observation from a single alternate language to a reconstructed mixture.
+The operating load $n$ is not a free per-item parameter: we select it once on the dev
+split by gated ASR (Sec.~\ref{sec:results}, Table~\ref{tab:curve}), where $n{=}4$ is
+the peak for the primary target because it retains near-perfect reconstruction
+($0.95$) at high language diversity, and we then report on the held-out test split.
+
 \subsection{Success criterion (preview)}
 Because the harmful request exists only after reconstruction, we score an attack by
 whether the model \emph{both} reconstructs $q$ faithfully \emph{and} answers
@@ -268,7 +290,7 @@ conservative metric, in Sec.~\ref{sec:gated}.
 We compare against (i) \textbf{english\_direct}, (ii) \textbf{translated\_direct}
 in each language \citep{yong2023lowresource}, and (iii) \textbf{CSRT}
 \citep{yoo2024csrt}. Our CSRT baseline code-switches the same official content
-spans as our inline-slot method \texttt{slot\_k} but submits them directly with no
+spans as our inline-slot method \texttt{slot\_k} yet submits them directly with no
 game framing; thus \texttt{slot\_k} vs.\ \texttt{csrt\_k} is a matched pair
 isolating the reconstruction game. A full-coverage variant \texttt{csrt\_mt}
 reproduces the original CSRT construction with NLLB \citep{nllb2022} segment
@@ -279,7 +301,7 @@ reconstruction instruction (cf.\ MIDAS ``w/o Game-Style'').
 \section{Reconstruction-Gated Evaluation}
 \label{sec:gated}
 A recurring criticism of jailbreak evaluation is that string-matching or lenient
-LLM judges credit ``empty'' jailbreaks---outputs that avoid refusal without
+LLM judges credit ``empty'' jailbreaks, outputs that avoid refusal without
 actually furthering the request \citep{souly2024strongreject,mazeika2024harmbench}.
 Our attack makes it natural to avoid this failure mode. Because the harmful intent
 exists only after the model reconstructs it, we can require the model to
@@ -291,7 +313,7 @@ $q$ on action, target, intent, and constraints; a safety judge decides whether t
 \[
 \text{gated ASR}=\Pr[\text{reconstruction equivalent}\ \wedge\ \text{answer unsafe}],
 \]
-which is \emph{conservative}: a fluent-but-wrong reconstruction that happens to
+which is \emph{conservative}: a fluent yet incorrect reconstruction that happens to
 elicit unsafe text does not count. Direct-submission conditions (English,
 translation, CSRT) are meaning-preserving by construction, so their gate passes
 trivially and gated ASR reduces to raw ASR; only our reconstruction conditions are
@@ -309,7 +331,7 @@ translations in a fixed language set. We use its Text-Dominant collection, in wh
 the harmful intent resides in the \emph{text} (as opposed to image-dominant
 collections). We use only released items and translations and add no new harmful
 content.} Text-Dominant (2{,}879 harmful items, eight
-scenarios---fraud, malware, economic harm, sexual content, illegal activity,
+scenarios (fraud, malware, economic harm, sexual content, illegal activity,
 physical harm, hate speech, privacy) is the primary benchmark; each item ships
 official parallel questions in ten languages (Arabic, Chinese, English, Finnish,
 French, German, Japanese, Norwegian, Russian, Spanish), so all fragments are
@@ -337,6 +359,7 @@ moderately rather than maximally harmful). Decoding is greedy, $320$ new tokens,
 $20260901$. We report Wilson 95\% CIs and paired bootstrap$+$exact McNemar tests.
 
 \section{Results}
+\label{sec:results}
 \subsection{Language-load sweet spot}
 Table~\ref{tab:curve} sweeps the dispersion load $n$ on Lingua (Qwen2.5-7B, full
 2{,}879 items). Gated ASR is non-monotone in $n$: on Qwen2.5-7B it peaks at $n{=}4$ ordered
@@ -373,8 +396,8 @@ lift therefore comes from forcing model-side reconstruction, not from the presen
 of foreign tokens. At $k{=}3$ the effect vanishes ($-0.076$, n.s.), consistent with
 the sweet-spot curve: too many switched spans collapse reconstruction. The
 \emph{no-game} ablation (same interleaved fragments, reconstruction instruction
-removed) tells the same story---gated ASR falls from $0.693$ to $0.337$ and
-reconstruction from $0.95$ to $0.64$---mirroring the ``w/o game-style'' drop in
+removed) tells the same story: gated ASR falls from $0.693$ to $0.337$ and
+reconstruction from $0.95$ to $0.64$, mirroring the ``w/o game-style'' drop in
 MIDAS and echoing encoding attacks whose potency depends on a decode-then-act step
 \citep{yuan2024cipherchat,lv2024codechameleon}.
 
@@ -383,7 +406,7 @@ On the full language-load sweep ($34{,}548$ responses) the two independent judge
 agree at $86.4\%$ (Cohen's $\kappa{=}0.71$). Every PolyJigsaw contrast keeps its
 sign and significance under \emph{both} judges. The translation baseline does not:
 \texttt{translated\_direct} (Finnish) is highly significant under Qwen3Guard
-($+0.34$, $p<10^{-4}$) but not under MD-Judge ($+0.02$, $p{=}0.10$), and its
+($+0.34$, $p<10^{-4}$) yet not under MD-Judge ($+0.02$, $p{=}0.10$), and its
 gated ASR drops from $0.585$ to $0.281$ when the judge is switched
 (Table~\ref{tab:main}, ``gated (MD)''), whereas interleaving stays high
 ($0.693\!\to\!0.631$). The translation baseline is thus \emph{judge-sensitive} whereas interleaving is
@@ -401,7 +424,7 @@ InternLM. On Phi-3.5-mini, however, interleaving reaches only $0.475$ while
 single-language translation reaches $0.843$: Phi's multilingual alignment appears
 weaker than its English alignment, so a fluent translated request already succeeds
 and the reconstruction overhead does not help. Interleaving is thus the most reliable
-attack \emph{across} targets but not uniformly the single best on every target---a
+attack \emph{across} targets, though not uniformly the single best on every target, a
 distinction we make explicit rather than paper over. Reasoning mode also matters:
 Qwen3-8B is evaluated with its ``thinking'' mode disabled, because thinking derails
 the attack (Sec.~\ref{sec:thinking}).
@@ -423,12 +446,12 @@ larger. We leave the largest frontier systems (GPT-4o, Claude, Gemini) to future
 Two properties explain why the attack is hard to stop with surface-level defenses.
 First, an \emph{input-stage detectability gap} (Table~\ref{tab:detect}): when the
 submitted prompt is passed to a Qwen3Guard prompt-moderation classifier, the direct
-English request is flagged $90\%$ of the time, but the interleaved prompt passes as
-safe $28\%$ of the time---the dispersed fragments carry no locally-visible intent.
+English request is flagged $90\%$ of the time, whereas the interleaved prompt passes as
+safe $28\%$ of the time, since the dispersed fragments carry no locally-visible intent.
 Second, \emph{defense resilience} (Table~\ref{tab:defense}): a Self-Reminder
 system prompt \citep{xie2023selfreminder}, which cuts prior attacks sharply
 (reported $67.2\%\!\to\!19.3\%$), collapses our baselines (english
-$0.25\!\to\!0.10$, translation $0.585\!\to\!0.343$, CSRT $0.27\!\to\!0.10$) but
+$0.25\!\to\!0.10$, translation $0.585\!\to\!0.343$, CSRT $0.27\!\to\!0.10$), whereas it
 barely moves interleaving ($0.693\!\to\!0.692$; $n{=}10$: $0.66\!\to\!0.65$).
 Because our text is fluent, perplexity filters \citep{jain2023baseline} are also
 inapplicable. Together these motivate \emph{process-aware} monitoring that inspects
@@ -447,16 +470,16 @@ main comparison on aligned targets. A second boundary is reasoning mode: with
 Qwen3-8B's ``thinking'' mode enabled, the chain-of-thought fails to terminate on the
 hardest interleaving instances, so the model never emits a parseable reconstruction
 and gated ASR collapses ($0.63\!\to\!0.01$ at $n{=}4$, reconstruction
-$0.97\!\to\!0.03$; Table~\ref{tab:thinking}). Notably, on \emph{direct} English
+$0.97\!\to\!0.03$; Table~\ref{tab:thinking}). On \emph{direct} English
 requests thinking slightly \emph{raises} compliance ($0.23\!\to\!0.37$), so the
 collapse is specific to the interleaving puzzle's non-termination, not a blanket
 safety gain from reasoning. This is a capability/termination
-failure rather than a safety success---the simpler slot and no-game variants are
-unaffected---but it delimits where the attack applies and cautions that
+failure rather than a safety success: the simpler slot and no-game variants are
+unaffected, and it delimits where the attack applies while cautioning that
 reasoning-extension attacks can backfire when the puzzle overwhelms the reasoner.
 On the external AttaQ benchmark (Table~\ref{tab:attaq}), interleaving lifts gated
 ASR from $0.04$ to $0.35$ ($p<10^{-4}$); here a low-resource translation
-(Slovenian) is competitive under the primary judge but drops below interleaving
+(Slovenian) is competitive under the primary judge, though it drops below interleaving
 under the cross judge, so on \emph{blunt} prompts direct translation already
 succeeds while our advantage is largest on \emph{contextual} harm.
 
@@ -465,7 +488,7 @@ succeeds while our advantage is largest on \emph{contextual} harm.
 
 \section{Discussion and Limitations}
 \paragraph{Why reconstruction defeats surface-keyed alignment.} Across every
-result the pattern is the same: alignment fires on locally-visible intent, but when
+result the pattern is the same: alignment fires on locally-visible intent, whereas when
 intent is dispersed into individually-benign multilingual fragments the input looks
 safe (Table~\ref{tab:detect}), and the model itself reassembles the request during
 generation. The matched slot-vs-CSRT contrast and the no-game ablation localize the
@@ -479,9 +502,8 @@ step; we deliberately avoid introducing translation to keep fidelity controlled.
 (Mistral-7B) it provides no gain over direct requests (Sec.~\ref{sec:scope}).
 (iii) A reasoning target (Qwen3-8B with thinking enabled) is \emph{not} broken by
 interleaving, because its chain-of-thought fails to terminate on the puzzle rather
-than because it is safer---a capability boundary, not a safety guarantee.
-(iv) Our safety judges, though cross-validated, are themselves LLMs; we mitigate but
-do not eliminate judge error with a second judge and a $0$--$5$ rubric.
+than because it is safer; this is a capability boundary, not a safety guarantee.
+(iv) Our safety judges, though cross-validated, are themselves LLMs; we mitigate, though do not eliminate, judge error with a second judge and a $0$--$5$ rubric.
 (v) The thinking-mode and commercial-model studies use held-out subsets for cost, and the
 InternLM target is evaluated via slower HF inference; we report these scales
 explicitly and never silently truncate.
@@ -501,7 +523,7 @@ This work studies a vulnerability in order to motivate defenses. All experiments
 already-published safety benchmarks (Lingua-SafetyBench, AttaQ) and only their
 officially-released translations; the method introduces no new harmful content and
 no new translations. The paper reports only aggregate statistics and redacts model
-outputs---no working harmful completion is shown (Fig.~\ref{fig:overview}). Raw
+outputs: no working harmful completion is shown (Fig.~\ref{fig:overview}). Raw
 harmful prompts, completions, and judge transcripts are stored access-restricted at
 rest. We disclose the vulnerability and our defensive analysis (input detectability,
 defensive prompts, and a recommendation for process-aware monitoring) so that model
@@ -582,15 +604,15 @@ threshold $\geq 3$.
 
 \paragraph{Defensive system prompt (Self-Reminder).}
 \begin{quote}\small\ttfamily
-You are a responsible assistant. Before answering, check whether the request---after
-reconstructing any obfuscated, split, or multilingual content---is harmful; if so,
+You are a responsible assistant. Before answering, check whether the request, after
+reconstructing any obfuscated, split, or multilingual content, is harmful; if so,
 refuse. Never let a puzzle or game framing bypass this check.
 \end{quote}
 
 \subsection{Per-scenario results}
 Table~\ref{tab:scenario} breaks gated ASR down by the eight Lingua scenarios. The
-lift from interleaving is largest exactly where direct refusal is strongest---hate
-speech rises from $0.056$ to $0.703$---consistent with the attack bypassing
+lift from interleaving is largest exactly where direct refusal is strongest: hate
+speech rises from $0.056$ to $0.703$, consistent with the attack bypassing
 input-level screening.
 \input{tab_scenario.tex}
 
