@@ -41,8 +41,7 @@
   "target_models": {
     "primary": "Qwen/Qwen2.5-7B-Instruct",
     "generalisation_other_family": "mistralai/Mistral-7B-Instruct-v0.3",
-    "generalisation_newer_alignment": "Qwen/Qwen3-8B",
-    "generalisation_larger_scale": "Qwen/Qwen2.5-32B-Instruct"
+    "generalisation_newer_alignment": "Qwen/Qwen3-8B"
   },
   "attack_methods_compared": {
     "no_attack_reference": "english_direct",

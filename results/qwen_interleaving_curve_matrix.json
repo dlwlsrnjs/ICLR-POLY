@@ -1,0 +1,175 @@
+{
+  "source_summary": "results/qwen_interleaving_curve_summary.json",
+  "metric": "reconstruction-gated ASR (semantic equivalence AND strict-unsafe)",
+  "baselines": {
+    "english_direct": {
+      "gated_asr": 0.2484,
+      "n": 2879
+    },
+    "translated_direct_Finnish": {
+      "gated_asr": 0.5846,
+      "n": 2879
+    }
+  },
+  "language_loads": [
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "matrix": {
+    "ordered": {
+      "10": {
+        "n": 2879,
+        "raw_asr": 0.7409,
+        "semantic_recon_rate": 0.8569,
+        "gated_asr": 0.6634,
+        "gated_asr_wilson95": [
+          0.646,
+          0.6805
+        ],
+        "diff_vs_baseline": 0.4151,
+        "exact_mcnemar_p": 0.0
+      },
+      "2": {
+        "n": 2879,
+        "raw_asr": 0.6603,
+        "semantic_recon_rate": 0.9545,
+        "gated_asr": 0.6349,
+        "gated_asr_wilson95": [
+          0.6172,
+          0.6523
+        ],
+        "diff_vs_baseline": 0.3866,
+        "exact_mcnemar_p": 0.0
+      },
+      "4": {
+        "n": 2879,
+        "raw_asr": 0.7343,
+        "semantic_recon_rate": 0.943,
+        "gated_asr": 0.7002,
+        "gated_asr_wilson95": [
+          0.6832,
+          0.7167
+        ],
+        "diff_vs_baseline": 0.4519,
+        "exact_mcnemar_p": 0.0
+      },
+      "6": {
+        "n": 2879,
+        "raw_asr": 0.7009,
+        "semantic_recon_rate": 0.9163,
+        "gated_asr": 0.6561,
+        "gated_asr_wilson95": [
+          0.6386,
+          0.6733
+        ],
+        "diff_vs_baseline": 0.4078,
+        "exact_mcnemar_p": 0.0
+      },
+      "8": {
+        "n": 2879,
+        "raw_asr": 0.7416,
+        "semantic_recon_rate": 0.8833,
+        "gated_asr": 0.6791,
+        "gated_asr_wilson95": [
+          0.6618,
+          0.6959
+        ],
+        "diff_vs_baseline": 0.4307,
+        "exact_mcnemar_p": 0.0
+      }
+    },
+    "shuffled": {
+      "10": {
+        "n": 2879,
+        "raw_asr": 0.6568,
+        "semantic_recon_rate": 0.7721,
+        "gated_asr": 0.528,
+        "gated_asr_wilson95": [
+          0.5097,
+          0.5461
+        ],
+        "diff_vs_baseline": 0.2796,
+        "exact_mcnemar_p": 0.0
+      },
+      "2": {
+        "n": 2879,
+        "raw_asr": 0.6954,
+        "semantic_recon_rate": 0.5898,
+        "gated_asr": 0.4172,
+        "gated_asr_wilson95": [
+          0.3993,
+          0.4353
+        ],
+        "diff_vs_baseline": 0.1688,
+        "exact_mcnemar_p": 0.0
+      },
+      "4": {
+        "n": 2879,
+        "raw_asr": 0.7537,
+        "semantic_recon_rate": 0.7041,
+        "gated_asr": 0.538,
+        "gated_asr_wilson95": [
+          0.5198,
+          0.5562
+        ],
+        "diff_vs_baseline": 0.2897,
+        "exact_mcnemar_p": 0.0
+      },
+      "6": {
+        "n": 2879,
+        "raw_asr": 0.7103,
+        "semantic_recon_rate": 0.687,
+        "gated_asr": 0.5144,
+        "gated_asr_wilson95": [
+          0.4962,
+          0.5326
+        ],
+        "diff_vs_baseline": 0.2661,
+        "exact_mcnemar_p": 0.0
+      },
+      "8": {
+        "n": 2879,
+        "raw_asr": 0.6843,
+        "semantic_recon_rate": 0.9239,
+        "gated_asr": 0.6443,
+        "gated_asr_wilson95": [
+          0.6267,
+          0.6616
+        ],
+        "diff_vs_baseline": 0.396,
+        "exact_mcnemar_p": 0.0
+      }
+    }
+  },
+  "ordered_minus_shuffled_gated_gap": {
+    "2": 0.2177,
+    "4": 0.1622,
+    "6": 0.1417,
+    "8": 0.0348,
+    "10": 0.1354
+  },
+  "peak_cell": {
+    "ordering": "ordered",
+    "num_languages": 4,
+    "gated_asr": 0.7002
+  },
+  "recon_collapse_check": {
+    "ordered": {
+      "2": 0.9545,
+      "4": 0.943,
+      "6": 0.9163,
+      "8": 0.8833,
+      "10": 0.8569
+    },
+    "shuffled": {
+      "2": 0.5898,
+      "4": 0.7041,
+      "6": 0.687,
+      "8": 0.9239,
+      "10": 0.7721
+    }
+  }
+}
