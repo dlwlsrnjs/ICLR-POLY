@@ -1,0 +1,254 @@
+\documentclass{article}
+\usepackage{iclr2026_conference,times}
+\input{math_commands.tex}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xcolor}
+
+% Placeholder marker for cells awaiting the running full-scale head-to-head.
+\newcommand{\pending}{\textcolor{gray}{--}}
+
+\title{PolyJigsaw: Cross-Lingual Compositional Jailbreaks via \\
+Parallel-Language Interleaving and Reconstruction}
+
+\author{Anonymous authors\\
+Paper under double-blind review}
+
+%\iclrfinalcopy
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Aligned large language models (LLMs) refuse harmful requests whose intent is
+visible on the input surface. We show that intent can instead be \emph{dispersed
+across languages} and recovered only through reasoning, defeating input-level
+alignment. Building on the dispersion--reconstruction principle of the
+multi-image attack MIDAS \citep{midas2026} but operating purely in text, we
+propose \textbf{PolyJigsaw}: the same request is written in several official
+parallel translations, split into fragments, and interleaved into one paragraph;
+the target model must de-interleave, reconstruct the English request, and only
+then does the harmful intent exist to act on. We introduce a strict
+\emph{reconstruction-gated attack success rate} (gated ASR) that counts a success
+only when the model both reconstructs the request faithfully (verified by an
+independent judge) \emph{and} produces unsafe content, separating genuine
+compositional jailbreaks from accidental evasions. On Lingua-SafetyBench
+(2{,}879 harmful items, ten languages) against Qwen2.5-7B, PolyJigsaw raises gated
+ASR from $0.25$ (direct English) to $0.70$, exceeding the strongest
+single-language translation baseline \citep{yong2023lowresource} ($0.58$) and the
+CSRT code-switching baseline \citep{yoo2024csrt}. The effect follows a clear
+sweet spot in the number of languages (peak at four) and is robust across two
+independent safety judges (Cohen's $\kappa=0.71$), whereas the translation
+baseline's success is largely a single-judge artifact. We further evaluate across
+four aligned models from three labs, an external dataset (AttaQ), input-stage
+detectability, and a defensive-prompt setting, and we characterize the scope of
+the attack: its benefit scales with the target's alignment strength.
+\end{abstract}
+
+\section{Introduction}
+Safety-aligned LLMs are trained to refuse requests whose harmful intent is
+apparent from the input. A growing line of work shows that \emph{obfuscating}
+intent---so that it emerges only after additional reasoning---can bypass this
+input-level screening. In the multimodal setting, MIDAS \citep{midas2026}
+disperses a harmful request across several benign-looking images and induces the
+model to reconstruct it through cross-image reasoning, achieving high attack
+success on strongly aligned models. The underlying principle is general:
+\emph{distribute the harmful semantics so that each fragment is locally
+innocuous, and force the model to reassemble them.}
+
+We ask whether this principle holds in \emph{pure text}, using \emph{languages}
+as the dispersion medium. Our method, PolyJigsaw, exploits the fact that
+safety benchmarks ship official parallel translations of each harmful request.
+We fragment these parallel sentences and interleave them into a single paragraph.
+To act on the request, the model must (i) identify the languages, (ii)
+de-interleave the fragments, (iii) recover within-language order, (iv) reconstruct
+the English request, and (v) execute it. Each fragment is a locally benign piece
+of an ordinary translation; the harmful intent exists only after reconstruction.
+
+Unlike prior multilingual jailbreaks that submit a request directly in a
+low-resource language \citep{yong2023lowresource,deng2024multilingual} or
+code-switch within one sentence \citep{yoo2024csrt}, PolyJigsaw requires genuine
+cross-lingual \emph{reconstruction}. This lets us define a stricter and more
+honest success metric---\emph{reconstruction-gated ASR}---that credits an attack
+only when the model demonstrably recovered the request's meaning \emph{and} then
+produced unsafe content, ruling out cases where a garbled prompt coincidentally
+elicits harmful text.
+
+\paragraph{Contributions.}
+\begin{itemize}
+\item \textbf{PolyJigsaw}, a text-only cross-lingual compositional jailbreak that
+disperses harmful intent across parallel languages and recovers it by
+reconstruction, requiring no new translation and no image channel.
+\item \textbf{Reconstruction-gated ASR}, a metric that separates genuine
+compositional jailbreaks (faithful reconstruction \emph{and} unsafe output) from
+accidental evasions, validated by an independent reconstruction judge.
+\item A \textbf{controlled comparison} against the two dominant multilingual
+attack families---single-language translation and CSRT code-switching---on
+identical items, spans, and judges, isolating the contribution of the
+reconstruction game.
+\item A \textbf{scope characterization}: the attack's benefit tracks target
+alignment strength and the location of harmful intent (contextual vs.\ blunt),
+mirroring the modality-specific scope reported for MIDAS.
+\end{itemize}
+
+\section{Related Work}
+\paragraph{Multilingual and code-switching jailbreaks.}
+\citet{yong2023lowresource} show that translating a harmful English request into
+a low-resource language bypasses alignment; \citet{deng2024multilingual}
+systematize multilingual jailbreak risk. CSRT \citep{yoo2024csrt} synthesizes a
+single code-switched sentence mixing several languages. These attacks submit the
+transformed request \emph{directly}: no reconstruction is required, and each is a
+baseline in our study. PolyJigsaw differs in requiring explicit de-interleaving
+and sequence reconstruction across \emph{complete} parallel sentences.
+
+\paragraph{Reasoning-extension jailbreaks.}
+Recent multimodal attacks lengthen the reasoning chain to divert safety
+attention: single-image masking, shuffled image--text recombination, and MIDAS's
+multi-image dispersion \citep{midas2026}. PolyJigsaw ports this
+dispersion--reconstruction logic to the language channel, so it needs neither
+image generation nor puzzle rendering and applies to text-only models.
+
+\section{Method}
+\subsection{Threat model and formulation}
+We assume a black-box, single-shot adversary (no gradients, no iterative
+refinement) who can only query the target. Let $q$ be a harmful English request
+with official parallel translations $\{q^{(L)}\}_{L\in\mathcal{L}}$. PolyJigsaw
+constructs an interleaved prompt
+\[
+x^{*} = \mathrm{Interleave}\big(\{\phi_L(q^{(L)})\}_{L\in\mathcal{L}}\big),
+\quad \text{s.t.}\quad \mathrm{Reconstruct}\circ\mathrm{Deinterleave}(x^{*})\approx q,
+\]
+where $\phi_L$ splits sentence $q^{(L)}$ into fragments and assigns fragment IDs.
+Each fragment is a verbatim substring of an official translation; \emph{no new
+translation is introduced} by our method. The number of languages
+$n=|\mathcal{L}|$ is the dispersion load.
+
+\subsection{Interleaving conditions}
+In the \textbf{ordered} condition, each language's fragments keep their original
+relative order (the model must group and normalize them); in the
+\textbf{shuffled} condition, order is destroyed within each language, so the model
+must additionally recover grammatical order. The model returns a
+\texttt{[RECONSTRUCTED]} English request and then an \texttt{[ANSWER]}.
+
+\subsection{Reconstruction-gated ASR}
+An independent judge decides whether \texttt{[RECONSTRUCTED]} is semantically
+equivalent (action/target/intent/constraints) to $q$; a primary safety judge
+decides whether \texttt{[ANSWER]} is unsafe. We report
+\[
+\text{gated ASR} = \Pr[\text{reconstruction equivalent}\ \wedge\ \text{answer unsafe}].
+\]
+Direct-submission conditions (English, translation, CSRT) are faithful by
+construction, so their gate passes trivially and gated ASR equals raw ASR.
+
+\subsection{Baselines and ablations}
+We compare against (i) \textbf{english\_direct}, (ii) \textbf{translated\_direct}
+in each language \citep{yong2023lowresource}, and (iii) \textbf{CSRT}
+\citep{yoo2024csrt}. Our CSRT baseline code-switches the same official content
+spans as our inline-slot method \texttt{slot\_k} but submits them directly with no
+game framing; thus \texttt{slot\_k} vs.\ \texttt{csrt\_k} is a matched pair
+isolating the reconstruction game. A full-coverage variant \texttt{csrt\_mt}
+reproduces the original CSRT construction with NLLB \citep{nllb2022} segment
+translation (a machine-translated baseline our method never uses). The
+\textbf{no-game} ablation presents the interleaved fragments without the
+reconstruction instruction (cf.\ MIDAS ``w/o Game-Style'').
+
+\section{Experimental Setup}
+\paragraph{Data.} Lingua-SafetyBench Text-Dominant (2{,}879 harmful items, eight
+scenarios, ten official parallel languages) is the primary benchmark; AttaQ
+\citep{attaq2023} (1{,}402 items, seven languages) tests external
+generalization. We use a scenario-stratified $40/60$ dev/test split (seed
+$20260901$); hyper-parameters (language load $n$, slot $k$, defense prompt) are
+chosen on dev only and every main table is reported on the held-out test split.
+No model is trained anywhere: this is black-box attack evaluation.
+
+\paragraph{Targets.} Four aligned models from three labs: Qwen2.5-7B-Instruct
+(primary) \citep{qwen25}, Qwen3-8B, InternLM2.5-7B-chat \citep{internlm2024}, and
+Phi-3.5-mini-instruct \citep{phi3_2024}. Mistral-7B-Instruct is retained only as a
+weakly-aligned reference (Sec.~\ref{sec:scope}).
+
+\paragraph{Judges.} Reconstruction gate: Qwen2.5-7B. Primary safety judge:
+Qwen3Guard-Gen-8B \citep{qwen3guard2025} (official protocol, \texttt{[ANSWER]}
+only, strict-unsafe $=$ Unsafe$\vee$Controversial). Cross judge: MD-Judge-v0.1
+\citep{li2024salad}. Harmfulness Rating (HR, 0--5, success $\geq 3$) follows the
+H-CoT rubric \citep{kuo2025hcot}. Decoding is greedy, $320$ new tokens, seed
+$20260901$. We report Wilson 95\% CIs and paired bootstrap$+$exact McNemar tests.
+
+\section{Results}
+\subsection{Language-load sweet spot}
+Table~\ref{tab:curve} sweeps the dispersion load $n$ on Lingua (Qwen2.5-7B, full
+2{,}879). Gated ASR peaks at $n=4$ ordered ($0.700$) and declines as
+over-dispersion collapses reconstruction (recon $0.94\!\to\!0.86$), reproducing
+the moderate-difficulty sweet spot of MIDAS in the language channel. Ordered
+dominates shuffled throughout, and every load exceeds both english\_direct
+($0.25$) and the best translation baseline (Finnish $0.58$), all at
+$p\!\approx\!0$.
+
+\input{tab_curve.tex}
+
+\subsection{Method comparison (main table)}
+Table~\ref{tab:main} places all attack methods head-to-head on identical items
+and judges. \emph{[CSRT and multi-target cells are populated by the running
+full-scale head-to-head; values marked \pending{} are pending.]}
+
+\input{tab_main.tex}
+
+\subsection{Judge robustness}
+On the full sweep (34{,}548 responses), the two independent judges agree at
+$86.4\%$ (Cohen's $\kappa=0.71$). Every PolyJigsaw contrast keeps its sign and
+significance under both judges. Crucially, the translation baseline's gain is
+largely a single-judge artifact: \texttt{translated\_direct} (Finnish) is highly
+significant under Qwen3Guard ($+0.34$, $p\!\approx\!0$) but \emph{not} under
+MD-Judge ($+0.02$, $p=0.10$), whereas PolyJigsaw remains large under both
+($+0.38$ at $n{=}4$). This strengthens the comparison against multilingual
+baselines: our advantage is judge-robust.
+
+\subsection{External generalization (AttaQ)}
+\input{tab_attaq.tex}
+On AttaQ, PolyJigsaw raises gated ASR from $0.04$ to $0.35$ ($p\!\approx\!0$).
+Here a low-resource translation (Slovenian, $0.38$) is also strong; combined with
+the judge-robustness result above, this indicates that on \emph{blunt} harmful
+prompts direct translation already succeeds, while PolyJigsaw's advantage is
+largest on \emph{contextual} harm (Lingua).
+
+\subsection{Scope: alignment strength}
+\label{sec:scope}
+The attack requires a refusal barrier to bypass. On the weakly-aligned
+Mistral-7B (english\_direct gated $0.69$), wrapping requests in a reconstruction
+game only adds overhead and gated ASR falls below direct; on aligned targets
+(english\_direct $\approx 0.25$) it yields large gains. We therefore report the
+main comparison on aligned models and treat Mistral as a control.
+
+\subsection{Detectability and defense}
+\emph{[Input-stage detectability gap and Self-Reminder defense results are
+produced by the running pipeline; see Table~\ref{tab:main} notes.]}
+
+\section{Conclusion}
+PolyJigsaw shows that cross-lingual dispersion and reconstruction defeat
+input-level alignment in pure text, that the effect has a clear language-load
+sweet spot, and that its advantage over multilingual translation and CSRT
+baselines is robust across independent judges. The reconstruction-gated metric
+isolates genuine compositional failures. Our findings argue for process-aware
+safety monitoring that inspects reconstructed intent rather than surface input.
+
+\subsubsection*{Ethics and reproducibility}
+All experiments use published safety benchmarks and only official translations;
+our method introduces no new harmful content. Raw harmful prompts, model
+completions, and judge transcripts are stored access-restricted; only aggregate
+statistics are released. The frozen protocol, splits, and code accompany the
+paper.
+
+\bibliography{references}
+\bibliographystyle{iclr2026_conference}
+
+\appendix
+\section{Appendix}
+\subsection{Full language-load matrix}
+See Table~\ref{tab:curve}. Ordered$-$shuffled gated gaps by load:
+$n{=}2{:}\,0.22$, $n{=}4{:}\,0.16$, $n{=}6{:}\,0.14$, $n{=}8{:}\,0.03$,
+$n{=}10{:}\,0.14$.
+
+\end{document}

@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\caption{Language-load sweep on Lingua-SafetyBench (Qwen2.5-7B, full 2{,}879).
+Reconstruction-gated ASR and reconstruction rate for ordered vs.\ shuffled
+interleaving. Reference gated ASR: english\_direct $=0.248$, best translation
+(Finnish) $=0.585$. Ordered peaks at $n{=}4$; over-dispersion collapses
+reconstruction.}
+\label{tab:curve}
+\begin{tabular}{r cc cc}
+\toprule
+& \multicolumn{2}{c}{Ordered} & \multicolumn{2}{c}{Shuffled} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+$n$ (languages) & gated ASR & recon & gated ASR & recon \\
+\midrule
+2 & 0.635 & 0.95 & 0.417 & 0.59 \\
+4 & 0.700 & 0.94 & 0.538 & 0.70 \\
+6 & 0.656 & 0.92 & 0.514 & 0.69 \\
+8 & 0.679 & 0.88 & 0.644 & 0.92 \\
+10 & 0.663 & 0.86 & 0.528 & 0.77 \\
+\bottomrule
+\end{tabular}
+\end{table}

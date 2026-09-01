@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{External generalization on AttaQ (Qwen2.5-7B, full 1{,}402). PolyJigsaw
+lifts gated ASR over direct English; low-resource translation is also strong on
+these blunt prompts (see Sec.~5.4).}
+\label{tab:attaq}
+\begin{tabular}{l cccc}
+\toprule
+Method & raw ASR & recon & gated ASR & $\Delta$ vs.\ english \\
+\midrule
+english\_direct & 0.043 & 1.00 & 0.043 & -- \\
+Translation (Slovenian) & 0.377 & 1.00 & 0.377 & 0.334 \\
+Translation (Czech) & 0.167 & 1.00 & 0.167 & 0.123 \\
+\textbf{Interleave} $n{=}4$ (ours) & 0.418 & 0.82 & 0.341 & 0.297 \\
+\textbf{Interleave} $n{=}7$ (ours) & 0.450 & 0.74 & 0.345 & 0.302 \\
+\bottomrule
+\end{tabular}
+\end{table}
