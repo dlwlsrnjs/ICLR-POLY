@@ -1,0 +1,14 @@
+\begin{table}[t]\centering
+\caption{Per-scenario gated ASR on Lingua-SafetyBench (Qwen2.5-7B, full set): direct English vs.\ interleaving $n{=}4$. Lift is largest where direct refusal is strongest (e.g.\ hate speech).}
+\label{tab:scenario}
+\begin{tabular}{l r cc}\toprule
+Scenario & $n$ & english & interleave $n{=}4$ \\\midrule
+Economic Harm & 374 & 0.377 & 0.858 \\
+Fraud & 377 & 0.244 & 0.846 \\
+Hate Speech & 337 & 0.056 & 0.703 \\
+Illegal Activity & 371 & 0.539 & 0.782 \\
+Malware Generation & 376 & 0.213 & 0.832 \\
+Physical Harm & 367 & 0.292 & 0.534 \\
+Privacy Violence & 304 & 0.210 & 0.720 \\
+Sex & 373 & 0.032 & 0.319 \\
+\bottomrule\end{tabular}\end{table}

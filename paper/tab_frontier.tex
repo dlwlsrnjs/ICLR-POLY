@@ -1,0 +1,14 @@
+\begin{table}[t]\centering
+\caption{Frontier commercial target GPT-4o-mini (Lingua test subset,  items). Interleaving lifts gated
+ASR far above every multilingual baseline on a strongly-aligned model.}
+\label{tab:frontier}
+\begin{tabular}{l ccc}\toprule
+Method & gated ASR & gated (MD) & recon\\\midrule
+english\_direct & 0.120 & 0.120 & 1.00 \\
+Translation (best) & 0.215 & 0.060 & 1.00 \\
+CSRT (all) & 0.143 & 0.143 & 1.00 \\
+CSRT-MT $n{=}3$ & 0.180 & 0.125 & 1.00 \\
+No-game $n{=}4$ & 0.275 & 0.225 & 0.61 \\
+\textbf{Interleave} $n{=}4$ & 0.730 & 0.675 & 0.99 \\
+\textbf{Interleave} $n{=}10$ & 0.780 & 0.700 & 0.98 \\
+\bottomrule\end{tabular}\end{table}

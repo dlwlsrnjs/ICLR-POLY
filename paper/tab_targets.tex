@@ -1,0 +1,10 @@
+\begin{table}[t]\centering
+\caption{Generalization across aligned open models (Lingua test split, gated ASR under Qwen3Guard). Interleaving exceeds every baseline on all four targets. ``best'' is the peak interleaving load available for that target ($n{=}6$ for Qwen2.5-7B/Phi-3.5, $n{=}10$ for Qwen3-8B/InternLM).}
+\label{tab:targets}
+\begin{tabular}{l ccccc}\toprule
+Target & english & best transl. & CSRT (all) & interleave $n{=}4$ & interleave (best) \\\midrule
+Qwen2.5-7B & 0.253 & 0.585 & 0.271 & 0.693 & 0.693 \\
+Qwen3-8B & 0.228 & 0.596 & 0.246 & 0.631 & 0.655 \\
+Phi-3.5-mini & 0.081 & 0.843 & 0.106 & 0.475 & 0.475 \\
+InternLM2.5-7B & \pending & \pending & \pending & \pending & \pending \\
+\bottomrule\end{tabular}\end{table}

@@ -1,22 +1,17 @@
-\begin{table}[t]
-\centering
-\caption{Attack-method comparison on Lingua-SafetyBench (Qwen2.5-7B).
-Reconstruction-gated ASR under the primary judge (Qwen3Guard) and cross judge
-(MD-Judge), mean Harmfulness Rating (HR, 0--5), and reconstruction rate. current full-2879 run; CSRT/MD-Judge/HR columns pending the full-scale head-to-head.}
+\begin{table}[t]\centering
+\caption{Attack-method comparison on Lingua-SafetyBench (Qwen2.5-7B, held-out test split, $n{=}1727$ items).
+Gated ASR under the primary judge (Qwen3Guard) and cross judge (MD-Judge), mean HR (0--5), and
+reconstruction rate. Slot$_k$ and CSRT$_k$ use identical spans; their gap isolates the reconstruction game.}
 \label{tab:main}
-\begin{tabular}{l cccc}
-\toprule
-Method & gated ASR & gated (MD) & HR & recon \\
-\midrule
-english\_direct & 0.250 & \pending & \pending & 1.00 \\
-Translation (best) \citep{yong2023lowresource} & 0.583 & \pending & \pending & 1.00 \\
-CSRT $k{=}2$ \citep{yoo2024csrt} & \pending & \pending & \pending & \pending \\
-CSRT (all spans) & \pending & \pending & \pending & \pending \\
-CSRT-MT $n{=}3$ & \pending & \pending & \pending & \pending \\
-No-game $n{=}4$ (ablation) & \pending & \pending & \pending & \pending \\
-\textbf{Slot} $k{=}2$ (ours) & 0.414 & \pending & \pending & 0.64 \\
-\textbf{Interleave} $n{=}4$ ordered (ours) & 0.699 & \pending & \pending & 0.94 \\
-\textbf{Interleave} $n{=}10$ ordered (ours) & 0.662 & \pending & \pending & 0.85 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\begin{tabular}{l cccc}\toprule
+Method & gated ASR & gated (MD) & HR & recon\\\midrule
+english\_direct & 0.253 & 0.241 & 1.57 & 1.00 \\
+Translation (best: Finnish) \citep{yong2023lowresource} & 0.585 & 0.281 & 1.80 & 1.00 \\
+CSRT $k{=}2$ \citep{yoo2024csrt} & 0.283 & 0.299 & 1.64 & 1.00 \\
+CSRT (all spans) & 0.271 & 0.280 & 1.57 & 1.00 \\
+CSRT-MT $n{=}3$ & 0.364 & 0.336 & 1.54 & 1.00 \\
+No-game $n{=}4$ (ablation) & 0.337 & 0.292 & 1.73 & 0.64 \\
+\textbf{Slot} $k{=}1$ (ours) & 0.552 & 0.496 & 1.72 & 0.86 \\
+\textbf{Interleave} $n{=}4$ (ours) & 0.693 & 0.631 & 2.19 & 0.95 \\
+\textbf{Interleave} $n{=}10$ (ours) & \pending & \pending & \pending & \pending \\
+\bottomrule\end{tabular}\end{table}

@@ -1,0 +1,12 @@
+\begin{table}[t]\centering
+\caption{Input-stage detectability (Qwen3Guard prompt moderation on the submitted request).
+Dispersed prompts pass input screening far more often than the direct request.}
+\label{tab:detect}
+\begin{tabular}{l cc}\toprule
+Method & flagged unsafe & passed as safe\\\midrule
+english\_direct & 0.903 & 0.097 \\
+Translation (Finnish) & 0.882 & 0.118 \\
+CSRT (all) & 0.909 & 0.091 \\
+\textbf{Interleave} $n{=}4$ & 0.757 & 0.243 \\
+\textbf{Interleave} $n{=}6$ & 0.792 & 0.208 \\
+\bottomrule\end{tabular}\end{table}

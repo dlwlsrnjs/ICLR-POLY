@@ -1,0 +1,12 @@
+\begin{table}[t]\centering
+\caption{Under a Self-Reminder defensive system prompt (Qwen2.5-7B, gated ASR). The defense collapses
+the baselines but barely dents interleaving.}
+\label{tab:defense}
+\begin{tabular}{l cc}\toprule
+Method & no defense & Self-Reminder\\\midrule
+english\_direct & 0.253 & 0.095 \\
+CSRT (all) & 0.271 & 0.096 \\
+Translation (Finnish) & 0.585 & 0.343 \\
+\textbf{Interleave} $n{=}4$ & 0.693 & 0.692 \\
+\textbf{Interleave} $n{=}10$ & \pending & 0.653 \\
+\bottomrule\end{tabular}\end{table}

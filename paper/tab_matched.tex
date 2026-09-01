@@ -1,0 +1,9 @@
+\begin{table}[t]\centering
+\caption{Matched comparison on identical items and official spans (Qwen2.5-7B, test): the inline-slot reconstruction game vs.\ CSRT direct code-switch at each span count $k$. The only difference is the reconstruction instruction; the paired difference isolates its effect.}
+\label{tab:matched}
+\begin{tabular}{l r cc cc}\toprule
+$k$ & $n$ & CSRT$_k$ (no game) & slot$_k$ (game) & $\Delta$ (game$-$CSRT) & McNemar $p$ \\\midrule
+$k{=}1$ & 649 & 0.251 & 0.552 & $+$0.300 & $<10^{-4}$ \\
+$k{=}2$ & 314 & 0.283 & 0.389 & $+$0.105 & 0.0015 \\
+$k{=}3$ & 144 & 0.361 & 0.285 & -0.076 & 0.1524 \\
+\bottomrule\end{tabular}\end{table}
