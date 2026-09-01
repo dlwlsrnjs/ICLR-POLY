@@ -291,7 +291,34 @@ def t_rawgated():
     (P/"tab_rawgated.tex").write_text(tex); print("tab_rawgated")
 
 
+def t_encoding():
+    d = load(R/"paper_lingua_encoding_method_comparison_test.json")
+    if not d: (P/"tab_encoding.tex").write_text("% pending\n"); return
+    c = d["conditions"]
+    order=[("english\\_direct","english_direct"),
+           ("Base64 (encoding)","enc_base64"),
+           ("payload-splitting","enc_payload"),
+           ("CSRT (all)","csrt_all"),
+           ("\\textbf{interleave} $n{=}4$","interleave_ordered_n4"),
+           ("\\textbf{interleave} $n{=}10$","interleave_ordered_n10")]
+    rows=""
+    for lab,k in order:
+        v=c.get(k)
+        if not v: rows+=lab+" & "+" & ".join([PEND]*4)+" "+BS*2+"\n"; continue
+        rows+=(lab+" & "+f(v["raw_asr"])+" & "+f(v["semantic_recon_rate"],2)+" & "+f(v["gated_asr"])+" & "+f(v.get("gated_asr_mdjudge"))+" "+BS*2+"\n")
+    tex=(BS+"begin{table}[t]"+BS+"centering\n"
+        +BS+"caption{Comparison to encoding / decode-then-act baselines (Qwen2.5-7B, test). "
+        "Base64 fails outright because the model cannot decode it (reconstruction $=0$); "
+        "payload-splitting decodes trivially but yields a moderate attack; the natural-language "
+        "reconstruction of PolyJigsaw is both decodable and obfuscating, and dominates both.}\n"
+        +BS+"label{tab:encoding}\n"
+        +BS+"begin{tabular}{l cccc}"+BS+"toprule\n"
+        "Method & raw ASR & recon & gated ASR & gated (MD) "+BS*2+BS+"midrule\n"
+        +rows+BS+"bottomrule"+BS+"end{tabular}"+BS+"end{table}\n")
+    (P/"tab_encoding.tex").write_text(tex); print("tab_encoding")
+
+
 if __name__ == "__main__":
-    for fn in (t_curve,t_main,t_targets,t_frontier,t_defense,t_detect,t_thinking,t_attaq,t_matched,t_rawgated):
+    for fn in (t_curve,t_main,t_targets,t_frontier,t_defense,t_detect,t_thinking,t_attaq,t_matched,t_rawgated,t_encoding):
         try: fn()
         except Exception as e: print("ERR", fn.__name__, e)

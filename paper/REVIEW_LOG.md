@@ -114,3 +114,11 @@ reconstruction judge for gate validation; (optional) true frontier target.
   0.64->0.26) while interleaving is stable (<=0.07 change) on all four targets.
 - Rebuilt tab_targets with BOTH judges per target; rewrote 6.4 to the judge-robustness framing
   (translation's apparent superiority is judge-dependent; interleaving is judge-robust).
+
+## Iter 49-52 — encoding-family baseline (reviewer-required) + wiring
+- Ran Base64 + payload-splitting on Lingua test (Qwen2.5-7B), same gated scoring.
+- Result: Base64 gated 0.000 (model cannot decode; recon 0.00), payload-splitting 0.371,
+  interleave 0.692 -> we dominate the decode-then-act family under both judges.
+- Added tab_encoding + Results paragraph "Comparison to encoding attacks"; also wired the
+  previously-unlinked tab_matched (full slot-vs-csrt at each k).
+- GPU utilization: ran encoding (GPU0) and thinking-full (GPU1) in parallel per user request.

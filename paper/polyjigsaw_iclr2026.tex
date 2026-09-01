@@ -399,7 +399,23 @@ the sweet-spot curve: too many switched spans collapse reconstruction. The
 removed) tells the same story: gated ASR falls from $0.693$ to $0.337$ and
 reconstruction from $0.95$ to $0.64$, mirroring the ``w/o game-style'' drop in
 MIDAS and echoing encoding attacks whose potency depends on a decode-then-act step
-\citep{yuan2024cipherchat,lv2024codechameleon}.
+\citep{yuan2024cipherchat,lv2024codechameleon}. Table~\ref{tab:matched} reports the
+full matched comparison at each $k$.
+\input{tab_matched.tex}
+
+\paragraph{Comparison to encoding attacks.}
+PolyJigsaw belongs to the decode-then-act family, so we compare it directly to two
+encoding baselines that also require reconstruction before answering
+(Table~\ref{tab:encoding}). A Base64 encoding of the request fails completely on
+Qwen2.5-7B: the model cannot decode Base64 reliably, reconstruction is $0.00$, and
+gated ASR is $0.000$, an example of an obfuscation too hard to invert.
+Payload-splitting, which the model decodes trivially, yields a moderate attack
+($0.371$). PolyJigsaw's natural-language dispersion occupies the useful middle
+ground, decodable enough to reconstruct ($0.94$) yet obfuscating enough to bypass
+screening, and reaches $0.692$, dominating both encoding baselines under both
+judges. The lift therefore comes from a reconstruction step that is neither trivial
+nor infeasible, rather than from encoding alone.
+\input{tab_encoding.tex}
 
 \subsection{Judge robustness}
 On the full language-load sweep ($34{,}548$ responses) the two independent judges
