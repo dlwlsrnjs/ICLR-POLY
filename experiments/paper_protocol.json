@@ -39,10 +39,10 @@
     }
   },
   "target_models": {
-    "primary_aligned": "Qwen/Qwen2.5-7B-Instruct",
-    "aligned_newer_same_family": "Qwen/Qwen3-8B",
-    "aligned_different_family": "internlm/internlm2_5-7b-chat",
-    "weakly_aligned_control": "mistralai/Mistral-7B-Instruct-v0.3"
+    "primary_aligned": "Qwen/Qwen2.5-7B-Instruct (Alibaba)",
+    "aligned_newer_same_family": "Qwen/Qwen3-8B (Alibaba)",
+    "aligned_different_family_a": "internlm/internlm2_5-7b-chat (Shanghai AI Lab)",
+    "aligned_different_family_b": "microsoft/Phi-3.5-mini-instruct (Microsoft)"
   },
   "attack_methods_compared": {
     "no_attack_reference": "english_direct",
@@ -66,5 +66,5 @@
       "experiments/attaq_splits.json"
     ]
   },
-  "target_note": "jailbreak lift scales with target alignment strength; Mistral (english_direct gated ~0.69) is a weakly-aligned control showing the method needs a refusal barrier to bypass, vs aligned targets (Qwen2.5-7B english ~0.25)"
+  "target_note": "all four main targets are safety-aligned across three labs/families; jailbreak lift is measured where a refusal barrier exists. Mistral-7B (english_direct gated ~0.69) was dropped from the main lineup as weakly aligned; its 320-item run is retained only as a supplementary weak-alignment reference."
 }

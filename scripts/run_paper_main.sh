@@ -104,8 +104,10 @@ run_cell(){  # $1=name $2=data $3=target $4=trans $5=extra_flags $6=summary_pref
 # ---- Lingua (primary benchmark): full method set incl. CSRT + slot ----
 run_cell lingua_qwen   "$LINGUA" Qwen/Qwen2.5-7B-Instruct          "$LINGUA_TRANS" \
   "--with-csrt --csrt-ks 1 2 3 --with-nogame" paper_lingua_qwen
-run_cell lingua_mistral "$LINGUA" mistralai/Mistral-7B-Instruct-v0.3 "$LINGUA_TRANS" \
-  "--with-csrt --csrt-ks 1 2 3 --with-nogame" paper_lingua_mistral
+# Phi-3.5-mini (Microsoft): aligned, different family -> replaces the weakly-aligned
+# Mistral in the main lineup. Needs trust_remote_code for its custom Phi3 code path.
+run_cell lingua_phi     "$LINGUA" microsoft/Phi-3.5-mini-instruct       "$LINGUA_TRANS" \
+  "--with-csrt --csrt-ks 1 2 3 --with-nogame --trust-remote-code" paper_lingua_phi
 run_cell lingua_qwen3   "$LINGUA" Qwen/Qwen3-8B                        "$LINGUA_TRANS" \
   "--with-csrt --csrt-ks 1 2 3 --with-nogame" paper_lingua_qwen3
 # InternLM2.5-7B: aligned, different family -> the strong-alignment generalisation.
