@@ -39,9 +39,10 @@
     }
   },
   "target_models": {
-    "primary": "Qwen/Qwen2.5-7B-Instruct",
-    "generalisation_other_family": "mistralai/Mistral-7B-Instruct-v0.3",
-    "generalisation_newer_alignment": "Qwen/Qwen3-8B"
+    "primary_aligned": "Qwen/Qwen2.5-7B-Instruct",
+    "aligned_newer_same_family": "Qwen/Qwen3-8B",
+    "aligned_different_family": "internlm/internlm2_5-7b-chat",
+    "weakly_aligned_control": "mistralai/Mistral-7B-Instruct-v0.3"
   },
   "attack_methods_compared": {
     "no_attack_reference": "english_direct",
@@ -64,5 +65,6 @@
       "experiments/lingua_splits.json",
       "experiments/attaq_splits.json"
     ]
-  }
+  },
+  "target_note": "jailbreak lift scales with target alignment strength; Mistral (english_direct gated ~0.69) is a weakly-aligned control showing the method needs a refusal barrier to bypass, vs aligned targets (Qwen2.5-7B english ~0.25)"
 }

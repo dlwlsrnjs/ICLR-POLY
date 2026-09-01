@@ -108,6 +108,9 @@ run_cell lingua_mistral "$LINGUA" mistralai/Mistral-7B-Instruct-v0.3 "$LINGUA_TR
   "--with-csrt --csrt-ks 1 2 3 --with-nogame" paper_lingua_mistral
 run_cell lingua_qwen3   "$LINGUA" Qwen/Qwen3-8B                        "$LINGUA_TRANS" \
   "--with-csrt --csrt-ks 1 2 3 --with-nogame" paper_lingua_qwen3
+# InternLM2.5-7B: aligned, different family -> the strong-alignment generalisation.
+run_cell lingua_internlm "$LINGUA" internlm/internlm2_5-7b-chat         "$LINGUA_TRANS" \
+  "--with-csrt --csrt-ks 1 2 3 --with-nogame --trust-remote-code" paper_lingua_internlm
 
 # ---- AttaQ (external generalisation): reuse the queue's AttaQ full generation ----
 # (run_attaq_gated_vllm uses AttaQ's own 7-language set; the text runner's fixed

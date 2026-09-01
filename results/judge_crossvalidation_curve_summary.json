@@ -1,0 +1,724 @@
+{
+  "design": "same rows, two independent safety judges",
+  "judges": {
+    "a": "Qwen3Guard-Gen-8B (Unsafe OR Controversial)",
+    "b": "MD-Judge-v0.1 (SALAD-Bench, unsafe)"
+  },
+  "gate": "semantic reconstruction equivalence (Qwen2.5-7B judge), shared by both",
+  "baseline": "english_direct",
+  "n_rows_compared": 34548,
+  "overall_judge_agreement": {
+    "n": 34548,
+    "agreement": 0.8639,
+    "cohen_kappa": 0.71,
+    "confusion": {
+      "both_unsafe": 19336,
+      "both_safe": 10510,
+      "qwen3guard_unsafe_only": 3441,
+      "mdjudge_unsafe_only": 1261
+    },
+    "qwen3guard_unsafe_rate": 0.6593,
+    "mdjudge_unsafe_rate": 0.5962,
+    "exact_mcnemar_p_judge_difference": 0.0
+  },
+  "conditions": {
+    "english_direct": {
+      "n": 2879,
+      "judge_agreement": {
+        "n": 2879,
+        "agreement": 0.8854,
+        "cohen_kappa": 0.6955,
+        "confusion": {
+          "both_unsafe": 559,
+          "both_safe": 1990,
+          "qwen3guard_unsafe_only": 156,
+          "mdjudge_unsafe_only": 174
+        },
+        "qwen3guard_unsafe_rate": 0.2484,
+        "mdjudge_unsafe_rate": 0.2546,
+        "exact_mcnemar_p_judge_difference": 0.34938
+      },
+      "semantic_recon_rate": 1.0,
+      "qwen3guard": {
+        "raw_asr": 0.2484,
+        "gated_asr": 0.2484,
+        "gated_asr_wilson95": [
+          0.2329,
+          0.2645
+        ],
+        "paired_gated_vs_baseline": null
+      },
+      "mdjudge": {
+        "raw_asr": 0.2546,
+        "gated_asr": 0.2546,
+        "gated_asr_wilson95": [
+          0.239,
+          0.2708
+        ],
+        "paired_gated_vs_baseline": null
+      }
+    },
+    "interleave_ordered_n10": {
+      "n": 2879,
+      "judge_agreement": {
+        "n": 2879,
+        "agreement": 0.8913,
+        "cohen_kappa": 0.7337,
+        "confusion": {
+          "both_unsafe": 1904,
+          "both_safe": 662,
+          "qwen3guard_unsafe_only": 229,
+          "mdjudge_unsafe_only": 84
+        },
+        "qwen3guard_unsafe_rate": 0.7409,
+        "mdjudge_unsafe_rate": 0.6905,
+        "exact_mcnemar_p_judge_difference": 0.0
+      },
+      "semantic_recon_rate": 0.8569,
+      "qwen3guard": {
+        "raw_asr": 0.7409,
+        "gated_asr": 0.6634,
+        "gated_asr_wilson95": [
+          0.646,
+          0.6805
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.4151,
+          "bootstrap_95_ci": [
+            0.3949,
+            0.4356
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      },
+      "mdjudge": {
+        "raw_asr": 0.6905,
+        "gated_asr": 0.6068,
+        "gated_asr_wilson95": [
+          0.5888,
+          0.6245
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.3522,
+          "bootstrap_95_ci": [
+            0.3307,
+            0.3737
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      }
+    },
+    "interleave_ordered_n2": {
+      "n": 2879,
+      "judge_agreement": {
+        "n": 2879,
+        "agreement": 0.8982,
+        "cohen_kappa": 0.781,
+        "confusion": {
+          "both_unsafe": 1682,
+          "both_safe": 904,
+          "qwen3guard_unsafe_only": 219,
+          "mdjudge_unsafe_only": 74
+        },
+        "qwen3guard_unsafe_rate": 0.6603,
+        "mdjudge_unsafe_rate": 0.6099,
+        "exact_mcnemar_p_judge_difference": 0.0
+      },
+      "semantic_recon_rate": 0.9545,
+      "qwen3guard": {
+        "raw_asr": 0.6603,
+        "gated_asr": 0.6349,
+        "gated_asr_wilson95": [
+          0.6172,
+          0.6523
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.3866,
+          "bootstrap_95_ci": [
+            0.3664,
+            0.4064
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      },
+      "mdjudge": {
+        "raw_asr": 0.6099,
+        "gated_asr": 0.5856,
+        "gated_asr_wilson95": [
+          0.5675,
+          0.6035
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.331,
+          "bootstrap_95_ci": [
+            0.3095,
+            0.3526
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      }
+    },
+    "interleave_ordered_n4": {
+      "n": 2879,
+      "judge_agreement": {
+        "n": 2879,
+        "agreement": 0.9048,
+        "cohen_kappa": 0.7742,
+        "confusion": {
+          "both_unsafe": 1881,
+          "both_safe": 724,
+          "qwen3guard_unsafe_only": 233,
+          "mdjudge_unsafe_only": 41
+        },
+        "qwen3guard_unsafe_rate": 0.7343,
+        "mdjudge_unsafe_rate": 0.6676,
+        "exact_mcnemar_p_judge_difference": 0.0
+      },
+      "semantic_recon_rate": 0.943,
+      "qwen3guard": {
+        "raw_asr": 0.7343,
+        "gated_asr": 0.7002,
+        "gated_asr_wilson95": [
+          0.6832,
+          0.7167
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.4519,
+          "bootstrap_95_ci": [
+            0.4321,
+            0.4717
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      },
+      "mdjudge": {
+        "raw_asr": 0.6676,
+        "gated_asr": 0.6346,
+        "gated_asr_wilson95": [
+          0.6168,
+          0.652
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.38,
+          "bootstrap_95_ci": [
+            0.3581,
+            0.4015
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      }
+    },
+    "interleave_ordered_n6": {
+      "n": 2879,
+      "judge_agreement": {
+        "n": 2879,
+        "agreement": 0.8989,
+        "cohen_kappa": 0.7687,
+        "confusion": {
+          "both_unsafe": 1809,
+          "both_safe": 779,
+          "qwen3guard_unsafe_only": 209,
+          "mdjudge_unsafe_only": 82
+        },
+        "qwen3guard_unsafe_rate": 0.7009,
+        "mdjudge_unsafe_rate": 0.6568,
+        "exact_mcnemar_p_judge_difference": 0.0
+      },
+      "semantic_recon_rate": 0.9163,
+      "qwen3guard": {
+        "raw_asr": 0.7009,
+        "gated_asr": 0.6561,
+        "gated_asr_wilson95": [
+          0.6386,
+          0.6733
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.4078,
+          "bootstrap_95_ci": [
+            0.3873,
+            0.4283
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      },
+      "mdjudge": {
+        "raw_asr": 0.6568,
+        "gated_asr": 0.6061,
+        "gated_asr_wilson95": [
+          0.5881,
+          0.6238
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.3515,
+          "bootstrap_95_ci": [
+            0.33,
+            0.373
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      }
+    },
+    "interleave_ordered_n8": {
+      "n": 2879,
+      "judge_agreement": {
+        "n": 2879,
+        "agreement": 0.8954,
+        "cohen_kappa": 0.7446,
+        "confusion": {
+          "both_unsafe": 1907,
+          "both_safe": 671,
+          "qwen3guard_unsafe_only": 228,
+          "mdjudge_unsafe_only": 73
+        },
+        "qwen3guard_unsafe_rate": 0.7416,
+        "mdjudge_unsafe_rate": 0.6877,
+        "exact_mcnemar_p_judge_difference": 0.0
+      },
+      "semantic_recon_rate": 0.8833,
+      "qwen3guard": {
+        "raw_asr": 0.7416,
+        "gated_asr": 0.6791,
+        "gated_asr_wilson95": [
+          0.6618,
+          0.6959
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.4307,
+          "bootstrap_95_ci": [
+            0.4109,
+            0.4505
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      },
+      "mdjudge": {
+        "raw_asr": 0.6877,
+        "gated_asr": 0.6217,
+        "gated_asr_wilson95": [
+          0.6039,
+          0.6393
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.3671,
+          "bootstrap_95_ci": [
+            0.346,
+            0.3883
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      }
+    },
+    "interleave_shuffled_n10": {
+      "n": 2879,
+      "judge_agreement": {
+        "n": 2879,
+        "agreement": 0.8597,
+        "cohen_kappa": 0.6886,
+        "confusion": {
+          "both_unsafe": 1690,
+          "both_safe": 785,
+          "qwen3guard_unsafe_only": 201,
+          "mdjudge_unsafe_only": 203
+        },
+        "qwen3guard_unsafe_rate": 0.6568,
+        "mdjudge_unsafe_rate": 0.6575,
+        "exact_mcnemar_p_judge_difference": 0.96033
+      },
+      "semantic_recon_rate": 0.7721,
+      "qwen3guard": {
+        "raw_asr": 0.6568,
+        "gated_asr": 0.528,
+        "gated_asr_wilson95": [
+          0.5097,
+          0.5461
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.2796,
+          "bootstrap_95_ci": [
+            0.2581,
+            0.3011
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      },
+      "mdjudge": {
+        "raw_asr": 0.6575,
+        "gated_asr": 0.5068,
+        "gated_asr_wilson95": [
+          0.4885,
+          0.525
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.2522,
+          "bootstrap_95_ci": [
+            0.2306,
+            0.2741
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      }
+    },
+    "interleave_shuffled_n2": {
+      "n": 2879,
+      "judge_agreement": {
+        "n": 2879,
+        "agreement": 0.8937,
+        "cohen_kappa": 0.7649,
+        "confusion": {
+          "both_unsafe": 1744,
+          "both_safe": 829,
+          "qwen3guard_unsafe_only": 258,
+          "mdjudge_unsafe_only": 48
+        },
+        "qwen3guard_unsafe_rate": 0.6954,
+        "mdjudge_unsafe_rate": 0.6224,
+        "exact_mcnemar_p_judge_difference": 0.0
+      },
+      "semantic_recon_rate": 0.5898,
+      "qwen3guard": {
+        "raw_asr": 0.6954,
+        "gated_asr": 0.4172,
+        "gated_asr_wilson95": [
+          0.3993,
+          0.4353
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.1688,
+          "bootstrap_95_ci": [
+            0.1473,
+            0.1903
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      },
+      "mdjudge": {
+        "raw_asr": 0.6224,
+        "gated_asr": 0.371,
+        "gated_asr_wilson95": [
+          0.3535,
+          0.3888
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.1164,
+          "bootstrap_95_ci": [
+            0.0945,
+            0.1386
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      }
+    },
+    "interleave_shuffled_n4": {
+      "n": 2879,
+      "judge_agreement": {
+        "n": 2879,
+        "agreement": 0.892,
+        "cohen_kappa": 0.7353,
+        "confusion": {
+          "both_unsafe": 1910,
+          "both_safe": 658,
+          "qwen3guard_unsafe_only": 260,
+          "mdjudge_unsafe_only": 51
+        },
+        "qwen3guard_unsafe_rate": 0.7537,
+        "mdjudge_unsafe_rate": 0.6811,
+        "exact_mcnemar_p_judge_difference": 0.0
+      },
+      "semantic_recon_rate": 0.7041,
+      "qwen3guard": {
+        "raw_asr": 0.7537,
+        "gated_asr": 0.538,
+        "gated_asr_wilson95": [
+          0.5198,
+          0.5562
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.2897,
+          "bootstrap_95_ci": [
+            0.2681,
+            0.3109
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      },
+      "mdjudge": {
+        "raw_asr": 0.6811,
+        "gated_asr": 0.4804,
+        "gated_asr_wilson95": [
+          0.4622,
+          0.4986
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.2258,
+          "bootstrap_95_ci": [
+            0.2035,
+            0.2477
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      }
+    },
+    "interleave_shuffled_n6": {
+      "n": 2879,
+      "judge_agreement": {
+        "n": 2879,
+        "agreement": 0.852,
+        "cohen_kappa": 0.6462,
+        "confusion": {
+          "both_unsafe": 1809,
+          "both_safe": 644,
+          "qwen3guard_unsafe_only": 236,
+          "mdjudge_unsafe_only": 190
+        },
+        "qwen3guard_unsafe_rate": 0.7103,
+        "mdjudge_unsafe_rate": 0.6943,
+        "exact_mcnemar_p_judge_difference": 0.02912
+      },
+      "semantic_recon_rate": 0.687,
+      "qwen3guard": {
+        "raw_asr": 0.7103,
+        "gated_asr": 0.5144,
+        "gated_asr_wilson95": [
+          0.4962,
+          0.5326
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.2661,
+          "bootstrap_95_ci": [
+            0.2435,
+            0.2883
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      },
+      "mdjudge": {
+        "raw_asr": 0.6943,
+        "gated_asr": 0.4745,
+        "gated_asr_wilson95": [
+          0.4563,
+          0.4927
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.2199,
+          "bootstrap_95_ci": [
+            0.1969,
+            0.2421
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      }
+    },
+    "interleave_shuffled_n8": {
+      "n": 2879,
+      "judge_agreement": {
+        "n": 2879,
+        "agreement": 0.8826,
+        "cohen_kappa": 0.7344,
+        "confusion": {
+          "both_unsafe": 1762,
+          "both_safe": 779,
+          "qwen3guard_unsafe_only": 208,
+          "mdjudge_unsafe_only": 130
+        },
+        "qwen3guard_unsafe_rate": 0.6843,
+        "mdjudge_unsafe_rate": 0.6572,
+        "exact_mcnemar_p_judge_difference": 3e-05
+      },
+      "semantic_recon_rate": 0.9239,
+      "qwen3guard": {
+        "raw_asr": 0.6843,
+        "gated_asr": 0.6443,
+        "gated_asr_wilson95": [
+          0.6267,
+          0.6616
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.396,
+          "bootstrap_95_ci": [
+            0.3755,
+            0.4165
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      },
+      "mdjudge": {
+        "raw_asr": 0.6572,
+        "gated_asr": 0.6078,
+        "gated_asr_wilson95": [
+          0.5899,
+          0.6255
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.3532,
+          "bootstrap_95_ci": [
+            0.3317,
+            0.3748
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      }
+    },
+    "translated_direct_Finnish": {
+      "n": 2879,
+      "judge_agreement": {
+        "n": 2879,
+        "agreement": 0.6127,
+        "cohen_kappa": 0.2804,
+        "confusion": {
+          "both_unsafe": 679,
+          "both_safe": 1085,
+          "qwen3guard_unsafe_only": 1004,
+          "mdjudge_unsafe_only": 111
+        },
+        "qwen3guard_unsafe_rate": 0.5846,
+        "mdjudge_unsafe_rate": 0.2744,
+        "exact_mcnemar_p_judge_difference": 0.0
+      },
+      "semantic_recon_rate": 1.0,
+      "qwen3guard": {
+        "raw_asr": 0.5846,
+        "gated_asr": 0.5846,
+        "gated_asr_wilson95": [
+          0.5665,
+          0.6025
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.3362,
+          "bootstrap_95_ci": [
+            0.3154,
+            0.3574
+          ],
+          "exact_mcnemar_p": 0.0
+        }
+      },
+      "mdjudge": {
+        "raw_asr": 0.2744,
+        "gated_asr": 0.2744,
+        "gated_asr_wilson95": [
+          0.2584,
+          0.291
+        ],
+        "paired_gated_vs_baseline": {
+          "n_pairs": 2879,
+          "difference": 0.0198,
+          "bootstrap_95_ci": [
+            -0.0035,
+            0.0427
+          ],
+          "exact_mcnemar_p": 0.09906
+        }
+      }
+    }
+  },
+  "conclusion_invariance": {
+    "interleave_ordered_n10": {
+      "qwen3guard_diff": 0.4151,
+      "qwen3guard_p": 0.0,
+      "mdjudge_diff": 0.3522,
+      "mdjudge_p": 0.0,
+      "same_sign": true,
+      "both_significant_at_0.01": true
+    },
+    "interleave_ordered_n2": {
+      "qwen3guard_diff": 0.3866,
+      "qwen3guard_p": 0.0,
+      "mdjudge_diff": 0.331,
+      "mdjudge_p": 0.0,
+      "same_sign": true,
+      "both_significant_at_0.01": true
+    },
+    "interleave_ordered_n4": {
+      "qwen3guard_diff": 0.4519,
+      "qwen3guard_p": 0.0,
+      "mdjudge_diff": 0.38,
+      "mdjudge_p": 0.0,
+      "same_sign": true,
+      "both_significant_at_0.01": true
+    },
+    "interleave_ordered_n6": {
+      "qwen3guard_diff": 0.4078,
+      "qwen3guard_p": 0.0,
+      "mdjudge_diff": 0.3515,
+      "mdjudge_p": 0.0,
+      "same_sign": true,
+      "both_significant_at_0.01": true
+    },
+    "interleave_ordered_n8": {
+      "qwen3guard_diff": 0.4307,
+      "qwen3guard_p": 0.0,
+      "mdjudge_diff": 0.3671,
+      "mdjudge_p": 0.0,
+      "same_sign": true,
+      "both_significant_at_0.01": true
+    },
+    "interleave_shuffled_n10": {
+      "qwen3guard_diff": 0.2796,
+      "qwen3guard_p": 0.0,
+      "mdjudge_diff": 0.2522,
+      "mdjudge_p": 0.0,
+      "same_sign": true,
+      "both_significant_at_0.01": true
+    },
+    "interleave_shuffled_n2": {
+      "qwen3guard_diff": 0.1688,
+      "qwen3guard_p": 0.0,
+      "mdjudge_diff": 0.1164,
+      "mdjudge_p": 0.0,
+      "same_sign": true,
+      "both_significant_at_0.01": true
+    },
+    "interleave_shuffled_n4": {
+      "qwen3guard_diff": 0.2897,
+      "qwen3guard_p": 0.0,
+      "mdjudge_diff": 0.2258,
+      "mdjudge_p": 0.0,
+      "same_sign": true,
+      "both_significant_at_0.01": true
+    },
+    "interleave_shuffled_n6": {
+      "qwen3guard_diff": 0.2661,
+      "qwen3guard_p": 0.0,
+      "mdjudge_diff": 0.2199,
+      "mdjudge_p": 0.0,
+      "same_sign": true,
+      "both_significant_at_0.01": true
+    },
+    "interleave_shuffled_n8": {
+      "qwen3guard_diff": 0.396,
+      "qwen3guard_p": 0.0,
+      "mdjudge_diff": 0.3532,
+      "mdjudge_p": 0.0,
+      "same_sign": true,
+      "both_significant_at_0.01": true
+    },
+    "translated_direct_Finnish": {
+      "qwen3guard_diff": 0.3362,
+      "qwen3guard_p": 0.0,
+      "mdjudge_diff": 0.0198,
+      "mdjudge_p": 0.09906,
+      "same_sign": true,
+      "both_significant_at_0.01": false
+    }
+  }
+}

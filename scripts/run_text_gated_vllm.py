@@ -39,6 +39,7 @@ def main() -> int:
                          "Use self_reminder / todo_list for the built-ins.")
     ap.add_argument("--translated-langs", nargs="*", default=["Finnish"])
     ap.add_argument("--gpu-memory-utilization", type=float, default=0.90)
+    ap.add_argument("--trust-remote-code", action="store_true")
     ap.add_argument("--shard", default="0/1")
     args = ap.parse_args()
 
@@ -82,6 +83,7 @@ def main() -> int:
 
     llm = LLM(model=args.target, dtype="bfloat16",
               gpu_memory_utilization=args.gpu_memory_utilization,
+              trust_remote_code=args.trust_remote_code,
               max_model_len=8192, enforce_eager=False)
     sampling = SamplingParams(temperature=0.0, max_tokens=args.max_new_tokens)
 
