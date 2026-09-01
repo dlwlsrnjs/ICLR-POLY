@@ -69,8 +69,11 @@ def main() -> int:
 
     rows = [json.loads(l) for l in Path(args.data).open(encoding="utf-8")]
     tok = AutoTokenizer.from_pretrained(args.model)
-    model = AutoModelForSeq2SeqLM.from_pretrained(
-        args.model, dtype=torch.bfloat16).to(args.device).eval()
+    try:
+        model = AutoModelForSeq2SeqLM.from_pretrained(
+            args.model, torch_dtype=torch.bfloat16).to(args.device).eval()
+    except TypeError:
+        model = AutoModelForSeq2SeqLM.from_pretrained(args.model).to(args.device).eval()
 
     # Collect every (segment, target_lang) translation job across all items/ks.
     jobs = []  # (row_idx, k, seg_idx, lang, text)

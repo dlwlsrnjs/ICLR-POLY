@@ -25,12 +25,19 @@ mkdir -p "$ROOT"
 log(){ echo "[$(date +%H:%M:%S)] PAPER: $*"; }
 
 # ---- Stage 0: full-coverage MT-CSRT baseline prompts (NLLB) ----
-if [ ! -f "$LINGUA" ]; then
-  log "[stage0] building full-coverage MT-CSRT prompts (NLLB-1.3B)"
-  CUDA_VISIBLE_DEVICES=$GPU python3 scripts/build_csrt_mt.py \
+# Cross-GPU cooperation: whichever worker grabs the lock builds it; the other
+# waits for the file. Prevents two GPUs building the same augmented dataset.
+if [ ! -f "$LINGUA" ] && mkdir "$ROOT/.lock_stage0" 2>/dev/null; then
+  log "[stage0] building full-coverage MT-CSRT prompts (NLLB-1.3B) on GPU $GPU"
+  CUDA_VISIBLE_DEVICES=$GPU $VPY scripts/build_csrt_mt.py \
     --data "$LINGUA_BASE" --output "$LINGUA" --ks 2 3 \
     --model facebook/nllb-200-distilled-1.3B --device cuda:0 --batch-size 64 \
     > "$ROOT/csrt_mt.log" 2>&1 || { log "[stage0] MT-CSRT build failed; falling back to base data"; LINGUA="$LINGUA_BASE"; }
+fi
+# If another worker is building it, wait (up to ~10 min) for the file to appear.
+if [ ! -f "$LINGUA" ]; then
+  for _ in $(seq 1 120); do [ -f "$LINGUA" ] && break; sleep 5; done
+  [ -f "$LINGUA" ] || { log "[stage0] MT-CSRT file absent; using base data"; LINGUA="$LINGUA_BASE"; }
 fi
 
 # Full method set (Lingua has span alignments -> csrt/slot apply).
@@ -62,7 +69,14 @@ judges(){  # $1=workdir  (runs recon, guard, md, hr on target_outputs.jsonl)
 
 run_cell(){  # $1=name $2=data $3=target $4=trans $5=extra_flags $6=summary_prefix
   local NAME="$1" DATA="$2" TARGET="$3" TRANS="$4" EXTRA="$5" PFX="$6"
-  local W="$ROOT/$NAME"; mkdir -p "$W"
+  local W="$ROOT/$NAME"; mkdir -p "$ROOT"
+  # Cross-GPU work-stealing: claim this cell atomically. If already claimed and
+  # finished, skip; if claimed but unfinished, skip too (owner will complete it).
+  if ! mkdir "$ROOT/.claim_$NAME" 2>/dev/null; then
+    log "[$NAME] claimed by the other GPU worker; skipping on GPU $GPU"
+    return 0
+  fi
+  mkdir -p "$W"
   if [ ! -f "$W/target_outputs.jsonl" ]; then
     log "[$NAME] generation ($TARGET)"
     CUDA_VISIBLE_DEVICES=$GPU $VPY scripts/run_text_gated_vllm.py \

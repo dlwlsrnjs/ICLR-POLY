@@ -1,0 +1,215 @@
+{
+  "source_summary": "results/midas_ext320_gated_summary.json",
+  "metric": "reconstruction-gated ASR (semantic equivalence AND strict-unsafe)",
+  "baselines": {
+    "english_direct": {
+      "gated_asr": 0.2344,
+      "n": 320
+    },
+    "nogame_ordered_n10": {
+      "gated_asr": 0.3656,
+      "n": 320
+    },
+    "nogame_ordered_n2": {
+      "gated_asr": 0.3688,
+      "n": 320
+    },
+    "nogame_ordered_n4": {
+      "gated_asr": 0.3219,
+      "n": 320
+    },
+    "nogame_ordered_n6": {
+      "gated_asr": 0.3312,
+      "n": 320
+    },
+    "nogame_ordered_n8": {
+      "gated_asr": 0.3688,
+      "n": 320
+    },
+    "nogame_shuffled_n10": {
+      "gated_asr": 0.3594,
+      "n": 320
+    },
+    "nogame_shuffled_n2": {
+      "gated_asr": 0.3844,
+      "n": 320
+    },
+    "nogame_shuffled_n4": {
+      "gated_asr": 0.3531,
+      "n": 320
+    },
+    "nogame_shuffled_n6": {
+      "gated_asr": 0.2437,
+      "n": 320
+    },
+    "nogame_shuffled_n8": {
+      "gated_asr": 0.425,
+      "n": 320
+    },
+    "translated_direct_Finnish": {
+      "gated_asr": 0.5594,
+      "n": 320
+    }
+  },
+  "language_loads": [
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "matrix": {
+    "ordered": {
+      "10": {
+        "n": 320,
+        "raw_asr": 0.7469,
+        "semantic_recon_rate": 0.8906,
+        "gated_asr": 0.6844,
+        "gated_asr_wilson95": [
+          0.6315,
+          0.7329
+        ],
+        "diff_vs_baseline": 0.45,
+        "exact_mcnemar_p": 0.0
+      },
+      "2": {
+        "n": 320,
+        "raw_asr": 0.6375,
+        "semantic_recon_rate": 0.9437,
+        "gated_asr": 0.6,
+        "gated_asr_wilson95": [
+          0.5454,
+          0.6522
+        ],
+        "diff_vs_baseline": 0.3656,
+        "exact_mcnemar_p": 0.0
+      },
+      "4": {
+        "n": 320,
+        "raw_asr": 0.75,
+        "semantic_recon_rate": 0.9375,
+        "gated_asr": 0.7094,
+        "gated_asr_wilson95": [
+          0.6574,
+          0.7564
+        ],
+        "diff_vs_baseline": 0.475,
+        "exact_mcnemar_p": 0.0
+      },
+      "6": {
+        "n": 320,
+        "raw_asr": 0.6969,
+        "semantic_recon_rate": 0.9125,
+        "gated_asr": 0.6531,
+        "gated_asr_wilson95": [
+          0.5994,
+          0.7032
+        ],
+        "diff_vs_baseline": 0.4188,
+        "exact_mcnemar_p": 0.0
+      },
+      "8": {
+        "n": 320,
+        "raw_asr": 0.725,
+        "semantic_recon_rate": 0.8906,
+        "gated_asr": 0.65,
+        "gated_asr_wilson95": [
+          0.5962,
+          0.7002
+        ],
+        "diff_vs_baseline": 0.4156,
+        "exact_mcnemar_p": 0.0
+      }
+    },
+    "shuffled": {
+      "10": {
+        "n": 320,
+        "raw_asr": 0.6469,
+        "semantic_recon_rate": 0.7781,
+        "gated_asr": 0.5156,
+        "gated_asr_wilson95": [
+          0.461,
+          0.5699
+        ],
+        "diff_vs_baseline": 0.2812,
+        "exact_mcnemar_p": 0.0
+      },
+      "2": {
+        "n": 320,
+        "raw_asr": 0.7156,
+        "semantic_recon_rate": 0.6188,
+        "gated_asr": 0.4437,
+        "gated_asr_wilson95": [
+          0.3903,
+          0.4985
+        ],
+        "diff_vs_baseline": 0.2094,
+        "exact_mcnemar_p": 0.0
+      },
+      "4": {
+        "n": 320,
+        "raw_asr": 0.7312,
+        "semantic_recon_rate": 0.7063,
+        "gated_asr": 0.5281,
+        "gated_asr_wilson95": [
+          0.4734,
+          0.5822
+        ],
+        "diff_vs_baseline": 0.2938,
+        "exact_mcnemar_p": 0.0
+      },
+      "6": {
+        "n": 320,
+        "raw_asr": 0.6969,
+        "semantic_recon_rate": 0.6625,
+        "gated_asr": 0.4875,
+        "gated_asr_wilson95": [
+          0.4332,
+          0.5421
+        ],
+        "diff_vs_baseline": 0.2531,
+        "exact_mcnemar_p": 0.0
+      },
+      "8": {
+        "n": 320,
+        "raw_asr": 0.7,
+        "semantic_recon_rate": 0.9344,
+        "gated_asr": 0.65,
+        "gated_asr_wilson95": [
+          0.5962,
+          0.7002
+        ],
+        "diff_vs_baseline": 0.4156,
+        "exact_mcnemar_p": 0.0
+      }
+    }
+  },
+  "ordered_minus_shuffled_gated_gap": {
+    "2": 0.1563,
+    "4": 0.1813,
+    "6": 0.1656,
+    "8": 0.0,
+    "10": 0.1688
+  },
+  "peak_cell": {
+    "ordering": "ordered",
+    "num_languages": 4,
+    "gated_asr": 0.7094
+  },
+  "recon_collapse_check": {
+    "ordered": {
+      "2": 0.9437,
+      "4": 0.9375,
+      "6": 0.9125,
+      "8": 0.8906,
+      "10": 0.8906
+    },
+    "shuffled": {
+      "2": 0.6188,
+      "4": 0.7063,
+      "6": 0.6625,
+      "8": 0.9344,
+      "10": 0.7781
+    }
+  }
+}
