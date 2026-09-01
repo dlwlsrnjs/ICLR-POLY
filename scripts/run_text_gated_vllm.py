@@ -33,6 +33,7 @@ def main() -> int:
     ap.add_argument("--no-slots", action="store_true")
     ap.add_argument("--with-nogame", action="store_true")
     ap.add_argument("--with-csrt", action="store_true")
+    ap.add_argument("--with-encoding", action="store_true")
     ap.add_argument("--csrt-ks", type=int, nargs="+", default=[1, 2, 3])
     ap.add_argument("--system-prompt", default=None,
                     help="named or literal defense system prompt (MIDAS Table 7/8). "
@@ -40,6 +41,16 @@ def main() -> int:
     ap.add_argument("--translated-langs", nargs="*", default=["Finnish"])
     ap.add_argument("--gpu-memory-utilization", type=float, default=0.90)
     ap.add_argument("--trust-remote-code", action="store_true")
+    ap.add_argument("--no-thinking", action="store_true",
+                    help="disable Qwen3-style thinking mode via chat_template_kwargs")
+    ap.add_argument("--thinking", action="store_true",
+                    help="explicitly ENABLE Qwen3-style thinking mode. Thinking tokens "
+                         "are emitted before the labeled sections, so pair with a larger "
+                         "--max-new-tokens (>=1024) or the [RECONSTRUCTED]/[ANSWER] format "
+                         "is truncated.")
+    ap.add_argument("--tokenizer-mode", default="auto",
+                    help="vLLM tokenizer_mode; use 'slow' for models whose fast "
+                         "tokenizer conversion fails (e.g. InternLM2).")
     ap.add_argument("--shard", default="0/1")
     args = ap.parse_args()
 
@@ -57,7 +68,8 @@ def main() -> int:
                                      include_slots=not args.no_slots,
                                      include_nogame=args.with_nogame,
                                      include_csrt=args.with_csrt,
-                                     csrt_ks=args.csrt_ks):
+                                     csrt_ks=args.csrt_ks,
+                                     include_encoding=getattr(args,'with_encoding',False)):
             jobs.append((record, cond))
 
     # Optional defensive system prompt (MIDAS Table 7/8 "defensive system prompts").
@@ -84,11 +96,22 @@ def main() -> int:
     llm = LLM(model=args.target, dtype="bfloat16",
               gpu_memory_utilization=args.gpu_memory_utilization,
               trust_remote_code=args.trust_remote_code,
+              tokenizer_mode=args.tokenizer_mode,
               max_model_len=8192, enforce_eager=False)
     sampling = SamplingParams(temperature=0.0, max_tokens=args.max_new_tokens)
 
     started = time.time()
-    results = llm.chat(conversations, sampling, use_tqdm=True)
+    chat_kwargs = {}
+    if args.no_thinking and args.thinking:
+        raise SystemExit("pass only one of --thinking / --no-thinking")
+    if args.no_thinking:
+        chat_kwargs["chat_template_kwargs"] = {"enable_thinking": False}
+    elif args.thinking:
+        chat_kwargs["chat_template_kwargs"] = {"enable_thinking": True}
+        if args.max_new_tokens < 1024:
+            print(json.dumps({"warning": "thinking mode with max_new_tokens<1024 truncates "
+                             "the labeled sections", "max_new_tokens": args.max_new_tokens}), flush=True)
+    results = llm.chat(conversations, sampling, use_tqdm=True, **chat_kwargs)
     outputs = [r.outputs[0].text for r in results]
 
     rows = []
@@ -109,6 +132,7 @@ def main() -> int:
             "response_sha256": hashlib.sha256(output.encode()).hexdigest(),
             "target_model": args.target, "engine": "vllm",
             "defense_system_prompt": args.system_prompt or "",
+            "thinking_mode": ("off" if args.no_thinking else ("on" if args.thinking else "default")),
         })
 
     outdir = Path(args.outdir)

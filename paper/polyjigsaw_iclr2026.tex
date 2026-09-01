@@ -107,7 +107,7 @@ identical items, spans, and judges. A matched \texttt{slot\_k} vs.\ \texttt{csrt
 pair and a no-game ablation isolate the lift to the reconstruction step.
 \item \textbf{Robustness evidence}: the effect is stable across two independent
 safety judges (where the translation baseline is judge-fragile), transfers to the
-frontier model GPT-4o-mini, and survives a Self-Reminder defense that collapses the
+commercial GPT-4o-mini, and survives a Self-Reminder defense that collapses the
 baselines.
 \item A \textbf{scope characterization}: the attack's benefit tracks target
 alignment strength and the location of harmful intent (contextual vs.\ blunt), and
@@ -408,7 +408,7 @@ the attack (Sec.~\ref{sec:thinking}).
 
 \input{tab_targets.tex}
 
-\subsection{Frontier transfer}
+\subsection{Transfer to a commercial model}
 Table~\ref{tab:frontier} evaluates the commercial model GPT-4o-mini
 (a small, strongly-aligned production model; we do not claim results on the largest
 frontier systems) on a held-out test subset of $200$ items. Despite a low base rate (english\_direct gated $0.12$), interleaving reaches
@@ -482,7 +482,7 @@ interleaving, because its chain-of-thought fails to terminate on the puzzle rath
 than because it is safer---a capability boundary, not a safety guarantee.
 (iv) Our safety judges, though cross-validated, are themselves LLMs; we mitigate but
 do not eliminate judge error with a second judge and a $0$--$5$ rubric.
-(v) The thinking-mode and frontier studies use held-out subsets for cost, and the
+(v) The thinking-mode and commercial-model studies use held-out subsets for cost, and the
 InternLM target is evaluated via slower HF inference; we report these scales
 explicitly and never silently truncate.
 
@@ -490,7 +490,7 @@ explicitly and never silently truncate.
 PolyJigsaw shows that cross-lingual dispersion and reconstruction defeat
 input-level alignment in pure text, with a clear language-load sweet spot, an
 advantage over multilingual-translation and CSRT baselines that is robust across
-independent judges, transfer to a frontier model, and resilience to an input-level
+independent judges, transfer to a commercial model, and resilience to an input-level
 defense. The reconstruction-gated metric isolates genuine compositional failures
 from empty jailbreaks. Our findings argue for \emph{process-aware} safety
 monitoring that inspects the reconstructed intent during generation rather than
@@ -605,9 +605,9 @@ is run through HuggingFace Transformers~4.40 because its tokenizer is incompatib
 with the newer stack. Judges (Qwen2.5-7B reconstruction, Qwen3Guard-Gen-8B,
 MD-Judge-v0.1) also run under vLLM/HF in bf16. All runs use a fixed seed
 ($20260901$) on $2\times$ NVIDIA H100-80GB; data are item-sharded across the two
-GPUs. The frontier target (GPT-4o-mini) is queried through the API with
+GPUs. The commercial target (GPT-4o-mini) is queried through the API with
 \texttt{temperature}$=0$ and \texttt{store}$=$false; the total API cost of the
-frontier study is under \$2.
+commercial-model study is under \$2.
 
 \subsection{Datasets and licenses}
 Lingua-SafetyBench (Text-Dominant collection) supplies the harmful items and their

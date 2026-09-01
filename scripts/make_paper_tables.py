@@ -63,7 +63,7 @@ def t_main():
         ("No-game $n{=}4$ (ablation)", "nogame_ordered_n4"),
         ("\\textbf{Slot} $k{=}1$ (ours)", "slot_k1"),
         ("\\textbf{Interleave} $n{=}4$ (ours)", "interleave_ordered_n4"),
-        ("\\textbf{Interleave} $n{=}10$ (ours)", "interleave_ordered_n10"),
+        ("\\textbf{Interleave} $n{=}6$ (ours)", "interleave_ordered_n6"),
     ]
     body = ""
     for lab, k in rows:
@@ -129,9 +129,9 @@ def t_frontier():
     for lab,k in rows:
         v=c.get(k) if k else None
         body += f"{lab} & {f(v['gated_asr']) if v else PEND} & {f(v.get('gated_asr_mdjudge')) if v else PEND} & {f(v.get('semantic_recon_rate'),2) if v else PEND} \\\\\n"
-    n=d.get("n_rows_compared") or ""
+    n=(c.get("english_direct",{}) or {}).get("n") or d.get("n_rows_compared") or ""
     (P/"tab_frontier.tex").write_text(r"""\begin{table}[t]\centering
-\caption{Frontier commercial target GPT-4o-mini (Lingua test subset, %s items). Interleaving lifts gated
+\caption{Commercial target GPT-4o-mini (Lingua test subset, %s items). Interleaving lifts gated
 ASR far above every multilingual baseline on a strongly-aligned model.}
 \label{tab:frontier}
 \begin{tabular}{l ccc}\toprule
@@ -150,8 +150,7 @@ def t_defense():
         v=src.get(k); return v.get("gated_asr") if v else None
     rows=[("english\\_direct","english_direct"),("CSRT (all)","csrt_all"),
           ("Translation (Finnish)","translated_direct_Finnish"),
-          ("\\textbf{Interleave} $n{=}4$","interleave_ordered_n4"),
-          ("\\textbf{Interleave} $n{=}10$","interleave_ordered_n10")]
+          ("\\textbf{Interleave} $n{=}4$","interleave_ordered_n4")]
     body=""
     for lab,k in rows:
         body += f"{lab} & {f(g(bc,k))} & {f(g(dc,k))} \\\\\n"

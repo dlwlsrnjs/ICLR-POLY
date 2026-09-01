@@ -88,3 +88,14 @@ Reviewer rated 4/10 (salvageable) and flagged real issues; fixed:
 - Added Table (matched slot_k vs csrt_k, full k=1/2/3 with McNemar) and Table (raw vs gated ASR).
 Still OPEN (need experiments): encoding-attack baseline; human validation of the gate; fill InternLM
 row (running); a second reconstruction judge; optional true-frontier target.
+
+## Iter 36-42 — table/claim consistency (reviewer round-1 completion)
+- tab_main: interleave rows n4/n6 (both computed) — removed pending n10.
+- tab_defense: restricted to conditions present in BOTH no-defense and defense runs (n4).
+- tab_frontier: item count filled (200); caption/section reworded "commercial" not "frontier".
+- targets table: only InternLM row remains \pending (experiment running; auto-fills).
+- Global "frontier" wording cleaned; kept only "largest frontier systems = future work".
+- Added encoding-attack baseline (Base64 + payload-splitting) to the pipeline and armed
+  run_encoding.sh (reviewer-required experiment) to run after InternLM + thinking-full.
+OPEN experiments queued: InternLM full row; thinking-full; encoding baseline; (todo) second
+reconstruction judge for gate validation; (optional) true frontier target.
