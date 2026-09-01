@@ -32,6 +32,8 @@ def main() -> int:
                     choices=["ordered", "shuffled"])
     ap.add_argument("--no-slots", action="store_true")
     ap.add_argument("--with-nogame", action="store_true")
+    ap.add_argument("--with-csrt", action="store_true")
+    ap.add_argument("--csrt-ks", type=int, nargs="+", default=[1, 2, 3])
     ap.add_argument("--system-prompt", default=None,
                     help="named or literal defense system prompt (MIDAS Table 7/8). "
                          "Use self_reminder / todo_list for the built-ins.")
@@ -52,7 +54,9 @@ def main() -> int:
                                      translated_langs=args.translated_langs,
                                      interleave_conditions=args.interleave_conditions,
                                      include_slots=not args.no_slots,
-                                     include_nogame=args.with_nogame):
+                                     include_nogame=args.with_nogame,
+                                     include_csrt=args.with_csrt,
+                                     csrt_ks=args.csrt_ks):
             jobs.append((record, cond))
 
     # Optional defensive system prompt (MIDAS Table 7/8 "defensive system prompts").

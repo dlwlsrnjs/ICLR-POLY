@@ -78,6 +78,34 @@ def interleave_game_prompt(puzzle: dict[str, Any]) -> str:
     ])
 
 
+def _csrt_replace_spans(original: str, alignments: list[dict[str, Any]], marked: bool) -> str:
+    """Replace English spans with their official foreign equivalents, right-to-left.
+
+    marked=False produces a natural code-switched sentence (bare foreign spans, no
+    labels) — this is the CSRT baseline. marked=True keeps the slot-tile markup.
+    Every foreign span is a verbatim substring of that language's official
+    translation, so the transform is meaning-preserving (no new translation).
+    """
+    output = original
+    for item in sorted(alignments, key=lambda x: x["english_start"], reverse=True):
+        rep = (f"\u27e6{item['language']}:{item['foreign_span']}\u27e7"
+               if marked else item["foreign_span"])
+        output = output[: item["english_start"]] + rep + output[item["english_end"]:]
+    return output
+
+
+def csrt_prompt(original: str, alignments: list[dict[str, Any]]) -> str:
+    """Code-Switching Red-Teaming (Yoo et al., 2024) baseline.
+
+    Intra-sentential code-switching: content spans are switched into other
+    languages within one sentence, which is then submitted DIRECTLY as the request
+    with no reassembly game, persona, or reconstruction instruction. This is the
+    multilingual-attack baseline we contrast our reconstruction game against; when
+    it uses the same k spans as slot_k, the only difference is the game framing.
+    """
+    return _csrt_replace_spans(original, alignments, marked=False)
+
+
 def interleave_nogame_prompt(puzzle: dict[str, Any]) -> str:
     """No-game ablation (MIDAS Table 5, "w/o Game-Style Reasoning").
 
@@ -102,7 +130,9 @@ def build_conditions(row: dict[str, Any], seed: int, interleave_ns: list[int],
                      translated_langs: list[str] | None = None,
                      interleave_conditions: list[str] | None = None,
                      include_slots: bool = True,
-                     include_nogame: bool = False) -> list[dict[str, Any]]:
+                     include_nogame: bool = False,
+                     include_csrt: bool = False,
+                     csrt_ks: list[int] | None = None) -> list[dict[str, Any]]:
     """Return [{condition, prompt, is_direct, reconstructed_if_direct}] for one item."""
     original = row["original"]
     questions = row["questions"]
@@ -159,6 +189,27 @@ def build_conditions(row: dict[str, Any], seed: int, interleave_ns: list[int],
                 "condition": f"slot_k{k}", "prompt": prompt,
                 "is_direct": False, "reconstructed": None,
             })
+
+    # Baseline: CSRT code-switching, matched to slot_k on the same official spans.
+    # Direct submission (faithful transform), so the reconstruction gate passes by
+    # construction and gated ASR == raw ASR, exactly like translated_direct.
+    if include_csrt:
+        accepted = row.get("official_slot_alignments") or []
+        for k in (csrt_ks or [1, 2, 3]):
+            if len(accepted) < k:
+                continue
+            conditions.append({
+                "condition": f"csrt_k{k}",
+                "prompt": csrt_prompt(original, accepted[:k]),
+                "is_direct": True, "reconstructed": original,
+            })
+        if accepted:
+            # Maximal faithful code-switch (all available spans).
+            conditions.append({
+                "condition": "csrt_all",
+                "prompt": csrt_prompt(original, accepted),
+                "is_direct": True, "reconstructed": original,
+            })
     return conditions
 
 
@@ -179,6 +230,10 @@ def main() -> int:
                     help="skip the inline-slot game conditions (interleaving sweep only)")
     ap.add_argument("--with-nogame", action="store_true",
                     help="also emit no-game ablation conditions (MIDAS w/o Game-Style)")
+    ap.add_argument("--with-csrt", action="store_true",
+                    help="also emit CSRT code-switching baseline conditions")
+    ap.add_argument("--csrt-ks", type=int, nargs="+", default=[1, 2, 3],
+                    help="k values (number of switched spans) for csrt_k conditions")
     ap.add_argument("--shard", default="0/1",
                     help="i/n: process only item indices where index %% n == i (GPU sharding)")
     ap.add_argument("--translated-langs", nargs="*", default=None,
@@ -199,7 +254,9 @@ def main() -> int:
                                      translated_langs=args.translated_langs,
                                      interleave_conditions=args.interleave_conditions,
                                      include_slots=not args.no_slots,
-                                     include_nogame=args.with_nogame):
+                                     include_nogame=args.with_nogame,
+                                     include_csrt=args.with_csrt,
+                                     csrt_ks=args.csrt_ks):
             jobs.append((record, cond))
 
     tokenizer = AutoTokenizer.from_pretrained(args.target)
