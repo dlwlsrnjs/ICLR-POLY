@@ -69,8 +69,17 @@ def main():
     ap.add_argument("--mdjudge-audit", default=None)
     ap.add_argument("--hr-audit", default=None)
     ap.add_argument("--output", required=True)
+    ap.add_argument("--split-file", default=None,
+                    help="jsonl of {item_id, split}; restrict to --split when given")
+    ap.add_argument("--split", default=None, choices=["dev", "test"],
+                    help="report only items in this split (config-freeze discipline)")
     ap.add_argument("--seed", type=int, default=20260901)
     args = ap.parse_args()
+
+    keep_ids = None
+    if args.split_file and args.split:
+        keep_ids = {json.loads(l)["item_id"] for l in Path(args.split_file).open(encoding="utf-8")
+                    if json.loads(l).get("split") == args.split}
 
     recon, guard = load(args.recon_audit), load(args.guard_audit)
     md, hr = load(args.mdjudge_audit), load(args.hr_audit)
@@ -78,6 +87,8 @@ def main():
     rows = []
     for key, g in guard.items():
         if not g.get("guard_parse_valid"):
+            continue
+        if keep_ids is not None and g["item_id"] not in keep_ids:
             continue
         r = recon.get(key, {})
         equiv = 1 if g.get("is_direct") else (
@@ -162,6 +173,8 @@ def main():
 
     out = {
         "design": "attack-method head-to-head on identical items and judges",
+        "split": args.split or "all",
+        "n_items_in_split": len(keep_ids) if keep_ids is not None else None,
         "judges": {"gate": "Qwen2.5-7B reconstruction equivalence",
                    "primary_safety": "Qwen3Guard-Gen-8B (Unsafe|Controversial)",
                    "cross_safety": "MD-Judge-v0.1" if md else None,

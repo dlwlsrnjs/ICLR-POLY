@@ -17,11 +17,21 @@ export HF_HOME=/home/ubuntu/342/jinkwon/hf_cache
 set -uo pipefail
 VPY=/home/ubuntu/342/jinkwon/poly/.vllm_env/bin/python
 GPU=${GPU:-1}
-LINGUA=private_artifacts/full_textdom/slot_game.jsonl   # 2879, carries official_slot_alignments
+LINGUA_BASE=private_artifacts/full_textdom/slot_game.jsonl   # 2879, carries official_slot_alignments
+LINGUA=private_artifacts/paper_main/lingua_csrtmt.jsonl      # base + full-coverage MT-CSRT prompts
 ATTAQ=/home/ubuntu/342/jinkwon/datasets/attaq/attaq_full_aligned.jsonl  # 1402, no span alignments
 ROOT=private_artifacts/paper_main
 mkdir -p "$ROOT"
 log(){ echo "[$(date +%H:%M:%S)] PAPER: $*"; }
+
+# ---- Stage 0: full-coverage MT-CSRT baseline prompts (NLLB) ----
+if [ ! -f "$LINGUA" ]; then
+  log "[stage0] building full-coverage MT-CSRT prompts (NLLB-1.3B)"
+  CUDA_VISIBLE_DEVICES=$GPU python3 scripts/build_csrt_mt.py \
+    --data "$LINGUA_BASE" --output "$LINGUA" --ks 2 3 \
+    --model facebook/nllb-200-distilled-1.3B --device cuda:0 --batch-size 64 \
+    > "$ROOT/csrt_mt.log" 2>&1 || { log "[stage0] MT-CSRT build failed; falling back to base data"; LINGUA="$LINGUA_BASE"; }
+fi
 
 # Full method set (Lingua has span alignments -> csrt/slot apply).
 LINGUA_TRANS="Arabic Chinese Finnish French German Japanese Norwegian Russian Spanish"
@@ -76,7 +86,19 @@ run_cell(){  # $1=name $2=data $3=target $4=trans $5=extra_flags $6=summary_pref
     --mdjudge-audit "$W/mdjudge/restricted_mdjudge_audit.jsonl" \
     --hr-audit "$W/hr/restricted_hr_audit.jsonl" \
     --output "results/${PFX}_method_comparison.json" >> "$W/summary.log" 2>&1
-  log "[$NAME] done -> results/${PFX}_*"
+  # Config-freeze reporting: main table on held-out TEST split, dev reported separately.
+  local SPLITFILE=experiments/lingua_splits.json
+  case "$NAME" in attaq*) SPLITFILE=experiments/attaq_splits.json;; esac
+  for SP in test dev; do
+    python3 scripts/compare_methods.py \
+      --recon-audit "$W/recon/restricted_reconstruction_audit.jsonl" \
+      --guard-audit "$W/guard/restricted_qwen3guard_audit.jsonl" \
+      --mdjudge-audit "$W/mdjudge/restricted_mdjudge_audit.jsonl" \
+      --hr-audit "$W/hr/restricted_hr_audit.jsonl" \
+      --split-file "$SPLITFILE" --split "$SP" \
+      --output "results/${PFX}_method_comparison_${SP}.json" >> "$W/summary.log" 2>&1 || true
+  done
+  log "[$NAME] done -> results/${PFX}_* (all/test/dev)"
 }
 
 # ---- Lingua (primary benchmark): full method set incl. CSRT + slot ----
@@ -84,6 +106,10 @@ run_cell lingua_qwen   "$LINGUA" Qwen/Qwen2.5-7B-Instruct          "$LINGUA_TRAN
   "--with-csrt --csrt-ks 1 2 3 --with-nogame" paper_lingua_qwen
 run_cell lingua_mistral "$LINGUA" mistralai/Mistral-7B-Instruct-v0.3 "$LINGUA_TRANS" \
   "--with-csrt --csrt-ks 1 2 3 --with-nogame" paper_lingua_mistral
+run_cell lingua_qwen3   "$LINGUA" Qwen/Qwen3-8B                        "$LINGUA_TRANS" \
+  "--with-csrt --csrt-ks 1 2 3 --with-nogame" paper_lingua_qwen3
+run_cell lingua_qwen32  "$LINGUA" Qwen/Qwen2.5-32B-Instruct           "$LINGUA_TRANS" \
+  "--with-csrt --csrt-ks 1 2 3 --with-nogame" paper_lingua_qwen32
 
 # ---- AttaQ (external generalisation): reuse the queue's AttaQ full generation ----
 # (run_attaq_gated_vllm uses AttaQ's own 7-language set; the text runner's fixed

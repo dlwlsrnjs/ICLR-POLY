@@ -210,6 +210,13 @@ def build_conditions(row: dict[str, Any], seed: int, interleave_ns: list[int],
                 "prompt": csrt_prompt(original, accepted),
                 "is_direct": True, "reconstructed": original,
             })
+        # Full-coverage MT-CSRT prompts precomputed by build_csrt_mt.py, if present.
+        for key, prompt in (row.get("prompts") or {}).items():
+            if key.startswith("csrt_mt_n"):
+                conditions.append({
+                    "condition": key.replace("csrt_mt_n", "csrt_mt_n"),
+                    "prompt": prompt, "is_direct": True, "reconstructed": original,
+                })
     return conditions
 
 
