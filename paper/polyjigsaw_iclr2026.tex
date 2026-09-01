@@ -417,17 +417,21 @@ about multilingual translation are fragile, consistent with StrongREJECT's cauti
 that judge choice materially changes measured ASR \citep{souly2024strongreject}.
 
 \subsection{Generalization across aligned models}
-Table~\ref{tab:targets} repeats the comparison on aligned open models. Interleaving
-lifts gated ASR far above english\_direct on every target and is the strongest attack
-on the Qwen family (Qwen2.5-7B $0.25\!\to\!0.69$, Qwen3-8B $0.23\!\to\!0.66$) and
-InternLM. On Phi-3.5-mini, however, interleaving reaches only $0.475$ while
-single-language translation reaches $0.843$: Phi's multilingual alignment appears
-weaker than its English alignment, so a fluent translated request already succeeds
-and the reconstruction overhead does not help. Interleaving is thus the most reliable
-attack \emph{across} targets, though not uniformly the single best on every target, a
-distinction we make explicit rather than paper over. Reasoning mode also matters:
-Qwen3-8B is evaluated with its ``thinking'' mode disabled, because thinking derails
-the attack (Sec.~\ref{sec:thinking}).
+Table~\ref{tab:targets} repeats the comparison on four aligned open models and
+reports both judges. Interleaving lifts gated ASR far above english\_direct on every
+target. Under the primary judge it is the strongest attack on the Qwen family
+(Qwen2.5-7B $0.25\!\to\!0.69$, Qwen3-8B $0.23\!\to\!0.66$), while on Phi-3.5-mini
+and InternLM single-language translation scores higher under that same judge
+($0.843$ and $0.640$ vs.\ interleaving's $0.475$ and $0.379$): these two models
+appear to have weaker multilingual than English alignment, so a fluent translated
+request already succeeds. That apparent advantage does not survive the cross judge.
+Under MD-Judge the translation scores fall steeply (Phi $0.843\!\to\!0.435$, InternLM
+$0.640\!\to\!0.259$), whereas interleaving is stable on all four targets
+(changes of at most $0.07$). Interleaving is therefore the \emph{judge-robust}
+attack across targets, and the cases where translation appears stronger are exactly
+the cases where its measured strength depends on the judge. Reasoning mode also
+matters: Qwen3-8B is evaluated with its ``thinking'' mode disabled, because thinking
+derails the attack (Sec.~\ref{sec:thinking}).
 
 \input{tab_targets.tex}
 

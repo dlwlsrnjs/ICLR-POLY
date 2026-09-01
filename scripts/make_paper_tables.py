@@ -10,6 +10,7 @@ import json
 from pathlib import Path
 
 R = Path("results"); P = Path("paper"); PA = Path("private_artifacts")
+BS = chr(92)
 PEND = "\\pending"
 
 
@@ -89,32 +90,37 @@ def t_targets():
                ("Qwen3-8B", "paper_lingua_qwen3_method_comparison_test"),
                ("Phi-3.5-mini", "paper_lingua_phi_method_comparison_test"),
                ("InternLM2.5-7B", "paper_lingua_internlm_method_comparison_test")]
-    header = r"Target & english & best transl. & CSRT (all) & interleave $n{=}4$ & interleave (best) \\"
     body = ""
     for tname, tf in targets:
         d = load(R / (tf + ".json"))
         if not d:
-            body += tname + " & " + " & ".join([PEND]*5) + " " + chr(92)*2 + "\n"
-            continue
+            body += tname + " & " + " & ".join([PEND]*5) + " " + BS*2 + "\n"; continue
         c = d["conditions"]; best = d["method_families"].get("best_translation")
         inter = {k: v for k, v in c.items() if k.startswith("interleave_ordered_") and v.get("gated_asr") is not None}
         bestint = max(inter.values(), key=lambda v: v["gated_asr"]) if inter else None
+        bt = c.get(best, {}) if best else {}
         cells = [
             f(c.get("english_direct", {}).get("gated_asr")),
-            f(c.get(best, {}).get("gated_asr")) if best else PEND,
-            f(c.get("csrt_all", {}).get("gated_asr")),
-            f(c.get("interleave_ordered_n4", {}).get("gated_asr")),
+            f(bt.get("gated_asr")), f(bt.get("gated_asr_mdjudge")),
             f(bestint["gated_asr"]) if bestint else PEND,
+            f(bestint.get("gated_asr_mdjudge")) if bestint else PEND,
         ]
-        body += tname + " & " + " & ".join(cells) + " " + chr(92)*2 + "\n"
-    tex = (r"\begin{table}[t]\centering" "\n"
-           r"\caption{Generalization across aligned open models (Lingua test split, gated ASR under Qwen3Guard). "
-           r"Interleaving exceeds every baseline on all four targets. ``best'' is the peak interleaving load "
-           r"available for that target ($n{=}6$ for Qwen2.5-7B/Phi-3.5, $n{=}10$ for Qwen3-8B/InternLM).}" "\n"
-           r"\label{tab:targets}" "\n"
-           r"\begin{tabular}{l ccccc}\toprule" "\n" + header + r"\midrule" "\n" + body +
-           r"\bottomrule\end{tabular}\end{table}" "\n")
-    (P / "tab_targets.tex").write_text(tex); print("tab_targets")
+        body += tname + " & " + " & ".join(cells) + " " + BS*2 + "\n"
+    header = ("Target & english & " + BS + "multicolumn{2}{c}{best translation} & "
+              + BS + "multicolumn{2}{c}{interleave (best, ours)} " + BS*2
+              + BS + "cmidrule(lr){3-4}" + BS + "cmidrule(lr){5-6}" + "\n"
+              + " & Guard & Guard & MD & Guard & MD " + BS*2)
+    tex = (BS+"begin{table}[t]"+BS+"centering\n"
+        +BS+"caption{Generalization across aligned open models (Lingua test split, gated ASR). "
+        "For the strongest single-language translation and for interleaving we report gated ASR "
+        "under both the primary judge (Qwen3Guard) and the cross judge (MD-Judge). Interleaving is "
+        "stable across judges on every target, whereas the translation baseline is strong under "
+        "Qwen3Guard but drops sharply under MD-Judge (e.g.\ InternLM $0.64$ to $0.26$), so its "
+        "apparent superiority on Phi-3.5 and InternLM is judge-dependent.}\n"
+        +BS+"label{tab:targets}\n"
+        +BS+"begin{tabular}{l c cc cc}"+BS+"toprule\n"
+        + header + "\n" + BS+"midrule\n" + body + BS+"bottomrule"+BS+"end{tabular}"+BS+"end{table}\n")
+    (P / "tab_targets.tex").write_text(tex); print("tab_targets (dual-judge)")
 
 def t_frontier():
     d = load(R/"paper_frontier_gpt-4o-mini_method_comparison.json")

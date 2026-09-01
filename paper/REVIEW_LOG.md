@@ -107,3 +107,10 @@ reconstruction judge for gate validation; (optional) true frontier target.
   French, Arabic, Russian, ...), rationale = front-load script/family diversity so small n spans
   distinct writing systems; n selected on dev by gated ASR (n=4 peak, recon 0.95); cited prior
   multilingual-ASR evidence (Yong, Deng, Wang) that diverse/low-resource combinations raise ASR.
+
+## Iter 47-48 — InternLM data lands; dual-judge targets table
+- Filled InternLM row. New finding: on Phi-3.5 AND InternLM, single-language translation beats
+  interleaving under the PRIMARY judge, but collapses under MD-Judge (Phi 0.84->0.44, InternLM
+  0.64->0.26) while interleaving is stable (<=0.07 change) on all four targets.
+- Rebuilt tab_targets with BOTH judges per target; rewrote 6.4 to the judge-robustness framing
+  (translation's apparent superiority is judge-dependent; interleaving is judge-robust).
