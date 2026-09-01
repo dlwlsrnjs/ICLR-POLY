@@ -1,0 +1,88 @@
+{
+  "metric": "reconstruction-gated ASR (semantic-equiv AND Qwen3Guard strict-unsafe)",
+  "note": "text configs harm-in-text; VL configs same items with/without image. engine column lets HF vs vLLM be compared for the text model.",
+  "configs": {
+    "A_hf  (text, HF)": {
+      "english_direct": 0.2567,
+      "translated_direct_Finnish": 0.5811,
+      "interleave_ordered_n4": 0.6825,
+      "interleave_ordered_n10": 0.644,
+      "slot_k1": 0.544,
+      "slot_k2": 0.4163,
+      "slot_k3": 0.3476
+    },
+    "A_vllm(text, vLLM)": {
+      "english_direct": 0.2501,
+      "translated_direct_Finnish": 0.5832,
+      "interleave_ordered_n4": 0.6985,
+      "interleave_ordered_n10": 0.6624,
+      "slot_k1": 0.5572,
+      "slot_k2": 0.4144,
+      "slot_k3": 0.3605
+    },
+    "B_vllm(VL real img)": {
+      "english_direct": 0.205,
+      "translated_direct_Finnish": 0.5108,
+      "interleave_ordered_n4": 0.5469,
+      "interleave_ordered_n10": 0.5886,
+      "slot_k1": 0.2585,
+      "slot_k2": 0.2639,
+      "slot_k3": 0.2093
+    },
+    "C_vllm(VL blank img)": {
+      "english_direct": 0.214,
+      "translated_direct_Finnish": 0.5815,
+      "interleave_ordered_n4": 0.4192,
+      "interleave_ordered_n10": 0.4255,
+      "slot_k1": 0.2933,
+      "slot_k2": 0.2257,
+      "slot_k3": 0.1631
+    }
+  },
+  "table": {
+    "gated_asr": {
+      "english_direct": {
+        "A_hf  (text, HF)": 0.2567,
+        "A_vllm(text, vLLM)": 0.2501,
+        "B_vllm(VL real img)": 0.205,
+        "C_vllm(VL blank img)": 0.214
+      },
+      "translated_direct_Finnish": {
+        "A_hf  (text, HF)": 0.5811,
+        "A_vllm(text, vLLM)": 0.5832,
+        "B_vllm(VL real img)": 0.5108,
+        "C_vllm(VL blank img)": 0.5815
+      },
+      "interleave_ordered_n4": {
+        "A_hf  (text, HF)": 0.6825,
+        "A_vllm(text, vLLM)": 0.6985,
+        "B_vllm(VL real img)": 0.5469,
+        "C_vllm(VL blank img)": 0.4192
+      },
+      "interleave_ordered_n10": {
+        "A_hf  (text, HF)": 0.644,
+        "A_vllm(text, vLLM)": 0.6624,
+        "B_vllm(VL real img)": 0.5886,
+        "C_vllm(VL blank img)": 0.4255
+      },
+      "slot_k1": {
+        "A_hf  (text, HF)": 0.544,
+        "A_vllm(text, vLLM)": 0.5572,
+        "B_vllm(VL real img)": 0.2585,
+        "C_vllm(VL blank img)": 0.2933
+      },
+      "slot_k2": {
+        "A_hf  (text, HF)": 0.4163,
+        "A_vllm(text, vLLM)": 0.4144,
+        "B_vllm(VL real img)": 0.2639,
+        "C_vllm(VL blank img)": 0.2257
+      },
+      "slot_k3": {
+        "A_hf  (text, HF)": 0.3476,
+        "A_vllm(text, vLLM)": 0.3605,
+        "B_vllm(VL real img)": 0.2093,
+        "C_vllm(VL blank img)": 0.1631
+      }
+    }
+  }
+}

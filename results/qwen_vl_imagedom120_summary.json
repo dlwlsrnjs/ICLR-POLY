@@ -1,0 +1,302 @@
+{
+  "primary_metric": "raw_asr (Qwen3Guard strict-unsafe on answer)",
+  "secondary_metric": "gated_asr (adds question reconstruction equivalence)",
+  "aggregate_all_modalities": {
+    "vl_english_direct": {
+      "n": 120,
+      "raw_asr": 0.2917,
+      "raw_asr_wilson95": [
+        0.2178,
+        0.3784
+      ],
+      "gated_asr": 0.2917
+    },
+    "vl_interleave_ordered_n10": {
+      "n": 120,
+      "raw_asr": 0.2917,
+      "raw_asr_wilson95": [
+        0.2178,
+        0.3784
+      ],
+      "gated_asr": 0.175
+    },
+    "vl_interleave_ordered_n4": {
+      "n": 120,
+      "raw_asr": 0.2583,
+      "raw_asr_wilson95": [
+        0.1884,
+        0.3433
+      ],
+      "gated_asr": 0.1583
+    },
+    "vl_translated_direct_Arabic": {
+      "n": 120,
+      "raw_asr": 0.2167,
+      "raw_asr_wilson95": [
+        0.1524,
+        0.2985
+      ],
+      "gated_asr": 0.2167
+    },
+    "vl_translated_direct_Chinese": {
+      "n": 120,
+      "raw_asr": 0.3083,
+      "raw_asr_wilson95": [
+        0.2327,
+        0.3958
+      ],
+      "gated_asr": 0.3083
+    },
+    "vl_translated_direct_French": {
+      "n": 120,
+      "raw_asr": 0.3167,
+      "raw_asr_wilson95": [
+        0.2402,
+        0.4045
+      ],
+      "gated_asr": 0.3167
+    },
+    "vl_translated_direct_Japanese": {
+      "n": 120,
+      "raw_asr": 0.2667,
+      "raw_asr_wilson95": [
+        0.1957,
+        0.3521
+      ],
+      "gated_asr": 0.2667
+    },
+    "vl_translated_direct_Russian": {
+      "n": 120,
+      "raw_asr": 0.275,
+      "raw_asr_wilson95": [
+        0.203,
+        0.3609
+      ],
+      "gated_asr": 0.275
+    }
+  },
+  "by_modality": {
+    "mixed": {
+      "vl_english_direct": {
+        "n": 40,
+        "raw_asr": 0.4,
+        "raw_asr_wilson95": [
+          0.2635,
+          0.554
+        ],
+        "gated_asr": 0.4
+      },
+      "vl_interleave_ordered_n10": {
+        "n": 40,
+        "raw_asr": 0.35,
+        "raw_asr_wilson95": [
+          0.2213,
+          0.5049
+        ],
+        "gated_asr": 0.225
+      },
+      "vl_interleave_ordered_n4": {
+        "n": 40,
+        "raw_asr": 0.35,
+        "raw_asr_wilson95": [
+          0.2213,
+          0.5049
+        ],
+        "gated_asr": 0.25
+      },
+      "vl_translated_direct_Arabic": {
+        "n": 40,
+        "raw_asr": 0.275,
+        "raw_asr_wilson95": [
+          0.1611,
+          0.4284
+        ],
+        "gated_asr": 0.275
+      },
+      "vl_translated_direct_Chinese": {
+        "n": 40,
+        "raw_asr": 0.4,
+        "raw_asr_wilson95": [
+          0.2635,
+          0.554
+        ],
+        "gated_asr": 0.4
+      },
+      "vl_translated_direct_French": {
+        "n": 40,
+        "raw_asr": 0.45,
+        "raw_asr_wilson95": [
+          0.3071,
+          0.6017
+        ],
+        "gated_asr": 0.45
+      },
+      "vl_translated_direct_Japanese": {
+        "n": 40,
+        "raw_asr": 0.325,
+        "raw_asr_wilson95": [
+          0.2008,
+          0.4798
+        ],
+        "gated_asr": 0.325
+      },
+      "vl_translated_direct_Russian": {
+        "n": 40,
+        "raw_asr": 0.325,
+        "raw_asr_wilson95": [
+          0.2008,
+          0.4798
+        ],
+        "gated_asr": 0.325
+      }
+    },
+    "typography": {
+      "vl_english_direct": {
+        "n": 40,
+        "raw_asr": 0.3,
+        "raw_asr_wilson95": [
+          0.1807,
+          0.4543
+        ],
+        "gated_asr": 0.3
+      },
+      "vl_interleave_ordered_n10": {
+        "n": 40,
+        "raw_asr": 0.275,
+        "raw_asr_wilson95": [
+          0.1611,
+          0.4284
+        ],
+        "gated_asr": 0.1
+      },
+      "vl_interleave_ordered_n4": {
+        "n": 40,
+        "raw_asr": 0.225,
+        "raw_asr_wilson95": [
+          0.1232,
+          0.375
+        ],
+        "gated_asr": 0.025
+      },
+      "vl_translated_direct_Arabic": {
+        "n": 40,
+        "raw_asr": 0.225,
+        "raw_asr_wilson95": [
+          0.1232,
+          0.375
+        ],
+        "gated_asr": 0.225
+      },
+      "vl_translated_direct_Chinese": {
+        "n": 40,
+        "raw_asr": 0.35,
+        "raw_asr_wilson95": [
+          0.2213,
+          0.5049
+        ],
+        "gated_asr": 0.35
+      },
+      "vl_translated_direct_French": {
+        "n": 40,
+        "raw_asr": 0.35,
+        "raw_asr_wilson95": [
+          0.2213,
+          0.5049
+        ],
+        "gated_asr": 0.35
+      },
+      "vl_translated_direct_Japanese": {
+        "n": 40,
+        "raw_asr": 0.325,
+        "raw_asr_wilson95": [
+          0.2008,
+          0.4798
+        ],
+        "gated_asr": 0.325
+      },
+      "vl_translated_direct_Russian": {
+        "n": 40,
+        "raw_asr": 0.4,
+        "raw_asr_wilson95": [
+          0.2635,
+          0.554
+        ],
+        "gated_asr": 0.4
+      }
+    },
+    "visual": {
+      "vl_english_direct": {
+        "n": 40,
+        "raw_asr": 0.175,
+        "raw_asr_wilson95": [
+          0.0875,
+          0.3195
+        ],
+        "gated_asr": 0.175
+      },
+      "vl_interleave_ordered_n10": {
+        "n": 40,
+        "raw_asr": 0.25,
+        "raw_asr_wilson95": [
+          0.1419,
+          0.4019
+        ],
+        "gated_asr": 0.2
+      },
+      "vl_interleave_ordered_n4": {
+        "n": 40,
+        "raw_asr": 0.2,
+        "raw_asr_wilson95": [
+          0.105,
+          0.3476
+        ],
+        "gated_asr": 0.2
+      },
+      "vl_translated_direct_Arabic": {
+        "n": 40,
+        "raw_asr": 0.15,
+        "raw_asr_wilson95": [
+          0.0706,
+          0.2907
+        ],
+        "gated_asr": 0.15
+      },
+      "vl_translated_direct_Chinese": {
+        "n": 40,
+        "raw_asr": 0.175,
+        "raw_asr_wilson95": [
+          0.0875,
+          0.3195
+        ],
+        "gated_asr": 0.175
+      },
+      "vl_translated_direct_French": {
+        "n": 40,
+        "raw_asr": 0.15,
+        "raw_asr_wilson95": [
+          0.0706,
+          0.2907
+        ],
+        "gated_asr": 0.15
+      },
+      "vl_translated_direct_Japanese": {
+        "n": 40,
+        "raw_asr": 0.15,
+        "raw_asr_wilson95": [
+          0.0706,
+          0.2907
+        ],
+        "gated_asr": 0.15
+      },
+      "vl_translated_direct_Russian": {
+        "n": 40,
+        "raw_asr": 0.1,
+        "raw_asr_wilson95": [
+          0.0396,
+          0.2305
+        ],
+        "gated_asr": 0.1
+      }
+    }
+  }
+}

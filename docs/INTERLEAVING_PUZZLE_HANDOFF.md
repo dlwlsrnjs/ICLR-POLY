@@ -7,6 +7,41 @@
 각 기존 보고서를 유지하고, 여기서는 새 interleaving 방법과 현재 실행 상태를 중심으로
 설명한다.
 
+## 0. 2026-08-28 갱신 — 로컬 Qwen 이식 완료 및 benign 곡선
+
+- §12의 "Qwen/HF 이전"을 로컬 open-weights로 구현했다. GPT-4o mini 전용
+  `run_openai_interleaving_probe.py`의 로컬 대응물은
+  `scripts/run_qwen_interleaving_probe.py`이며, 언어 수 부하를 조절하는
+  `--num-languages`(2/4/6/8/10) 인자를 추가했다. grid 실행은
+  `scripts/run_interleaving_sweep.py`이다.
+- §11의 언어 수 2/4/6/8/10 ablation을 `Qwen/Qwen2.5-7B-Instruct` 대상으로 benign
+  FLORES-200에서 수행했다(coarse, 20 items/cell). 결과·해석은
+  `docs/QWEN_INTERLEAVING_REPORT.md`에 있다. 요약: JSON 준수 100%, English 재구성은
+  언어 수에 단조 감소(2언어 ordered 0.55 → 10언어 shuffled 0.00), ordered ≫ shuffled,
+  all-language exact는 전 구간 0. → 안전 gate는 전체-정확이 아니라 English **의미 등가**
+  기준이어야 하고, 유해 arm 탐색 범위 K*는 대략 2~4언어 ordered로 좁혀진다.
+- 환경: `python3-venv` 없어서 `pip install --user`. 드라이버가 CUDA 12.8이므로 torch는
+  `--index-url https://download.pytorch.org/whl/cu128` (torch 2.8.0+cu128, 2×H100).
+  `HF_HOME=/home/ubuntu/342/jinkwon/hf_cache`.
+- **데이터셋 위치(확정):** Lingua-SafetyBench는 HF Storage bucket
+  `https://huggingface.co/buckets/jin-kwon/Lingua-SafetyBench-bucket`의 `dataset.zip`
+  (~25GiB, public)로 배포된다. 이 머신에서는
+  `/home/ubuntu/342/jinkwon/datasets/Lingua-SafetyBench/`에 받아 사용한다.
+- **다음 실행:** 압축 해제 후 `prepare_lingua_text.py`로 정렬 jsonl을 만들고, 동일 grid를
+  `--source lingua`로 돌려 유해 arm의 toxicity recall과 재구성 난이도를 benign과 짝지어
+  비교한다.
+- **reconstruction-gated ASR 비교 완료(2026-08-28):** "게임처럼 조립 후 수행 →
+  독립 judge로 탈옥 여부 별도 판정" 방식으로 english/번역 baseline vs 제안 게임을
+  동일 40개 항목에서 비교했다. Qwen2.5-7B target, Qwen3Guard-Gen-8B 안전 judge(공식
+  eval_gen 방식, [ANSWER]만), Qwen2.5-7B 재구성 judge, GPU 0/1 병렬. 핵심: 직접 번역
+  baseline은 대부분 무의미(Arabic/Finnish만 유의)한 반면, **interleaving 게임은
+  gated ASR 32.5%→n4 57.5%(+25%p, p=0.006)/n10 67.5%(+35%p, p=0.001)**로 상승하고
+  재구성도 92.5%/82.5%로 유지 → "정확 재구성 후 안전 실패"의 첫 증거. 과부하 과다(slot
+  k3)는 재구성 붕괴로 gated가 baseline까지 하락. 신규 스크립트
+  `run_polyjig_gated.py`, `summarize_polyjig_comparison.py`. 결과
+  `results/qwen_gated_comparison_dev40_summary.json`, 상세
+  `docs/QWEN_GATED_COMPARISON_REPORT.md`.
+
 ## 1. 현재 연구 질문
 
 새 방식은 같은 의미를 갖는 10개 공식 병렬 문장을 짧은 조각으로 나누고, 모든 조각을
