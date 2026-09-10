@@ -1,0 +1,27 @@
+% Difficulty-stratified query efficiency, FOUR strategies (scripts/query_eff_strat4.py; panel replay,
+% 200 reps, budget 12; queries-to-95%-oracle + within-budget solve rate). Stratum = #arms within 90% of
+% the per-target oracle (narrow=hard). ours = kernel + free structured prior; flat = same kernel,
+% uninformed (flat) prior; random = prior-free permutation; indep = structure-free independent-arm UCB.
+% narrow (n=17)
+\newcommand{\pjstNarrowN}{17}
+\newcommand{\pjstNarrowOursQ}{4.12}\newcommand{\pjstNarrowOursS}{81}
+\newcommand{\pjstNarrowFlatQ}{4.17}\newcommand{\pjstNarrowFlatS}{78}
+\newcommand{\pjstNarrowRandQ}{6.44}\newcommand{\pjstNarrowRandS}{46}
+\newcommand{\pjstNarrowIndQ}{4.64}\newcommand{\pjstNarrowIndS}{65}
+% mid (n=8)
+\newcommand{\pjstMidN}{8}
+\newcommand{\pjstMidOursQ}{4.65}\newcommand{\pjstMidOursS}{92}
+\newcommand{\pjstMidFlatQ}{5.05}\newcommand{\pjstMidFlatS}{51}
+\newcommand{\pjstMidRandQ}{5.27}\newcommand{\pjstMidRandS}{76}
+\newcommand{\pjstMidIndQ}{4.86}\newcommand{\pjstMidIndS}{88}
+% wide (n=2)
+\newcommand{\pjstWideN}{2}
+\newcommand{\pjstWideOursQ}{1.00}\newcommand{\pjstWideOursS}{100}
+\newcommand{\pjstWideFlatQ}{1.98}\newcommand{\pjstWideFlatS}{99}
+\newcommand{\pjstWideRandQ}{3.02}\newcommand{\pjstWideRandS}{97}
+\newcommand{\pjstWideIndQ}{5.50}\newcommand{\pjstWideIndS}{100}
+% ALL (pooled)
+\newcommand{\pjstAllOursQ}{4.02}\newcommand{\pjstAllOursS}{86}
+\newcommand{\pjstAllFlatQ}{4.14}\newcommand{\pjstAllFlatS}{72}
+\newcommand{\pjstAllRandQ}{5.58}\newcommand{\pjstAllRandS}{59}
+\newcommand{\pjstAllIndQ}{4.80}\newcommand{\pjstAllIndS}{74}

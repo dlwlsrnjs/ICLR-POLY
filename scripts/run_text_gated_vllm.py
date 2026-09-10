@@ -34,12 +34,17 @@ def main() -> int:
     ap.add_argument("--with-nogame", action="store_true")
     ap.add_argument("--with-csrt", action="store_true")
     ap.add_argument("--with-encoding", action="store_true")
+    ap.add_argument("--with-granularity", action="store_true")
+    ap.add_argument("--with-langpairs", action="store_true")
     ap.add_argument("--csrt-ks", type=int, nargs="+", default=[1, 2, 3])
     ap.add_argument("--system-prompt", default=None,
                     help="named or literal defense system prompt (MIDAS Table 7/8). "
                          "Use self_reminder / todo_list for the built-ins.")
     ap.add_argument("--translated-langs", nargs="*", default=["Finnish"])
     ap.add_argument("--gpu-memory-utilization", type=float, default=0.90)
+    ap.add_argument("--max-model-len", type=int, default=8192,
+                    help="context window to request; lower it for targets whose "
+                         "max_position_embeddings is below the default")
     ap.add_argument("--trust-remote-code", action="store_true")
     ap.add_argument("--no-thinking", action="store_true",
                     help="disable Qwen3-style thinking mode via chat_template_kwargs")
@@ -69,7 +74,9 @@ def main() -> int:
                                      include_nogame=args.with_nogame,
                                      include_csrt=args.with_csrt,
                                      csrt_ks=args.csrt_ks,
-                                     include_encoding=getattr(args,'with_encoding',False)):
+                                     include_encoding=getattr(args,'with_encoding',False),
+                                     include_granularity=getattr(args,'with_granularity',False),
+                                     include_langpairs=getattr(args,'with_langpairs',False)):
             jobs.append((record, cond))
 
     # Optional defensive system prompt (MIDAS Table 7/8 "defensive system prompts").
@@ -97,7 +104,7 @@ def main() -> int:
               gpu_memory_utilization=args.gpu_memory_utilization,
               trust_remote_code=args.trust_remote_code,
               tokenizer_mode=args.tokenizer_mode,
-              max_model_len=8192, enforce_eager=False)
+              max_model_len=args.max_model_len, enforce_eager=False)
     sampling = SamplingParams(temperature=0.0, max_tokens=args.max_new_tokens)
 
     started = time.time()

@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+"""Bootstrap 95% CIs (resampling the model panel) for the headline bandit numbers on each dataset:
+oracle, best fixed arm, and adaptive benign-recon at its operating budget. Reuses the arm/gated
+matrices built by mj_bandit_full and lingua_bandit_full. Pure offline (no GPU). Model-level
+bootstrap (n=7 panel) — reported as such; item-level CIs would need per-item judgments (not stored)."""
+import sys, json
+from pathlib import Path
+import numpy as np
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+
+def load_module(name, path):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(name, path)
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+
+
+def analyze(mod, tag, budget):
+    models = mod.STRONG if hasattr(mod, "STRONG") else mod.MODELS
+    G = mod.G; RC = mod.RC; FE = mod.FE; names = mod.names
+    from gp_bai import gp_bai
+    rng = np.random.default_rng(0)
+
+    allm = models
+    n_items = 64 if tag.startswith("Multi") else 40
+
+    def _probe(t):
+        return lambda a, t=t: float(np.clip(G[t][a] + rng.normal(0, np.sqrt(max(G[t][a] * (1 - G[t][a]), .01) / n_items)), 0, 1))
+
+    def adaptive_on(sample_models, B, reps=60):
+        accs = []
+        for _ in range(reps):
+            vs = []
+            for t in sample_models:
+                pr = np.mean([G[x] for x in allm if x != t], axis=0)   # cross-target (loo) prior, realistic noise
+                rec, _ = gp_bai(pr, FE, _probe(t), B)
+                vs.append(G[t][rec])
+            accs.append(np.mean(vs))
+        return float(np.mean(accs))
+
+    # fixed best arm chosen on the FULL panel (as in the paper), evaluated per bootstrap sample
+    fixed_arm = int(np.argmax(np.mean([G[t] for t in models], axis=0)))
+    # oracle/fixed: vectorized full bootstrap (cheap). adaptive: fewer resamples (gp_bai per model).
+    Gmax = np.array([G[t].max() for t in models]); Gfix = np.array([G[t][fixed_arm] for t in models])
+    idx = rng.integers(0, len(models), size=(2000, len(models)))
+    boot = {"oracle": list(Gmax[idx].mean(1)), "fixed": list(Gfix[idx].mean(1)), "adaptive": []}
+    for _ in range(300):
+        samp = [models[i] for i in rng.integers(0, len(models), size=len(models))]
+        boot["adaptive"].append(adaptive_on(samp, budget, reps=10))
+
+    def ci(x):
+        a = np.array(x)
+        return round(float(a.mean()), 3), round(float(np.percentile(a, 2.5)), 3), round(float(np.percentile(a, 97.5)), 3)
+
+    print(f"\n=== {tag} (n={len(models)} 모델, budget={budget}, oracle/fixed 2000·adaptive 300 bootstraps) ===")
+    out = {}
+    for k in ("oracle", "fixed", "adaptive"):
+        m, lo, hi = ci(boot[k])
+        out[k] = {"mean": m, "ci95": [lo, hi]}
+        label = {"oracle": "오라클", "fixed": f"최선고정({names[fixed_arm]})", "adaptive": f"적응@{budget}쿼리"}[k]
+        print(f"  {label:22s} {m:.3f}  95%CI[{lo:.3f}, {hi:.3f}]")
+
+    # PAIRED: per-model adaptive - fixed (correct, tighter than unpaired panel bootstrap)
+    adapt_t = {}
+    for t in models:
+        picks = []
+        for _ in range(200):
+            pr = np.mean([G[x] for x in allm if x != t], axis=0)   # loo prior, realistic noise
+            rec, _ = gp_bai(pr, FE, _probe(t), budget)
+            picks.append(G[t][rec])
+        adapt_t[t] = float(np.mean(picks))
+    deltas = np.array([adapt_t[t] - G[t][fixed_arm] for t in models])
+    di = rng.integers(0, len(models), size=(5000, len(models)))
+    bd = deltas[di].mean(1)
+    dm, dlo, dhi = round(float(deltas.mean()), 3), round(float(np.percentile(bd, 2.5)), 3), round(float(np.percentile(bd, 97.5)), 3)
+    n_pos = int((deltas >= -1e-9).sum())
+    print(f"  paired Δ(적응−고정)      {dm:+.3f}  95%CI[{dlo:+.3f}, {dhi:+.3f}]  (개선 모델 {n_pos}/{len(models)})")
+    out["paired_delta"] = {"mean": dm, "ci95": [dlo, dhi], "n_improved": n_pos, "n": len(models),
+                           "per_model": {t: round(adapt_t[t] - G[t][fixed_arm], 3) for t in models}}
+    return out
+
+
+if __name__ == "__main__":
+    mj = load_module("mjb", "scripts/mj_bandit_full.py")
+    lg = load_module("lgb", "scripts/lingua_bandit_full.py")
+    res = {"multijail": analyze(mj, "MultiJail", 2),
+           "lingua": analyze(lg, "Lingua-SafetyBench", 3)}
+    Path("results/bandit_ci_20260907.json").write_text(json.dumps(res, indent=2))
+    print("\nsaved results/bandit_ci_20260907.json")

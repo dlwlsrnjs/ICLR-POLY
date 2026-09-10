@@ -1,0 +1,11 @@
+\begin{table}[t]
+\centering
+\caption{Translation-source sensitivity on the Qwen2.5-7B test study. Released benchmark translations are compared with NLLB-200 machine translations. The observed rates describe these sources and configurations; they do not establish independence from translation quality.}
+\label{tab:mtrobust}
+\small
+\begin{tabular}{l cc}\toprule
+Fragment source & gated ASR & recon \\\midrule
+Official translations, interleave $n{=}4$ & 0.693 & 0.95 \\
+NLLB machine translation, interleave $n{=}4$ & 0.682 & 0.92 \\
+NLLB machine translation, interleave $n{=}10$ & 0.598 & 0.79 \\
+\bottomrule\end{tabular}\end{table}

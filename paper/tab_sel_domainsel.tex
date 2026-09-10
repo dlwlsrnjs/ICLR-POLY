@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Adapting per harm domain against adapting per target, at equal total harmful queries. A per-domain search must pay for every domain, so it only pays off once the total budget covers them; below that a single per-target choice is better. Verified ASR, domain-weighted, over the targets with per-item judgments.}
+\label{tab:sel_domainsel}
+\begin{tabular}{lccc|ccc}
+\toprule
+& \multicolumn{3}{c|}{Lingua-SafetyBench} & \multicolumn{3}{c}{MultiJail} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Total harmful queries & fixed & per target & per domain & fixed & per target & per domain \\
+\midrule
+3 & 0.699 & 0.756 & -- & 0.559 & 0.621 & -- \\
+5 & 0.699 & 0.801 & -- & 0.559 & 0.675 & -- \\
+8 & 0.699 & 0.801 & 0.599 & 0.559 & 0.674 & -- \\
+16 & 0.699 & 0.801 & 0.720 & 0.559 & 0.675 & 0.459 \\
+24 & 0.699 & 0.801 & 0.767 & 0.559 & 0.675 & 0.461 \\
+40 & 0.699 & 0.801 & 0.817 & 0.559 & 0.675 & 0.580 \\
+\bottomrule
+\end{tabular}
+\end{table}

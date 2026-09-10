@@ -1,0 +1,61 @@
+{
+  "scope": "Existing held-in selection evidence only; no experiment executed",
+  "source_hashes": {
+    "results/benign_prior_selection_20260907.json": "27fae1b0f4d5791587ef24bbf1c06390a2e0ecc28d7b924de1c0a99d3ccedc8d",
+    "scripts/benign_prior_selection.py": "4bea6514786e0f8620936afdf532306303b288adc1a6ad3eb0a8469b78e18a4b",
+    "scripts/benign_prior.py": "ed9838226eed417e9c4939feb3eaa7678cb3d8a86077238804c7d2f03d560cca",
+    "scripts/heldout_selector.py": "429ec56aa7d1610579c9d0c0df5d017c015f75ea9d949f5ea4554a7aa04f5ce0",
+    "scripts/benign_signals_probe.py": "11c380b4b0a442abb86e05c9e60bbc191fc0fdbaced6828e8a7151b0728423e1"
+  },
+  "collections": {
+    "MultiJail": {
+      "modal_recipe": "benign-recon x borderline-detail",
+      "fold_counts": {
+        "benign-recon x borderline-detail": 7,
+        "benign-recon x borderline-fiction_hold": 1,
+        "benign-recon x detail": 1
+      },
+      "fold_choices": {
+        "qwen25_3b": "benign-recon x borderline-detail",
+        "qwen25_7b": "benign-recon x borderline-detail",
+        "qwen25_14b": "benign-recon x borderline-detail",
+        "qwen25_32b": "benign-recon x borderline-detail",
+        "llama32_3b_it": "benign-recon x borderline-detail",
+        "llama31_8b_it": "benign-recon x borderline-detail",
+        "gemma2_2b_it": "benign-recon x borderline-detail",
+        "gemma2_9b_it": "benign-recon x borderline-fiction_hold",
+        "gemma2_27b": "benign-recon x detail"
+      },
+      "statistics": {
+        "flat": 0.406,
+        "benign-recon": 0.62,
+        "benign-recon x borderline-detail": 0.707,
+        "__loo__": 0.646
+      }
+    },
+    "Lingua-SafetyBench": {
+      "modal_recipe": "benign-recon x fiction_hold",
+      "fold_counts": {
+        "benign-recon x fiction_hold": 8,
+        "benign-recon x borderline-fiction_hold": 1
+      },
+      "fold_choices": {
+        "qwen25_3b": "benign-recon x fiction_hold",
+        "qwen25_7b": "benign-recon x fiction_hold",
+        "qwen25_14b": "benign-recon x fiction_hold",
+        "qwen25_32b": "benign-recon x fiction_hold",
+        "llama32_3b_it": "benign-recon x fiction_hold",
+        "llama31_8b_it": "benign-recon x borderline-fiction_hold",
+        "gemma2_2b_it": "benign-recon x fiction_hold",
+        "gemma2_9b_it": "benign-recon x fiction_hold",
+        "gemma2_27b": "benign-recon x fiction_hold"
+      },
+      "statistics": {
+        "flat": 0.589,
+        "benign-recon": 0.648,
+        "benign-recon x fiction_hold": 0.731,
+        "__loo__": 0.728
+      }
+    }
+  }
+}

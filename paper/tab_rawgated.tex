@@ -1,5 +1,5 @@
 \begin{table}[t]\centering
-\caption{Raw vs.\ reconstruction-gated ASR (Qwen2.5-7B, test). Direct conditions are faithful by construction (recon $=1$), so the gate does not lower them; only our reconstruction conditions are reduced by the gate, so gated ASR is a conservative measure of our attack.}
+\caption{Raw unsafe and reconstruction-gated rates. Direct conditions use a unit reconstruction gate by scoring convention, not measured semantic fidelity. The conjunction is evaluated on each response; raw and conditional unsafe rates have different denominators.}
 \label{tab:rawgated}
 \begin{tabular}{l ccc}\toprule
 Method & raw ASR & recon & gated ASR \\\midrule

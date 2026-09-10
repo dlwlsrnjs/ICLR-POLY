@@ -1,17 +1,17 @@
 \begin{table}[t]\centering
-\caption{Attack-method comparison on Lingua-SafetyBench (Qwen2.5-7B, held-out test split, $n{=}1727$ items).
-Gated ASR under the primary judge (Qwen3Guard) and cross judge (MD-Judge), mean HR (0--5), and
-reconstruction rate. Slot$_k$ and CSRT$_k$ use identical spans; their gap isolates the reconstruction game.}
+\small
+\setlength{\tabcolsep}{3.5pt}
+\caption{Qwen2.5-7B on the study test split. $N$ is the number of valid primary-judge rows for each condition, not a common denominator across all methods. The primary event includes Unsafe and Controversial labels; gated ASR includes its stored Wilson 95\% interval. MD is the cross-judge estimate, HR is mean harmfulness, and $R$ is reconstruction. Paired differences in the text use shared item IDs. Direct-condition $R=1$ is a scoring convention.}
 \label{tab:main}
-\begin{tabular}{l cccc}\toprule
-Method & gated ASR & gated (MD) & HR & recon\\\midrule
-english\_direct & 0.253 & 0.241 & 1.57 & 1.00 \\
-Translation (best: Finnish) \citep{yong2023lowresource} & 0.585 & 0.281 & 1.80 & 1.00 \\
-CSRT $k{=}2$ \citep{yoo2024csrt} & 0.283 & 0.299 & 1.64 & 1.00 \\
-CSRT (all spans) & 0.271 & 0.280 & 1.57 & 1.00 \\
-CSRT-MT $n{=}3$ & 0.364 & 0.336 & 1.54 & 1.00 \\
-No-game $n{=}4$ (ablation) & 0.337 & 0.292 & 1.73 & 0.64 \\
-\textbf{Slot} $k{=}1$ (ours) & 0.552 & 0.496 & 1.72 & 0.86 \\
-\textbf{Interleave} $n{=}4$ (ours) & 0.693 & 0.631 & 2.19 & 0.95 \\
-\textbf{Interleave} $n{=}6$ (ours) & 0.645 & 0.599 & 2.15 & 0.91 \\
+\begin{tabular}{l r c c c c}\toprule
+Condition & $N$ & gated ASR [95\% CI] & MD & HR & $R$ \\\midrule
+English direct & 1727 & 0.253 {\scriptsize [0.23, 0.27]} & 0.241 & 1.57 & 1.00 \\
+Finnish (dev-selected) & 1727 & 0.585 {\scriptsize [0.56, 0.61]} & 0.281 & 1.80 & 1.00 \\
+CSRT $k=2$ & 314 & 0.283 {\scriptsize [0.24, 0.34]} & 0.299 & 1.64 & 1.00 \\
+CSRT all spans & 649 & 0.271 {\scriptsize [0.24, 0.31]} & 0.280 & 1.57 & 1.00 \\
+CSRT-MT $n=3$ & 1727 & 0.364 {\scriptsize [0.34, 0.39]} & 0.336 & 1.54 & 1.00 \\
+No-game $n=4$ & 1727 & 0.337 {\scriptsize [0.32, 0.36]} & 0.292 & 1.73 & 0.64 \\
+Slot $k=1$ & 649 & 0.552 {\scriptsize [0.51, 0.59]} & 0.496 & 1.72 & 0.86 \\
+Interleave $n=4$ & 1727 & 0.693 {\scriptsize [0.67, 0.71]} & 0.631 & 2.19 & 0.95 \\
+Interleave $n=6$ & 1727 & 0.645 {\scriptsize [0.62, 0.67]} & 0.599 & 2.15 & 0.91 \\
 \bottomrule\end{tabular}\end{table}

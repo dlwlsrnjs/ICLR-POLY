@@ -1,0 +1,17 @@
+\begin{table}[t]\centering
+\small
+\setlength{\tabcolsep}{3.5pt}
+\caption{Reconstruction-judge sensitivity on the full-set analysis, distinct from the main held-out test table. Direct conditions retain the conventional unit gate. GPT-4o-mini labels 24,836 rows; a separate GPT-4o sample has 1,916 valid pairs out of 2,000 planned. Larger changes for shuffled conditions preclude a claim that every ranking is preserved. This is model-judge agreement, not human validation.}
+\label{tab:gateval}
+\begin{tabular}{l cc}\toprule
+Condition & Qwen gate & GPT-4o-mini gate \\\midrule
+English direct & 0.248 & 0.248 \\
+Finnish translation & 0.584 & 0.584 \\
+CSRT all & 0.269 & 0.269 \\
+No-game ordered $n=4$ & 0.339 & 0.174 \\
+Slot $k=1$ & 0.556 & 0.484 \\
+Interleave ordered $n=4$ & 0.700 & 0.627 \\
+Interleave ordered $n=6$ & 0.652 & 0.570 \\
+Interleave shuffled $n=4$ & 0.543 & 0.307 \\
+Interleave shuffled $n=6$ & 0.509 & 0.242 \\
+\bottomrule\end{tabular}\end{table}

@@ -1,0 +1,13 @@
+\begin{table}[t]
+\centering
+\caption{Original commercial-model comparison on 200-item subsets, with primary-judge Wilson intervals and MD-Judge scores. These fixed displayed conditions differ from the later 250-item structural panel. Rankings depend on the safety judge; results concern the evaluated model versions, not all current commercial models.}
+\label{tab:frontier2}
+\small
+\begin{tabular}{l cc cc}\toprule
+& \multicolumn{2}{c}{GPT-4o-mini} & \multicolumn{2}{c}{GPT-4o} \\\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Method & Guard (95\% CI) & MD & Guard (95\% CI) & MD \\\midrule
+english\_direct & 0.120 {\footnotesize [0.08, 0.17]} & 0.12 & 0.130 {\footnotesize [0.09, 0.18]} & 0.09 \\
+Translation (Finnish) & 0.215 {\footnotesize [0.16, 0.28]} & 0.06 & 0.255 {\footnotesize [0.20, 0.32]} & 0.085 \\
+\textbf{Interleave} $n{=}4$ & 0.730 {\footnotesize [0.66, 0.79]} & 0.675 & 0.195 {\footnotesize [0.15, 0.26]} & 0.165 \\
+\textbf{Interleave} $n{=}10$ & 0.780 {\footnotesize [0.72, 0.83]} & 0.7 & 0.205 {\footnotesize [0.15, 0.27]} & 0.175 \\
+\bottomrule\end{tabular}\end{table}

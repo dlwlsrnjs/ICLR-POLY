@@ -1,6 +1,5 @@
 \begin{table}[t]\centering
-\caption{Qwen3-8B with thinking disabled vs enabled (Lingua; no-think test split, think 240-item subset).
-Thinking mode's chain fails to terminate on the interleaving task, collapsing reconstruction.}
+\caption{Qwen3-8B reasoning-mode observations. Thinking OFF uses the test split; thinking ON uses a separate 240-item subset with a 5,120-token budget. Population and decoding differences prevent interpreting these rates as paired causal effects of thinking. Low reconstruction can include termination or formatting failures.}
 \label{tab:thinking}
 \begin{tabular}{l cc cc}\toprule
 & \multicolumn{2}{c}{thinking OFF} & \multicolumn{2}{c}{thinking ON}\\\cmidrule(lr){2-3}\cmidrule(lr){4-5}
@@ -9,4 +8,5 @@ english\_direct & 0.228 & 1.00 & 0.367 & 1.00 \\
 interleave $n{=}4$ & 0.631 & 0.97 & 0.013 & 0.03 \\
 interleave $n{=}10$ & 0.655 & 0.89 & 0.000 & 0.00 \\
 no-game $n{=}4$ & 0.462 & 0.73 & 0.471 & 0.75 \\
+no-game $n{=}10$ & 0.512 & 0.73 & 0.463 & 0.73 \\
 \bottomrule\end{tabular}\end{table}

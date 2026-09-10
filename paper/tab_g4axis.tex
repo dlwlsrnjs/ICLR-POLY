@@ -1,0 +1,17 @@
+\begin{table}[t]\centering\small
+\caption{GPT-4o (commercial frontier), verified ASR on $\pjgfourdecompn$ shared items under our judges, by attack axis. Comprehension is saturated (benign puzzle reconstruction $\pjcapgfourrecon$), so the multilingual puzzle alone is weak and the \emph{willingness} axis dominates; the classic AIM persona and PAP persuasion are fully defended, yet the puzzle \emph{rescues} the persona (AIM $\pjgfouraim\to$ interleave$+$persona $\pjgfourcombpersona$) and stacks with fiction. Pure non-refusal over-counts on the frontier exactly as the metric predicts (interleave-shuffled-$n{=}10$: raw $\pjgfourntenraw$, verified $\pjgfourntenverif$).}
+\label{tab:g4axis}
+\begin{tabular}{llc}
+\toprule
+Attack & axis & verified ASR \\
+\midrule
+nested fiction (alone) & willingness & \pjgfourfiction \\
+interleave $+$ nested fiction & comp.$\times$will. & \pjgfourcombincept \\
+role separation $+$ persona & comp.$\times$will. & \pjgfourrolesplit \\
+DeepInception (5-layer fiction) & willingness & \pjgfourdeepinc \\
+interleave $+$ AIM persona & comp.$\times$will. & \pjgfourcombpersona \\
+multilingual puzzle (best, alone) & comprehension & \pjgfourpuzzle \\
+AIM persona (alone) & willingness & \pjgfouraim \\
+PAP persuasion (alone) & willingness & \pjgfourpap \\
+\bottomrule
+\end{tabular}\end{table}

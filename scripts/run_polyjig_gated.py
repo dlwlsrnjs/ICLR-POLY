@@ -167,7 +167,9 @@ def build_conditions(row: dict[str, Any], seed: int, interleave_ns: list[int],
                      include_nogame: bool = False,
                      include_csrt: bool = False,
                      csrt_ks: list[int] | None = None,
-                     include_encoding: bool = False) -> list[dict[str, Any]]:
+                     include_encoding: bool = False,
+                     include_granularity: bool = False,
+                     include_langpairs: bool = False) -> list[dict[str, Any]]:
     """Return [{condition, prompt, is_direct, reconstructed_if_direct}] for one item."""
     original = row["original"]
     questions = row["questions"]
@@ -253,6 +255,27 @@ def build_conditions(row: dict[str, Any], seed: int, interleave_ns: list[int],
                     "prompt": prompt, "is_direct": True, "reconstructed": original,
                 })
 
+    # Per-language contribution: English + each single other language (n=2).
+    if include_langpairs:
+        for L in OTHER_LANGUAGES:
+            if L in questions and questions[L].strip():
+                pz = build_puzzle({"item_id": row["item_id"], "scenario": row["scenario"], "questions": questions},
+                                  [ENGLISH, L], "ordered", seed, "coarse", 5)
+                conditions.append({"condition": f"langpair_{L}",
+                                   "prompt": interleave_game_prompt(pz),
+                                   "is_direct": False, "reconstructed": None})
+
+    # Fragment-granularity ablation at n=4 ordered (justifies the fragment-size choice).
+    if include_granularity:
+        langs4 = select_languages(4)
+        if all(l in questions and questions[l].strip() for l in langs4):
+            base = {"item_id": row["item_id"], "scenario": row["scenario"], "questions": questions}
+            for tag, gran, nf in [("coarse3", "coarse", 3), ("coarse8", "coarse", 8), ("fine", "fine", 5)]:
+                pz = build_puzzle(base, langs4, "ordered", seed, gran, nf)
+                conditions.append({"condition": f"gran_{tag}_n4",
+                                   "prompt": interleave_game_prompt(pz),
+                                   "is_direct": False, "reconstructed": None})
+
     # Encoding baselines (decode-then-act family), reconstruction-gated like ours.
     if include_encoding:
         conditions.append({"condition": "enc_base64", "prompt": base64_prompt(original),
@@ -285,6 +308,10 @@ def main() -> int:
                     help="k values (number of switched spans) for csrt_k conditions")
     ap.add_argument("--with-encoding", action="store_true",
                     help="also emit Base64 and payload-splitting encoding baselines")
+    ap.add_argument("--with-granularity", action="store_true",
+                    help="also emit fragment-granularity ablation conditions at n=4")
+    ap.add_argument("--with-langpairs", action="store_true",
+                    help="also emit English+single-language (n=2) per-language conditions")
     ap.add_argument("--shard", default="0/1",
                     help="i/n: process only item indices where index %% n == i (GPU sharding)")
     ap.add_argument("--trust-remote-code", action="store_true")
@@ -309,7 +336,9 @@ def main() -> int:
                                      include_nogame=args.with_nogame,
                                      include_csrt=args.with_csrt,
                                      csrt_ks=args.csrt_ks,
-                                     include_encoding=getattr(args,'with_encoding',False)):
+                                     include_encoding=getattr(args,'with_encoding',False),
+                                     include_granularity=getattr(args,'with_granularity',False),
+                                     include_langpairs=getattr(args,'with_langpairs',False)):
             jobs.append((record, cond))
 
     tokenizer = AutoTokenizer.from_pretrained(args.target, trust_remote_code=args.trust_remote_code)

@@ -1,0 +1,13 @@
+\begin{table}[t]\centering
+\small
+\setlength{\tabcolsep}{3.5pt}
+\caption{Defense and detector observations from different study subsets. Perplexity AUC compares interleaving with direct harmful English, not benign inputs; a low AUC indicates score-direction reversal. The output filter is a retrospective MD-Judge screen against Qwen3Guard-defined successes. Benign utility and deployment false-positive rates were not measured.}
+\label{tab:defense2}
+\begin{tabular}{l l l}\toprule
+Intervention/statistic & Stage & Reported result \\\midrule
+Self-Reminder-style prompt & pre-generation & gated $0.693\to0.692$ \\
+Full-sequence perplexity & input & AUC 0.016 (reversed direction) \\
+Windowed-max perplexity & input & AUC 0.980 (different sample) \\
+Paraphrase then answer & pre-generation & gated $0.693\to0.408$ \\
+MD-Judge output screen & post-generation & gated $0.700\to0.079$ \\
+\bottomrule\end{tabular}\end{table}

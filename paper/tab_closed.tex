@@ -1,0 +1,16 @@
+\begin{table}[t]\centering\small
+\caption{\textbf{Attacks on a commercial closed target (GPT-4o).} Verified ASR on \pjgfourdecompn{} shared items, by attack axis. Comprehension is saturated (benign reconstruction \pjcapgfourrecon{}), so the puzzle alone is weak and the \emph{willingness} axis dominates: AIM and PAP are fully defended, yet the puzzle \emph{rescues} the persona and stacks with fiction; a separate selector pilot is not a matched comparison with this table (non-refusal over-counts here---interleave-shuffled-$n{=}10$: raw \pjgfourntenraw{}, verified \pjgfourntenverif{}).}
+\label{tab:closed}\label{tab:g4axis}
+\begin{tabular}{llc}
+\toprule
+Attack on GPT-4o & axis & verified ASR \\
+\midrule
+nested fiction (alone) & willingness & \textbf{\pjgfourfiction} \\
+interleave $+$ nested fiction & comp.$\times$will. & \pjgfourcombincept \\
+DeepInception (5-layer fiction) & willingness & \pjgfourdeepinc \\
+role separation $+$ persona & comp.$\times$will. & \pjgfourrolesplit \\
+interleave $+$ AIM persona & comp.$\times$will. & \pjgfourcombpersona \\
+multilingual puzzle (best, alone) & comprehension & \pjgfourpuzzle \\
+\bottomrule
+\end{tabular}
+\end{table}

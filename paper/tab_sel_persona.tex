@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Persona as a second axis. Each cell is the change in verified ASR from adding the AIM persona to the same multilingual interleaving (combination with vs.\ without persona); both are reconstruction-gated, so only the persona differs. The sign is tied to the model family (a persona helps the aligned Gemma and large Qwen targets and hurts the small ones), and the effect grows with model size, a proxy for alignment strength (Spearman $\rho$ against size, permutation $p$).}
+\label{tab:sel_persona}
+\begin{tabular}{lcc}
+\toprule
+Target & MultiJail & Lingua-SafetyBench \\
+\midrule
+Qwen2.5-3B & -0.171 & -0.075 \\
+Qwen2.5-7B & +0.016 & +0.175 \\
+Qwen2.5-14B & +0.407 & +0.500 \\
+Qwen2.5-32B & +0.484 & +0.550 \\
+Llama-3.2-3B & -0.094 & -0.175 \\
+Llama-3.1-8B & +0.047 & +0.025 \\
+Gemma-2-2B & +0.032 & +0.025 \\
+Gemma-2-9B & +0.485 & +0.700 \\
+Gemma-2-27B & +0.593 & +0.800 \\
+\midrule
+targets persona helps & 7/9 & 7/9 \\
+effect vs model size, Spearman $\rho$ & +0.81 & +0.82 \\
+permutation $p$ & 0.006 & 0.006 \\
+\bottomrule
+\end{tabular}
+\end{table}

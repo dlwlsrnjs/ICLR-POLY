@@ -1,0 +1,34 @@
+\begin{table}[t]
+\centering
+\small
+\caption{The configuration chosen on a target's average is usually not the best choice for its individual harm domains. \emph{Average-best wins} counts the domains on which the average-best configuration is still best; \emph{distinct winners} counts how many different configurations win at least one domain; \emph{max gap} is the largest verified-ASR loss from using the average-best configuration in a domain instead of that domain's best.}
+\label{tab:sel_domain}
+\begin{tabular}{llccc}
+\toprule
+Collection & Target & average-best wins & distinct winners & max gap \\
+\midrule
+Lingua-SafetyBench & Qwen2.5-3B & 4/8 & 4 & 0.216 \\
+ & Qwen2.5-7B & 3/8 & 4 & 0.067 \\
+ & Qwen2.5-14B & 3/8 & 3 & 0.143 \\
+ & Qwen2.5-32B & 5/8 & 2 & 0.029 \\
+ & Llama-3.2-3B & 7/8 & 2 & 0.107 \\
+ & Llama-3.1-8B & 2/8 & 3 & 0.175 \\
+ & Gemma-2-2B & 8/8 & 1 & 0.000 \\
+ & Gemma-2-9B & 5/8 & 2 & 0.081 \\
+ & Gemma-2-27B & 6/8 & 2 & 0.036 \\
+\cmidrule(lr){2-5}
+ & mean & 4.8/8 & 2.6 & 0.095 \\
+MultiJail & Qwen2.5-3B & 10/14 & 3 & 0.200 \\
+ & Qwen2.5-7B & 11/14 & 2 & 0.273 \\
+ & Qwen2.5-14B & 3/14 & 4 & 0.462 \\
+ & Qwen2.5-32B & 9/14 & 3 & 0.174 \\
+ & Llama-3.2-3B & 10/14 & 4 & 0.273 \\
+ & Llama-3.1-8B & 5/14 & 5 & 0.300 \\
+ & Gemma-2-2B & 14/14 & 1 & 0.000 \\
+ & Gemma-2-9B & 12/14 & 3 & 0.000 \\
+ & Gemma-2-27B & 10/14 & 3 & 0.182 \\
+\cmidrule(lr){2-5}
+ & mean & 9.3/14 & 3.1 & 0.207 \\
+\bottomrule
+\end{tabular}
+\end{table}

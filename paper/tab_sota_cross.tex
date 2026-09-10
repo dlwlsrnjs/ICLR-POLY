@@ -1,0 +1,14 @@
+\begin{table}[t]
+\centering
+\caption{Supplementary descriptive results for selected obfuscation implementations. Qwen uses 1,727 test items; GPT-4o baseline records use 250 items. The GPT-4o PolyJigsaw value comes from a separate structural panel whose item-ID intersection with these baselines was not reverified. Different settings and populations prevent a paired superiority or adaptive-policy claim. These observations do not establish general capability regimes.}
+\label{tab:sota_cross}
+\small
+\begin{tabular}{l cc cc}\toprule
+& \multicolumn{2}{c}{Qwen2.5-7B} & \multicolumn{2}{c}{GPT-4o} \\\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Attack & recon & gated & recon & gated \\\midrule
+FlipAttack, char-flip \citep{liu2024flipattack} & 0.00 & 0.000 & 0.81 & 0.492 \\
+FlipAttack, word-flip \citep{liu2024flipattack} & 0.02 & 0.020 & 0.96 & 0.616 \\
+DrAttack \citep{li2024drattack} & 1.00 & 0.369 & 0.80 & 0.120 \\
+\midrule
+\textbf{PolyJigsaw (separate panel)} & 0.95 & 0.693 & 1.00 & 0.660 \\
+\bottomrule\end{tabular}\end{table}

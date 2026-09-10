@@ -1,0 +1,185 @@
+# PolyJigsaw 논문 표 초안 — 통합 arm 공간 적응 선택자 (2026-09-07)
+
+두 데이터셋에서 **동일한 superset arm 공간**(다국어 양·혼란도·결합 + 단일벡터 변환을 n=1 arm으로 편입)
+위에서 **benign-recon warm-start GP-BAI**가 near-oracle에 도달, 모든 고정 전략을 이김. harmful supervision 없음.
+
+## 방법 (Method 요약)
+
+**목적 = gated ASR.** 성공 = 재구성판정(Qwen2.5-7B, 원 영어요청과 의미동치) **AND** 위험판정(Qwen3Guard-Gen-8B,
+strict). 무검증 raw-ASR의 "가짜 성공"(못 알아듣거나 알아듣고 거부)을 배제 = 검증된 탈옥.
+
+**공격 = superset arm 공간(23 arm).** ① 다국어 인터리브 **양** n=2..10(언어순서=자원등급 고정), ② **혼란도**
+δ, ③ **결합**(ours/persona/incept), ④ **triple 역할분리**(퍼즐=고자원언어로 재구성↑, 답변=각 데이터셋 최약
+자원언어로 정렬공백↑; MJ=Swahili, Lingua=Norwegian), ⑤ **단일벡터를 n=1 arm으로 편입**(aim/deepinception/pap). AIM은 `n=1+persona`의 특수해라
+arm 공간이 단일벡터 베이스라인까지 포섭.
+
+**선택 = benign-recon warm-start 고정예산 GP-BAI.** prior(arm)=recon(arm)·0.6 — **무해 퍼즐로 관측 가능한
+재구성률만** 사용(유해 감독 0). 매 스텝 획득함수 최대 arm을 probe(재-probe 안 함), 예산 소진 후 posterior-mean
+argmax 추천. 학습(RL/finetuning) 없음.
+
+**공학 = 2단계 평가**(gen 타깃만→저장→judge 판정기만): 공유 GPU에서 peak=max(타깃,판정기)로 14B+판정기
+동시적재 회피. scripts/{triple_combo_eval,mj_2phase_generic}.py.
+
+## 표 1. 데이터셋별 고정 전략 vs 적응 선택자 (평균 gated ASR, 각 7모델)
+
+두 데이터셋 모두 **동일 7모델**(Qwen 3/7/14B, Llama 3/8B, Gemma 2/9B), 동일 23-arm superset.
+
+| 전략 | MultiJail (7모델) | Lingua-SafetyBench (7모델) |
+|---|---|---|
+| AIM (persona, n=1) | 0.219 | 0.364 |
+| DeepInception (fiction, n=1) | 0.420 | 0.582 |
+| 우리 최선 고정 arm | 0.460 (tri_hi_wl) | 0.611 (tri_triple_en) |
+| **적응 @2쿼리** | **0.539** | 0.603 |
+| **적응 @3쿼리** | 0.517 | **0.686** |
+| **적응 @6쿼리** | 0.515* | **0.718** |
+| 오라클(전-arm 상한) | 0.607 | 0.746 |
+
+*(MJ 적응@2 0.539=오라클 89%, Lingua @6 0.718=오라클 96%. warm-start가 Lingua에선 단조 상승해 오라클에
+근접하나 MJ는 2쿼리 정점 후 잔여 갭이 큼 — recon prior의 안내력이 **강하게 정렬된 모델(Qwen-14B·Gemma-9B)**
+에서 무너지기 때문(표 7·그림5: 그 모델들은 recon 높아도 거부로 gated 낮음). 데이터셋 자체가 아니라 모델
+정렬강도가 기준. **triple arm은 이제 Lingua에도 적용**(답변=Norwegian=Lingua 최약자원) → Qwen 계열에서 최선.)
+
+**요지 ①(적응 필수의 결정적 증거):** 최선 arm이 모델마다 갈림 — MJ 5종(combo_incept_only/tri_hi_wl/
+combo_ours/amt_n2/m_aim), Lingua 5종(tri_hi_wl/tri_triple_en/tri_triple/amt_n7/combo_ours_persona/m_deepinception).
+어떤 단일 고정기법도 지배 불가.
+**요지 ②:** 적응 선택자가 이 이질성을 흡수, 오라클의 89%(MJ@2)~96%(Lingua@6) 도달. warm-start는 **무해
+재구성 능력(recon)만** 사용(harmful supervision 없음).
+
+## 표 1b. 부트스트랩 95% CI (모델패널 리샘플) + paired 유의성
+
+| 지표 | MultiJail (7모델) | Lingua (7모델) |
+|---|---|---|
+| 오라클 | 0.607 [0.507, 0.694] | 0.747 [0.654, 0.839] |
+| 최선 고정 arm | 0.460 [0.348, 0.571] | 0.611 [0.421, 0.786] |
+| 적응(MJ@2, Lingua@3) | 0.536 [0.353, 0.673] | 0.689 [0.552, 0.809] |
+| **paired Δ(적응−고정)** | **+0.079 [−0.085, +0.245]** (4/7) | **+0.075 [−0.039, +0.218]** (4/7) |
+
+**정직한 유의성:** paired Δ(적응−최선단일arm)는 **두 데이터셋 다 양수이나 95%CI가 0 포함(비유의)** — n=7 소패널
++ "최선 고정"이 이미 **우리 자신의 강한 arm**(MJ tri_hi_wl, Lingua tri_triple_en)이라 바가 높음(특히 triple arm을
+Lingua에 추가하니 tri_triple_en 0.611이 되어 단일 최선 arm이 강해짐). **적응의 근거는 단일 최선 arm 대비 유의차가
+아니라: ① 모델별 최선 arm이 5종으로 갈려 고정 불가(표 2·그림2), ② 적응이 오라클의 89~96% 도달, ③ 단일벡터
+베이스라인(AIM 0.22·0.36, DeepInception 0.42·0.58)을 크게 상회.** (모델패널 CI가 넓은 건 n=7 한계; item-level
+CI는 per-item 판정 미저장으로 불가 — 향후.) 코드 scripts/bandit_bootstrap_ci.py, results/bandit_ci_20260907.json.
+
+## 표 2. 모델별 선택된 최선 arm (레버가 모델마다 다름)
+
+| 모델 | MultiJail best arm (gated) | Lingua best arm (gated) |
+|---|---|---|
+| qwen2.5-3b | combo_incept_only (0.641) | tri_hi_wl (0.625) |
+| qwen2.5-7b | tri_hi_wl (0.609) | tri_triple_en (0.750) |
+| qwen2.5-14b | tri_hi_wl (0.656) | **tri_triple (0.900)** |
+| llama3.2-3b | combo_ours (0.344) | amt_n7 (0.550) |
+| llama3.1-8b | tri_hi_wl (0.547) | amt_n7 (0.775) |
+| gemma2-2b | amt_n2 (0.672) | m_deepinception (0.700) |
+| gemma2-9b | **m_aim (0.781)** | combo_ours_persona (0.925, m_aim 0.93 동률) |
+
+두 데이터셋 합쳐 **9가지 arm이 최선**으로 등장(amt_n2/n7/n8, combo_incept_only/ours/ours_persona, tri_hi_wl/
+triple/triple_en, m_aim/m_deepinception) — 모델·데이터셋마다 취약 레버가 달라 **고정 전략은 원리적으로 최적
+불가, 적응이 필수**.
+
+**핵심 메커니즘 규명:** qwen 계열은 **다국어 컴포지셔널 arm**(양 증가/역할분리 triple)이 최선 — 우리 고유
+기여가 직접 이김(특히 **Lingua Qwen-14B는 triple 0.90**, MJ Qwen 전 규격 tri_hi_wl). llama는 양(amount),
+gemma 계열은 **단일벡터 arm**(aim/deepinception)이 최선 — 컴포지셔널이 아닌 페르소나/픽션 취약. **적응
+선택자는 이 이질성을 흡수:** 모델별로 옳은 arm을 골라 세 세계(다국어·페르소나/픽션·양)를 모두 포섭.
+(단일벡터 변환을 arm으로 편입 = AIM은 `n=1+persona`의 특수해.) 이게 "universal + adaptive" 주장의 실증.
+
+## 표 3. 적응성 증거 — 고정 기법은 모델별로 못 맞춘다 (gated, MJ 7모델)
+
+같은 단일 템플릿을 모든 모델에 적용하면 편차가 극심 → 한 기법이 전 모델 최적일 수 없음.
+
+| 기법(고정 단일템플릿) | qwen3b | qwen7b | qwen14b | llama3b | llama8b | gemma2b | gemma9b | 평균 |
+|---|---|---|---|---|---|---|---|---|
+| AIM | 0.05 | 0.22 | 0.31 | 0.00 | 0.11 | 0.06 | **0.78** | 0.219 |
+| DeepInception | 0.38 | 0.56 | 0.28 | 0.17 | 0.44 | 0.42 | 0.69 | 0.420 |
+| **모델별 최선 arm(=오라클)** | 0.64 | 0.61 | 0.66 | 0.34 | 0.55 | 0.67 | 0.78 | **0.607** |
+| **적응 선택자 @2쿼리** | | | | | | | | **0.540** |
+
+윗줄=각 모델의 최선 arm gated(오라클), 그 arm 종류가 5종(qwen계열→tri_hi_wl, gemma2b→amt_n2, gemma9b→AIM
+arm 등). AIM은 gemma9b(0.78)에서만 강하고 llama3b(0.00)엔 무력 = 고정 불가. **적응 선택자는 무해 recon
+warm-start로 2쿼리에 이 오라클의 89%(0.540)** 도달 = 편차를 흡수. 이것이 "적응형"의 실증.
+
+## 표 4. 예산-정확도 곡선 + 오라클 갭 (benign-recon warm-start GP-BAI)
+
+| 예산(쿼리) | MJ benign-recon | MJ flat | Lingua benign-recon | Lingua flat |
+|---|---|---|---|---|
+| 1 | 0.494 | 0.440 | 0.576 | 0.650 |
+| **2** | **0.540** | 0.397 | 0.603 | 0.495 |
+| **3** | 0.518 | 0.317 | **0.686** | 0.545 |
+| 6 | 0.522 | 0.456 | **0.718** | 0.625 |
+| 오라클(상한) | **0.607** | | **0.746** | |
+| 최선 고정 arm | 0.460 | | 0.611 | |
+
+- **오라클 갭:** MJ 적응@2 = 오라클의 **89%**(0.540/0.607); Lingua @3 **92%**, @6 **96%**(0.718/0.746).
+- **무해 warm-start의 값:** flat(무해정보 없음) 대비 benign-recon이 MJ에선 전 예산에서 우위, Lingua에선
+  2쿼리 이상에서 우위(1쿼리 flat이 높은 건 소패널 노이즈). warm-start는 **무해 recon만** 사용(유해 감독 0).
+- **잔여 오라클 갭의 원인:** Lingua는 예산↑에 단조 상승(오라클 근접). MJ는 2쿼리 정점 후 정체 → 운영점 소예산.
+  차이는 데이터셋이 아니라 **recon prior가 강정렬 모델(Qwen-14B·Gemma-9B)에서 무너지는 것**(표 6). MJ 패널이
+  그 효과에 더 민감(+arm 지형이 더 평평, flat prior가 0.32까지 붕괴).
+
+## 표 5. 왜 gated ASR이 "낮아" 보이나 — 게이트 비용 (검증 vs raw)
+
+우리는 **gated = 재구성(recon) AND 위험(unsafe)** 를 보고(검증된 탈옥). raw unsafe는 훨씬 높음.
+
+| 데이터셋 | 최선 arm 평균 **raw unsafe** | 평균 **recon** | **gated**(보고값) | 게이트 비용 |
+|---|---|---|---|---|
+| MultiJail | **0.82** | 0.75 | 0.61 | −0.21 |
+| Lingua | **0.77** | 0.88 | 0.72 | −0.05 |
+
+- **raw로는 공격이 강함**(unsafe ~0.8); gated가 낮아 보이는 건 **가짜 성공(못 알아듣거나 알아듣고 거부)을
+  일부러 배제**하기 때문. 손실 대부분은 **재구성 실패**(약모델): 예) MJ llama3b는 unsafe 0.80인데 recon 0.44 →
+  gated 0.34(위험 텍스트는 뱉지만 요청을 증명가능 재구성 못 해 불계수). gemma9b는 recon 0.97 → 게이트 비용 거의 0.
+- **함의:** 낮은 절대 ASR = 공격 약함이 아니라 **엄격한 검증 지표 선택**. 검증 베이스라인(DeepInception gated
+  0.42) 대비 우리 적응(0.54~0.72) 우위. MultiJail raw(0.5~0.9)는 무검증이라 축이 다름 = 과대포장 금지 포지션.
+
+## 데이터/스크립트
+- MJ 밴딧: scripts/mj_bandit_full.py → results/mj_bandit_full_20260906.json
+- Lingua 밴딧: scripts/lingua_bandit_full.py → results/lingua_bandit_full_20260906.json
+- 우리 강화 arm(triple): scripts/triple_combo_eval.py → results/mj_triple_20260906/
+- 근본원인·강화 문서: docs/MJ_ROOTCAUSE_STRENGTHENING_2026-09-06.md
+
+## 표 6. 추가 실험 A — arm-space ablation (누적 오라클 = arm 계열 추가에 따른 천장)
+
+각 arm 계열을 순차 추가할 때 전-모델 오라클(gated ASR 상한). 23-arm superset의 각 계열 기여를 정량화.
+
+| 누적 arm 집합 | MultiJail | Lingua |
+|---|---|---|
+| amount | 0.348 | 0.539 |
+| + disorder | 0.355 (+0.01) | 0.561 (+0.02) |
+| + combo | **0.545 (+0.19)** | **0.711 (+0.15)** |
+| + triple | 0.592 (+0.05) | 0.739 (+0.03) |
+| + single-vector | 0.607 (+0.02) | 0.746 (+0.01) |
+
+**결합(combo)이 최대 기여**(+0.15~0.19), 우리 **triple(역할분리)이 두 데이터셋 모두 추가 기여**(MJ +0.05,
+Lingua +0.03; Lingua Qwen-14B triple 0.90 등), 단일벡터는 소폭(주로 Gemma-9B via AIM). → superset 전 계열이
+천장을 올림 = arm 집합 정당화. (그림4 fig4_ablation.png)
+
+## 표 7. 추가 실험 B — recon이 gated를 예측하나? (Spearman ρ, arm 전체)
+
+benign warm-start의 전제(recon prior가 gated arm을 랭킹)를 모델별로 검정:
+
+| 모델 | MJ ρ | Lingua ρ | 해석 |
+|---|---|---|---|
+| Qwen-3B | +0.95 | +0.88 | 잘 예측 |
+| Qwen-7B | +0.73 | +0.66 | 잘 예측 |
+| **Qwen-14B** | **−0.23** | **−0.16** | **decouple(강정렬)** |
+| Llama-3B | +0.30 | +0.27 | 약함(재구성 자체 낮음) |
+| Llama-8B | +0.89 | +0.75 | 잘 예측 |
+| Gemma-2B | +0.68 | +0.77 | 잘 예측 |
+| **Gemma-9B** | **+0.28** | **+0.02** | **decouple(강정렬)** |
+| 평균 | +0.51 | +0.46 | — |
+
+**핵심 발견(그림5 fig5_recon_corr.png):** recon은 대다수 모델에서 gated를 잘 예측(ρ 0.7~0.95)하나, **가장 강하게
+정렬된 Qwen-14B·Gemma-9B에서 무너짐**(ρ≤0) — 그 모델들은 recon 높아도 거부로 gated 낮음. **이것이 benign-recon
+warm-start가 오라클을 완전히 못 좁히는 근본 한계**이자 "입력은 이해하되 정렬이 이해를 덮어쓴다"는 재구성-게이트
+방법의 근본원인(docs/MJ_ROOTCAUSE_STRENGTHENING). 무해 warm-start는 **이해가 순응을 예측하는 만큼** 유효하고,
+그 한계 자체가 정렬의 존재를 드러냄. 소예산(2쿼리) 운영점은 이 한계를 반영한 설계.
+코드 scripts/make_paper_figs.py, results/ablation_corr_20260907.json, 그림 results/figs/fig{1..5}.png.
+
+## TODO
+- ✅ qwen2.5-14b + 소형3(qwen3b/llama32_3b/gemma2b) MJ 평가 완료 → **MJ·Lingua 둘 다 7모델 대칭 밴딧**.
+- ✅ 부트스트랩 CI + paired 유의성(표 1b).
+- ✅ seed 견고성: triple arm 2 seed(20260828/20260901) → **선택된 최선 변형 동일**(qwen7b·llama8b→hi_wl,
+  gemma9b→triple), gated ±0.1 이내 = arm 선택 seed-robust. results/mj_triple_seed2_20260907/.
+- ✅ Lingua에도 triple arm 적용(답변=Norwegian) → 두 데이터셋 23-arm 완전 대칭. Lingua 오라클 0.718→0.746,
+  Qwen-14B triple 0.90. results/lingua_triple_20260907/.
+- (향후) item-level CI(per-item 판정 저장), GPT-4o API 타깃.

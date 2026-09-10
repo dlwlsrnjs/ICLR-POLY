@@ -47,7 +47,7 @@ OTHER_LANGUAGES = [
     "Norwegian",
 ]
 ALL_LANGUAGES = [ENGLISH, *OTHER_LANGUAGES]
-CJK_LANGUAGES = {"Chinese", "Japanese"}
+CJK_LANGUAGES = {"Chinese", "Japanese", "Thai"}
 FLORES_COLUMNS = {
     "Arabic": "arb_Arab",
     "Chinese": "zho_Hans",

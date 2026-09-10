@@ -1,0 +1,31 @@
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4.5pt}
+\caption{\textbf{Headline comparison.} Verified attack success (reconstruction-gated ASR, model-averaged) on the nine held-in panel models and on vendor-disjoint held-out models, vs.\ external single-vector attacks and the best fixed configuration. Held-in single-vector baselines get the baseline-favourable ungated score (Section~\ref{sec:gate}); the selector uses no harmful supervision. \emph{PPL} is median prompt perplexity under Qwen2.5-7B (lower evades a perplexity filter). $^{\dagger}$held-out means over the same $n{=}\pjhoMJn{}$ models. The best fixed configuration is low-resource translation \citep{yong2023lowresource}. Paired $\Delta$ vs.\ best fixed and query cost: Appendix~\ref{app:paireddelta}.}
+\label{tab:headline}\label{tab:sel_main}
+\begin{tabular}{l cc cc c}
+\toprule
+& \multicolumn{2}{c}{Held-in (9 models)} & \multicolumn{2}{c}{Held-out ($n{=}\pjhoMJn{}$)$^{\dagger}$} & \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Method (verified ASR) & MJ & LG & MJ & LG & PPL \\
+\midrule
+\multicolumn{6}{l}{\emph{External published attacks (single vector, fixed template)}}\\
+\quad PAP \citep{zeng2024pap} & \pjmpapMJ{} & \pjmpapLG{} & \pjhoMJpap{} & \pjhoLGpap{} & \pjpplpap{} \\
+\quad DeepInception \citep{li2023deepinception} & \pjmdeepinceptionMJ{} & \pjmdeepinceptionLG{} & \pjhoMJdeepinception{} & \pjhoLGdeepinception{} & \pjppldeepinception{} \\
+\quad AIM persona \citep{wei2023jailbroken} & \pjmaimMJ{} & \pjmaimLG{} & \pjhoMJaim{} & \pjhoLGaim{} & \pjpplaim{} \\
+\midrule
+\multicolumn{6}{l}{\emph{External obfuscation \& decomposition attacks (request hidden, scored gated as ours)}}\\
+\quad DrAttack \citep{li2024drattack} & \pjHIdrattackMJ{} & \pjHIdrattackLG{} & \pjHOdrattackMJ{} & \pjHOdrattackLG{} & \pjppldrattack{} \\
+\quad FlipAttack \citep{liu2024flipattack} & \pjHIflipMJ{} & \pjHIflipLG{} & \pjHOflipMJ{} & \pjHOflipLG{} & \pjpplflip{} \\
+\midrule
+\multicolumn{6}{l}{\emph{Best fixed configuration (no per-target search)}}\\
+\quad best fixed configuration & \pjfixedMJ{} & \pjfixedLG{} & \pjhoMJfixed{} & \pjhoLGfixed{} & -- \\
+\midrule
+\multicolumn{6}{l}{\emph{Per-target selection (ours)}}\\
+\quad selector, fixed 3-query & \pjadThreeMJ{} & \pjadThreeLG{} & \pjhoMJsel{} & \pjhoLGsel{} & \pjpplours{} \\
+\quad \textbf{selector, difficulty-adaptive} & \textbf{\pjadaptMJ{}} & \textbf{\pjadaptLG{}} & \textbf{\pjhoMJadapt{}} & \textbf{\pjhoLGadapt{}} & \textbf{\pjpplours{}} \\
+\quad oracle (best arm per model) & \pjoracleMJ{} & \pjoracleLG{} & \pjhoMJoracle{} & \pjhoLGoracle{} & -- \\
+\bottomrule
+\end{tabular}
+\end{table}

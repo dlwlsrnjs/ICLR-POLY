@@ -1,10 +1,10 @@
 \begin{table}[t]\centering
-\caption{Generalization across aligned open models (Lingua test split, gated ASR). For the strongest single-language translation and for interleaving we report gated ASR under both the primary judge (Qwen3Guard) and the cross judge (MD-Judge). Interleaving is stable across judges on every target, whereas the translation baseline is strong under Qwen3Guard but drops sharply under MD-Judge (e.g.\ InternLM $0.64$ to $0.26$), so its apparent superiority on Phi-3.5 and InternLM is judge-dependent.}
+\small
+\setlength{\tabcolsep}{3.5pt}
+\caption{Cross-target descriptive comparison. Translation and ordered-interleaving columns select the highest primary-judge rate within each evaluated test set, then show that same condition under MD-Judge. These are test maxima, not validated performance of a development-selected or adaptive policy. Judge differences do not establish accuracy; secondary denominators are not retained in every source aggregate.}
 \label{tab:targets}
 \begin{tabular}{l c cc cc}\toprule
-Target & english & \multicolumn{2}{c}{best translation} & \multicolumn{2}{c}{interleave (best, ours)} \\\cmidrule(lr){3-4}\cmidrule(lr){5-6}
- & Guard & Guard & MD & Guard & MD \\
-\midrule
+Target & English & Trans. Guard & Trans. MD & Interl. Guard & Interl. MD \\\midrule
 Qwen2.5-7B & 0.253 & 0.585 & 0.281 & 0.693 & 0.631 \\
 Qwen3-8B & 0.228 & 0.596 & 0.312 & 0.655 & 0.579 \\
 Phi-3.5-mini & 0.081 & 0.843 & 0.435 & 0.475 & 0.406 \\

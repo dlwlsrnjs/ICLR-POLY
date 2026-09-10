@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Spearman correlation with verified ASR across the 23 configurations. The harmless probe ranks configurations on the smaller targets and loses its grip on the larger, more strongly aligned member of each family, which bounds what a warm start can buy. The right-hand pair is the reconstruction column of the harmful runs, which is not an admissible prior and is shown only because it shares a factor with the target and so looks stronger.}
+\label{tab:sel_corr}
+\begin{tabular}{lcc|cc}
+\toprule
+& \multicolumn{2}{c|}{harmless probe} & \multicolumn{2}{c}{harmful-run recon (reference)} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Target & MultiJail & Lingua & MultiJail & Lingua \\
+\midrule
+Qwen2.5-3B & +0.72 & +0.28 & +0.92 & +0.50 \\
+Qwen2.5-7B & +0.60 & +0.25 & +0.69 & +0.55 \\
+\textbf{Qwen2.5-14B} & +0.39 & -0.10 & -0.11 & -0.37 \\
+\textbf{Qwen2.5-32B} & +0.05 & -0.17 & -0.13 & -0.23 \\
+\textbf{Llama-3.2-3B} & -0.04 & -0.10 & +0.35 & +0.29 \\
+Llama-3.1-8B & +0.65 & +0.26 & +0.77 & +0.65 \\
+Gemma-2-2B & +0.42 & +0.34 & +0.40 & +0.37 \\
+\textbf{Gemma-2-9B} & +0.27 & +0.07 & +0.26 & +0.04 \\
+\textbf{Gemma-2-27B} & +0.25 & -0.03 & -0.06 & -0.09 \\
+\midrule
+mean & +0.37 & +0.09 & +0.34 & +0.19 \\
+\bottomrule
+\end{tabular}
+\end{table}

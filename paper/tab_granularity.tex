@@ -1,0 +1,10 @@
+\begin{table}[t]\centering
+\caption{Fragment-granularity ablation (interleave $n{=}4$ ordered, Qwen2.5-7B, test). Finer fragments collapse reconstruction and gated ASR; a coarse split is best, mirroring the language-load sweet spot.}
+\label{tab:granularity}
+\begin{tabular}{l cc}\toprule
+Fragment granularity & gated ASR & recon \\\midrule
+coarse, 3 frags/lang & 0.715 & 0.97 \\
+coarse, 5 (default) & 0.693 & 0.94 \\
+coarse, 8 frags/lang & 0.651 & 0.90 \\
+fine (2--5 tokens) & 0.589 & 0.83 \\
+\bottomrule\end{tabular}\end{table}

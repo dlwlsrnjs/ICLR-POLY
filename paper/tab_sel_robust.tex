@@ -1,0 +1,28 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Debiasing and family-ablation checks. \emph{Oracle, debiased} subtracts the winner's curse of taking a maximum over 23 arms measured on this many items, estimated by simulating a target whose arms are all equal. \emph{Family removed} is the oracle lost by deleting one family from the full space, which is what each family is worth once the others are present. Best-fixed and published-attack baselines are in Table~\ref{tab:sel_main}.}
+\label{tab:sel_robust}
+\begin{tabular}{lcc}
+\toprule
+& MultiJail & Lingua-SafetyBench \\
+\midrule
+ceiling over 23 configurations, as measured & 0.764 & 0.800 \\
+\quad winner's curse over 23 arms & $-$0.104 & $-$0.149 \\
+\quad debiased & 0.660 & 0.651 \\
+ceiling over the 3 published attacks & 0.590 & 0.731 \\
+\quad winner's curse over 3 arms & $-$0.048 & $-$0.063 \\
+\quad debiased & 0.542 & 0.668 \\
+\midrule
+ceiling gain from the richer space, as measured & +0.174 & +0.069 \\
+ceiling gain, both debiased & +0.118 & -0.017 \\
+\midrule
+oracle lost if amount removed & 0.000 & 0.014 \\
+oracle lost if disorder removed & 0.000 & 0.000 \\
+oracle lost if composition removed & 0.000 & 0.000 \\
+oracle lost if role separation removed & 0.014 & 0.019 \\
+oracle lost if single-vector removed & 0.033 & 0.008 \\
+oracle lost if translation removed & 0.118 & 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table}

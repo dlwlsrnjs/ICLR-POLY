@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Query efficiency of the search itself: the smallest budget at which each strategy reaches what the benign warm start reaches at three queries (a dash means it does not within twelve). Every strategy is scored on the same arm matrix with the same probe noise, so the only difference is how the queries are spent; the verified ASR each reaches at three queries is the budget curve in Table~\ref{tab:sel_budget}.}
+\label{tab:sel_queryeff}
+\begin{tabular}{lcc}
+\toprule
+Strategy & MultiJail & Lingua-SafetyBench \\
+\midrule
+repeat best fixed configuration & -- & -- \\
+random search & 12 & 9 \\
+uninformed GP search & 8 & 9 \\
+independent-arm UCB (no structure) & 12 & 9 \\
+cross-target prior (others' harmful data) & 1 & 2 \\
+benign warm start (ours) & 3 & 3 \\
+\bottomrule
+\end{tabular}
+\end{table}

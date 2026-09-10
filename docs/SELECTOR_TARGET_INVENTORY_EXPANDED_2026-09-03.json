@@ -1,0 +1,218 @@
+{
+  "checkpoint_count": 30,
+  "conservative_family_groups": 11,
+  "additional_weight_gb": 153.36,
+  "scope": "File availability and pinned revisions; inference completion is in collection progress files",
+  "targets": [
+    {
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "family": "qwen",
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "source": "existing_cache"
+    },
+    {
+      "model_id": "Qwen/Qwen2.5-3B-Instruct",
+      "family": "qwen",
+      "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "source": "existing_cache"
+    },
+    {
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "family": "qwen",
+      "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28",
+      "source": "existing_cache"
+    },
+    {
+      "model_id": "Qwen/Qwen2.5-14B-Instruct",
+      "family": "qwen",
+      "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      "path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-14B-Instruct/snapshots/cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      "source": "existing_cache"
+    },
+    {
+      "model_id": "Qwen/Qwen2.5-32B-Instruct",
+      "family": "qwen",
+      "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+      "path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+      "source": "existing_cache"
+    },
+    {
+      "model_id": "Qwen/Qwen3-8B",
+      "family": "qwen",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218",
+      "source": "existing_cache"
+    },
+    {
+      "model_id": "microsoft/Phi-3.5-mini-instruct",
+      "family": "phi",
+      "revision": "2fe192450127e6a83f7441aef6e3ca586c338b77",
+      "path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--microsoft--Phi-3.5-mini-instruct/snapshots/2fe192450127e6a83f7441aef6e3ca586c338b77",
+      "source": "existing_cache"
+    },
+    {
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "family": "mistral",
+      "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--mistralai--Mistral-7B-Instruct-v0.3/snapshots/c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "source": "existing_cache"
+    },
+    {
+      "model_id": "HuggingFaceH4/zephyr-7b-beta",
+      "family": "mistral",
+      "revision": "892b3d7a7b1cf10c7a701c60881cd93df615734c",
+      "path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--HuggingFaceH4--zephyr-7b-beta/snapshots/892b3d7a7b1cf10c7a701c60881cd93df615734c",
+      "source": "existing_cache"
+    },
+    {
+      "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+      "family": "olmo",
+      "revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--allenai--OLMo-2-1124-7B-Instruct/snapshots/470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "source": "existing_cache"
+    },
+    {
+      "model_id": "internlm/internlm2_5-7b-chat",
+      "family": "internlm",
+      "revision": "eb72b541689b0432dade0435feb339b89fdd39ff",
+      "path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--internlm--internlm2_5-7b-chat/snapshots/eb72b541689b0432dade0435feb339b89fdd39ff",
+      "source": "existing_cache"
+    },
+    {
+      "model_id": "tiiuae/Falcon3-7B-Instruct",
+      "family": "falcon",
+      "revision": "1e57a0ecd176c7c139f289c60a74e57f887c3dfb",
+      "path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--tiiuae--Falcon3-7B-Instruct/snapshots/1e57a0ecd176c7c139f289c60a74e57f887c3dfb",
+      "source": "existing_cache"
+    },
+    {
+      "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "family": "qwen",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "Qwen/Qwen3-0.6B",
+      "family": "qwen",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "Qwen/Qwen3-1.7B",
+      "family": "qwen",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--Qwen--Qwen3-1.7B/snapshots/70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "Qwen/Qwen3-4B",
+      "family": "qwen",
+      "revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--Qwen--Qwen3-4B/snapshots/1cfa9a7208912126459214e8b04321603b3df60c",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "family": "smollm",
+      "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--HuggingFaceTB--SmolLM2-135M-Instruct/snapshots/12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "family": "smollm",
+      "revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--HuggingFaceTB--SmolLM2-360M-Instruct/snapshots/a10cc1512eabd3dde888204e902eca88bddb4951",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+      "family": "smollm",
+      "revision": "31b70e2e869a7173562077fd711b654946d38674",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--HuggingFaceTB--SmolLM2-1.7B-Instruct/snapshots/31b70e2e869a7173562077fd711b654946d38674",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "HuggingFaceTB/SmolLM3-3B",
+      "family": "smollm",
+      "revision": "a07cc9a04f16550a088caea529712d1d335b0ac1",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--HuggingFaceTB--SmolLM3-3B/snapshots/a07cc9a04f16550a088caea529712d1d335b0ac1",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "Qwen/Qwen3-14B",
+      "family": "qwen",
+      "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--Qwen--Qwen3-14B/snapshots/40c069824f4251a91eefaf281ebe4c544efd3e18",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "ibm-granite/granite-3.3-2b-instruct",
+      "family": "granite",
+      "revision": "707f574c62054322f6b5b04b6d075f0a8f05e0f0",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--ibm-granite--granite-3.3-2b-instruct/snapshots/707f574c62054322f6b5b04b6d075f0a8f05e0f0",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "ibm-granite/granite-3.3-8b-instruct",
+      "family": "granite",
+      "revision": "51dd4bc2ade4059a6bd87649d68aa11e4fb2529b",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--ibm-granite--granite-3.3-8b-instruct/snapshots/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+      "family": "olmo",
+      "revision": "48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--allenai--OLMo-2-0425-1B-Instruct/snapshots/48d788eca847d4d7548f375ad03d3c9312f6139e",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "stabilityai/stablelm-2-zephyr-1_6b",
+      "family": "stablelm",
+      "revision": "2f275b1127d59fc31e4f7c7426d528768ada9ea4",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--stabilityai--stablelm-2-zephyr-1_6b/snapshots/2f275b1127d59fc31e4f7c7426d528768ada9ea4",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "01-ai/Yi-1.5-6B-Chat",
+      "family": "yi",
+      "revision": "771924d1c83d67527d665913415d7086f11ea9c0",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--01-ai--Yi-1.5-6B-Chat/snapshots/771924d1c83d67527d665913415d7086f11ea9c0",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "01-ai/Yi-1.5-9B-Chat",
+      "family": "yi",
+      "revision": "1a0fc698cf883c4f5c325f026ca79f0ebd9955a5",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--01-ai--Yi-1.5-9B-Chat/snapshots/1a0fc698cf883c4f5c325f026ca79f0ebd9955a5",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "deepseek-ai/DeepSeek-V2-Lite-Chat",
+      "family": "deepseek",
+      "revision": "85864749cd611b4353ce1decdb286193298f64c7",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--deepseek-ai--DeepSeek-V2-Lite-Chat/snapshots/85864749cd611b4353ce1decdb286193298f64c7",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "tiiuae/Falcon3-1B-Instruct",
+      "family": "falcon",
+      "revision": "28ba2251970a01dd1edc7ba7dad2eb71216ccfdf",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--tiiuae--Falcon3-1B-Instruct/snapshots/28ba2251970a01dd1edc7ba7dad2eb71216ccfdf",
+      "source": "downloaded_this_run"
+    },
+    {
+      "model_id": "tiiuae/Falcon3-3B-Instruct",
+      "family": "falcon",
+      "revision": "411bb94318f94f7a5735b77109f456b1e74b42a1",
+      "path": "/home/ubuntu/342/jinkwon/poly/PolyJigsaw/private_artifacts/selector_gpu_20260903/additional_models/models--tiiuae--Falcon3-3B-Instruct/snapshots/411bb94318f94f7a5735b77109f456b1e74b42a1",
+      "source": "downloaded_this_run"
+    }
+  ]
+}

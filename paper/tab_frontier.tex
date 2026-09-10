@@ -1,14 +1,13 @@
 \begin{table}[t]\centering
-\caption{Commercial target GPT-4o-mini (Lingua test subset, 200 items). Interleaving lifts gated
-ASR far above every multilingual baseline on a strongly-aligned model.}
+\caption{GPT-4o-mini on the original 200-item subset. Displayed conditions and primary-judge Wilson intervals are descriptive; the highest displayed rate is not a validated adaptive-policy estimate.}
 \label{tab:frontier}
-\begin{tabular}{l ccc}\toprule
-Method & gated ASR & gated (MD) & recon\\\midrule
-english\_direct & 0.120 & 0.120 & 1.00 \\
-Translation (best) & 0.215 & 0.060 & 1.00 \\
-CSRT (all) & 0.143 & 0.143 & 1.00 \\
-CSRT-MT $n{=}3$ & 0.180 & 0.125 & 1.00 \\
-No-game $n{=}4$ & 0.275 & 0.225 & 0.61 \\
-\textbf{Interleave} $n{=}4$ & 0.730 & 0.675 & 0.99 \\
-\textbf{Interleave} $n{=}10$ & 0.780 & 0.700 & 0.98 \\
+\begin{tabular}{l cccc}\toprule
+Method & gated ASR & 95\% CI & gated (MD) & recon\\\midrule
+english\_direct & 0.120 & [0.08, 0.17] & 0.120 & 1.00 \\
+Translation (best) & 0.215 & [0.16, 0.28] & 0.060 & 1.00 \\
+CSRT (all) & 0.143 & [0.08, 0.24] & 0.143 & 1.00 \\
+CSRT-MT $n{=}3$ & 0.180 & [0.13, 0.24] & 0.125 & 1.00 \\
+No-game $n{=}4$ & 0.275 & [0.22, 0.34] & 0.225 & 0.61 \\
+\textbf{Interleave} $n{=}4$ & 0.730 & [0.66, 0.79] & 0.675 & 0.99 \\
+\textbf{Interleave} $n{=}10$ & 0.780 & [0.72, 0.83] & 0.700 & 0.98 \\
 \bottomrule\end{tabular}\end{table}

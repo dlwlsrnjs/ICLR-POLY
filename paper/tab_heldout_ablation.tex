@@ -1,0 +1,27 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Ablation of the difficulty-adaptive budget and the two GP feature indicators, held-out mean verified ASR (mean queries in parentheses). Top: the stop threshold $\tau$ and cap, with the floor fixed at 3; the held-out result is stable across the grid. Bottom: removing the translation and role-separation indicators (the components added after inspecting held-out MultiJail) from the feature encoding.}
+\label{tab:heldout_ablation}
+\begin{tabular}{lcc}
+\toprule
+Setting & MultiJail & Lingua-SafetyBench \\
+\midrule
+\multicolumn{3}{l}{\emph{Adaptive budget, $\tau\times$cap (floor 3)}} \\
+$\tau{=}0.4$, cap $6$ & 0.804 (3.0) & 0.706 (3.1) \\
+$\tau{=}0.4$, cap $8$ & 0.804 (3.0) & 0.706 (3.1) \\
+$\tau{=}0.4$, cap $10$ & 0.804 (3.0) & 0.706 (3.1) \\
+$\tau{=}0.5$, cap $6$ & 0.804 (3.0) & 0.717 (3.3) \\
+$\tau{=}0.5$, cap $8$$^\star$ & 0.804 (3.0) & 0.718 (3.4) \\
+$\tau{=}0.5$, cap $10$ & 0.804 (3.0) & 0.717 (3.4) \\
+$\tau{=}0.6$, cap $6$ & 0.804 (3.0) & 0.717 (3.8) \\
+$\tau{=}0.6$, cap $8$ & 0.804 (3.0) & 0.716 (4.3) \\
+$\tau{=}0.6$, cap $10$ & 0.804 (3.0) & 0.714 (4.7) \\
+\midrule
+\multicolumn{3}{l}{\emph{Feature indicators (default $\tau{=}0.5$, cap 8)}} \\
+with indicators (default) & 0.804 & 0.718 \\
+indicators removed & 0.703 & 0.724 \\
+$\Delta$ (indicators) & +0.101 & -0.006 \\
+\bottomrule
+\end{tabular}
+\end{table}

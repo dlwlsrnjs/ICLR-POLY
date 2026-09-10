@@ -1,0 +1,40 @@
+% Existing held-in probe-selection evidence; no new experiment.
+\subsubsection{Frozen probe recipe selected on the held-in panel}
+\label{app:heldin-probe-recipe}
+The transfer recipe is the modal candidate among the nine held-in leave-one-target-out selections, computed separately for each collection. This is the rule implemented by \texttt{panel\_candidate} in \texttt{heldout\_selector.py}. The selected recipe is \emph{benign reconstruction times borderline detail} for MultiJail and \emph{benign reconstruction times fiction hold} for Lingua-SafetyBench. These are the held-in recipes specified for subsequent closed-model comparisons; this appendix does not report a completed closed-model run using them. A separate historical GPT capstone used a different probe construction and is not evidence that this transfer protocol has already been executed.
+
+\paragraph{What the selected signals measure.}
+Both recipes contain reconstruction rates from the existing harmless multilingual probe collection. MultiJail multiplies these by the \texttt{detail} signal measured on 16 safety-adjacent requests designated harmless in the collection. Detail is the mean whitespace-delimited answer length divided by the maximum answer length within the same frame's response batch (with denominator at least one). It is a relative length heuristic, not a human judgment of answer quality. Lingua-SafetyBench instead multiplies reconstruction by \texttt{fiction\_hold}, measured on 16 ordinary harmless requests. For fiction frames this is the fraction of responses matching the stored fiction-structure marker in their first 800 characters; non-fiction frames receive one by definition. Frame signals are shared by configurations with the same answer-language/frame pair. The recorded low-resource answer-language settings are Swahili for MultiJail and Norwegian for Lingua, with per-frame language assignments handled by the collection code. These inputs are existing text probes with collection-specific framing, not a newly substituted generic question list.
+
+\paragraph{Selection evidence and criterion.}
+The stored selection experiment evaluates each candidate at three configuration evaluations on nine held-in targets, using 60 replay repetitions per candidate and target, a local RNG seed of zero, and batch-size noise parameters of 64 (MultiJail) or 40 (Lingua). The criterion is mean selector verified ASR on the other eight targets; Spearman correlation is diagnostic and is not the selection objective. Eligible candidates must have measurements for all nine targets and be supported by the deployed candidate loader. The harmful-reconstruction reference, the constant prior, and reduced-coverage diagnostic variants are excluded from recipe selection. Consequently, the target's probe inputs are harmless, but choosing the recipe does use held-in harmful evaluation outcomes; the procedure is not free of harmful supervision during method development.
+
+\begin{table}[t]\centering\small
+\caption{Stored evidence for the held-in probe choice. Scores are verified ASR at three replayed configuration evaluations. The fixed-recipe row is a descriptive mean on the same held-in panel used to choose that recipe; the LOTO row evaluates the candidate chosen on the other eight targets. These two rows are different estimands, and neither is a closed-model test result.}
+\label{tab:heldin-probe-evidence}
+\begin{tabular}{lcc}\toprule
+Recorded statistic & MultiJail & Lingua-SafetyBench \\\midrule
+Constant prior & 0.406 & 0.589 \\
+Reconstruction only & 0.620 & 0.648 \\
+Selected fixed recipe, panel mean & 0.707 & 0.731 \\
+Leave-one-target-out selection & 0.646 & 0.728 \\
+Modal recipe selected in folds & 7/9 & 8/9 \\
+\bottomrule\end{tabular}
+\end{table}
+
+The MultiJail modal recipe is selected in seven folds; the Gemma-2-9B fold selects reconstruction times borderline fiction hold, and the Gemma-2-27B fold selects reconstruction times ordinary detail. The Lingua modal recipe is selected in eight folds; the Llama-3.1-8B fold selects reconstruction times borderline fiction hold. For a new target, the collection's modal recipe remains fixed while its measured probe values and the selector's online state can change. This distinguishes freezing recipe selection from disabling target-specific adaptation. The experiment supports the recorded empirical choice, not a significance claim for the difference between every pair of candidates.
+
+\paragraph{Artifact provenance.}
+All values and fold choices above are transcribed from
+\path{results/benign_prior_selection_20260907.json}.
+The selection implementation is
+\path{scripts/benign_prior_selection.py}, the signal definitions are in
+\path{scripts/benign_signals_probe.py}, and the recipe lookup is in
+\path{scripts/heldout_selector.py} and \path{scripts/benign_prior.py}.
+MultiJail reconstruction and frame measurements are stored under
+\path{results/benign_arms_mj_20260907/} and
+\path{results/benign_borderline_mj_20260907/}; the corresponding Lingua sources are
+\path{results/benign_arms_20260907/} and
+\path{results/benign_signals_20260907/}.
+A machine-readable record of source hashes and the selected statistics is retained in
+\path{paper/heldin_probe_provenance.json}. No new model calls were made to create this appendix.

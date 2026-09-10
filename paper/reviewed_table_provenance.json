@@ -1,0 +1,20 @@
+{
+  "scope": "Existing aggregates used by reviewed table regeneration; no new experiment or raw-data rejudging.",
+  "script": "scripts/make_reviewed_paper_tables.py",
+  "source_sha256": {
+    "results/paper_lingua_qwen_method_comparison_test.json": "31697485880eb291cfd968733605889d0d4cf545b9a4b55abade047510c32c22",
+    "results/paper_lingua_qwen_method_comparison_dev.json": "283da8f7a10c4c34558a0421caca7f2f6c51cda895a74ebe090ef46fc40d43d3",
+    "results/paper_lingua_qwen3_method_comparison_test.json": "b106dc47c274227a307c6d22465c4c83c4141fcffe2deadc22a35381445710bd",
+    "results/paper_lingua_phi_method_comparison_test.json": "d1893f64043a84f2ed4c9d209e450d9943913a8d5c9bcaaed35fc908ad30802d",
+    "results/paper_lingua_internlm_method_comparison_test.json": "994ea95c9211c38d806c13bd25583e6f4c0a06cfdfa7678569014fb8096cbd39",
+    "results/paper_regate_strict.json": "8b4f455edb33c38c35f1b381492d7d4b28fe2748c3170d6b68d33c378de20ee2",
+    "results/paper_english_game_control.json": "8c1cc3bc03b37813313722db6b79f8f838351965dd5f41cfcdf045b383f6825e",
+    "results/paper_panel_theory_aligned5.json": "00d17f8e3fdb1da09a48ecd0350385b8b4765053c032ce16ef9d7d9980e8c529",
+    "results/paper_panel_theory_all6.json": "53a2b67725f93a9faf5ff9bf824a5652e58553755877715b75d0d6b8ca5f722e"
+  },
+  "limitations": [
+    "Secondary judge denominators are absent in some aggregates.",
+    "Cross-model maxima are explicitly descriptive.",
+    "Historical structural-panel item matching remains unverified."
+  ]
+}

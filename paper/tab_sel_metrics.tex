@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\small
+\caption{How verified ASR relates to the quantities usually reported. \emph{Raw} is the unsafe-answer rate alone, which most jailbreak papers call ASR; \emph{recon} is the reconstruction rate; \emph{verified} requires both in the same response. The gap is what a raw number over-counts, and it is largest for a fixed configuration.}
+\label{tab:sel_metrics}
+\begin{tabular}{lcccc}
+\toprule
+& \multicolumn{2}{c}{MultiJail} & \multicolumn{2}{c}{Lingua-SafetyBench} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Configuration & raw / recon & verified & raw / recon & verified \\
+\midrule
+selected per target (oracle) & 0.773 / 0.896 & 0.764 & 0.811 / 0.822 & 0.800 \\
+best fixed configuration & 0.563 / 1.000 & 0.563 & 0.847 / 0.806 & 0.678 \\
+\bottomrule
+\end{tabular}
+\end{table}

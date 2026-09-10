@@ -1,0 +1,14 @@
+\begin{table}[t]\centering
+\caption{Full-set ordered Qwen sweep ($N=2,879$). The factorization $P(R\cap U)=P(R)P(U\mid R)$ is a probability identity on the same population. Conditional rates use the reconstructed subset for each load. Direct English uses the conventional unit reconstruction gate. This decomposition does not identify an internal causal mechanism.}
+\label{tab:mechanism}
+\small
+\begin{tabular}{r ccc}\toprule
+$n$ & $\mathrm{recon}(n)$ & $\mathrm{comply}(n)$ & gated ASR \\\midrule
+2 & 0.955 & 0.665 & 0.635 \\
+4 & 0.943 & 0.743 & 0.700 \\
+6 & 0.916 & 0.716 & 0.656 \\
+8 & 0.883 & 0.769 & 0.679 \\
+10 & 0.857 & 0.774 & 0.663 \\
+\midrule
+\multicolumn{4}{l}{\footnotesize direct English reference: $\mathrm{recon}{=}1.00$, $\mathrm{comply}{=}0.25$, gated ASR $=0.25$} \\
+\bottomrule\end{tabular}\end{table}

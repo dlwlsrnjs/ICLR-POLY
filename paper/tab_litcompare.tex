@@ -1,0 +1,15 @@
+\begin{table}[t]\centering
+\caption{Summary of recorded baseline implementations on the Qwen test collection. Row populations differ (notably span-CSRT, $N=649$); see the main table for coverage. The Base64 and payload-splitting rows are representatives, not reproductions of every cited method. Original-paper ASR values are not used for cross-study ranking.}
+\label{tab:litcompare}
+\small
+\begin{tabular}{p{0.38\linewidth} p{0.38\linewidth} c}\toprule
+Attack family & Representative prior work & gated ASR \\\midrule
+No attack (direct English) & reference & 0.253 \\
+Multilingual translation & \citep{yong2023lowresource,deng2024multilingual} & 0.585 \\
+Code-switching (CSRT) & \citep{yoo2024csrt} & 0.271 \\
+Code-switching, full coverage & \citep{yoo2024csrt,nllb2022} & 0.364 \\
+Payload splitting & \citep{kang2024exploiting} & 0.371 \\
+Base64 encoding & Base64 variant & 0.000 \\
+\midrule
+\textbf{PolyJigsaw (ours), interleave $n{=}4$} & -- & \textbf{0.693} \\
+\bottomrule\end{tabular}\end{table}

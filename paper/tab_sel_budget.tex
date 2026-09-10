@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Query budget against verified ASR for three priors. The benign prior uses only reconstruction rates observable with harmless puzzles; \emph{cross-target} uses harmful results from the other eight models, which a real attacker would not have. Oracle and best-fixed reference values are in Table~\ref{tab:sel_main}.}
+\label{tab:sel_budget}
+\begin{tabular}{lccc|ccc}
+\toprule
+& \multicolumn{3}{c|}{MultiJail} & \multicolumn{3}{c}{Lingua-SafetyBench} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Budget & uninformed & benign & cross-target & uninformed & benign & cross-target \\
+\midrule
+1 & 0.468 & \textbf{0.619} & 0.666 & 0.679 & \textbf{0.692} & 0.614 \\
+2 & 0.438 & \textbf{0.560} & 0.680 & 0.577 & \textbf{0.682} & 0.745 \\
+3 & 0.405 & \textbf{0.644} & 0.720 & 0.654 & \textbf{0.727} & 0.746 \\
+4 & 0.489 & \textbf{0.715} & 0.759 & 0.677 & \textbf{0.737} & 0.757 \\
+6 & 0.605 & \textbf{0.760} & 0.757 & 0.708 & \textbf{0.743} & 0.762 \\
+\bottomrule
+\end{tabular}
+\end{table}

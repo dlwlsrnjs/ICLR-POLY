@@ -1,12 +1,15 @@
 \begin{table}[t]\centering
-\caption{Comparison to encoding / decode-then-act baselines (Qwen2.5-7B, test). Base64 fails outright because the model cannot decode it (reconstruction $=0$); payload-splitting decodes trivially but yields a moderate attack; the natural-language reconstruction of PolyJigsaw is both decodable and obfuscating, and dominates both.}
+\caption{Obfuscation, decomposition and encoding baselines on the single-target Qwen2.5-7B collection under reconstruction-gated scoring: Base64, payload-splitting, code-switching (CSRT), DrAttack (decompose-and-reconstruct), FlipAttack (character reversal), and our interleaving. DrAttack and FlipAttack are simplified reimplementations.}
 \label{tab:encoding}
-\begin{tabular}{l cccc}\toprule
-Method & raw ASR & recon & gated ASR & gated (MD) \\\midrule
-english\_direct & 0.254 & 1.00 & 0.254 & 0.241 \\
-Base64 (encoding) & 0.153 & 0.00 & 0.000 & 0.000 \\
-payload-splitting & 0.371 & 1.00 & 0.371 & 0.330 \\
-CSRT (all) & 0.273 & 1.00 & 0.273 & 0.280 \\
-\textbf{interleave} $n{=}4$ & 0.727 & 0.94 & 0.692 & 0.631 \\
-\textbf{interleave} $n{=}10$ & 0.738 & 0.85 & 0.658 & 0.602 \\
-\bottomrule\end{tabular}\end{table}
+\begin{tabular}{l ccccc}\toprule
+Method & raw ASR & recon & gated ASR & gated (MD) & prompt PPL \\\midrule
+english\_direct & 0.254 & 1.00 & 0.254 & 0.241 & \pjpplplain{} \\
+Base64 (encoding) & 0.153 & 0.00 & 0.000 & 0.000 & -- \\
+payload-splitting & 0.371 & 1.00 & 0.371 & 0.330 & -- \\
+CSRT (all) & 0.273 & 1.00 & 0.273 & 0.280 & \pjpplcsrt{} \\
+DrAttack \citep{li2024drattack} & 0.370 & 1.00 & 0.369 & -- & \pjppldrattack{} \\
+FlipAttack (FCS) \citep{liu2024flipattack} & 0.870$^{\dagger}$ & 0.00 & 0.000 & -- & \pjpplflip{} \\
+\textbf{interleave} $n{=}4$ & 0.727 & 0.94 & 0.692 & 0.631 & \textbf{\pjpplours{}} \\
+\textbf{interleave} $n{=}10$ & 0.738 & 0.85 & 0.658 & 0.602 & -- \\
+\bottomrule\end{tabular}
+\\[2pt]{\footnotesize $^{\dagger}$dictionary non-refusal; the character-reversed request is not verifiably reconstructed (recon 0).}\end{table}

@@ -1,0 +1,11 @@
+\begin{table}[t]\centering
+\caption{Selected obfuscation implementations on Qwen2.5-7B, 1,727 test items. Reconstruction-gated scoring and an English refusal-dictionary score measure different events. Character flipping has gated ASR 0.000; word flipping has 0.020. These implementations do not reproduce all components of the published methods, and no human usefulness labels are implied.}
+\label{tab:sota}
+\small
+\begin{tabular}{l ccc}\toprule
+Attack & recon & gated ASR & ASR-DICT \\\midrule
+FlipAttack, char-flip \citep{liu2024flipattack} & 0.00 & 0.000 & 0.870 \\
+FlipAttack, word-flip \citep{liu2024flipattack} & 0.02 & 0.020 & 0.933 \\
+DrAttack \citep{li2024drattack} & 1.00 & 0.369 & 0.501 \\
+\textbf{PolyJigsaw $n{=}4$ (ours)} & 0.95 & 0.693 & 0.816 \\
+\bottomrule\end{tabular}\end{table}

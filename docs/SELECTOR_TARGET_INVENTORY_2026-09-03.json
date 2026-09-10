@@ -1,0 +1,304 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-03T04:28:14.358301+00:00",
+  "cache_root": "/home/ubuntu/342/jinkwon/hf_cache",
+  "scope": "Reviewed general text targets; not all cached models or historical API targets",
+  "cache_check_limit": "File presence only; no checksum, runtime or chat-template validation",
+  "local_target_checkpoints": 12,
+  "conservative_family_split_groups": 6,
+  "checkpoint_count_by_group": {
+    "falcon": 1,
+    "internlm": 1,
+    "mistral": 2,
+    "olmo": 1,
+    "phi": 1,
+    "qwen": 6
+  },
+  "new_target_calls_in_this_inventory": 0,
+  "excluded_roles": [
+    "moderation judge",
+    "translation model",
+    "multimodal specialist"
+  ],
+  "targets": [
+    {
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "family_split_group": "qwen",
+      "snapshots": [
+        {
+          "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+          "snapshot_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+          "architecture": [
+            "Qwen2ForCausalLM"
+          ],
+          "expected_weight_files": 1,
+          "missing_weight_files": [],
+          "weight_bytes": 3087467144,
+          "tokenizer_files": [
+            "tokenizer.json"
+          ],
+          "tokenizer_config_present": true,
+          "local_files_present": true,
+          "inference_verified_by_this_inventory": false
+        }
+      ],
+      "local_files_present": true
+    },
+    {
+      "model_id": "Qwen/Qwen2.5-3B-Instruct",
+      "family_split_group": "qwen",
+      "snapshots": [
+        {
+          "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+          "snapshot_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1",
+          "architecture": [
+            "Qwen2ForCausalLM"
+          ],
+          "expected_weight_files": 2,
+          "missing_weight_files": [],
+          "weight_bytes": 6171926992,
+          "tokenizer_files": [
+            "tokenizer.json"
+          ],
+          "tokenizer_config_present": true,
+          "local_files_present": true,
+          "inference_verified_by_this_inventory": false
+        }
+      ],
+      "local_files_present": true
+    },
+    {
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "family_split_group": "qwen",
+      "snapshots": [
+        {
+          "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+          "snapshot_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28",
+          "architecture": [
+            "Qwen2ForCausalLM"
+          ],
+          "expected_weight_files": 4,
+          "missing_weight_files": [],
+          "weight_bytes": 15231271888,
+          "tokenizer_files": [
+            "tokenizer.json"
+          ],
+          "tokenizer_config_present": true,
+          "local_files_present": true,
+          "inference_verified_by_this_inventory": false
+        }
+      ],
+      "local_files_present": true
+    },
+    {
+      "model_id": "Qwen/Qwen2.5-14B-Instruct",
+      "family_split_group": "qwen",
+      "snapshots": [
+        {
+          "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+          "snapshot_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-14B-Instruct/snapshots/cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+          "architecture": [
+            "Qwen2ForCausalLM"
+          ],
+          "expected_weight_files": 8,
+          "missing_weight_files": [],
+          "weight_bytes": 29540134000,
+          "tokenizer_files": [
+            "tokenizer.json"
+          ],
+          "tokenizer_config_present": true,
+          "local_files_present": true,
+          "inference_verified_by_this_inventory": false
+        }
+      ],
+      "local_files_present": true
+    },
+    {
+      "model_id": "Qwen/Qwen2.5-32B-Instruct",
+      "family_split_group": "qwen",
+      "snapshots": [
+        {
+          "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+          "snapshot_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+          "architecture": [
+            "Qwen2ForCausalLM"
+          ],
+          "expected_weight_files": 17,
+          "missing_weight_files": [],
+          "weight_bytes": 65527841856,
+          "tokenizer_files": [
+            "tokenizer.json"
+          ],
+          "tokenizer_config_present": true,
+          "local_files_present": true,
+          "inference_verified_by_this_inventory": false
+        }
+      ],
+      "local_files_present": true
+    },
+    {
+      "model_id": "Qwen/Qwen3-8B",
+      "family_split_group": "qwen",
+      "snapshots": [
+        {
+          "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+          "snapshot_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218",
+          "architecture": [
+            "Qwen3ForCausalLM"
+          ],
+          "expected_weight_files": 5,
+          "missing_weight_files": [],
+          "weight_bytes": 16381516776,
+          "tokenizer_files": [
+            "tokenizer.json"
+          ],
+          "tokenizer_config_present": true,
+          "local_files_present": true,
+          "inference_verified_by_this_inventory": false
+        }
+      ],
+      "local_files_present": true
+    },
+    {
+      "model_id": "microsoft/Phi-3.5-mini-instruct",
+      "family_split_group": "phi",
+      "snapshots": [
+        {
+          "revision": "2fe192450127e6a83f7441aef6e3ca586c338b77",
+          "snapshot_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--microsoft--Phi-3.5-mini-instruct/snapshots/2fe192450127e6a83f7441aef6e3ca586c338b77",
+          "architecture": [
+            "Phi3ForCausalLM"
+          ],
+          "expected_weight_files": 2,
+          "missing_weight_files": [],
+          "weight_bytes": 7642181880,
+          "tokenizer_files": [
+            "tokenizer.json",
+            "tokenizer.model"
+          ],
+          "tokenizer_config_present": true,
+          "local_files_present": true,
+          "inference_verified_by_this_inventory": false
+        }
+      ],
+      "local_files_present": true
+    },
+    {
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "family_split_group": "mistral",
+      "snapshots": [
+        {
+          "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+          "snapshot_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--mistralai--Mistral-7B-Instruct-v0.3/snapshots/c170c708c41dac9275d15a8fff4eca08d52bab71",
+          "architecture": [
+            "MistralForCausalLM"
+          ],
+          "expected_weight_files": 3,
+          "missing_weight_files": [],
+          "weight_bytes": 14496080928,
+          "tokenizer_files": [
+            "tokenizer.json",
+            "tokenizer.model"
+          ],
+          "tokenizer_config_present": true,
+          "local_files_present": true,
+          "inference_verified_by_this_inventory": false
+        }
+      ],
+      "local_files_present": true
+    },
+    {
+      "model_id": "HuggingFaceH4/zephyr-7b-beta",
+      "family_split_group": "mistral",
+      "snapshots": [
+        {
+          "revision": "892b3d7a7b1cf10c7a701c60881cd93df615734c",
+          "snapshot_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--HuggingFaceH4--zephyr-7b-beta/snapshots/892b3d7a7b1cf10c7a701c60881cd93df615734c",
+          "architecture": [
+            "MistralForCausalLM"
+          ],
+          "expected_weight_files": 8,
+          "missing_weight_files": [],
+          "weight_bytes": 14483497952,
+          "tokenizer_files": [
+            "tokenizer.json",
+            "tokenizer.model"
+          ],
+          "tokenizer_config_present": true,
+          "local_files_present": true,
+          "inference_verified_by_this_inventory": false
+        }
+      ],
+      "local_files_present": true
+    },
+    {
+      "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+      "family_split_group": "olmo",
+      "snapshots": [
+        {
+          "revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+          "snapshot_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--allenai--OLMo-2-1124-7B-Instruct/snapshots/470b1fba1ae01581f270116362ee4aa1b97f4c84",
+          "architecture": [
+            "Olmo2ForCausalLM"
+          ],
+          "expected_weight_files": 3,
+          "missing_weight_files": [],
+          "weight_bytes": 14597276128,
+          "tokenizer_files": [
+            "tokenizer.json"
+          ],
+          "tokenizer_config_present": true,
+          "local_files_present": true,
+          "inference_verified_by_this_inventory": false
+        }
+      ],
+      "local_files_present": true
+    },
+    {
+      "model_id": "internlm/internlm2_5-7b-chat",
+      "family_split_group": "internlm",
+      "snapshots": [
+        {
+          "revision": "eb72b541689b0432dade0435feb339b89fdd39ff",
+          "snapshot_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--internlm--internlm2_5-7b-chat/snapshots/eb72b541689b0432dade0435feb339b89fdd39ff",
+          "architecture": [
+            "InternLM2ForCausalLM"
+          ],
+          "expected_weight_files": 8,
+          "missing_weight_files": [],
+          "weight_bytes": 15475442848,
+          "tokenizer_files": [
+            "tokenizer.model"
+          ],
+          "tokenizer_config_present": true,
+          "local_files_present": true,
+          "inference_verified_by_this_inventory": false
+        }
+      ],
+      "local_files_present": true
+    },
+    {
+      "model_id": "tiiuae/Falcon3-7B-Instruct",
+      "family_split_group": "falcon",
+      "snapshots": [
+        {
+          "revision": "1e57a0ecd176c7c139f289c60a74e57f887c3dfb",
+          "snapshot_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--tiiuae--Falcon3-7B-Instruct/snapshots/1e57a0ecd176c7c139f289c60a74e57f887c3dfb",
+          "architecture": [
+            "LlamaForCausalLM"
+          ],
+          "expected_weight_files": 4,
+          "missing_weight_files": [],
+          "weight_bytes": 14911130600,
+          "tokenizer_files": [
+            "tokenizer.json"
+          ],
+          "tokenizer_config_present": true,
+          "local_files_present": true,
+          "inference_verified_by_this_inventory": false
+        }
+      ],
+      "local_files_present": true
+    }
+  ]
+}

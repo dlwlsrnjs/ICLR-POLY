@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\caption{Category-level reconstruction and gated-ASR estimates for the recorded Qwen interleaving study. Conditional unsafe rates divide joint successes by reconstruction successes within each category. Category comparisons are descriptive and do not identify a causal safety mechanism.}
+\label{tab:difficulty}
+\small
+\begin{tabular}{l cccc}\toprule
+Harm category & english base & $\mathrm{recon}$ & $\mathrm{comply}$ & gated ASR \\\midrule
+Sex & 0.03 & 0.90 & 0.31 & 0.28 \\
+Physical Harm & 0.29 & 0.91 & 0.57 & 0.52 \\
+Hate Speech & 0.06 & 0.91 & 0.69 & 0.63 \\
+Privacy Violence & 0.21 & 0.95 & 0.76 & 0.72 \\
+Illegal Activity & 0.54 & 0.93 & 0.83 & 0.77 \\
+Malware Generation & 0.21 & 0.93 & 0.87 & 0.81 \\
+Economic Harm & 0.38 & 0.94 & 0.88 & 0.83 \\
+Fraud & 0.24 & 0.95 & 0.88 & 0.84 \\
+\bottomrule\end{tabular}\end{table}

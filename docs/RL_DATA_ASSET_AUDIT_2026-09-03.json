@@ -1,0 +1,545 @@
+{
+  "date": "2026-09-03",
+  "scope": "Coverage and provenance audit only; no raw text or verdict values exported.",
+  "runs": [
+    {
+      "run": "panel_qwen3",
+      "benign": {
+        "target": {
+          "status": "read",
+          "rows": 480,
+          "unique_items": 40,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "Qwen/Qwen3-8B"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true
+        },
+        "reconstruction": {
+          "status": "read",
+          "rows": 480,
+          "unique_items": 40,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "Qwen/Qwen3-8B"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 480
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "join": {
+          "available_tables": [
+            "target",
+            "reconstruction"
+          ],
+          "common_keys": 480,
+          "target_keys": 480,
+          "missing_target_hash": 0,
+          "hash_mismatches_vs_target": {
+            "reconstruction": 0
+          }
+        }
+      },
+      "harm": {
+        "target": {
+          "status": "read",
+          "rows": 3000,
+          "unique_items": 250,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "Qwen/Qwen3-8B"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true
+        },
+        "reconstruction": {
+          "status": "read",
+          "rows": 3000,
+          "unique_items": 250,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "Qwen/Qwen3-8B"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 3000
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "safety": {
+          "status": "read",
+          "rows": 3000,
+          "unique_items": 250,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "Qwen/Qwen3-8B"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 3000
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "join": {
+          "available_tables": [
+            "target",
+            "reconstruction",
+            "safety"
+          ],
+          "common_keys": 3000,
+          "target_keys": 3000,
+          "missing_target_hash": 0,
+          "hash_mismatches_vs_target": {
+            "reconstruction": 0,
+            "safety": 0
+          }
+        }
+      }
+    },
+    {
+      "run": "panel_phi",
+      "benign": {
+        "target": {
+          "status": "read",
+          "rows": 480,
+          "unique_items": 40,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "microsoft/Phi-3.5-mini-instruct"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true
+        },
+        "reconstruction": {
+          "status": "read",
+          "rows": 480,
+          "unique_items": 40,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "microsoft/Phi-3.5-mini-instruct"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 480
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "join": {
+          "available_tables": [
+            "target",
+            "reconstruction"
+          ],
+          "common_keys": 480,
+          "target_keys": 480,
+          "missing_target_hash": 0,
+          "hash_mismatches_vs_target": {
+            "reconstruction": 0
+          }
+        }
+      },
+      "harm": {
+        "target": {
+          "status": "read",
+          "rows": 3000,
+          "unique_items": 250,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "microsoft/Phi-3.5-mini-instruct"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true
+        },
+        "reconstruction": {
+          "status": "read",
+          "rows": 3000,
+          "unique_items": 250,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "microsoft/Phi-3.5-mini-instruct"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 3000
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "safety": {
+          "status": "read",
+          "rows": 3000,
+          "unique_items": 250,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "microsoft/Phi-3.5-mini-instruct"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 3000
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "join": {
+          "available_tables": [
+            "target",
+            "reconstruction",
+            "safety"
+          ],
+          "common_keys": 3000,
+          "target_keys": 3000,
+          "missing_target_hash": 0,
+          "hash_mismatches_vs_target": {
+            "reconstruction": 0,
+            "safety": 0
+          }
+        }
+      }
+    },
+    {
+      "run": "panel_gpt4omini",
+      "benign": {
+        "target": {
+          "status": "read",
+          "rows": 400,
+          "unique_items": 40,
+          "unique_conditions": 10,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "gpt-4o-mini"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true
+        },
+        "reconstruction": {
+          "status": "read",
+          "rows": 400,
+          "unique_items": 40,
+          "unique_conditions": 10,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "gpt-4o-mini"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 400
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "join": {
+          "available_tables": [
+            "target",
+            "reconstruction"
+          ],
+          "common_keys": 400,
+          "target_keys": 400,
+          "missing_target_hash": 0,
+          "hash_mismatches_vs_target": {
+            "reconstruction": 0
+          }
+        }
+      },
+      "harm": {
+        "target": {
+          "status": "read",
+          "rows": 2500,
+          "unique_items": 250,
+          "unique_conditions": 10,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "gpt-4o-mini"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true
+        },
+        "reconstruction": {
+          "status": "read",
+          "rows": 2500,
+          "unique_items": 250,
+          "unique_conditions": 10,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "gpt-4o-mini"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 2500
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "safety": {
+          "status": "read",
+          "rows": 2500,
+          "unique_items": 250,
+          "unique_conditions": 10,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "gpt-4o-mini"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 2500
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "join": {
+          "available_tables": [
+            "target",
+            "reconstruction",
+            "safety"
+          ],
+          "common_keys": 2500,
+          "target_keys": 2500,
+          "missing_target_hash": 0,
+          "hash_mismatches_vs_target": {
+            "reconstruction": 0,
+            "safety": 0
+          }
+        }
+      }
+    },
+    {
+      "run": "panel_mistral",
+      "benign": {
+        "target": {
+          "status": "read",
+          "rows": 480,
+          "unique_items": 40,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "mistralai/Mistral-7B-Instruct-v0.3"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true
+        },
+        "reconstruction": {
+          "status": "read",
+          "rows": 480,
+          "unique_items": 40,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "mistralai/Mistral-7B-Instruct-v0.3"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 480
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "join": {
+          "available_tables": [
+            "target",
+            "reconstruction"
+          ],
+          "common_keys": 480,
+          "target_keys": 480,
+          "missing_target_hash": 0,
+          "hash_mismatches_vs_target": {
+            "reconstruction": 0
+          }
+        }
+      },
+      "harm": {
+        "target": {
+          "status": "read",
+          "rows": 3000,
+          "unique_items": 250,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "mistralai/Mistral-7B-Instruct-v0.3"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true
+        },
+        "reconstruction": {
+          "status": "read",
+          "rows": 3000,
+          "unique_items": 250,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "mistralai/Mistral-7B-Instruct-v0.3"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 3000
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "safety": {
+          "status": "read",
+          "rows": 3000,
+          "unique_items": 250,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "mistralai/Mistral-7B-Instruct-v0.3"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 3000
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "join": {
+          "available_tables": [
+            "target",
+            "reconstruction",
+            "safety"
+          ],
+          "common_keys": 3000,
+          "target_keys": 3000,
+          "missing_target_hash": 0,
+          "hash_mismatches_vs_target": {
+            "reconstruction": 0,
+            "safety": 0
+          }
+        }
+      }
+    },
+    {
+      "run": "panel_qwen32",
+      "benign": {
+        "target": {
+          "status": "read",
+          "rows": 480,
+          "unique_items": 40,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "Qwen/Qwen2.5-32B-Instruct"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true
+        },
+        "reconstruction": {
+          "status": "read",
+          "rows": 480,
+          "unique_items": 40,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "Qwen/Qwen2.5-32B-Instruct"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 480
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "join": {
+          "available_tables": [
+            "target",
+            "reconstruction"
+          ],
+          "common_keys": 480,
+          "target_keys": 480,
+          "missing_target_hash": 0,
+          "hash_mismatches_vs_target": {
+            "reconstruction": 0
+          }
+        }
+      },
+      "harm": {
+        "target": {
+          "status": "read",
+          "rows": 3000,
+          "unique_items": 250,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "Qwen/Qwen2.5-32B-Instruct"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true
+        },
+        "reconstruction": {
+          "status": "read",
+          "rows": 3000,
+          "unique_items": 250,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "Qwen/Qwen2.5-32B-Instruct"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 3000
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "safety": {
+          "status": "read",
+          "rows": 3000,
+          "unique_items": 250,
+          "unique_conditions": 12,
+          "duplicate_item_condition_keys": 0,
+          "models": [
+            "Qwen/Qwen2.5-32B-Instruct"
+          ],
+          "has_seed_field": false,
+          "has_response_hash_field": true,
+          "parse_flag_counts": {
+            "int:1": 3000
+          },
+          "parse_invalid_or_missing": 0
+        },
+        "join": {
+          "available_tables": [
+            "target",
+            "reconstruction",
+            "safety"
+          ],
+          "common_keys": 3000,
+          "target_keys": 3000,
+          "missing_target_hash": 0,
+          "hash_mismatches_vs_target": {
+            "reconstruction": 0,
+            "safety": 0
+          }
+        }
+      }
+    }
+  ],
+  "cross_run_coverage": {
+    "benign": {
+      "common_item_ids": 40,
+      "common_condition_labels": 10,
+      "note": "Matching item IDs and condition labels alone do not prove identical input construction or decoding."
+    },
+    "harm": {
+      "common_item_ids": 250,
+      "common_condition_labels": 10,
+      "note": "Matching item IDs and condition labels alone do not prove identical input construction or decoding."
+    }
+  },
+  "total_target_rows": 16820,
+  "parse_flag_interpretation": "Only JSON boolean true and integer 1 count as valid; other types are not silently coerced."
+}
