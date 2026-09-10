@@ -39,8 +39,8 @@
 | 폴더 | 실험 | 상태 |
 |---|---|---|
 | `exp01_closed_compare/` | 폐쇄모델(GPT-4o 등)에서 우리 기법 vs baseline (verified) | **완료·파일럿 통과** (audit + MJ probe live) |
-| `exp02_panel_heterogeneity/` | 패널 16모델 모델별 최선 arm / 고정 최적 불가 | 예정 (유해 재수집 필요) |
-| `exp03_budget_queryeff/` | 예산-정확도 곡선, 질의효율 vs uninformed/random | 예정 |
+| `exp02_panel_collect/` | 패널 16모델 292-arm 전수 수집 | 진행 중 (Qwen2.5-7B부터 수집) |
+| `exp03_heterogeneity/` | 모델별 최선 arm / 고정 최적 불가 분석 | 수집 완료 후 실행 |
 | `exp04_heldout_transfer/` | held-out 전이 | 예정 |
 | `exp05_mechanism_ppl/` | 이해×순응 인수분해, perplexity 스텔스 | 예정 (대체로 공간 무관) |
 
@@ -50,9 +50,11 @@
 ## 실행
 
 ```bash
-export HF_HOME=/home/ubuntu/342/jinkwon/hf_cache HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
-export OPENAI_API_KEY="$(cat /home/ubuntu/342/jinkwon/.secrets/openai_api_key)"
-VP=/home/ubuntu/342/jinkwon/poly/.vllm_env/bin/python
+export HF_HOME=/data1/users/ljk98/hf_cache HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
+export VLLM_CACHE_ROOT=/data1/users/ljk98/runtime_cache/vllm
+export FLASHINFER_WORKSPACE_BASE=/data1/users/ljk98/runtime_cache/flashinfer
+# 필요한 폐쇄모델 키는 셸 환경변수로 별도 주입한다. 키를 저장소나 명령 기록에 넣지 않는다.
+VP=/data1/users/ljk98/envs/VLLM-VL-LABEL/bin/python
 
 cd experiments_suite/exp01_closed_compare
 $VP mj.py audit                 # 오프라인 점검
@@ -61,6 +63,10 @@ $VP lg.py probe --judge-device cuda:0   # 무해 세팅선택 (Lingua)
 $VP mj.py attack --judge-device cuda:0  # 유해 비교 (연구자 실행)
 $VP lg.py attack --judge-device cuda:0
 ```
+
+패널 수집기는 resident judge를 기본 16개씩 micro-batch한다. 메모리가 빠듯하면
+`--judge-batch-size 8`로 낮춘다. 중단 후 같은 `matrix` 명령을 다시 실행하면 aggregate+raw가 모두
+있는 arm은 건너뛰고 MANIFEST를 복구한 뒤 남은 arm만 실행한다.
 
 수집물: 각 실험 폴더 `results/`에 `MANIFEST.json`, `benign/<tag>.json`(선택·shortlist),
 `attack/<tag>__<method>.json`(verified/recon/unsafe), `attack/_raw/*.jsonl`(0600). 분석은 MANIFEST만

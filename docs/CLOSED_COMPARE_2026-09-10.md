@@ -4,16 +4,16 @@ held-in에서 학습·고정한 selector를 새 폐쇄모델(GPT-4o 등)에 적�
 고른 뒤 그 세팅과 기존 프롬프트 재구성/우회 기법을 같은 조건에서 비교한다. 전수 한 번씩이
 **아니라** selector가 고른다. 코드는 `scripts/closed_compare.py`, 실행 `scripts/closed_compare_run.sh`.
 
-## Arm 공간 = comprehension × willingness 교차곱 (132)
+## Arm 공간 = comprehension × willingness 교차곱 (292)
 
 재구성 난이도와 willingness 프레임을 교차한 최대 공간이다. selector가 "더 어려운 재구성 + 순응
 프레임"을 함께 고를 수 있다.
 
 - 재구성 셀 32 = frag{3,5,8,12} × {ordered,shuffled} × n{2,4,6,8}
-- willingness 래퍼 4 = plain / persona(AIM) / fiction(중첩) / role(역할분리+persona)
-- 32 × 4 = **128 교차 arm** + 단일벡터 베이스라인 4(m_aim/deepinception/pap/translated) = **132**
+- willingness 래퍼 9 = {persona, fiction, pap}의 멱집합 8개(plain 포함, 스택 가능) + role
+- 32 × 9 = **288 교차 arm** + 단일벡터 베이스라인 4(m_aim/deepinception/pap/translated) = **292**
 
-**중복 감사**(`dedupe_audit.json`, `python closed_compare.py audit`): byte 동일 중복 0. 한 셀의 4개
+**중복 감사**(`dedupe_audit.json`, `python closed_compare.py audit`): byte 동일 중복 0. 한 셀의 9개
 래퍼는 **같은 퍼즐을 공유**(재구성 난이도 동일, willingness만 다름) → 32개 공유 그룹. 셀이 다르면
 퍼즐이 다르다(재구성 난이도 32단계, 실제로 유해 프롬프트에 적용됨). 즉 selector의 난이도 선택은
 진짜 적용되고, willingness는 같은 난이도 위에서 프레임만 바꾼다. probe의 재구성 측정은 셀당 1회.
@@ -40,14 +40,14 @@ ROOT=results/closed_compare_20260910 MODEL=gpt-4o JUDGE_DEVICE=cuda:0 \
   bash scripts/closed_compare_run.sh probe
 
 # PHASE 2 (유해): 선택 세팅 + 베이스라인 비교
-ROOT=results/closed_compare_20260910 MODEL=gpt-4o N_ITEMS=40 JUDGE_DEVICE=cuda:0 \
+ROOT=results/closed_compare_20260910 MODEL=gpt-4o MJ_N_ITEMS=64 LG_N_ITEMS=40 JUDGE_DEVICE=cuda:1 \
   bash scripts/closed_compare_run.sh attack
 ```
 
-- 키는 `/home/ubuntu/342/jinkwon/.secrets/openai_api_key`(0600)에서 자동 로드.
+- API 키는 환경변수로 주입하거나 `OPENAI_KEY_FILE`에 0600 파일 경로를 지정한다.
 - 판정기 GPU 필요: phase1 재구성 판정기 ~15GB, phase2 +안전 판정기 ~16GB.
 - 다른 폐쇄모델: `BACKEND=gemini MODEL=...` 또는 `BACKEND=anthropic MODEL=...`.
-- 비용(GPT-4o, 대상 생성만): 모델 1개·두 컬렉션 합쳐 phase1+phase2 ≈ $5 미만. `N_ITEMS`로 조절.
+- 비용은 shortlist 길이·출력 길이·제공자에 따라 달라지므로 API usage ledger에서 실측한다.
 
 ## 저장 구조 (`$ROOT`)
 

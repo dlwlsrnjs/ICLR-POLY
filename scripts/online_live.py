@@ -44,6 +44,18 @@ def build_arm_prompt(row, cond, seed=SEED):
 
 class LiveTarget:
     def __init__(self, model, util, max_len, no_thinking, trust, tok_mode):
+        # Invoking a virtualenv's Python by absolute path does not necessarily put that
+        # virtualenv's ``bin`` directory on PATH.  vLLM/FlashInfer launch the ``ninja``
+        # executable in a subprocess during JIT warm-up, so make the interpreter's own
+        # tool directory discoverable before importing vLLM.  This is a no-op for an
+        # activated environment and avoids a late failure after model loading otherwise.
+        # Do not resolve the interpreter symlink: for a virtualenv it commonly points
+        # at /usr/bin/python, while the companion tools live next to the symlink in
+        # <venv>/bin.
+        runtime_bin = str(Path(sys.executable).parent)
+        path_parts = os.environ.get("PATH", "").split(os.pathsep)
+        if runtime_bin not in path_parts:
+            os.environ["PATH"] = runtime_bin + os.pathsep + os.environ.get("PATH", "")
         from vllm import LLM, SamplingParams
         import os as _os
         _eager = _os.environ.get("VLLM_ENFORCE_EAGER") == "1"   # frees CUDA-graph memory for KV on tight 32B fits
@@ -80,11 +92,26 @@ class Judges:
         self.device = device
 
     def _gen(self, tok, model, chats, max_new):
-        rendered = [tok.apply_chat_template(c, tokenize=False, add_generation_prompt=g) for c, g in chats]
-        inp = tok(rendered, return_tensors="pt", padding=True, truncation=True).to(next(model.parameters()).device)
-        with self.torch.inference_mode():
-            out = model.generate(**inp, max_new_tokens=max_new, do_sample=False, pad_token_id=tok.eos_token_id)
-        return tok.batch_decode(out[:, inp["input_ids"].shape[1]:], skip_special_tokens=True)
+        # A full 64-row judge pass can transiently fill an 80GB H100 when both resident
+        # judges share it.  Deterministic micro-batching preserves labels while bounding
+        # activation/KV memory.  Operators can tune this without changing the protocol.
+        batch_size = max(1, int(os.environ.get("POLY_JUDGE_BATCH_SIZE", "16")))
+        decoded = []
+        for start in range(0, len(chats), batch_size):
+            batch = chats[start:start + batch_size]
+            rendered = [tok.apply_chat_template(c, tokenize=False, add_generation_prompt=g)
+                        for c, g in batch]
+            inp = tok(rendered, return_tensors="pt", padding=True, truncation=True).to(
+                next(model.parameters()).device)
+            with self.torch.inference_mode():
+                out = model.generate(**inp, max_new_tokens=max_new, do_sample=False,
+                                     pad_token_id=tok.eos_token_id)
+            decoded.extend(tok.batch_decode(out[:, inp["input_ids"].shape[1]:],
+                                            skip_special_tokens=True))
+            del inp, out
+        if self.torch.cuda.is_available():
+            self.torch.cuda.empty_cache()
+        return decoded
 
     def recon_equivalent(self, originals, reconstructions):
         chats = [([{"role": "system", "content": RECON_SYSTEM},

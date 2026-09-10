@@ -27,9 +27,15 @@ def load_matrix(root, suffix):
     return mat
 
 
-def analyze(mat):
+def analyze(mat, expected_arms=292, allow_incomplete=False):
     models = sorted(mat)
     arms = sorted({a for m in mat.values() for a in m})
+    counts = {model: len(mat[model]) for model in models}
+    incomplete = {model: count for model, count in counts.items() if count != expected_arms}
+    if incomplete and not allow_incomplete:
+        raise ValueError(
+            f"incomplete full matrix: expected {expected_arms} arms per model, got {incomplete}; "
+            "resume collection or pass --allow-incomplete for a progress-only summary")
     best_per_model = {t: max(mat[t], key=mat[t].get) for t in models if mat[t]}
     oracle = {t: mat[t][best_per_model[t]] for t in best_per_model}
     # best fixed arm = argmax mean verified across models (only arms present for all models)
@@ -37,7 +43,8 @@ def analyze(mat):
     fixed_mean = {a: sum(mat[t][a] for t in models) / len(models) for a in common} if common else {}
     best_fixed = max(fixed_mean, key=fixed_mean.get) if fixed_mean else None
     distinct = sorted(set(best_per_model.values()))
-    return dict(models=models, n_arms=len(arms), best_per_model=best_per_model, oracle=oracle,
+    return dict(models=models, n_arms=len(arms), arm_counts=counts, complete=not incomplete,
+                expected_arms=expected_arms, best_per_model=best_per_model, oracle=oracle,
                 best_fixed=best_fixed, best_fixed_mean=(fixed_mean.get(best_fixed) if best_fixed else None),
                 distinct_winners=distinct, n_distinct=len(distinct))
 
@@ -47,11 +54,17 @@ def main():
     ap.add_argument("--root", required=True)
     ap.add_argument("--suffix", default="", help="_mj or _lg to select a dataset's tags")
     ap.add_argument("--out", default="")
+    ap.add_argument("--expected-arms", type=int, default=292)
+    ap.add_argument("--allow-incomplete", action="store_true",
+                    help="write a progress-only summary instead of failing on partial matrices")
     a = ap.parse_args()
     mat = load_matrix(a.root, a.suffix)
     if not mat:
         raise SystemExit(f"no full-matrix aggregates under {a.root}/attack (run exp02 collector first)")
-    res = analyze(mat)
+    try:
+        res = analyze(mat, a.expected_arms, a.allow_incomplete)
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from exc
     print(json.dumps(dict(n_models=len(res["models"]), n_arms=res["n_arms"],
                           n_distinct_winners=res["n_distinct"], best_fixed=res["best_fixed"],
                           best_per_model=res["best_per_model"]), indent=2))

@@ -3,6 +3,7 @@ datasets/
 polyjig_outputs/
 private_artifacts/
 *.jsonl
+.manifest.lock
 results/results.csv
 results/gpt4omini_*.json
 

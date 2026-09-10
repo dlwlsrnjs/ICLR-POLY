@@ -1,6 +1,8 @@
 {
-  "space": "union (grid32 + willingness)",
+  "space": "292-arm comprehension x willingness cross-product",
   "n_arms": 292,
+  "collection": "Lingua-SafetyBench",
+  "translation_language": "Norwegian",
   "arm_names": [
     "g3_ordered_n2__plain",
     "g3_ordered_n2__persona",
@@ -297,7 +299,7 @@
   ],
   "identical_prompt_groups": {},
   "shared_puzzle_groups": {
-    "f9329235bf0f4944": [
+    "5a2b255656c7982e": [
       "g3_ordered_n2__fiction",
       "g3_ordered_n2__fiction+pap",
       "g3_ordered_n2__pap",
@@ -308,7 +310,7 @@
       "g3_ordered_n2__plain",
       "g3_ordered_n2__role"
     ],
-    "635a2a226e84ed5e": [
+    "2b5269f67ab99fd0": [
       "g3_ordered_n4__fiction",
       "g3_ordered_n4__fiction+pap",
       "g3_ordered_n4__pap",
@@ -316,9 +318,10 @@
       "g3_ordered_n4__persona+fiction",
       "g3_ordered_n4__persona+fiction+pap",
       "g3_ordered_n4__persona+pap",
-      "g3_ordered_n4__plain"
+      "g3_ordered_n4__plain",
+      "g3_ordered_n4__role"
     ],
-    "c51cdef0de58bf96": [
+    "a566f1ebeca83fdb": [
       "g3_ordered_n6__fiction",
       "g3_ordered_n6__fiction+pap",
       "g3_ordered_n6__pap",
@@ -326,9 +329,10 @@
       "g3_ordered_n6__persona+fiction",
       "g3_ordered_n6__persona+fiction+pap",
       "g3_ordered_n6__persona+pap",
-      "g3_ordered_n6__plain"
+      "g3_ordered_n6__plain",
+      "g3_ordered_n6__role"
     ],
-    "114b390026e13dd6": [
+    "da872243c95134d7": [
       "g3_ordered_n8__fiction",
       "g3_ordered_n8__fiction+pap",
       "g3_ordered_n8__pap",
@@ -336,9 +340,10 @@
       "g3_ordered_n8__persona+fiction",
       "g3_ordered_n8__persona+fiction+pap",
       "g3_ordered_n8__persona+pap",
-      "g3_ordered_n8__plain"
+      "g3_ordered_n8__plain",
+      "g3_ordered_n8__role"
     ],
-    "ec3f47b8196ab2dc": [
+    "54786de9d23b4599": [
       "g3_shuffled_n2__fiction",
       "g3_shuffled_n2__fiction+pap",
       "g3_shuffled_n2__pap",
@@ -349,7 +354,7 @@
       "g3_shuffled_n2__plain",
       "g3_shuffled_n2__role"
     ],
-    "eb9e328730587fd3": [
+    "0dfdb5976c7c0fea": [
       "g3_shuffled_n4__fiction",
       "g3_shuffled_n4__fiction+pap",
       "g3_shuffled_n4__pap",
@@ -357,9 +362,10 @@
       "g3_shuffled_n4__persona+fiction",
       "g3_shuffled_n4__persona+fiction+pap",
       "g3_shuffled_n4__persona+pap",
-      "g3_shuffled_n4__plain"
+      "g3_shuffled_n4__plain",
+      "g3_shuffled_n4__role"
     ],
-    "772482f9a269e22c": [
+    "ca1fb946333f5b41": [
       "g3_shuffled_n6__fiction",
       "g3_shuffled_n6__fiction+pap",
       "g3_shuffled_n6__pap",
@@ -367,9 +373,10 @@
       "g3_shuffled_n6__persona+fiction",
       "g3_shuffled_n6__persona+fiction+pap",
       "g3_shuffled_n6__persona+pap",
-      "g3_shuffled_n6__plain"
+      "g3_shuffled_n6__plain",
+      "g3_shuffled_n6__role"
     ],
-    "7f47d367591d94c2": [
+    "da45e430de9d158f": [
       "g3_shuffled_n8__fiction",
       "g3_shuffled_n8__fiction+pap",
       "g3_shuffled_n8__pap",
@@ -377,18 +384,10 @@
       "g3_shuffled_n8__persona+fiction",
       "g3_shuffled_n8__persona+fiction+pap",
       "g3_shuffled_n8__persona+pap",
-      "g3_shuffled_n8__plain"
+      "g3_shuffled_n8__plain",
+      "g3_shuffled_n8__role"
     ],
-    "18e0b72ea333fa41": [
-      "g12_ordered_n2__fiction",
-      "g12_ordered_n2__fiction+pap",
-      "g12_ordered_n2__pap",
-      "g12_ordered_n2__persona",
-      "g12_ordered_n2__persona+fiction",
-      "g12_ordered_n2__persona+fiction+pap",
-      "g12_ordered_n2__persona+pap",
-      "g12_ordered_n2__plain",
-      "g12_ordered_n2__role",
+    "3d1ea81cca12ca39": [
       "g5_ordered_n2__fiction",
       "g5_ordered_n2__fiction+pap",
       "g5_ordered_n2__pap",
@@ -397,7 +396,86 @@
       "g5_ordered_n2__persona+fiction+pap",
       "g5_ordered_n2__persona+pap",
       "g5_ordered_n2__plain",
-      "g5_ordered_n2__role",
+      "g5_ordered_n2__role"
+    ],
+    "29560c7d92238904": [
+      "g5_ordered_n4__fiction",
+      "g5_ordered_n4__fiction+pap",
+      "g5_ordered_n4__pap",
+      "g5_ordered_n4__persona",
+      "g5_ordered_n4__persona+fiction",
+      "g5_ordered_n4__persona+fiction+pap",
+      "g5_ordered_n4__persona+pap",
+      "g5_ordered_n4__plain",
+      "g5_ordered_n4__role"
+    ],
+    "c9e18f889906ec91": [
+      "g5_ordered_n6__fiction",
+      "g5_ordered_n6__fiction+pap",
+      "g5_ordered_n6__pap",
+      "g5_ordered_n6__persona",
+      "g5_ordered_n6__persona+fiction",
+      "g5_ordered_n6__persona+fiction+pap",
+      "g5_ordered_n6__persona+pap",
+      "g5_ordered_n6__plain",
+      "g5_ordered_n6__role"
+    ],
+    "2ece92b299f379d9": [
+      "g5_ordered_n8__fiction",
+      "g5_ordered_n8__fiction+pap",
+      "g5_ordered_n8__pap",
+      "g5_ordered_n8__persona",
+      "g5_ordered_n8__persona+fiction",
+      "g5_ordered_n8__persona+fiction+pap",
+      "g5_ordered_n8__persona+pap",
+      "g5_ordered_n8__plain",
+      "g5_ordered_n8__role"
+    ],
+    "0fc331fe3c1c29fe": [
+      "g5_shuffled_n2__fiction",
+      "g5_shuffled_n2__fiction+pap",
+      "g5_shuffled_n2__pap",
+      "g5_shuffled_n2__persona",
+      "g5_shuffled_n2__persona+fiction",
+      "g5_shuffled_n2__persona+fiction+pap",
+      "g5_shuffled_n2__persona+pap",
+      "g5_shuffled_n2__plain",
+      "g5_shuffled_n2__role"
+    ],
+    "33438d0341faf5d1": [
+      "g5_shuffled_n4__fiction",
+      "g5_shuffled_n4__fiction+pap",
+      "g5_shuffled_n4__pap",
+      "g5_shuffled_n4__persona",
+      "g5_shuffled_n4__persona+fiction",
+      "g5_shuffled_n4__persona+fiction+pap",
+      "g5_shuffled_n4__persona+pap",
+      "g5_shuffled_n4__plain",
+      "g5_shuffled_n4__role"
+    ],
+    "b55280f7f74e693d": [
+      "g5_shuffled_n6__fiction",
+      "g5_shuffled_n6__fiction+pap",
+      "g5_shuffled_n6__pap",
+      "g5_shuffled_n6__persona",
+      "g5_shuffled_n6__persona+fiction",
+      "g5_shuffled_n6__persona+fiction+pap",
+      "g5_shuffled_n6__persona+pap",
+      "g5_shuffled_n6__plain",
+      "g5_shuffled_n6__role"
+    ],
+    "d9dafad8b8a21244": [
+      "g5_shuffled_n8__fiction",
+      "g5_shuffled_n8__fiction+pap",
+      "g5_shuffled_n8__pap",
+      "g5_shuffled_n8__persona",
+      "g5_shuffled_n8__persona+fiction",
+      "g5_shuffled_n8__persona+fiction+pap",
+      "g5_shuffled_n8__persona+pap",
+      "g5_shuffled_n8__plain",
+      "g5_shuffled_n8__role"
+    ],
+    "357a2c83208d00d2": [
       "g8_ordered_n2__fiction",
       "g8_ordered_n2__fiction+pap",
       "g8_ordered_n2__pap",
@@ -408,55 +486,40 @@
       "g8_ordered_n2__plain",
       "g8_ordered_n2__role"
     ],
-    "0103ff6dcf22507e": [
-      "g5_ordered_n4__fiction",
-      "g5_ordered_n4__fiction+pap",
-      "g5_ordered_n4__pap",
-      "g5_ordered_n4__persona",
-      "g5_ordered_n4__persona+fiction",
-      "g5_ordered_n4__persona+fiction+pap",
-      "g5_ordered_n4__persona+pap",
-      "g5_ordered_n4__plain"
+    "e81b3b87044c0d23": [
+      "g8_ordered_n4__fiction",
+      "g8_ordered_n4__fiction+pap",
+      "g8_ordered_n4__pap",
+      "g8_ordered_n4__persona",
+      "g8_ordered_n4__persona+fiction",
+      "g8_ordered_n4__persona+fiction+pap",
+      "g8_ordered_n4__persona+pap",
+      "g8_ordered_n4__plain",
+      "g8_ordered_n4__role"
     ],
-    "504a8a4601816827": [
-      "g5_ordered_n6__fiction",
-      "g5_ordered_n6__fiction+pap",
-      "g5_ordered_n6__pap",
-      "g5_ordered_n6__persona",
-      "g5_ordered_n6__persona+fiction",
-      "g5_ordered_n6__persona+fiction+pap",
-      "g5_ordered_n6__persona+pap",
-      "g5_ordered_n6__plain"
+    "81f550f466ab2080": [
+      "g8_ordered_n6__fiction",
+      "g8_ordered_n6__fiction+pap",
+      "g8_ordered_n6__pap",
+      "g8_ordered_n6__persona",
+      "g8_ordered_n6__persona+fiction",
+      "g8_ordered_n6__persona+fiction+pap",
+      "g8_ordered_n6__persona+pap",
+      "g8_ordered_n6__plain",
+      "g8_ordered_n6__role"
     ],
-    "b14dabb709b7176e": [
-      "g5_ordered_n8__fiction",
-      "g5_ordered_n8__fiction+pap",
-      "g5_ordered_n8__pap",
-      "g5_ordered_n8__persona",
-      "g5_ordered_n8__persona+fiction",
-      "g5_ordered_n8__persona+fiction+pap",
-      "g5_ordered_n8__persona+pap",
-      "g5_ordered_n8__plain"
+    "ca929d6b35ec488c": [
+      "g8_ordered_n8__fiction",
+      "g8_ordered_n8__fiction+pap",
+      "g8_ordered_n8__pap",
+      "g8_ordered_n8__persona",
+      "g8_ordered_n8__persona+fiction",
+      "g8_ordered_n8__persona+fiction+pap",
+      "g8_ordered_n8__persona+pap",
+      "g8_ordered_n8__plain",
+      "g8_ordered_n8__role"
     ],
-    "9f673299f507b7eb": [
-      "g12_shuffled_n2__fiction",
-      "g12_shuffled_n2__fiction+pap",
-      "g12_shuffled_n2__pap",
-      "g12_shuffled_n2__persona",
-      "g12_shuffled_n2__persona+fiction",
-      "g12_shuffled_n2__persona+fiction+pap",
-      "g12_shuffled_n2__persona+pap",
-      "g12_shuffled_n2__plain",
-      "g12_shuffled_n2__role",
-      "g5_shuffled_n2__fiction",
-      "g5_shuffled_n2__fiction+pap",
-      "g5_shuffled_n2__pap",
-      "g5_shuffled_n2__persona",
-      "g5_shuffled_n2__persona+fiction",
-      "g5_shuffled_n2__persona+fiction+pap",
-      "g5_shuffled_n2__persona+pap",
-      "g5_shuffled_n2__plain",
-      "g5_shuffled_n2__role",
+    "f4455b5a14c5bd0d": [
       "g8_shuffled_n2__fiction",
       "g8_shuffled_n2__fiction+pap",
       "g8_shuffled_n2__pap",
@@ -467,37 +530,51 @@
       "g8_shuffled_n2__plain",
       "g8_shuffled_n2__role"
     ],
-    "bc27a91f6e7211b0": [
-      "g5_shuffled_n4__fiction",
-      "g5_shuffled_n4__fiction+pap",
-      "g5_shuffled_n4__pap",
-      "g5_shuffled_n4__persona",
-      "g5_shuffled_n4__persona+fiction",
-      "g5_shuffled_n4__persona+fiction+pap",
-      "g5_shuffled_n4__persona+pap",
-      "g5_shuffled_n4__plain"
+    "6bc80c45fbe067bf": [
+      "g8_shuffled_n4__fiction",
+      "g8_shuffled_n4__fiction+pap",
+      "g8_shuffled_n4__pap",
+      "g8_shuffled_n4__persona",
+      "g8_shuffled_n4__persona+fiction",
+      "g8_shuffled_n4__persona+fiction+pap",
+      "g8_shuffled_n4__persona+pap",
+      "g8_shuffled_n4__plain",
+      "g8_shuffled_n4__role"
     ],
-    "50ec2abff9a6e9fd": [
-      "g5_shuffled_n6__fiction",
-      "g5_shuffled_n6__fiction+pap",
-      "g5_shuffled_n6__pap",
-      "g5_shuffled_n6__persona",
-      "g5_shuffled_n6__persona+fiction",
-      "g5_shuffled_n6__persona+fiction+pap",
-      "g5_shuffled_n6__persona+pap",
-      "g5_shuffled_n6__plain"
+    "011d1d775c9310ab": [
+      "g8_shuffled_n6__fiction",
+      "g8_shuffled_n6__fiction+pap",
+      "g8_shuffled_n6__pap",
+      "g8_shuffled_n6__persona",
+      "g8_shuffled_n6__persona+fiction",
+      "g8_shuffled_n6__persona+fiction+pap",
+      "g8_shuffled_n6__persona+pap",
+      "g8_shuffled_n6__plain",
+      "g8_shuffled_n6__role"
     ],
-    "a704ad12baa6fcaa": [
-      "g5_shuffled_n8__fiction",
-      "g5_shuffled_n8__fiction+pap",
-      "g5_shuffled_n8__pap",
-      "g5_shuffled_n8__persona",
-      "g5_shuffled_n8__persona+fiction",
-      "g5_shuffled_n8__persona+fiction+pap",
-      "g5_shuffled_n8__persona+pap",
-      "g5_shuffled_n8__plain"
+    "8573fbfd8ab2ce1a": [
+      "g8_shuffled_n8__fiction",
+      "g8_shuffled_n8__fiction+pap",
+      "g8_shuffled_n8__pap",
+      "g8_shuffled_n8__persona",
+      "g8_shuffled_n8__persona+fiction",
+      "g8_shuffled_n8__persona+fiction+pap",
+      "g8_shuffled_n8__persona+pap",
+      "g8_shuffled_n8__plain",
+      "g8_shuffled_n8__role"
     ],
-    "0cdd8400fa5498ea": [
+    "682eb9f7487693b1": [
+      "g12_ordered_n2__fiction",
+      "g12_ordered_n2__fiction+pap",
+      "g12_ordered_n2__pap",
+      "g12_ordered_n2__persona",
+      "g12_ordered_n2__persona+fiction",
+      "g12_ordered_n2__persona+fiction+pap",
+      "g12_ordered_n2__persona+pap",
+      "g12_ordered_n2__plain",
+      "g12_ordered_n2__role"
+    ],
+    "e2170a2fdf98b531": [
       "g12_ordered_n4__fiction",
       "g12_ordered_n4__fiction+pap",
       "g12_ordered_n4__pap",
@@ -506,20 +583,9 @@
       "g12_ordered_n4__persona+fiction+pap",
       "g12_ordered_n4__persona+pap",
       "g12_ordered_n4__plain",
-      "g8_ordered_n4__fiction",
-      "g8_ordered_n4__fiction+pap",
-      "g8_ordered_n4__pap",
-      "g8_ordered_n4__persona",
-      "g8_ordered_n4__persona+fiction",
-      "g8_ordered_n4__persona+fiction+pap",
-      "g8_ordered_n4__persona+pap",
-      "g8_ordered_n4__plain"
+      "g12_ordered_n4__role"
     ],
-    "c1b28e10653614e4": [
-      "g12_ordered_n4__role",
-      "g8_ordered_n4__role"
-    ],
-    "88e9661bafc7471c": [
+    "1aad22db9ec680c2": [
       "g12_ordered_n6__fiction",
       "g12_ordered_n6__fiction+pap",
       "g12_ordered_n6__pap",
@@ -528,26 +594,31 @@
       "g12_ordered_n6__persona+fiction+pap",
       "g12_ordered_n6__persona+pap",
       "g12_ordered_n6__plain",
-      "g8_ordered_n6__fiction",
-      "g8_ordered_n6__fiction+pap",
-      "g8_ordered_n6__pap",
-      "g8_ordered_n6__persona",
-      "g8_ordered_n6__persona+fiction",
-      "g8_ordered_n6__persona+fiction+pap",
-      "g8_ordered_n6__persona+pap",
-      "g8_ordered_n6__plain"
+      "g12_ordered_n6__role"
     ],
-    "825a4d31e1f08b12": [
-      "g8_ordered_n8__fiction",
-      "g8_ordered_n8__fiction+pap",
-      "g8_ordered_n8__pap",
-      "g8_ordered_n8__persona",
-      "g8_ordered_n8__persona+fiction",
-      "g8_ordered_n8__persona+fiction+pap",
-      "g8_ordered_n8__persona+pap",
-      "g8_ordered_n8__plain"
+    "46c3c830156ba1c3": [
+      "g12_ordered_n8__fiction",
+      "g12_ordered_n8__fiction+pap",
+      "g12_ordered_n8__pap",
+      "g12_ordered_n8__persona",
+      "g12_ordered_n8__persona+fiction",
+      "g12_ordered_n8__persona+fiction+pap",
+      "g12_ordered_n8__persona+pap",
+      "g12_ordered_n8__plain",
+      "g12_ordered_n8__role"
     ],
-    "a75ba621c152a905": [
+    "9eb2c1c9eb972bcc": [
+      "g12_shuffled_n2__fiction",
+      "g12_shuffled_n2__fiction+pap",
+      "g12_shuffled_n2__pap",
+      "g12_shuffled_n2__persona",
+      "g12_shuffled_n2__persona+fiction",
+      "g12_shuffled_n2__persona+fiction+pap",
+      "g12_shuffled_n2__persona+pap",
+      "g12_shuffled_n2__plain",
+      "g12_shuffled_n2__role"
+    ],
+    "1a061ba631290337": [
       "g12_shuffled_n4__fiction",
       "g12_shuffled_n4__fiction+pap",
       "g12_shuffled_n4__pap",
@@ -556,20 +627,9 @@
       "g12_shuffled_n4__persona+fiction+pap",
       "g12_shuffled_n4__persona+pap",
       "g12_shuffled_n4__plain",
-      "g8_shuffled_n4__fiction",
-      "g8_shuffled_n4__fiction+pap",
-      "g8_shuffled_n4__pap",
-      "g8_shuffled_n4__persona",
-      "g8_shuffled_n4__persona+fiction",
-      "g8_shuffled_n4__persona+fiction+pap",
-      "g8_shuffled_n4__persona+pap",
-      "g8_shuffled_n4__plain"
+      "g12_shuffled_n4__role"
     ],
-    "ae73cb6ccacf2a4d": [
-      "g12_shuffled_n4__role",
-      "g8_shuffled_n4__role"
-    ],
-    "03ad4a5af16e333e": [
+    "02bd740f51d0eec9": [
       "g12_shuffled_n6__fiction",
       "g12_shuffled_n6__fiction+pap",
       "g12_shuffled_n6__pap",
@@ -578,36 +638,9 @@
       "g12_shuffled_n6__persona+fiction+pap",
       "g12_shuffled_n6__persona+pap",
       "g12_shuffled_n6__plain",
-      "g8_shuffled_n6__fiction",
-      "g8_shuffled_n6__fiction+pap",
-      "g8_shuffled_n6__pap",
-      "g8_shuffled_n6__persona",
-      "g8_shuffled_n6__persona+fiction",
-      "g8_shuffled_n6__persona+fiction+pap",
-      "g8_shuffled_n6__persona+pap",
-      "g8_shuffled_n6__plain"
+      "g12_shuffled_n6__role"
     ],
-    "0f35af0347ac1d0e": [
-      "g8_shuffled_n8__fiction",
-      "g8_shuffled_n8__fiction+pap",
-      "g8_shuffled_n8__pap",
-      "g8_shuffled_n8__persona",
-      "g8_shuffled_n8__persona+fiction",
-      "g8_shuffled_n8__persona+fiction+pap",
-      "g8_shuffled_n8__persona+pap",
-      "g8_shuffled_n8__plain"
-    ],
-    "dc696f338266994b": [
-      "g12_ordered_n8__fiction",
-      "g12_ordered_n8__fiction+pap",
-      "g12_ordered_n8__pap",
-      "g12_ordered_n8__persona",
-      "g12_ordered_n8__persona+fiction",
-      "g12_ordered_n8__persona+fiction+pap",
-      "g12_ordered_n8__persona+pap",
-      "g12_ordered_n8__plain"
-    ],
-    "c1ff12b81bfa6bc9": [
+    "7a1bb27724059821": [
       "g12_shuffled_n8__fiction",
       "g12_shuffled_n8__fiction+pap",
       "g12_shuffled_n8__pap",
@@ -615,51 +648,38 @@
       "g12_shuffled_n8__persona+fiction",
       "g12_shuffled_n8__persona+fiction+pap",
       "g12_shuffled_n8__persona+pap",
-      "g12_shuffled_n8__plain"
+      "g12_shuffled_n8__plain",
+      "g12_shuffled_n8__role"
     ]
   },
-  "grid_amount_overlap": {
-    "grid_n": [
-      2,
-      4,
-      6,
-      8
-    ],
-    "amount_n": [
-      2,
+  "axes": {
+    "fragments": [
       3,
-      4,
       5,
-      6,
-      7,
       8,
-      9,
-      10
+      12
     ],
-    "overlap_n": [
+    "arrangements": [
+      "ordered",
+      "shuffled"
+    ],
+    "languages": [
       2,
       4,
       6,
       8
     ],
-    "amount_only_n": [
-      3,
-      5,
-      7,
-      9,
-      10
-    ],
-    "note": "grid uses select_languages(n); amount uses resource-order[:n-1] at F=5"
-  },
-  "answer_language_pairs": [
-    [
-      "tri_hi_en",
-      "tri_hi_wl"
-    ],
-    [
-      "tri_triple_en",
-      "tri_triple"
+    "willingness": [
+      "plain",
+      "persona",
+      "fiction",
+      "pap",
+      "persona+fiction",
+      "persona+pap",
+      "fiction+pap",
+      "persona+fiction+pap",
+      "role"
     ]
-  ],
-  "note": "No byte-identical arms. Overlaps are intentional (willingness duplication): a single N=4/F=5 ordered puzzle is reused across the plain/persona/fiction/role-separation wrappers, and tri_*_en vs tri_* differ only in answer language."
+  },
+  "note": "No byte-identical arms. Overlaps are intentional (willingness duplication): a single puzzle is reused across the nine willingness wrappers in each of the 32 comprehension cells."
 }

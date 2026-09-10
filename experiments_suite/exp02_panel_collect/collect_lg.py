@@ -6,4 +6,4 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import _common
 ROOT = str(Path(__file__).resolve().parent / "results")
 if __name__ == "__main__":
-    raise SystemExit(_common.run("Lingua-SafetyBench", ROOT, "_lg"))
+    raise SystemExit(_common.run("Lingua-SafetyBench", ROOT, "_lg", 40))

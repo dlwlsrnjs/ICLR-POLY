@@ -38,7 +38,7 @@ def _ns(**kw):
              trust_remote_code=False, tokenizer_mode="auto",
              order="AUTO", benign="AUTO", harm="AUTO",
              fp_benign=12, shortlist_k=8, n_items=40, selected="", shortlist="", all_arms=False,
-             methods="plain,translated,cipher_base64,aim,deepinception,pap", tlang="Norwegian")
+             methods="plain,translated,cipher_base64,aim,deepinception,pap", tlang="AUTO", force=False)
     d.update(kw)
     return argparse.Namespace(**d)
 
@@ -53,6 +53,16 @@ def run_audit(collection, root, **kw):
 
 def run_probe(collection, root, **kw):
     return CC.phase_probe(_ns(collection=collection, root=root, **kw))
+
+
+def load_shortlist(root, tag, collection):
+    """Load only a probe artifact produced by the current space and frozen recipe."""
+    path = Path(root) / "benign" / f"{tag}.json"
+    data = json.loads(path.read_text())
+    expected_signal = CC.RECIPE[collection]
+    if data.get("space") != CC.SPACE_DESC or data.get("selection_signal") != expected_signal:
+        raise SystemExit(f"stale probe artifact {path}; rerun the probe with --force or a new --tag")
+    return data["shortlist"]
 
 
 def run_attack(collection, root, tlang, harm_for_check, **kw):

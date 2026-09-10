@@ -26,6 +26,7 @@ class _ChatTarget:
         self.model = model; self.mt = max_tokens; self.cc = concurrency; self.store = store
     def _one(self, p):
         gem = self.base_url is not None
+        last_error = None
         for a in range(5):
             try:
                 kw = dict(model=self.model, messages=[{"role":"user","content":p}],
@@ -38,9 +39,12 @@ class _ChatTarget:
                     kw["reasoning_effort"] = "none"
                 r = self.client.chat.completions.create(**kw)
                 return r.choices[0].message.content or ""
-            except Exception:
-                if a == 4: return ""
+            except Exception as exc:
+                last_error = exc
+                if a == 4:
+                    raise RuntimeError(f"closed-target request failed after 5 attempts: {exc}") from exc
                 time.sleep(min(2*2**a, 20))
+        raise RuntimeError(f"closed-target request failed: {last_error}")
     def generate(self, prompts):
         with ThreadPoolExecutor(max_workers=self.cc) as ex:
             return list(ex.map(self._one, prompts))
@@ -52,6 +56,7 @@ class _AnthropicTarget:
         self.client = anthropic.Anthropic(api_key=api_key); self.model = model
         self.mt = max_tokens; self.cc = concurrency
     def _one(self, p):
+        last_error = None
         for a in range(5):
             try:
                 # NB: the installed anthropic SDK (1.3.0) rejects `temperature` as a kwarg
@@ -59,9 +64,12 @@ class _AnthropicTarget:
                 r = self.client.messages.create(model=self.model, max_tokens=self.mt,
                         messages=[{"role":"user","content":p}])
                 return "".join(getattr(b,"text","") for b in r.content if getattr(b,"type","")=="text")
-            except Exception:
-                if a == 4: return ""
+            except Exception as exc:
+                last_error = exc
+                if a == 4:
+                    raise RuntimeError(f"Anthropic request failed after 5 attempts: {exc}") from exc
                 time.sleep(min(2*2**a, 20))
+        raise RuntimeError(f"Anthropic request failed: {last_error}")
     def generate(self, prompts):
         with ThreadPoolExecutor(max_workers=self.cc) as ex:
             return list(ex.map(self._one, prompts))

@@ -25,20 +25,51 @@ from pathlib import Path
 import numpy as np
 
 CELL = re.compile(r"frag(\d+)_(ordered|shuffled)_n(\d+)")
+REVISED_CELL = re.compile(r"g(\d+)_(ordered|shuffled)_n(\d+)__(.+)")
 
 
 def sigmoid(x): return 1.0 / (1.0 + np.exp(-np.clip(x, -30, 30)))
 
 
 def arm_feats(arm_names):
-    F = np.array([int(CELL.match(a).group(1)) for a in arm_names], float) / 12.0
-    n = np.array([int(CELL.match(a).group(3)) for a in arm_names], float) / 10.0
-    shuf = np.array([CELL.match(a).group(2) == "shuffled" for a in arm_names], float)
-    return np.stack([n, F, shuf], 1)                       # [A, 3]
+    """Encode either the legacy 32-cell grid or the revised 292-arm space.
+
+    Legacy callers retain their original three-dimensional kernel exactly. Revised arms add the
+    willingness multi-hot, role, clear-text and translation flags required to keep stacked and
+    single-vector configurations distinct.
+    """
+    legacy = [CELL.fullmatch(a) for a in arm_names]
+    if all(legacy):
+        F = np.array([int(m.group(1)) for m in legacy], float) / 12.0
+        n = np.array([int(m.group(3)) for m in legacy], float) / 10.0
+        shuf = np.array([m.group(2) == "shuffled" for m in legacy], float)
+        return np.stack([n, F, shuf], 1)                   # [A, 3]
+
+    rows = []
+    for arm in arm_names:
+        m = REVISED_CELL.fullmatch(arm)
+        if m:
+            F, arr, n, suffix = int(m.group(1)), m.group(2), int(m.group(3)), m.group(4)
+            parts = set(suffix.split("+"))
+            role = suffix == "role"
+            rows.append([n / 10.0, F / 12.0, float(arr == "shuffled"),
+                         float("persona" in parts or role), float("fiction" in parts),
+                         float("pap" in parts), float(role), 0.0, 0.0])
+            continue
+        if arm in {"m_aim", "m_deepinception", "m_pap", "m_translated"}:
+            rows.append([0.1, 0.0, 0.0, float(arm == "m_aim"),
+                         float(arm == "m_deepinception"), float(arm == "m_pap"),
+                         0.0, 1.0, float(arm == "m_translated")])
+            continue
+        raise ValueError(f"unsupported arm name for GP features: {arm!r}")
+    return np.asarray(rows, dtype=float)                   # [A, 9]
 
 
 def structured_prior_mean(theta, arm_names, A, C_lo, C_hi, M):
     """Extended-structured J_hat over arms for one target's fingerprint (the warm-start prior)."""
+    if not all(CELL.fullmatch(a) for a in arm_names):
+        raise ValueError("structured_prior_mean is legacy 32-cell only; for revised arms pass the "
+                         "292-vector benign probe prior directly to gp_bai")
     a_n, a_F, a_shuf, c0, c1, k, u0, u_a, u_d, u_m, u_am = theta
     n = np.array([int(CELL.match(a).group(3)) for a in arm_names], float)
     F = np.array([int(CELL.match(a).group(1)) for a in arm_names], float)

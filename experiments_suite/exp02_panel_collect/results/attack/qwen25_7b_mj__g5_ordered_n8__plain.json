@@ -1,0 +1,12 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "tag": "qwen25_7b_mj",
+  "collection": "MultiJail",
+  "method": "g5_ordered_n8__plain",
+  "gated": true,
+  "verified": 0.234,
+  "recon": 0.672,
+  "unsafe": 0.344,
+  "n": 64,
+  "ts": "2026-09-10T20:16:33"
+}

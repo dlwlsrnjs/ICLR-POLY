@@ -1,0 +1,32 @@
+{
+  "order": [
+    "Norwegian",
+    "Finnish",
+    "Arabic",
+    "Russian",
+    "German",
+    "Japanese",
+    "Chinese",
+    "French",
+    "Spanish"
+  ],
+  "direction": "low_resource_first",
+  "basis": "MultiJail (Deng et al. ICLR2024) resource-level tiers; low-resource first per their finding (lower resource -> higher unsafe). Intra-HRL by web-corpus share (not load-bearing).",
+  "tiers": {
+    "LRL": [
+      "Norwegian",
+      "Finnish"
+    ],
+    "MRL": [
+      "Arabic"
+    ],
+    "HRL": [
+      "Russian",
+      "German",
+      "Japanese",
+      "Chinese",
+      "French",
+      "Spanish"
+    ]
+  }
+}
