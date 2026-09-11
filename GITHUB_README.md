@@ -106,10 +106,10 @@ so the output merges straight back into the panel.
 ```bash
 git clone https://github.com/dlwlsrnjs/ICLR-POLY.git && cd ICLR-POLY
 export HF_HOME=/data/hf_cache HF_TOKEN=<bucket-access token>
-bash bigmodel_l40s/fetch_data.sh      # dataset inputs from the private bucket
-python bigmodel_l40s/verify_env.py    # preflight (GPUs, judges, weights, data)
-bash bigmodel_l40s/run_l40s.sh        # collect the 6 assigned models (both datasets, resumable)
-bash bigmodel_l40s/upload_results.sh  # push results back to the bucket, then merge on the shared box
+bash bigmodel_l40s/scripts/fetch_data.sh      # dataset inputs from the private bucket
+python bigmodel_l40s/scripts/verify_env.py    # preflight (GPUs, judges, weights, data)
+bash bigmodel_l40s/scripts/run_l40s.sh        # collect the 6 assigned models (both datasets, resumable)
+bash bigmodel_l40s/scripts/upload_results.sh  # push results back to the bucket, then merge on the shared box
 ```
 
 Full env setup, dataset acquisition, per-model TP/util, cautions, and the merge-back path are in

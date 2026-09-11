@@ -49,8 +49,11 @@ git clone https://github.com/dlwlsrnjs/ICLR-POLY.git
 cd ICLR-POLY
 ```
 
-코드는 이 한 번의 clone으로 끝. L40S 전용 실행물은 전부 `bigmodel_l40s/` 안에 있습니다
-(`run_l40s.sh`, `models.txt`, `fetch_data.sh`, `verify_env.py`, `upload_results.sh`).
+코드는 이 한 번의 clone으로 끝. 구조는 **문서/설정과 코드가 분리**돼 있습니다:
+- 문서/설정 = `bigmodel_l40s/README.md`(이 문서), `bigmodel_l40s/models.txt`(대상 목록)
+- 실행 코드 = `bigmodel_l40s/scripts/`(`fetch_data.sh`, `verify_env.py`, `run_l40s.sh`, `upload_results.sh`)
+
+자세한 파일 맵은 §9 참고.
 
 ---
 
@@ -93,7 +96,7 @@ done
 
 ```bash
 export HF_TOKEN=<jin-kwon/poly 접근 권한이 있는 토큰>
-bash bigmodel_l40s/fetch_data.sh        # 아래 6개 파일만 내려받고 존재 검증까지 함
+bash bigmodel_l40s/scripts/fetch_data.sh        # 아래 6개 파일만 내려받고 존재 검증까지 함
 ```
 
 내려받는 파일(수집이 읽는 전부):
@@ -120,7 +123,7 @@ bash bigmodel_l40s/fetch_data.sh        # 아래 6개 파일만 내려받고 존
 ## 4. 프리플라이트 (한 번에 점검)
 
 ```bash
-python bigmodel_l40s/verify_env.py
+python bigmodel_l40s/scripts/verify_env.py
 ```
 
 GPU 수, HF_HOME, 판정기 캐시, 타깃 weight 캐시, 데이터셋 6파일, TP 배선까지 전부 체크하고
@@ -132,7 +135,7 @@ GPU 수, HF_HOME, 판정기 캐시, 타깃 weight 캐시, 데이터셋 6파일, 
 
 ```bash
 # GPU 자동감지(전부 사용). 특정 카드만 쓰려면 CUDA_VISIBLE_DEVICES 로 순서 지정.
-bash bigmodel_l40s/run_l40s.sh 2>&1 | tee bigmodel_l40s/run.log
+bash bigmodel_l40s/scripts/run_l40s.sh 2>&1 | tee bigmodel_l40s/run.log
 ```
 
 동작:
@@ -144,9 +147,9 @@ bash bigmodel_l40s/run_l40s.sh 2>&1 | tee bigmodel_l40s/run.log
 
 옵션(환경변수):
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2 bash bigmodel_l40s/run_l40s.sh   # 카드 3장 지정(24B TP=2 + 판정기)
-MJ_ITEMS=64 LG_ITEMS=40 JB=8 bash bigmodel_l40s/run_l40s.sh # 문항수/판정 배치 조정
-VP=/path/.venv/bin/python bash bigmodel_l40s/run_l40s.sh    # venv 미활성화 시
+CUDA_VISIBLE_DEVICES=0,1,2 bash bigmodel_l40s/scripts/run_l40s.sh   # 카드 3장 지정(24B TP=2 + 판정기)
+MJ_ITEMS=64 LG_ITEMS=40 JB=8 bash bigmodel_l40s/scripts/run_l40s.sh # 문항수/판정 배치 조정
+VP=/path/.venv/bin/python bash bigmodel_l40s/scripts/run_l40s.sh    # venv 미활성화 시
 ```
 
 **(선택) willingness 축 prior도 함께 수집** — 이 6개 모델의 오프라인 willingness 지문(전이 기법의
@@ -217,9 +220,9 @@ GPU 비우고 재실행하면 이어서 채웁니다.
 
 ```bash
 export HF_TOKEN=<쓰기 권한 토큰>
-bash bigmodel_l40s/upload_results.sh          # 기본 SINK=bucket (버킷으로)
+bash bigmodel_l40s/scripts/upload_results.sh          # 기본 SINK=bucket (버킷으로)
 # 또는 공유 박스로 직접 rsync:
-# SINK=rsync RSYNC_DEST=user@shared:/.../experiments_suite/exp02_panel_collect/results/ bash bigmodel_l40s/upload_results.sh
+# SINK=rsync RSYNC_DEST=user@shared:/.../experiments_suite/exp02_panel_collect/results/ bash bigmodel_l40s/scripts/upload_results.sh
 ```
 
 그 뒤 **공유 박스에서** 병합:
@@ -232,17 +235,22 @@ python scripts/closed_compare.py repair-manifest --root experiments_suite/exp02_
 
 ---
 
-## 9. 파일 맵 (이 폴더)
+## 9. 파일 맵 (이 폴더) — 문서/설정과 코드 분리
 
-| 파일 | 역할 |
-|---|---|
-| `README.md` | 이 문서 |
-| `models.txt` | 담당 6모델 + TP + util (편집해서 대상 조정) |
-| `fetch_data.sh` | 프라이빗 버킷에서 데이터 6파일 받기 + 검증 |
-| `verify_env.py` | 실행 전 프리플라이트(GPU/캐시/데이터/배선) |
-| `run_l40s.sh` | 수집 실행(모델별 MJ+LG, 판정기 카드 자동 배치, resume) |
-| `upload_results.sh` | 결과를 버킷/rsync로 반환(유해 원본은 버킷만) |
-| `results/` | **여기에만** L40S 결과가 쌓임(실행 후 생성) |
+```
+bigmodel_l40s/
+├── README.md          ← 이 문서 (문서)
+├── models.txt         ← 담당 6모델 + TP + util (설정: 편집해서 대상 조정)
+├── scripts/           ← 실행 코드 (여기만 코드)
+│   ├── fetch_data.sh      프라이빗 버킷에서 데이터 6파일 받기 + 검증
+│   ├── verify_env.py      실행 전 프리플라이트(GPU/캐시/데이터/배선)
+│   ├── run_l40s.sh        수집 실행(모델별 MJ+LG, 판정기 카드 자동 배치, resume)
+│   └── upload_results.sh  결과를 버킷/rsync로 반환(유해 원본은 버킷만)
+└── results/           ← **여기에만** L40S 결과가 쌓임(실행 후 생성, git 제외)
+```
+
+- **문서/설정**은 폴더 최상위(`README.md`, `models.txt`) — 사람이 읽고 편집.
+- **코드**는 `scripts/` 아래에만 — 실행 대상. 편집할 일은 거의 없음.
 
 문의/맥락: 리포 루트 `GITHUB_README.md`, `experiments_suite/INVENTORY.md`,
 `experiments_suite/BUCKET.md`, `paper/REVISION_PLAN_2026-09-10.md`.

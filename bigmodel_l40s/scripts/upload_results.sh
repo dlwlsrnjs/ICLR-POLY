@@ -5,7 +5,7 @@
 # Raw per-response outputs (results/attack/_raw/*.jsonl, mode 0600) are RESTRICTED — bucket only,
 # never git. Run from repo root (script cd's there).
 set -euo pipefail
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/../.."
 R=bigmodel_l40s/results
 [ -d "$R" ] || { echo "no $R yet - run run_l40s.sh first"; exit 1; }
 

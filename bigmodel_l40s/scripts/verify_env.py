@@ -5,7 +5,7 @@ Exit 0 = ready. It downloads nothing and touches no GPU heavily (just cuda count
 import os, sys, json, importlib.util
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[1]
+REPO = Path(__file__).resolve().parents[2]   # file is at bigmodel_l40s/scripts/verify_env.py
 os.chdir(REPO)
 ok = True
 def check(name, cond, hint=""):
@@ -60,5 +60,5 @@ check("tensor_parallel_size wired in online_live.py", "tensor_parallel_size=int(
 cc = (REPO / "scripts" / "closed_compare.py").read_text()
 check("--tensor-parallel CLI present", "--tensor-parallel" in cc)
 
-print("\n" + ("ALL GOOD -> run: bash bigmodel_l40s/run_l40s.sh" if ok else "FIX the XX items above, then re-run."))
+print("\n" + ("ALL GOOD -> run: bash bigmodel_l40s/scripts/run_l40s.sh" if ok else "FIX the XX items above, then re-run."))
 sys.exit(0 if ok else 1)

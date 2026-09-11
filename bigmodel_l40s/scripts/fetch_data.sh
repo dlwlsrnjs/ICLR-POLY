@@ -3,7 +3,7 @@
 # Source of truth: the PRIVATE HF bucket  jin-kwon/poly . You need a bucket-capable hf CLI and a
 # token with access. Run from the repo root (or anywhere; it cd's to the repo root).
 set -euo pipefail
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/../.."
 : "${HF_TOKEN:?export HF_TOKEN=<your huggingface token with access to jin-kwon/poly>}"
 
 pip install -U "huggingface_hub[cli]" >/dev/null   # gives `hf sync` / `hf buckets` (huggingface_hub >= 1.30)

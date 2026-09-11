@@ -8,7 +8,7 @@
 #  skipped via MANIFEST.json (resume). See README.md for the full guide.
 # =====================================================================================
 set -uo pipefail
-cd "$(dirname "$0")/.."                       # repo root
+cd "$(dirname "$0")/../.."                     # repo root (script lives in bigmodel_l40s/scripts/)
 HERE=bigmodel_l40s
 VP="${VP:-python}"                            # set VP=/path/to/venv/bin/python if not activated
 R="$HERE/results"                             # <-- L40S results live here, separate from the shared box
