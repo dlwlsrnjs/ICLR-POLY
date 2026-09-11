@@ -96,6 +96,25 @@ Arm space = comprehension cells (frag{3,5,8,12} × {ordered,shuffled} × n) × w
 (power set of persona/fiction/pap, stackable, + role) + single-vector baselines. `n` auto-caps to a
 dataset's language count. See `experiments_suite/README.md`, `INVENTORY.md`, `ARM_EXPANSION_IMPACT.md`.
 
+## 4b. Big/mid models on a separate GPU box (L40S)
+
+Large targets that don't fit the shared box are collected on a dedicated **L40S** box with a
+self-contained runbook in [`bigmodel_l40s/`](bigmodel_l40s/README.md). It reuses the same drivers
+(vLLM tensor-parallel is wired via `--tensor-parallel`) and writes to its own `bigmodel_l40s/results/`
+so the output merges straight back into the panel.
+
+```bash
+git clone https://github.com/dlwlsrnjs/ICLR-POLY.git && cd ICLR-POLY
+export HF_HOME=/data/hf_cache HF_TOKEN=<bucket-access token>
+bash bigmodel_l40s/fetch_data.sh      # dataset inputs from the private bucket
+python bigmodel_l40s/verify_env.py    # preflight (GPUs, judges, weights, data)
+bash bigmodel_l40s/run_l40s.sh        # collect the 6 assigned models (both datasets, resumable)
+bash bigmodel_l40s/upload_results.sh  # push results back to the bucket, then merge on the shared box
+```
+
+Full env setup, dataset acquisition, per-model TP/util, cautions, and the merge-back path are in
+[`bigmodel_l40s/README.md`](bigmodel_l40s/README.md).
+
 ## 5. Upload changes back to the bucket
 
 ```bash
