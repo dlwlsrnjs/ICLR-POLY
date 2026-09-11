@@ -1,0 +1,26 @@
+{
+  "plain": {
+    "nonref": 0.92,
+    "hedge": 2.565,
+    "fic": 0.015,
+    "words": 199.275
+  },
+  "persona": {
+    "nonref": 0.93,
+    "hedge": 4.74,
+    "fic": 0.01,
+    "words": 188.24
+  },
+  "fiction": {
+    "nonref": 0.99,
+    "hedge": 0.845,
+    "fic": 0.29,
+    "words": 205.97
+  },
+  "pap": {
+    "nonref": 0.935,
+    "hedge": 3.18,
+    "fic": 0.01,
+    "words": 195.185
+  }
+}

@@ -1,0 +1,15 @@
+\begin{table}[t]\centering\small
+\caption{\textbf{Arm-space ablation.} Verified ASR (model-averaged) as the configuration space grows from comprehension$\times$language$\times$order (A) by adding willingness. \emph{oracle} = best arm; \emph{free} = benign-prior pick (no harmful target query); \emph{adapt} = C-space selector (\texttt{ucb\_add\_pibo}) at 8 harmful pulls. Willingness helps up to C; beyond it (D) achievable ASR is unchanged while the free prior degrades and cost doubles, so C is the operating point.}
+\label{tab:armspace}
+\begin{tabular}{l ccc ccc}
+\toprule
+& \multicolumn{3}{c}{Held-in} & \multicolumn{3}{c}{Held-out} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Space (\#arms) & oracle & free & adapt & oracle & free & adapt \\
+\midrule
+A: comp$\times$lang$\times$order (32) & 0.489 & 0.357 & 0.455 & -- & -- & -- \\
+B: $+$weak willingness (96) & 0.684 & 0.613 & 0.650 & -- & -- & -- \\
+\textbf{C: $+$medium willingness} (160) & 0.772 & 0.613 & 0.675 & -- & -- & -- \\
+D: $+$full stacks (288) & 0.784 & 0.588 & 0.675 & -- & -- & -- \\
+\bottomrule
+\end{tabular}\end{table}
