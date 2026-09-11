@@ -1,0 +1,22 @@
+# L40S big/mid-model collection list  (columns: HF_ID  TP  UTIL)
+#   TP   = vLLM tensor_parallel_size (how many L40S the TARGET is sharded over)
+#   UTIL = gpu_memory_utilization per card (fraction of one 48GB L40S)
+# The judge pair (Qwen2.5-7B recon + Qwen3Guard-8B, ~31GB) always needs ONE more card,
+# on cuda:$TP (the card right after the target shards). So a model needs TP+1 GPUs total.
+#
+# These are exactly the 6 models assigned to the L40S box (nothing else runs here):
+google/gemma-2-2b-it                        1  0.30
+tiiuae/Falcon3-7B-Instruct                  1  0.45
+meta-llama/Llama-3.1-8B-Instruct            1  0.50
+google/gemma-2-9b-it                        1  0.55
+Qwen/Qwen2.5-14B-Instruct                   1  0.85
+mistralai/Mistral-Small-24B-Instruct-2501   2  0.85
+#
+# --- notes ---
+# * gemma-2-2b-it is the held-in model that OOM-skipped on the shared box; collect it here.
+# * mistral24b uses TP=2 -> needs 2 target cards + 1 judge card = 3 L40S total.
+#   On a 2-GPU box instead, swap the line above for an AWQ build that fits one card:
+#     stelterlab/Mistral-Small-24B-Instruct-2501-AWQ   1  0.85
+#   (AWQ target => note "quantized target" when reporting mistral24b.)
+# * gemma-2-27b-it and Qwen2.5-32B-Instruct are NOT in this batch. If you want them here too,
+#   add:  google/gemma-2-27b-it  2  0.90   and   Qwen/Qwen2.5-32B-Instruct  2  0.90

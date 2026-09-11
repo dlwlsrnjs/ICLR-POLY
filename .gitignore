@@ -21,3 +21,9 @@ huggingface/
 .DS_Store
 .idea/
 .vscode/
+
+# L40S box writes its collection here; merge via bucket, never commit
+bigmodel_l40s/results/
+bigmodel_l40s/run.log
+# harmful raw per-response outputs are RESTRICTED (bucket only)
+**/attack/_raw/

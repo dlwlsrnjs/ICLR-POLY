@@ -114,6 +114,7 @@ BORDERLINE = [  # harmless but safety-adjacent requests (from benign_signals_pro
 #   => 32 x 9 = 288 cross arms, plus 4 clear-text single-vector baselines (n=1 references) = 292.
 # Stacking is real (an AIM persona narrating a nested fiction that also persuades). It does not raise
 # probe cost (reconstruction is measured once per cell; phase 2 fires only the shortlist).
+C_WILL = {"plain", "persona", "fiction", "pap", "persona+fiction"}  # space C (medium willingness)
 GRID_F = (3, 5, 8, 12)
 GRID_ARR = ("ordered", "shuffled")
 GRID_N = (2, 4, 6, 8)
@@ -267,7 +268,8 @@ def make_target(a):
         from closed_targets import make_target as mt
         return mt(a.backend, a.model, concurrency=a.concurrency, max_tokens=a.max_tokens)
     from online_live import LiveTarget
-    return LiveTarget(a.model, a.util, a.max_model_len, a.no_thinking, a.trust_remote_code, a.tokenizer_mode)
+    return LiveTarget(a.model, a.util, a.max_model_len, a.no_thinking, a.trust_remote_code,
+                      a.tokenizer_mode, tp=getattr(a, "tensor_parallel", 1))
 
 
 def willingness_factor(signals, frame, metric):
@@ -433,9 +435,13 @@ def phase_attack(a):
 
     jobs = []
     if getattr(a, "all_arms", False):
-        # FULL-MATRIX collection (panel experiments): evaluate every arm, so per-model oracle /
-        # best-arm / heterogeneity can be computed. Label = the arm name itself.
+        # FULL-MATRIX collection. arm_space=="C" restricts to the chosen medium-willingness space
+        # (32 cells x {plain,persona,fiction,pap,persona+fiction} = 160) + single-vector baselines;
+        # "full" keeps all 288 grid arms + baselines.
+        space = getattr(a, "arm_space", "full")
         for name, frame, gated, has_puzzle, build in arm_list:
+            if space == "C" and "__" in name and name.split("__", 1)[1] not in C_WILL:
+                continue
             jobs.append((name, build, gated))
     else:
         picks = []
@@ -615,6 +621,9 @@ def main():
         p.add_argument("--no-thinking", action="store_true")
         p.add_argument("--trust-remote-code", action="store_true")
         p.add_argument("--tokenizer-mode", default="auto")
+        p.add_argument("--tensor-parallel", type=int, default=1,
+                       help="vLLM tensor_parallel_size for the target; >1 shards a big model across GPUs "
+                            "(e.g. 2 for 24B/27B on 48GB L40S, 2-4 for 32B)")
         p.add_argument("--force", action="store_true", help="replace outputs for an existing tag")
         if name == "probe":
             p.add_argument("--benign", default="AUTO", help="AUTO = per-collection default")
@@ -626,6 +635,7 @@ def main():
             p.add_argument("--selected", default="", help="single arm name from phase-1 benign/<tag>.json")
             p.add_argument("--shortlist", default="", help="comma list of arms (phase-1 shortlist) for confirmatory pulls")
             p.add_argument("--all-arms", action="store_true", help="FULL-MATRIX: evaluate every arm (panel collection)")
+            p.add_argument("--arm-space", default="full", choices=["full", "C"], help="C = 160 medium-willingness space")
             p.add_argument("--methods", default="plain,translated,cipher_base64,aim,deepinception,pap")
             p.add_argument("--tlang", default="AUTO", help="AUTO = per-collection default")
     a = ap.parse_args()

@@ -35,9 +35,9 @@ def validate_tlang(harm_path, tlang):
 def _ns(**kw):
     d = dict(backend="openai", model="gpt-4o", concurrency=8, max_tokens=320,
              judge_device="cuda:0", util=0.45, max_model_len=4096, no_thinking=False,
-             trust_remote_code=False, tokenizer_mode="auto",
+             trust_remote_code=False, tokenizer_mode="auto", tensor_parallel=1,
              order="AUTO", benign="AUTO", harm="AUTO",
-             fp_benign=12, shortlist_k=8, n_items=40, selected="", shortlist="", all_arms=False,
+             fp_benign=12, shortlist_k=8, n_items=40, selected="", shortlist="", all_arms=False, arm_space="full",
              methods="plain,translated,cipher_base64,aim,deepinception,pap", tlang="AUTO", force=False)
     d.update(kw)
     return argparse.Namespace(**d)

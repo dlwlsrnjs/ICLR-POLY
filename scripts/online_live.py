@@ -43,7 +43,7 @@ def build_arm_prompt(row, cond, seed=SEED):
 
 
 class LiveTarget:
-    def __init__(self, model, util, max_len, no_thinking, trust, tok_mode):
+    def __init__(self, model, util, max_len, no_thinking, trust, tok_mode, tp=1):
         # Invoking a virtualenv's Python by absolute path does not necessarily put that
         # virtualenv's ``bin`` directory on PATH.  vLLM/FlashInfer launch the ``ninja``
         # executable in a subprocess during JIT warm-up, so make the interpreter's own
@@ -61,7 +61,7 @@ class LiveTarget:
         _eager = _os.environ.get("VLLM_ENFORCE_EAGER") == "1"   # frees CUDA-graph memory for KV on tight 32B fits
         self.llm = LLM(model=model, dtype="bfloat16", gpu_memory_utilization=util,
                        trust_remote_code=trust, tokenizer_mode=tok_mode, max_model_len=max_len,
-                       enforce_eager=_eager)
+                       tensor_parallel_size=int(tp), enforce_eager=_eager)
         self.sp = SamplingParams(temperature=0.0, max_tokens=320)
         self.ck = {"chat_template_kwargs": {"enable_thinking": False}} if no_thinking else {}
 
