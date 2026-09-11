@@ -67,6 +67,10 @@ status "ONE_GPU_LANES_DONE lane_a=$a lane_b=$b"
 # 24B: TP=2 target on cards 0,1; judges on card 2
 wait_free 0,1,2
 matrix_model 0,1,2 cuda:2 mistralai/Mistral-Small-24B-Instruct-2501 mistral24b 2 0.85
+# 27B: handed to L40S because gemma-2 needs a softcapping-capable attn backend that the H100
+# vllm build lacks; L40S runs gemma-2 fine. TP=2 target on cards 0,1; judges on card 2.
+wait_free 0,1,2
+matrix_model 0,1,2 cuda:2 google/gemma-2-27b-it gemma2_27b 2 0.85
 status "QUEUE_FINISHED"
 
 # rebuild the manifest so the new harmful arms register next to the benign priors

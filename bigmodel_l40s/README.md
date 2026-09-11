@@ -17,7 +17,9 @@
 - `gemma-2-2b-it`은 원래 held-in인데 공유 박스에서 OOM으로 빠졌던 모델 → 여기서 수집.
 - **mistral24b만 TP=2**(48GB L40S 한 장에 안 들어감). 판정기까지 상주시키려면 **L40S 3장** 필요.
   2장뿐이면 AWQ 양자화본으로 대체(아래 §7).
-- gemma-2-27b, Qwen2.5-32B는 이번 배치에 **없음**. 원하면 `models.txt`에 주석 해제해서 추가.
+- **held-in 대형 분담(2026-09-12):** `gemma-2-27b`는 **L40S에서 TP=2**로 수집(gemma-2는 softcapping
+  가능한 attn 백엔드가 필요한데 H100 vllm 빌드가 이를 못 지원 → L40S가 정상). `run_harmful_matrix.sh`에
+  24B 뒤에 추가됨. `Qwen2.5-32B`는 **H100 80GB에서 TP=1**로 수집(`/tmp/h100_qwen32b.sh`).
 
 수집 대상 = **C=160 arm 공간**(comprehension 32셀 × willingness {plain,persona,fiction,pap,persona+fiction}
 = 160) **+ baseline 4** = 164 arm/모델, **데이터셋 2개(MultiJail·Lingua) 각각**. 성공 판정은
