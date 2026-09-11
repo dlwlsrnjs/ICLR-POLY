@@ -80,7 +80,7 @@ def frame_effect(per_frame):
     return eff
 
 
-def record(model, tag, dataset, per_frame, meta_ds, util, live):
+def record(model, tag, dataset, per_frame, meta_ds, util, live, tensor_parallel=1):
     RESULTS.mkdir(exist_ok=True)
     rec = dict(
         schema="willingness_prior/v1",
@@ -95,7 +95,8 @@ def record(model, tag, dataset, per_frame, meta_ds, util, live):
                                       hedge="mean count of hedging/safety phrases per answer",
                                       fic="fraction with fiction/narrative structure in first 400 chars",
                                       words="mean answer length in words")),
-        sampling=dict(temperature=0.0, max_tokens=320, max_model_len=4096, util=util),
+        sampling=dict(temperature=0.0, max_tokens=320, max_model_len=4096, util=util,
+                      tensor_parallel=tensor_parallel),
         per_frame=per_frame,
         frame_effect_vs_plain=frame_effect(per_frame),
     )
@@ -111,10 +112,12 @@ def main():
     ap.add_argument("--dataset", choices=list(DATASETS), default="falsereject")
     ap.add_argument("--util", type=float, default=0.25)
     ap.add_argument("--n", type=int, default=200)
+    ap.add_argument("--tensor-parallel", type=int, default=1,
+                    help="vLLM tensor parallel size (2 for the L40S Mistral-24B target)")
     a = ap.parse_args()
     prompts, meta_ds = load_prompts(a.dataset, a.n)
     from online_live import LiveTarget
-    t = LiveTarget(a.model, a.util, 4096, False, False, "auto")
+    t = LiveTarget(a.model, a.util, 4096, False, False, "auto", tp=a.tensor_parallel)
     print(f"model={a.model}  dataset={meta_ds['name']}  n={meta_ds['n_prompts']}  sha={meta_ds['prompt_sha1']}")
     print(f"{'frame':9} nonref  hedge/ans  fiction_struct  words")
     per = {}
@@ -122,7 +125,8 @@ def main():
         s = score(t.generate([tmpl.format(q=q) for q in prompts]))
         per[fr] = s
         print(f"{fr:9}  {s['nonref']:.2f}     {s['hedge']:.2f}       {s['fic']:.2f}          {s['words']:.0f}")
-    out = record(a.model, a.tag, a.dataset, per, meta_ds, a.util, live=True)
+    out = record(a.model, a.tag, a.dataset, per, meta_ds, a.util, live=True,
+                 tensor_parallel=a.tensor_parallel)
     print(f"\nframe effect vs plain:")
     for fr, e in frame_effect(per).items():
         print(f"  {fr:9} dnonref={e['dnonref']:+.2f}  dwords={e['dwords']:+.0f}  "

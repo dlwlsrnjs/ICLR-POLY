@@ -30,3 +30,6 @@ bigmodel_l40s/run.log
 
 # willingness-prior run logs (keep only the provenance JSONs)
 experiments_suite/exp05_willingness_probe/results/*.log
+
+# Local inference runtime logs (results carry full provenance)
+/logs/

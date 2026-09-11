@@ -1,0 +1,27 @@
+2026-09-11T08:14:42+00:00	QUEUE_STARTED purpose=inference_only_axes axes=comprehension,willingness harmful=false
+2026-09-11T08:14:42+00:00	START model=google/gemma-2-2b-it collection=mj GPUs=2,3 phase=benign_probe
+2026-09-11T08:15:22+00:00	START model=tiiuae/Falcon3-7B-Instruct collection=mj GPUs=0,1 phase=benign_probe
+2026-09-11T08:19:18+00:00	COMPLETE model=google/gemma-2-2b-it collection=mj
+2026-09-11T08:19:18+00:00	START model=google/gemma-2-2b-it collection=lg GPUs=2,3 phase=benign_probe
+2026-09-11T08:22:22+00:00	COMPLETE model=tiiuae/Falcon3-7B-Instruct collection=mj
+2026-09-11T08:22:22+00:00	START model=tiiuae/Falcon3-7B-Instruct collection=lg GPUs=0,1 phase=benign_probe
+2026-09-11T08:23:50+00:00	COMPLETE model=google/gemma-2-2b-it collection=lg
+2026-09-11T08:23:50+00:00	START model=meta-llama/Llama-3.1-8B-Instruct collection=mj GPUs=2,3 phase=benign_probe
+2026-09-11T08:29:02+00:00	COMPLETE model=tiiuae/Falcon3-7B-Instruct collection=lg
+2026-09-11T08:29:02+00:00	START model=google/gemma-2-9b-it collection=mj GPUs=0,1 phase=benign_probe
+2026-09-11T08:31:13+00:00	COMPLETE model=meta-llama/Llama-3.1-8B-Instruct collection=mj
+2026-09-11T08:31:13+00:00	START model=meta-llama/Llama-3.1-8B-Instruct collection=lg GPUs=2,3 phase=benign_probe
+2026-09-11T08:35:56+00:00	COMPLETE model=google/gemma-2-9b-it collection=mj
+2026-09-11T08:35:56+00:00	START model=google/gemma-2-9b-it collection=lg GPUs=0,1 phase=benign_probe
+2026-09-11T08:38:25+00:00	COMPLETE model=meta-llama/Llama-3.1-8B-Instruct collection=lg
+2026-09-11T08:38:25+00:00	START model=Qwen/Qwen2.5-14B-Instruct collection=mj GPUs=2,3 phase=benign_probe
+2026-09-11T08:42:23+00:00	COMPLETE model=google/gemma-2-9b-it collection=lg
+2026-09-11T08:48:53+00:00	COMPLETE model=Qwen/Qwen2.5-14B-Instruct collection=mj
+2026-09-11T08:48:53+00:00	START model=Qwen/Qwen2.5-14B-Instruct collection=lg GPUs=2,3 phase=benign_probe
+2026-09-11T08:59:14+00:00	COMPLETE model=Qwen/Qwen2.5-14B-Instruct collection=lg
+2026-09-11T08:59:14+00:00	ONE_GPU_LANES_DONE lane_a=0 lane_b=0
+2026-09-11T08:59:14+00:00	START model=mistralai/Mistral-Small-24B-Instruct-2501 collection=mj GPUs=0,1,2 phase=benign_probe
+2026-09-11T09:09:35+00:00	COMPLETE model=mistralai/Mistral-Small-24B-Instruct-2501 collection=mj
+2026-09-11T09:09:35+00:00	START model=mistralai/Mistral-Small-24B-Instruct-2501 collection=lg GPUs=0,1,2 phase=benign_probe
+2026-09-11T09:19:34+00:00	COMPLETE model=mistralai/Mistral-Small-24B-Instruct-2501 collection=lg
+2026-09-11T09:19:34+00:00	QUEUE_FINISHED
