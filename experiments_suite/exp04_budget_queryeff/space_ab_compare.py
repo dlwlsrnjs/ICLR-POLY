@@ -40,6 +40,9 @@ def bench(root, suffix):
         grid_all = [a for a in full if CELL.match(a)]
         if len(gridC) < 160:            # need space C complete to compare A/B/C
             continue
+        if tag not in pri:              # the comparison is prior-driven; skip models with no benign prior
+            print(f"skip {tag}: no benign prior (matrix collected without probe)")
+            continue
         has_full = len(grid_all) >= 288  # D (all stacks) only if fully collected
         base = tag[:-3] if tag.endswith(("_mj", "_lg")) else tag
         held = "held_in" if base in HELD_IN else "held_out"
