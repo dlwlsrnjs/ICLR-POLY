@@ -23,6 +23,12 @@ Dataset progression (easy → hardest), each 200 prompts:
 | OR-Bench-Hard | `private_artifacts/alignment_probe/probe_orbench_hard.jsonl` (1,319) | harder; breaks saturation on qwen7b |
 | **FalseReject** | `private_artifacts/alignment_probe/probe_falsereject.jsonl` (1,187) | hardest; exposes frames that are **trained-refused** (a frame can be "burned" — it triggers refusal even on benign content, which is exactly the failure mode we must detect per model) |
 
+> **Standard from now on: FalseReject only.** XSTest and OR-Bench-Hard were the exploratory rungs that
+> showed the saturation problem and picked the operating point; FalseReject is the hardest and most
+> discriminative, so it is the single dataset used for the willingness prior going forward. The recorder
+> defaults to `--dataset falsereject`, and every panel/L40S prior run should use it. The XSTest/OR-Bench
+> records are kept only as the documented ablation that justifies the choice.
+
 ## 2. What is measured per frame (all benign, no safety judge)
 
 For each frame we score the 200 responses with fixed regexes (recorded verbatim in every output):
@@ -51,7 +57,7 @@ the exact `frames` templates, the `scoring` regexes + definitions, `sampling` (g
 
 | model | dataset | file | live |
 |---|---|---|---|
-| Qwen2.5-7B | OR-Bench-Hard | `willingness_prior_orbench_qwen25_7b.json` | retro-wrapped |
+| Qwen2.5-7B | OR-Bench-Hard | `willingness_prior_orbench_qwen25_7b.json` (ablation only) | retro-wrapped |
 | Qwen2.5-7B | FalseReject | (queued — first attempt OOM'd; re-running) | live |
 | Qwen2.5-3B | FalseReject | `willingness_prior_falsereject_qwen25_3b.json` | retro-wrapped |
 | Phi-3.5-mini | FalseReject | `willingness_prior_falsereject_phi35_mini.json` | retro-wrapped |
