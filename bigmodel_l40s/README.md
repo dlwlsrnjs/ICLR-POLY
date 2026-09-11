@@ -239,6 +239,10 @@ GPU 비우고 재실행하면 이어서 채웁니다.
 
 ## 8. 끝나면 — 결과 올리고 병합
 
+현재 L40S 수집분은 raw 응답을 public Git에 넣지 않고 owner-only HF bucket으로 동기화합니다.
+업로드 위치, 검증된 체크포인트 수량, 최종 자동 동기화 상태는
+[`docs/L40S_PRIVATE_BUCKET_UPLOAD.md`](../docs/L40S_PRIVATE_BUCKET_UPLOAD.md)에 기록합니다.
+
 ```bash
 export HF_TOKEN=<쓰기 권한 토큰>
 bash bigmodel_l40s/scripts/upload_results.sh          # 기본 SINK=bucket (버킷으로)
