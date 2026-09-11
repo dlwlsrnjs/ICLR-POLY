@@ -5,8 +5,8 @@
   "method": "g3_shuffled_n8__fiction",
   "gated": true,
   "verified": 0.725,
-  "recon": 0.925,
-  "unsafe": 0.8,
+  "recon": 0.9,
+  "unsafe": 0.825,
   "n": 40,
-  "ts": "2026-09-10T19:56:40"
+  "ts": "2026-09-10T22:48:30"
 }

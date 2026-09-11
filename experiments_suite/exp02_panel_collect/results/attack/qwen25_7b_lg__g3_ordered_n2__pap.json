@@ -4,9 +4,9 @@
   "collection": "Lingua-SafetyBench",
   "method": "g3_ordered_n2__pap",
   "gated": true,
-  "verified": 0.75,
+  "verified": 0.725,
   "recon": 0.975,
-  "unsafe": 0.75,
+  "unsafe": 0.725,
   "n": 40,
-  "ts": "2026-09-10T19:50:30"
+  "ts": "2026-09-10T22:31:36"
 }

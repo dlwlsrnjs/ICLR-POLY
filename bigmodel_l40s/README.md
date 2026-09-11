@@ -131,14 +131,35 @@ GPU 수, HF_HOME, 판정기 캐시, 타깃 weight 캐시, 데이터셋 6파일, 
 
 ---
 
-## 5. 실행
+## 5. 실행 — 두 단계 (무해 prior → 유해 매트릭스)
+
+이 배치는 두 단계로 나뉩니다. **1단계(무해)는 이미 완료·커밋됨.** 남은 건 **2단계(유해 매트릭스)** 입니다.
+
+**1단계 — 무해 축 prior (완료됨):** comprehension benign prior + FalseReject willingness prior.
+```bash
+bash bigmodel_l40s/scripts/run_benign_axes_only.sh    # 이미 실행·커밋 완료 (arms 없음)
+```
+
+**2단계 — 유해 full-matrix (지금 할 것):** 6모델의 verified ASR(arms 0→164)을 채움. 판정기 2개
+(recon+safety) 상주. 결과는 1단계 benign과 **같은 메인 패널 dir**에 쌓임(자동 병합).
+```bash
+bash bigmodel_l40s/scripts/run_harmful_matrix.sh 2>&1 | tee bigmodel_l40s/harmful.log
+```
+- 4×L40S 기준 레인 배치: (2,3)·(0,1) 소형 병렬 → 24B는 (0,1 TP=2 + 판정기 2). 각 카드 44GB 여유 대기.
+- 중간에 끊겨도 `MANIFEST.json` 기준 **끝난 arm 건너뛰고 이어서**(resume). 끝나면 manifest 자동 재생성.
+
+> `run_l40s.sh`는 무해+유해를 **한 번에**(both) 하는 통합 러너로, 처음부터 새로 돌릴 때 씁니다.
+> 지금처럼 1단계가 이미 끝난 상태에선 위의 `run_harmful_matrix.sh`(유해만)를 쓰는 게 낭비가 없습니다.
+
+<details><summary>처음부터 통합으로 돌릴 때 (참고)</summary>
 
 ```bash
 # GPU 자동감지(전부 사용). 특정 카드만 쓰려면 CUDA_VISIBLE_DEVICES 로 순서 지정.
 bash bigmodel_l40s/scripts/run_l40s.sh 2>&1 | tee bigmodel_l40s/run.log
 ```
+</details>
 
-동작:
+`run_l40s.sh`(통합) 동작:
 - `models.txt`의 6개 모델을 순서대로, **각 모델마다 MultiJail → Lingua**를,
   `both`(무해 probe + 유해 full-matrix) 로 수집.
 - 타깃은 `cuda:0..TP-1`, **판정기는 `cuda:TP`** (타깃 샤드 바로 다음 카드)에 상주.
@@ -244,7 +265,9 @@ bigmodel_l40s/
 ├── scripts/           ← 실행 코드 (여기만 코드)
 │   ├── fetch_data.sh      프라이빗 버킷에서 데이터 6파일 받기 + 검증
 │   ├── verify_env.py      실행 전 프리플라이트(GPU/캐시/데이터/배선)
-│   ├── run_l40s.sh        수집 실행(모델별 MJ+LG, 판정기 카드 자동 배치, resume)
+│   ├── run_benign_axes_only.sh  1단계: 무해 comprehension+willingness prior만 (완료됨)
+│   ├── run_harmful_matrix.sh     2단계: 유해 full-matrix(verified ASR) — 지금 할 것
+│   ├── run_l40s.sh        통합 러너(무해+유해 both, 처음부터 새로 돌릴 때)
 │   └── upload_results.sh  결과를 버킷/rsync로 반환(유해 원본은 버킷만)
 └── results/           ← **여기에만** L40S 결과가 쌓임(실행 후 생성, git 제외)
 ```

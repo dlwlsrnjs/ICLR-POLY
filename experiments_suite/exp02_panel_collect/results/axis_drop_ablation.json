@@ -1,0 +1,187 @@
+{
+  "n_cells": 3,
+  "cells": [
+    {
+      "tag": "qwen25_3b_mj",
+      "decision": {
+        "comp_informative": true,
+        "will_informative": false
+      },
+      "dropped_axis": "willingness",
+      "ablation": {
+        "ucb_add_pibo": {
+          "auc_nodrop": 0.687,
+          "auc_drop": 0.692,
+          "drop_effect": 0.005,
+          "curve_nodrop": [
+            0.216,
+            0.459,
+            0.502,
+            0.507,
+            0.507,
+            0.521,
+            0.534,
+            0.534
+          ],
+          "curve_drop": [
+            0.216,
+            0.452,
+            0.465,
+            0.515,
+            0.526,
+            0.54,
+            0.545,
+            0.55
+          ]
+        },
+        "ttts_add_pibo": {
+          "auc_nodrop": 0.482,
+          "auc_drop": 0.482,
+          "drop_effect": 0.0,
+          "curve_nodrop": [
+            0.184,
+            0.257,
+            0.313,
+            0.344,
+            0.344,
+            0.37,
+            0.411,
+            0.432
+          ],
+          "curve_drop": [
+            0.184,
+            0.257,
+            0.313,
+            0.344,
+            0.344,
+            0.37,
+            0.411,
+            0.432
+          ]
+        }
+      }
+    },
+    {
+      "tag": "qwen25_7b_mj",
+      "decision": {
+        "comp_informative": true,
+        "will_informative": false
+      },
+      "dropped_axis": "willingness",
+      "ablation": {
+        "ucb_add_pibo": {
+          "auc_nodrop": 0.64,
+          "auc_drop": 0.666,
+          "drop_effect": 0.026,
+          "curve_nodrop": [
+            0.274,
+            0.321,
+            0.474,
+            0.483,
+            0.487,
+            0.514,
+            0.557,
+            0.571
+          ],
+          "curve_drop": [
+            0.274,
+            0.425,
+            0.45,
+            0.479,
+            0.518,
+            0.536,
+            0.568,
+            0.581
+          ]
+        },
+        "ttts_add_pibo": {
+          "auc_nodrop": 0.71,
+          "auc_drop": 0.71,
+          "drop_effect": 0.0,
+          "curve_nodrop": [
+            0.356,
+            0.45,
+            0.483,
+            0.528,
+            0.535,
+            0.556,
+            0.578,
+            0.596
+          ],
+          "curve_drop": [
+            0.356,
+            0.45,
+            0.483,
+            0.528,
+            0.535,
+            0.556,
+            0.578,
+            0.596
+          ]
+        }
+      }
+    },
+    {
+      "tag": "qwen25_7b_lg",
+      "decision": {
+        "comp_informative": true,
+        "will_informative": false
+      },
+      "dropped_axis": "willingness",
+      "ablation": {
+        "ucb_add_pibo": {
+          "auc_nodrop": 0.933,
+          "auc_drop": 0.933,
+          "drop_effect": 0.0,
+          "curve_nodrop": [
+            0.584,
+            0.817,
+            0.817,
+            0.823,
+            0.825,
+            0.825,
+            0.825,
+            0.826
+          ],
+          "curve_drop": [
+            0.584,
+            0.817,
+            0.817,
+            0.823,
+            0.825,
+            0.825,
+            0.825,
+            0.826
+          ]
+        },
+        "ttts_add_pibo": {
+          "auc_nodrop": 0.82,
+          "auc_drop": 0.82,
+          "drop_effect": 0.0,
+          "curve_nodrop": [
+            0.528,
+            0.647,
+            0.682,
+            0.715,
+            0.726,
+            0.755,
+            0.758,
+            0.763
+          ],
+          "curve_drop": [
+            0.528,
+            0.647,
+            0.682,
+            0.715,
+            0.726,
+            0.755,
+            0.758,
+            0.763
+          ]
+        }
+      }
+    }
+  ],
+  "mean_drop_effect_ucb_pibo": 0.01,
+  "cells_helped": 2
+}

@@ -1,0 +1,218 @@
+[
+  {
+    "tag": "llama32_3b_it_mj",
+    "held": "held_in",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.422,
+      "benign_only": 0.391,
+      "adaptive8": 0.397
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.422,
+      "benign_only": 0.016,
+      "adaptive8": 0.382
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.422,
+      "benign_only": 0.016,
+      "adaptive8": 0.365
+    }
+  },
+  {
+    "tag": "phi35_mini_mj",
+    "held": "held_out",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.281,
+      "benign_only": 0.156,
+      "adaptive8": 0.232
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.422,
+      "benign_only": 0.344,
+      "adaptive8": 0.34
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.469,
+      "benign_only": 0.391,
+      "adaptive8": 0.383
+    }
+  },
+  {
+    "tag": "qwen25_3b_mj",
+    "held": "held_in",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.469,
+      "benign_only": 0.453,
+      "adaptive8": 0.453
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.547,
+      "benign_only": 0.234,
+      "adaptive8": 0.492
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.578,
+      "benign_only": 0.234,
+      "adaptive8": 0.504
+    },
+    "D_full_stacks": {
+      "n_arms": 288,
+      "oracle": 0.578,
+      "benign_only": 0.234,
+      "adaptive8": 0.447
+    }
+  },
+  {
+    "tag": "qwen25_7b_mj",
+    "held": "held_in",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.328,
+      "benign_only": 0.188,
+      "adaptive8": 0.307
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.594,
+      "benign_only": 0.5,
+      "adaptive8": 0.569
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.719,
+      "benign_only": 0.5,
+      "adaptive8": 0.59
+    },
+    "D_full_stacks": {
+      "n_arms": 288,
+      "oracle": 0.719,
+      "benign_only": 0.375,
+      "adaptive8": 0.56
+    }
+  },
+  {
+    "tag": "llama32_3b_it_lg",
+    "held": "held_in",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.5,
+      "benign_only": 0.225,
+      "adaptive8": 0.477
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.5,
+      "benign_only": 0.0,
+      "adaptive8": 0.367
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.5,
+      "benign_only": 0.0,
+      "adaptive8": 0.36
+    }
+  },
+  {
+    "tag": "mistral7b_lg",
+    "held": "held_out",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.575,
+      "benign_only": 0.575,
+      "adaptive8": 0.571
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.725,
+      "benign_only": 0.55,
+      "adaptive8": 0.648
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.725,
+      "benign_only": 0.55,
+      "adaptive8": 0.646
+    }
+  },
+  {
+    "tag": "phi35_mini_lg",
+    "held": "held_out",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.55,
+      "benign_only": 0.5,
+      "adaptive8": 0.498
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.725,
+      "benign_only": 0.5,
+      "adaptive8": 0.592
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.725,
+      "benign_only": 0.5,
+      "adaptive8": 0.577
+    }
+  },
+  {
+    "tag": "qwen25_3b_lg",
+    "held": "held_in",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.725,
+      "benign_only": 0.725,
+      "adaptive8": 0.717
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.725,
+      "benign_only": 0.475,
+      "adaptive8": 0.612
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.75,
+      "benign_only": 0.625,
+      "adaptive8": 0.588
+    }
+  },
+  {
+    "tag": "qwen25_7b_lg",
+    "held": "held_in",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.65,
+      "benign_only": 0.525,
+      "adaptive8": 0.602
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.775,
+      "benign_only": 0.725,
+      "adaptive8": 0.731
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.825,
+      "benign_only": 0.725,
+      "adaptive8": 0.76
+    },
+    "D_full_stacks": {
+      "n_arms": 288,
+      "oracle": 0.85,
+      "benign_only": 0.8,
+      "adaptive8": 0.79
+    }
+  }
+]

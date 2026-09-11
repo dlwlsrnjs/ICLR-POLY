@@ -1,0 +1,12 @@
+{
+  "model": "mistralai/Mistral-7B-Instruct-v0.3",
+  "tag": "mistral7b_lg",
+  "collection": "Lingua-SafetyBench",
+  "method": "g5_shuffled_n2__persona",
+  "gated": true,
+  "verified": 0.4,
+  "recon": 0.475,
+  "unsafe": 0.85,
+  "n": 40,
+  "ts": "2026-09-11T13:45:06"
+}

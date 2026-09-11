@@ -4,9 +4,9 @@
   "collection": "MultiJail",
   "method": "g5_ordered_n2__fiction+pap",
   "gated": true,
-  "verified": 0.469,
-  "recon": 0.734,
-  "unsafe": 0.547,
+  "verified": 0.5,
+  "recon": 0.797,
+  "unsafe": 0.594,
   "n": 64,
-  "ts": "2026-09-10T20:12:02"
+  "ts": "2026-09-10T21:07:29"
 }

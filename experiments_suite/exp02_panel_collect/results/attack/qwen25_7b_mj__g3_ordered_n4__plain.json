@@ -5,8 +5,8 @@
   "method": "g3_ordered_n4__plain",
   "gated": true,
   "verified": 0.328,
-  "recon": 0.766,
+  "recon": 0.781,
   "unsafe": 0.375,
   "n": 64,
-  "ts": "2026-09-10T19:51:08"
+  "ts": "2026-09-10T20:40:50"
 }

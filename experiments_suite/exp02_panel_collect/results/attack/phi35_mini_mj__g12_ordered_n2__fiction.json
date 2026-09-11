@@ -1,0 +1,12 @@
+{
+  "model": "microsoft/Phi-3.5-mini-instruct",
+  "tag": "phi35_mini_mj",
+  "collection": "MultiJail",
+  "method": "g12_ordered_n2__fiction",
+  "gated": true,
+  "verified": 0.266,
+  "recon": 0.469,
+  "unsafe": 0.453,
+  "n": 64,
+  "ts": "2026-09-11T06:46:22"
+}

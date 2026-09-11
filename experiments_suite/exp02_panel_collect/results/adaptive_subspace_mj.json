@@ -1,0 +1,307 @@
+{
+  "qwen25_3b_mj": {
+    "oracle": 0.688,
+    "random": [
+      0.223,
+      0.294,
+      0.333,
+      0.349,
+      0.361,
+      0.389,
+      0.412,
+      0.428
+    ],
+    "gp_ucb_fixed_bnprior": [
+      0.216,
+      0.452,
+      0.465,
+      0.515,
+      0.526,
+      0.54,
+      0.545,
+      0.55
+    ],
+    "adaptive_subspace": [
+      0.246,
+      0.366,
+      0.428,
+      0.446,
+      0.495,
+      0.515,
+      0.565,
+      0.565
+    ],
+    "example_trajectory": [
+      {
+        "step": 1,
+        "arm": "g12_shuffled_n8__persona+pap",
+        "verified": 0.094,
+        "best": 0.094,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 2,
+        "arm": "m_deepinception",
+        "verified": 0.688,
+        "best": 0.688,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 3,
+        "arm": "g12_ordered_n8__plain",
+        "verified": 0.172,
+        "best": 0.688,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 4,
+        "arm": "g3_ordered_n2__role",
+        "verified": 0.547,
+        "best": 0.688,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 5,
+        "arm": "g3_ordered_n2__fiction+pap",
+        "verified": 0.328,
+        "best": 0.688,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 6,
+        "arm": "g3_shuffled_n2__persona+fiction",
+        "verified": 0.281,
+        "best": 0.688,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 7,
+        "arm": "m_aim",
+        "verified": 0.281,
+        "best": 0.688,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 8,
+        "arm": "m_pap",
+        "verified": 0.25,
+        "best": 0.688,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      }
+    ]
+  },
+  "qwen25_7b_mj": {
+    "oracle": 0.719,
+    "random": [
+      0.317,
+      0.379,
+      0.427,
+      0.454,
+      0.473,
+      0.489,
+      0.507,
+      0.523
+    ],
+    "gp_ucb_fixed_bnprior": [
+      0.274,
+      0.425,
+      0.45,
+      0.479,
+      0.518,
+      0.536,
+      0.568,
+      0.581
+    ],
+    "adaptive_subspace": [
+      0.296,
+      0.394,
+      0.47,
+      0.509,
+      0.535,
+      0.55,
+      0.593,
+      0.655
+    ],
+    "example_trajectory": [
+      {
+        "step": 1,
+        "arm": "g8_shuffled_n6__pap",
+        "verified": 0.094,
+        "best": 0.094,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 2,
+        "arm": "m_aim",
+        "verified": 0.328,
+        "best": 0.328,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 3,
+        "arm": "g12_ordered_n8__role",
+        "verified": 0.328,
+        "best": 0.328,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 4,
+        "arm": "g12_ordered_n2__persona+fiction+pap",
+        "verified": 0.484,
+        "best": 0.484,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 5,
+        "arm": "g3_shuffled_n8__persona+fiction",
+        "verified": 0.719,
+        "best": 0.719,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 6,
+        "arm": "m_deepinception",
+        "verified": 0.672,
+        "best": 0.719,
+        "active_axes": [
+          "fiction"
+        ]
+      },
+      {
+        "step": 7,
+        "arm": "g3_shuffled_n8__fiction",
+        "verified": 0.594,
+        "best": 0.719,
+        "active_axes": [
+          "fiction"
+        ]
+      },
+      {
+        "step": 8,
+        "arm": "g3_ordered_n8__persona+fiction",
+        "verified": 0.594,
+        "best": 0.719,
+        "active_axes": [
+          "fiction"
+        ]
+      }
+    ]
+  }
+}

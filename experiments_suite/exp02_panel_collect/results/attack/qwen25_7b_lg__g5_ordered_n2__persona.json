@@ -5,8 +5,8 @@
   "method": "g5_ordered_n2__persona",
   "gated": true,
   "verified": 0.775,
-  "recon": 0.95,
-  "unsafe": 0.8,
+  "recon": 0.975,
+  "unsafe": 0.775,
   "n": 40,
-  "ts": "2026-09-10T20:09:04"
+  "ts": "2026-09-10T22:50:42"
 }

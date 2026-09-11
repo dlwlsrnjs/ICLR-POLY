@@ -1,0 +1,12 @@
+{
+  "model": "microsoft/Phi-3.5-mini-instruct",
+  "tag": "phi35_mini_lg",
+  "collection": "Lingua-SafetyBench",
+  "method": "g5_shuffled_n2__persona+fiction",
+  "gated": true,
+  "verified": 0.45,
+  "recon": 0.575,
+  "unsafe": 0.725,
+  "n": 40,
+  "ts": "2026-09-11T08:03:28"
+}

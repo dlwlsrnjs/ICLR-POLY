@@ -5,8 +5,8 @@
   "method": "g3_shuffled_n2__plain",
   "gated": true,
   "verified": 0.475,
-  "recon": 0.7,
-  "unsafe": 0.675,
+  "recon": 0.75,
+  "unsafe": 0.65,
   "n": 40,
-  "ts": "2026-09-10T19:53:56"
+  "ts": "2026-09-10T22:40:35"
 }

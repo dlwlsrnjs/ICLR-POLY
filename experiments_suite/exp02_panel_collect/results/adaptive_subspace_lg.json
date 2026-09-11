@@ -1,0 +1,151 @@
+{
+  "qwen25_7b_lg": {
+    "oracle": 0.85,
+    "random": [
+      0.572,
+      0.646,
+      0.695,
+      0.715,
+      0.736,
+      0.752,
+      0.759,
+      0.768
+    ],
+    "gp_ucb_fixed_bnprior": [
+      0.584,
+      0.817,
+      0.817,
+      0.823,
+      0.825,
+      0.825,
+      0.825,
+      0.826
+    ],
+    "adaptive_subspace": [
+      0.618,
+      0.634,
+      0.661,
+      0.689,
+      0.726,
+      0.728,
+      0.755,
+      0.758
+    ],
+    "example_trajectory": [
+      {
+        "step": 1,
+        "arm": "g5_shuffled_n8__persona+fiction+pap",
+        "verified": 0.775,
+        "best": 0.775,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 2,
+        "arm": "g12_shuffled_n2__fiction",
+        "verified": 0.2,
+        "best": 0.775,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 3,
+        "arm": "g3_ordered_n2__persona+pap",
+        "verified": 0.8,
+        "best": 0.8,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 4,
+        "arm": "g3_ordered_n8__role",
+        "verified": 0.725,
+        "best": 0.8,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 5,
+        "arm": "m_aim",
+        "verified": 0.625,
+        "best": 0.8,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 6,
+        "arm": "g12_ordered_n8__pap",
+        "verified": 0.475,
+        "best": 0.8,
+        "active_axes": [
+          "F",
+          "n",
+          "shuffled",
+          "persona",
+          "fiction",
+          "pap",
+          "role",
+          "plain"
+        ]
+      },
+      {
+        "step": 7,
+        "arm": "g12_shuffled_n8__persona+fiction+pap",
+        "verified": 0.425,
+        "best": 0.8,
+        "active_axes": [
+          "persona"
+        ]
+      },
+      {
+        "step": 8,
+        "arm": "g12_ordered_n2__role",
+        "verified": 0.775,
+        "best": 0.8,
+        "active_axes": [
+          "persona"
+        ]
+      }
+    ]
+  }
+}

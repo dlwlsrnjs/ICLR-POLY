@@ -1,0 +1,28 @@
+{
+  "models": [
+    "qwen25_3b_mj",
+    "qwen25_7b_mj"
+  ],
+  "n_arms": 292,
+  "arm_counts": {
+    "qwen25_3b_mj": 292,
+    "qwen25_7b_mj": 292
+  },
+  "complete": true,
+  "expected_arms": 292,
+  "best_per_model": {
+    "qwen25_3b_mj": "m_deepinception",
+    "qwen25_7b_mj": "g3_shuffled_n8__persona+fiction"
+  },
+  "oracle": {
+    "qwen25_3b_mj": 0.688,
+    "qwen25_7b_mj": 0.719
+  },
+  "best_fixed": "m_deepinception",
+  "best_fixed_mean": 0.6799999999999999,
+  "distinct_winners": [
+    "g3_shuffled_n8__persona+fiction",
+    "m_deepinception"
+  ],
+  "n_distinct": 2
+}

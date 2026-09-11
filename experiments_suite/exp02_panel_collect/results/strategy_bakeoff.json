@@ -1,0 +1,103 @@
+{
+  "cells": [
+    {
+      "tag": "qwen25_3b_mj",
+      "n_arms": 292,
+      "oracle": 0.688,
+      "prior_info": 0.721,
+      "recon_mean": 0.466,
+      "comp_informative": true,
+      "will_informative": false,
+      "auc": {
+        "random": 0.507,
+        "ucb_iso": 0.742,
+        "ucb_add": 0.638,
+        "ucb_add_pibo": 0.692,
+        "ttts_add": 0.482,
+        "ttts_add_pibo": 0.482
+      },
+      "at3": {
+        "random": 0.484,
+        "ucb_iso": 0.696,
+        "ucb_add": 0.637,
+        "ucb_add_pibo": 0.676,
+        "ttts_add": 0.455,
+        "ttts_add_pibo": 0.455
+      },
+      "winner_auc": "ucb_iso",
+      "winner_at3": "ucb_iso"
+    },
+    {
+      "tag": "qwen25_7b_mj",
+      "n_arms": 292,
+      "oracle": 0.719,
+      "prior_info": 0.517,
+      "recon_mean": 0.695,
+      "comp_informative": true,
+      "will_informative": false,
+      "auc": {
+        "random": 0.621,
+        "ucb_iso": 0.711,
+        "ucb_add": 0.669,
+        "ucb_add_pibo": 0.666,
+        "ttts_add": 0.71,
+        "ttts_add_pibo": 0.71
+      },
+      "at3": {
+        "random": 0.593,
+        "ucb_iso": 0.63,
+        "ucb_add": 0.611,
+        "ucb_add_pibo": 0.626,
+        "ttts_add": 0.672,
+        "ttts_add_pibo": 0.672
+      },
+      "winner_auc": "ucb_iso",
+      "winner_at3": "ttts_add"
+    },
+    {
+      "tag": "qwen25_7b_lg",
+      "n_arms": 292,
+      "oracle": 0.85,
+      "prior_info": 0.636,
+      "recon_mean": 0.712,
+      "comp_informative": true,
+      "will_informative": false,
+      "auc": {
+        "random": 0.83,
+        "ucb_iso": 0.857,
+        "ucb_add": 0.812,
+        "ucb_add_pibo": 0.933,
+        "ttts_add": 0.82,
+        "ttts_add_pibo": 0.82
+      },
+      "at3": {
+        "random": 0.818,
+        "ucb_iso": 0.831,
+        "ucb_add": 0.796,
+        "ucb_add_pibo": 0.961,
+        "ttts_add": 0.802,
+        "ttts_add_pibo": 0.802
+      },
+      "winner_auc": "ucb_add_pibo",
+      "winner_at3": "ucb_add_pibo"
+    }
+  ],
+  "n_cells": 3,
+  "wins_auc": {
+    "ucb_iso": 2,
+    "ucb_add_pibo": 1
+  },
+  "wins_at3": {
+    "ucb_iso": 1,
+    "ttts_add": 1,
+    "ucb_add_pibo": 1
+  },
+  "mean_rank_auc": {
+    "random": 4.33,
+    "ucb_iso": 1.33,
+    "ucb_add": 4.33,
+    "ucb_add_pibo": 2.67,
+    "ttts_add": 3.67,
+    "ttts_add_pibo": 4.67
+  }
+}

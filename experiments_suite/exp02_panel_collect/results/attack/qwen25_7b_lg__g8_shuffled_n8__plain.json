@@ -1,0 +1,12 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "tag": "qwen25_7b_lg",
+  "collection": "Lingua-SafetyBench",
+  "method": "g8_shuffled_n8__plain",
+  "gated": true,
+  "verified": 0.45,
+  "recon": 0.675,
+  "unsafe": 0.675,
+  "n": 40,
+  "ts": "2026-09-10T23:25:48"
+}
