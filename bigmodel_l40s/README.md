@@ -149,6 +149,16 @@ MJ_ITEMS=64 LG_ITEMS=40 JB=8 bash bigmodel_l40s/run_l40s.sh # 문항수/판정 �
 VP=/path/.venv/bin/python bash bigmodel_l40s/run_l40s.sh    # venv 미활성화 시
 ```
 
+**(선택) willingness 축 prior도 함께 수집** — 이 6개 모델의 오프라인 willingness 지문(전이 기법의
+prior)을 같이 쌓으려면 모델당 아래를 실행(무해·over-refusal 데이터, 안전판정 없음).
+스키마·의미는 `experiments_suite/exp05_willingness_probe/WILLINGNESS_PRIOR.md` 참고:
+```bash
+python experiments_suite/exp05_willingness_probe/willingness_prior.py \
+    --model Qwen/Qwen2.5-14B-Instruct --tag qwen25_14b --dataset falsereject --util 0.85
+# 출력: experiments_suite/exp05_willingness_probe/results/willingness_prior_falsereject_<tag>.json
+# 이 폴더도 upload_results.sh 대신 버킷/rsync로 함께 올려 병합
+```
+
 한 모델만 따로 돌리고 싶으면 (예: qwen14b):
 ```bash
 export HF_HOME=/data/hf_cache HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1

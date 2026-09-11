@@ -27,3 +27,6 @@ bigmodel_l40s/results/
 bigmodel_l40s/run.log
 # harmful raw per-response outputs are RESTRICTED (bucket only)
 **/attack/_raw/
+
+# willingness-prior run logs (keep only the provenance JSONs)
+experiments_suite/exp05_willingness_probe/results/*.log
