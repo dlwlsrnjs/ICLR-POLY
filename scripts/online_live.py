@@ -59,9 +59,14 @@ class LiveTarget:
         from vllm import LLM, SamplingParams
         import os as _os
         _eager = _os.environ.get("VLLM_ENFORCE_EAGER") == "1"   # frees CUDA-graph memory for KV on tight 32B fits
+        # POLY_MAX_NUM_SEQS caps concurrent seqs; lowering it shrinks vLLM's sampler warmup allocation,
+        # which is what OOMs a big single-card fit (e.g. 32B on 80GB). Opt-in; default vLLM behavior if unset.
+        _extra = {}
+        if _os.environ.get("POLY_MAX_NUM_SEQS"):
+            _extra["max_num_seqs"] = int(_os.environ["POLY_MAX_NUM_SEQS"])
         self.llm = LLM(model=model, dtype="bfloat16", gpu_memory_utilization=util,
                        trust_remote_code=trust, tokenizer_mode=tok_mode, max_model_len=max_len,
-                       tensor_parallel_size=int(tp), enforce_eager=_eager)
+                       tensor_parallel_size=int(tp), enforce_eager=_eager, **_extra)
         self.sp = SamplingParams(temperature=0.0, max_tokens=320)
         self.ck = {"chat_template_kwargs": {"enable_thinking": False}} if no_thinking else {}
 

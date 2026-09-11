@@ -10,7 +10,7 @@ set -uo pipefail
 cd "$(dirname "$0")/../.."
 VP="${VP:-$PWD/.venv/bin/python}"
 HF_HOME="${HF_HOME:-$PWD/bigmodel_l40s/hf_home}"
-export HF_HOME HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 VLLM_ENFORCE_EAGER=1 \
+export HF_HOME HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 VLLM_ENFORCE_EAGER=1 POLY_MAX_NUM_SEQS=256 \
        PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 ROOT="experiments_suite/exp02_panel_collect/results"    # same dir as the committed benign priors
 STATUS="$ROOT/harmful_matrix_status_l40s.tsv"
