@@ -15,12 +15,21 @@ numbers, it is almost always one of the items below — not a code change. Metri
 ```
 torch==2.13.0
 transformers==5.16.1
-vllm==0.28.0            # required for collection; install separately (not in requirements.txt)
+vllm==0.28.0
 numpy==2.2.6
 ```
-`requirements.txt` now pins torch/transformers/numpy; **vllm must be `pip install vllm==0.28.0`**.
-A plain `pip install -r requirements.txt` with the OLD unpinned file (transformers<5, vllm unpinned)
-gives a DIFFERENT stack and therefore different generations + judge outputs.
+`requirements-collection.lock.txt` pins the complete core collection stack, including vLLM and its
+tokenization/model-loading dependencies. `requirements.txt` includes this lock and then adds the
+analysis dependencies, so no second unpinned vLLM install is needed. A plain install made from the
+old requirements (`transformers<5`, vLLM absent or unpinned) gives different generations and judge
+outputs.
+
+Install and verify before collection:
+
+```bash
+pip install -r requirements-collection.lock.txt
+python scripts/verify_repro_env.py --require-models --require-data
+```
 
 ## 2. Pinned model revisions (judges define the score)
 Set in `online_live.py` (override via `POLY_RECON_JUDGE_REV` / `POLY_GUARD_JUDGE_REV` only on purpose):
@@ -28,7 +37,8 @@ Set in `online_live.py` (override via `POLY_RECON_JUDGE_REV` / `POLY_GUARD_JUDGE
 Qwen/Qwen2.5-7B-Instruct  revision a09a35458c702b33eeacc393d103063234e8bc28   # reconstruction judge
 Qwen/Qwen3Guard-Gen-8B    revision 4505cb1a6f1864f21f8b27f7daf1b9a1aab6edbb   # safety judge
 ```
-Target model revisions are not yet pinned per-model; pin them too if you need bit-exact target output.
+The Qwen2.5-7B target is pinned to the same `a09a3545...` snapshot in `LiveTarget`. Other panel
+targets must set `POLY_TARGET_REV=<commit>` until their revisions are added to the checked-in map.
 
 ## 3. Sampling / decoding (target)
 BF16, `temperature=0` (greedy), `max_tokens=320`, `max_model_len=4096`, judge micro-batch 8.
@@ -40,6 +50,10 @@ Harmful text is not committed. Copy the exact input files (bucket `jin-kwon/poly
 `bigmodel_l40s/scripts/fetch_data.sh`) — otherwise you are scoring different items.
 - **SEED = 20260909** (`closed_compare.py`), non-replacement subsample:
   MultiJail 64 of 315, Lingua 40 of 250.
+- **Puzzle construction seed = 20260828** (`combo_eval.py` / `triple_combo_eval.py`).
+
+`verify_repro_env.py --require-data` checks the six input hashes and the ordered selected-item-ID
+fingerprints without printing controlled text.
 
 ## 5. ⚠️ Fresh-clone re-run overwrites aggregates
 `phase_attack` skips an arm only if BOTH the aggregate JSON **and** its raw `_raw/*.jsonl` exist
@@ -58,6 +72,9 @@ This is the most common cause and is NOT a regression:
 - The matrix-best value also carries **winner's curse** (max over ~113 arms) — debias before reporting.
 - Current finding: the harmless selector under-picks on MultiJail specifically; that is a selector
   quality issue to improve, not a metric bug.
+- Provenance note: `Old/reference_results.json` preserves the first stopped run (selected 0.172,
+  observed best 0.734). Those aggregate paths were later rerun because raw files were absent; current
+  main contains selected 0.188 and observed best 0.719. Do not combine the two runs.
 
 ## 7. Fast triage when numbers differ
 Provide these four and the difference can be localized immediately:

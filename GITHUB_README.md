@@ -47,7 +47,8 @@ If you do **not** use the bucket, obtain the datasets officially and rebuild the
 
 ```bash
 python -m venv .venv && . .venv/bin/activate
-pip install -r requirements.txt          # plus vllm + torch matched to your GPU
+pip install -r requirements.txt          # includes the exact collection stack
+python scripts/verify_repro_env.py        # add --require-models --require-data before collection
 export HF_HOME=<cache> HF_HUB_OFFLINE=0
 # judges: reconstruction = Qwen2.5-7B-Instruct, safety = Qwen3Guard-Gen-8B
 python -c "from huggingface_hub import snapshot_download as d; d('Qwen/Qwen2.5-7B-Instruct'); d('Qwen/Qwen3Guard-Gen-8B')"

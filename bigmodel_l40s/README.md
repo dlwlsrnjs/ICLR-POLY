@@ -66,8 +66,8 @@ cd ICLR-POLY
 ```bash
 python -m venv .venv && . .venv/bin/activate
 pip install -U pip
-pip install -r requirements.txt          # transformers, huggingface_hub 등
-pip install "vllm>=0.6.3"                 # torch는 vllm이 맞는 버전을 끌고 옴 (L40S = sm_89)
+pip install -r requirements.txt          # exact torch/transformers/vLLM collection stack 포함
+python scripts/verify_repro_env.py        # 모델·데이터를 받은 뒤에는 --require-models --require-data
 # 활성화 안 하고 절대경로 파이썬을 쓸 거면 VP 로 지정: export VP=/path/.venv/bin/python
 
 # HF 캐시 위치 (weight/판정기 저장소). 디스크 여유 넉넉한 곳으로.

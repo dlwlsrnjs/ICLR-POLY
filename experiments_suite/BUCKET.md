@@ -37,7 +37,8 @@ hf sync hf://buckets/jin-kwon/poly/PolyJigsaw ./PolyJigsaw   # 전체 다운로�
 # 3) 파이썬 환경 (vLLM + transformers) 재구성
 cd PolyJigsaw
 python -m venv .venv && . .venv/bin/activate
-pip install -r requirements.txt      # + vllm, torch (GPU에 맞춰)
+pip install -r requirements.txt      # exact torch/transformers/vLLM collection stack 포함
+python scripts/verify_repro_env.py --require-models --require-data
 
 # 4) 판정기 + 대상 모델 (버킷엔 가중치 없음 → HF에서 재다운로드)
 #   판정: Qwen/Qwen2.5-7B-Instruct (재구성), Qwen/Qwen3Guard-Gen-8B (안전)

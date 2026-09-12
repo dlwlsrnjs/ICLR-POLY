@@ -45,6 +45,7 @@ for f in "${CODE[@]}"; do
   if [ -f "scripts/$f" ]; then cp -p "scripts/$f" "$DEST/code/"; else echo "  MISSING scripts/$f"; fi
 done
 cp -p requirements.txt "$DEST/code/" 2>/dev/null
+cp -p requirements-collection.lock.txt "$DEST/code/" 2>/dev/null
 
 # ---------------------------------------------------------------- results
 say "aggregate results"

@@ -32,6 +32,11 @@ from structured_policy import predict_best  # noqa: E402
 from agentic_probe import LiveProbeEnv, agentic_fingerprint  # noqa: E402
 
 SEED = 20260828
+PINNED_TARGET_REVISIONS = {
+    # The target used for the 2026-09-10 reference run.  This is also the reconstruction-judge
+    # snapshot, but vLLM loads the target independently and therefore needs its own revision pin.
+    "Qwen/Qwen2.5-7B-Instruct": "a09a35458c702b33eeacc393d103063234e8bc28",
+}
 
 
 def build_arm_prompt(row, cond, seed=SEED):
@@ -64,6 +69,10 @@ class LiveTarget:
         _extra = {}
         if _os.environ.get("POLY_MAX_NUM_SEQS"):
             _extra["max_num_seqs"] = int(_os.environ["POLY_MAX_NUM_SEQS"])
+        target_rev = _os.environ.get("POLY_TARGET_REV") or PINNED_TARGET_REVISIONS.get(model)
+        if target_rev:
+            _extra["revision"] = target_rev
+            _extra["tokenizer_revision"] = target_rev
         self.llm = LLM(model=model, dtype="bfloat16", gpu_memory_utilization=util,
                        trust_remote_code=trust, tokenizer_mode=tok_mode, max_model_len=max_len,
                        tensor_parallel_size=int(tp), enforce_eager=_eager, **_extra)
