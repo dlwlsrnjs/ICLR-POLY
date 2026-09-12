@@ -87,9 +87,13 @@ def main():
         arms = list(ver) if ver else None
         if arms is None:
             raise SystemExit("replay needs the stored matrix")
-    prior, axinfo = S.saturation_aware_prior(bj, arms)
-    drop = ("willingness" if axinfo["comp_informative"] and not axinfo["will_informative"]
-            else "comprehension" if axinfo["will_informative"] and not axinfo["comp_informative"] else None)
+    # Willingness cannot be ranked from the (benign) target probe, so warm-start it from an offline
+    # surrogate transfer prior (mean harmful verified per frame over OTHER panel models). The target
+    # probe stays benign; only surrogates carry harmful supervision (stealth preserved).
+    will_ov = S.surrogate_will_prior(a.root, exclude_tag=a.tag,
+                                     suffix=("_mj" if a.tag.endswith("_mj") else "_lg" if a.tag.endswith("_lg") else None))
+    prior, axinfo = S.saturation_aware_prior(bj, arms, will_override=will_ov or None)
+    drop = ("comprehension" if axinfo["will_informative"] and not axinfo["comp_informative"] else None)
     X_c = np.array([S.feats(x)[0] for x in arms]); X_w = np.array([S.feats(x)[1] for x in arms])
     print(json.dumps({"stage": "decision", "tag": a.tag, "axis_info": axinfo, "dropped": drop or "none"}), flush=True)
 

@@ -39,13 +39,37 @@ def rbf(A, B, ls):
 
 
 
-def saturation_aware_prior(bj, arms, info_range=0.10):
+def surrogate_will_prior(root, exclude_tag, suffix=None):
+    """Offline TRANSFER prior for the willingness axis: mean harmful verified per willingness frame,
+    averaged over SURROGATE models (every tag except `exclude_tag`). The benign probe cannot rank
+    willingness (it saturates, and benign nonrefusal ANTI-correlates with harmful comply), so we learn
+    the ranking on surrogates offline and apply it to the blind target. Returns {frame: score} over
+    {plain,persona,fiction,pap,persona+fiction,...}. This keeps the TARGET probe benign (stealth): only
+    surrogates contribute harmful supervision."""
+    import numpy as _np, collections as _c
+    acc = _c.defaultdict(list)
+    for f in glob.glob(str(Path(root) / "attack" / "*.json")):
+        d = json.loads(Path(f).read_text())
+        tag = d["tag"]
+        if tag == exclude_tag:
+            continue
+        if suffix and not tag.endswith(suffix):
+            continue
+        m = CELL.match(d["method"])
+        if not m:
+            continue
+        acc[m.group(4)].append(d["verified"])
+    return {fr: float(_np.mean(v)) for fr, v in acc.items() if v}
+
+
+def saturation_aware_prior(bj, arms, info_range=0.10, will_override=None):
     """Drop uninformative (saturated) axes: keep an axis only if its benign signal varies across its
     groups by more than `info_range`. prior = product of SURVIVING factors (uniform if all dropped).
       comprehension axis: benign reconstruction per CELL (varies by F,n,arr)
       willingness axis   : benign frame signal per FRAME (persona/fiction/pap); saturates on helpful models
-    This is the free fix for prior misspecification: a constant factor carries no ranking information and
-    only hurts, so we discard it and let the structured search explore that axis."""
+    `will_override` (frame->score, e.g. from surrogate_will_prior) REPLACES the benign willingness factor
+    with an offline transfer prior; benign nonrefusal mis-ranks willingness (plain highest), so when a
+    surrogate prior is available we use it and treat willingness as informative."""
     import numpy as _np
     cr = bj.get("benign_recon_by_cell", {}); sig = bj.get("frame_signals", {})
     rmean = bj.get("benign_recon_mean", 0.5)
@@ -57,7 +81,19 @@ def saturation_aware_prior(bj, arms, info_range=0.10):
     def cell_of(a):
         m = CELL.match(a); return f"g{m.group(1)}_{m.group(2)}_n{m.group(3)}" if m else None
 
+    def frame_of(a):
+        m = CELL.match(a); return m.group(4) if m else a
+
+    # transfer willingness prior (preferred): informative, normalized to a mean-1 multiplier
+    wov = None
+    if will_override:
+        mu = _np.mean(list(will_override.values())) or 1.0
+        wov = {k: v / mu for k, v in will_override.items()}
+        will_inf = True
+
     def will_of(a):
+        if wov is not None:
+            return wov.get(frame_of(a), 1.0)
         m = CELL.match(a)
         wl = m.group(4) if m else a
         parts = wl.split("+")
@@ -79,7 +115,8 @@ def saturation_aware_prior(bj, arms, info_range=0.10):
         if not comp_inf and not will_inf:
             p = 0.5
         prior[a] = p
-    return prior, dict(comp_informative=comp_inf, will_informative=will_inf)
+    return prior, dict(comp_informative=comp_inf, will_informative=will_inf,
+                       will_source=("surrogate_transfer" if wov is not None else "benign"))
 
 
 def load(root, suffix, saturation_aware=True):
