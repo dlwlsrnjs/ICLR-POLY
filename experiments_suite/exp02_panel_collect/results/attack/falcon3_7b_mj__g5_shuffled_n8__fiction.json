@@ -1,0 +1,12 @@
+{
+  "model": "tiiuae/Falcon3-7B-Instruct",
+  "tag": "falcon3_7b_mj",
+  "collection": "MultiJail",
+  "method": "g5_shuffled_n8__fiction",
+  "gated": true,
+  "verified": 0.109,
+  "recon": 0.297,
+  "unsafe": 0.422,
+  "n": 64,
+  "ts": "2026-09-11T16:48:32"
+}

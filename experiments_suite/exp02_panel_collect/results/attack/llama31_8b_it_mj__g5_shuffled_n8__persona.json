@@ -1,0 +1,12 @@
+{
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "tag": "llama31_8b_it_mj",
+  "collection": "MultiJail",
+  "method": "g5_shuffled_n8__persona",
+  "gated": true,
+  "verified": 0.531,
+  "recon": 0.656,
+  "unsafe": 0.719,
+  "n": 64,
+  "ts": "2026-09-11T18:47:22"
+}

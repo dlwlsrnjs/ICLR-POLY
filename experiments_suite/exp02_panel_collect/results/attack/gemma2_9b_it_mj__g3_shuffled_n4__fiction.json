@@ -1,0 +1,12 @@
+{
+  "model": "google/gemma-2-9b-it",
+  "tag": "gemma2_9b_it_mj",
+  "collection": "MultiJail",
+  "method": "g3_shuffled_n4__fiction",
+  "gated": true,
+  "verified": 0.234,
+  "recon": 0.812,
+  "unsafe": 0.266,
+  "n": 64,
+  "ts": "2026-09-11T19:00:34"
+}

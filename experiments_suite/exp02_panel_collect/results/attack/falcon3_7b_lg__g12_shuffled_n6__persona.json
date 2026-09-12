@@ -1,0 +1,12 @@
+{
+  "model": "tiiuae/Falcon3-7B-Instruct",
+  "tag": "falcon3_7b_lg",
+  "collection": "Lingua-SafetyBench",
+  "method": "g12_shuffled_n6__persona",
+  "gated": true,
+  "verified": 0.15,
+  "recon": 0.25,
+  "unsafe": 0.675,
+  "n": 40,
+  "ts": "2026-09-11T18:37:43"
+}

@@ -1,0 +1,12 @@
+{
+  "model": "mistralai/Mistral-Small-24B-Instruct-2501",
+  "tag": "mistral24b_lg",
+  "collection": "Lingua-SafetyBench",
+  "method": "m_aim",
+  "gated": false,
+  "verified": 0.875,
+  "recon": 1.0,
+  "unsafe": 0.875,
+  "n": 40,
+  "ts": "2026-09-12T01:31:37"
+}

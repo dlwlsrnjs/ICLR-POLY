@@ -1,0 +1,12 @@
+{
+  "model": "mistralai/Mistral-Small-24B-Instruct-2501",
+  "tag": "mistral24b_mj",
+  "collection": "MultiJail",
+  "method": "g12_ordered_n6__persona",
+  "gated": true,
+  "verified": 0.547,
+  "recon": 0.688,
+  "unsafe": 0.734,
+  "n": 64,
+  "ts": "2026-09-11T23:49:16"
+}

@@ -1,0 +1,12 @@
+{
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "tag": "llama31_8b_it_lg",
+  "collection": "Lingua-SafetyBench",
+  "method": "g3_shuffled_n8__plain",
+  "gated": true,
+  "verified": 0.475,
+  "recon": 0.65,
+  "unsafe": 0.775,
+  "n": 40,
+  "ts": "2026-09-11T19:47:54"
+}

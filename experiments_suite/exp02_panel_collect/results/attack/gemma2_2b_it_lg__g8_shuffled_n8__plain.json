@@ -1,0 +1,12 @@
+{
+  "model": "google/gemma-2-2b-it",
+  "tag": "gemma2_2b_it_lg",
+  "collection": "Lingua-SafetyBench",
+  "method": "g8_shuffled_n8__plain",
+  "gated": true,
+  "verified": 0.1,
+  "recon": 0.175,
+  "unsafe": 0.675,
+  "n": 40,
+  "ts": "2026-09-11T17:54:27"
+}

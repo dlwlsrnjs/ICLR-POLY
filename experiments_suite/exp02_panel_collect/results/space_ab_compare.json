@@ -1,5 +1,93 @@
 [
   {
+    "tag": "falcon3_7b_mj",
+    "held": "held_out",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.422,
+      "benign_only": 0.422,
+      "adaptive8": 0.372
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.422,
+      "benign_only": 0.25,
+      "adaptive8": 0.357
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.5,
+      "benign_only": 0.406,
+      "adaptive8": 0.413
+    }
+  },
+  {
+    "tag": "gemma2_2b_it_mj",
+    "held": "held_in",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.391,
+      "benign_only": 0.203,
+      "adaptive8": 0.284
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.578,
+      "benign_only": 0.359,
+      "adaptive8": 0.525
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.703,
+      "benign_only": 0.453,
+      "adaptive8": 0.548
+    }
+  },
+  {
+    "tag": "gemma2_9b_it_mj",
+    "held": "held_in",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.141,
+      "benign_only": 0.109,
+      "adaptive8": 0.138
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.688,
+      "benign_only": 0.531,
+      "adaptive8": 0.661
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.844,
+      "benign_only": 0.797,
+      "adaptive8": 0.77
+    }
+  },
+  {
+    "tag": "llama31_8b_it_mj",
+    "held": "held_in",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.578,
+      "benign_only": 0.562,
+      "adaptive8": 0.577
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.688,
+      "benign_only": 0.688,
+      "adaptive8": 0.675
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.688,
+      "benign_only": 0.547,
+      "adaptive8": 0.618
+    }
+  },
+  {
     "tag": "llama32_3b_it_mj",
     "held": "held_in",
     "A_comp_lang_order": {
@@ -11,14 +99,36 @@
     "B_weak_will": {
       "n_arms": 96,
       "oracle": 0.422,
-      "benign_only": 0.016,
+      "benign_only": 0.0,
       "adaptive8": 0.382
     },
     "C_medium_will": {
       "n_arms": 160,
       "oracle": 0.422,
-      "benign_only": 0.016,
+      "benign_only": 0.0,
       "adaptive8": 0.365
+    }
+  },
+  {
+    "tag": "mistral24b_mj",
+    "held": "held_out",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.281,
+      "benign_only": 0.281,
+      "adaptive8": 0.279
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.688,
+      "benign_only": 0.656,
+      "adaptive8": 0.685
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.688,
+      "benign_only": 0.531,
+      "adaptive8": 0.673
     }
   },
   {
@@ -33,7 +143,7 @@
     "B_weak_will": {
       "n_arms": 96,
       "oracle": 0.422,
-      "benign_only": 0.344,
+      "benign_only": 0.125,
       "adaptive8": 0.34
     },
     "C_medium_will": {
@@ -41,6 +151,28 @@
       "oracle": 0.469,
       "benign_only": 0.391,
       "adaptive8": 0.383
+    }
+  },
+  {
+    "tag": "qwen25_14b_mj",
+    "held": "held_in",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.203,
+      "benign_only": 0.094,
+      "adaptive8": 0.188
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.562,
+      "benign_only": 0.562,
+      "adaptive8": 0.545
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.703,
+      "benign_only": 0.625,
+      "adaptive8": 0.66
     }
   },
   {
@@ -61,13 +193,13 @@
     "C_medium_will": {
       "n_arms": 160,
       "oracle": 0.578,
-      "benign_only": 0.234,
+      "benign_only": 0.578,
       "adaptive8": 0.504
     },
     "D_full_stacks": {
       "n_arms": 288,
       "oracle": 0.578,
-      "benign_only": 0.234,
+      "benign_only": 0.578,
       "adaptive8": 0.447
     }
   },
@@ -83,20 +215,108 @@
     "B_weak_will": {
       "n_arms": 96,
       "oracle": 0.594,
-      "benign_only": 0.5,
+      "benign_only": 0.203,
       "adaptive8": 0.569
     },
     "C_medium_will": {
       "n_arms": 160,
       "oracle": 0.719,
-      "benign_only": 0.5,
+      "benign_only": 0.547,
       "adaptive8": 0.59
     },
     "D_full_stacks": {
       "n_arms": 288,
       "oracle": 0.719,
-      "benign_only": 0.375,
+      "benign_only": 0.547,
       "adaptive8": 0.56
+    }
+  },
+  {
+    "tag": "falcon3_7b_lg",
+    "held": "held_out",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.725,
+      "benign_only": 0.675,
+      "adaptive8": 0.671
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.725,
+      "benign_only": 0.575,
+      "adaptive8": 0.671
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.725,
+      "benign_only": 0.575,
+      "adaptive8": 0.688
+    }
+  },
+  {
+    "tag": "gemma2_2b_it_lg",
+    "held": "held_in",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.35,
+      "benign_only": 0.35,
+      "adaptive8": 0.337
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.425,
+      "benign_only": 0.4,
+      "adaptive8": 0.365
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.5,
+      "benign_only": 0.4,
+      "adaptive8": 0.408
+    }
+  },
+  {
+    "tag": "gemma2_9b_it_lg",
+    "held": "held_in",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.25,
+      "benign_only": 0.05,
+      "adaptive8": 0.175
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.875,
+      "benign_only": 0.85,
+      "adaptive8": 0.84
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.875,
+      "benign_only": 0.85,
+      "adaptive8": 0.835
+    }
+  },
+  {
+    "tag": "llama31_8b_it_lg",
+    "held": "held_in",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.8,
+      "benign_only": 0.55,
+      "adaptive8": 0.758
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.8,
+      "benign_only": 0.7,
+      "adaptive8": 0.794
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.8,
+      "benign_only": 0.7,
+      "adaptive8": 0.792
     }
   },
   {
@@ -119,6 +339,28 @@
       "oracle": 0.5,
       "benign_only": 0.0,
       "adaptive8": 0.36
+    }
+  },
+  {
+    "tag": "mistral24b_lg",
+    "held": "held_out",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.6,
+      "benign_only": 0.55,
+      "adaptive8": 0.596
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.75,
+      "benign_only": 0.575,
+      "adaptive8": 0.669
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.75,
+      "benign_only": 0.575,
+      "adaptive8": 0.629
     }
   },
   {
@@ -155,14 +397,36 @@
     "B_weak_will": {
       "n_arms": 96,
       "oracle": 0.725,
-      "benign_only": 0.5,
+      "benign_only": 0.525,
       "adaptive8": 0.592
     },
     "C_medium_will": {
       "n_arms": 160,
       "oracle": 0.725,
-      "benign_only": 0.5,
+      "benign_only": 0.525,
       "adaptive8": 0.577
+    }
+  },
+  {
+    "tag": "qwen25_14b_lg",
+    "held": "held_in",
+    "A_comp_lang_order": {
+      "n_arms": 32,
+      "oracle": 0.725,
+      "benign_only": 0.525,
+      "adaptive8": 0.65
+    },
+    "B_weak_will": {
+      "n_arms": 96,
+      "oracle": 0.825,
+      "benign_only": 0.75,
+      "adaptive8": 0.817
+    },
+    "C_medium_will": {
+      "n_arms": 160,
+      "oracle": 0.85,
+      "benign_only": 0.75,
+      "adaptive8": 0.804
     }
   },
   {
@@ -177,13 +441,13 @@
     "B_weak_will": {
       "n_arms": 96,
       "oracle": 0.725,
-      "benign_only": 0.475,
+      "benign_only": 0.55,
       "adaptive8": 0.612
     },
     "C_medium_will": {
       "n_arms": 160,
       "oracle": 0.75,
-      "benign_only": 0.625,
+      "benign_only": 0.55,
       "adaptive8": 0.588
     }
   },
@@ -199,19 +463,19 @@
     "B_weak_will": {
       "n_arms": 96,
       "oracle": 0.775,
-      "benign_only": 0.725,
+      "benign_only": 0.75,
       "adaptive8": 0.731
     },
     "C_medium_will": {
       "n_arms": 160,
       "oracle": 0.825,
-      "benign_only": 0.725,
+      "benign_only": 0.75,
       "adaptive8": 0.76
     },
     "D_full_stacks": {
       "n_arms": 288,
       "oracle": 0.85,
-      "benign_only": 0.8,
+      "benign_only": 0.75,
       "adaptive8": 0.79
     }
   }
