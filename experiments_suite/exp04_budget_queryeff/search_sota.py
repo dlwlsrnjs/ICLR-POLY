@@ -119,7 +119,11 @@ def saturation_aware_prior(bj, arms, info_range=0.10, will_override=None):
                        will_source=("surrogate_transfer" if wov is not None else "benign"))
 
 
-def load(root, suffix, saturation_aware=True):
+def load(root, suffix, saturation_aware=True, surrogate_prior=True):
+    """surrogate_prior=True warm-starts the willingness axis from a leave-one-out surrogate transfer
+    prior (mean harmful verified per frame over OTHER tags); the benign probe cannot rank willingness.
+    The additive willingness kernel only pays off when its prior is trustworthy, so this is on by
+    default. Set False to reproduce the pure-benign-prior baseline."""
     ver = {}
     for f in glob.glob(str(Path(root) / "attack" / "*.json")):
         d = json.loads(Path(f).read_text())
@@ -133,7 +137,8 @@ def load(root, suffix, saturation_aware=True):
     for f in glob.glob(str(Path(root) / "benign" / f"*{suffix}.json")):
         d = json.loads(Path(f).read_text())
         if saturation_aware and d["tag"] in ver:
-            pri[d["tag"]], _ = saturation_aware_prior(d, list(ver[d["tag"]]))
+            wov = surrogate_will_prior(root, exclude_tag=d["tag"], suffix=suffix) if surrogate_prior else None
+            pri[d["tag"]], _ = saturation_aware_prior(d, list(ver[d["tag"]]), will_override=wov or None)
         else:
             pri[d["tag"]] = d.get("prior", {})
     return ver, pri
