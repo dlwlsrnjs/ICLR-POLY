@@ -1,0 +1,14 @@
+# Core packages present in the environment that produced the 2026-09-10 reference run.
+# Torch/vLLM wheels must be installed for the destination CUDA platform.
+accelerate==1.15.0
+einops==0.8.2
+huggingface-hub==1.29.0
+ninja==1.13.2
+numpy==2.2.6
+safetensors==0.8.0
+sentencepiece==0.2.2
+tokenizers==0.23.1
+torch==2.13.0
+torchvision==0.28.0
+transformers==5.16.1
+vllm==0.28.0
