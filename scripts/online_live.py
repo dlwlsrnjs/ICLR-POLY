@@ -67,7 +67,10 @@ class LiveTarget:
         self.llm = LLM(model=model, dtype="bfloat16", gpu_memory_utilization=util,
                        trust_remote_code=trust, tokenizer_mode=tok_mode, max_model_len=max_len,
                        tensor_parallel_size=int(tp), enforce_eager=_eager, **_extra)
-        self.sp = SamplingParams(temperature=0.0, max_tokens=320)
+        # POLY_REP_PENALTY (>1 discourages loops/degeneration on weak models); default off = greedy as before.
+        _rp = float(_os.environ.get("POLY_REP_PENALTY", "1.0"))
+        _spkw = {"repetition_penalty": _rp} if _rp and _rp != 1.0 else {}
+        self.sp = SamplingParams(temperature=0.0, max_tokens=320, **_spkw)
         self.ck = {"chat_template_kwargs": {"enable_thinking": False}} if no_thinking else {}
 
     def generate(self, prompts):
@@ -81,19 +84,25 @@ class Judges:
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
         self.torch = torch
-        self.rt = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-7B-Instruct", local_files_only=True)
+        # Pin exact judge revisions: judge outputs (R, U) define success, so a silent weight/tokenizer
+        # update would shift ASR. Override via env only if you deliberately want a different snapshot.
+        recon_rev = os.environ.get("POLY_RECON_JUDGE_REV", "a09a35458c702b33eeacc393d103063234e8bc28")
+        guard_rev = os.environ.get("POLY_GUARD_JUDGE_REV", "4505cb1a6f1864f21f8b27f7daf1b9a1aab6edbb")
+        self.rt = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-7B-Instruct", revision=recon_rev, local_files_only=True)
         self.rt.padding_side = "left"; self.rt.pad_token_id = self.rt.pad_token_id or self.rt.eos_token_id
-        self.rm = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-7B-Instruct", device_map=device,
-                                                       dtype=torch.bfloat16, local_files_only=True).eval()
+        self.rm = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-7B-Instruct", revision=recon_rev,
+                                                       device_map=device, dtype=torch.bfloat16,
+                                                       local_files_only=True).eval()
         # The safety judge is only needed to score answers to HARMFUL requests. The benign-probe
         # phase passes safety=False so no safety judge is loaded (saves GPU; nothing harmful is judged).
         self.gt = self.gm = None
         if safety:
-            self.gt = AutoTokenizer.from_pretrained("Qwen/Qwen3Guard-Gen-8B", trust_remote_code=True, local_files_only=True)
+            self.gt = AutoTokenizer.from_pretrained("Qwen/Qwen3Guard-Gen-8B", revision=guard_rev,
+                                                    trust_remote_code=True, local_files_only=True)
             self.gt.padding_side = "left"; self.gt.pad_token_id = self.gt.pad_token_id or self.gt.eos_token_id
-            self.gm = AutoModelForCausalLM.from_pretrained("Qwen/Qwen3Guard-Gen-8B", device_map=device,
-                                                           dtype=torch.bfloat16, trust_remote_code=True,
-                                                           local_files_only=True).eval()
+            self.gm = AutoModelForCausalLM.from_pretrained("Qwen/Qwen3Guard-Gen-8B", revision=guard_rev,
+                                                           device_map=device, dtype=torch.bfloat16,
+                                                           trust_remote_code=True, local_files_only=True).eval()
         self.device = device
 
     def _gen(self, tok, model, chats, max_new):
