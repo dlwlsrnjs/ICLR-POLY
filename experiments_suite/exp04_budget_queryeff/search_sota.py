@@ -39,19 +39,27 @@ def rbf(A, B, ls):
 
 
 
-def surrogate_will_prior(root, exclude_tag, suffix=None):
+def surrogate_will_prior(root, exclude_tag, suffix=None, min_arms=160):
     """Offline TRANSFER prior for the willingness axis: mean harmful verified per willingness frame,
     averaged over SURROGATE models (every tag except `exclude_tag`). The benign probe cannot rank
     willingness (it saturates, and benign nonrefusal ANTI-correlates with harmful comply), so we learn
     the ranking on surrogates offline and apply it to the blind target. Returns {frame: score} over
-    {plain,persona,fiction,pap,persona+fiction,...}. This keeps the TARGET probe benign (stealth): only
-    surrogates contribute harmful supervision."""
+    {plain,persona,fiction,pap,persona+fiction,...}. Only tags with >= `min_arms` collected arms are
+    used, so a still-collecting (partial) model does not skew the prior with an uneven frame mix.
+    Keeps the TARGET probe benign (stealth): only surrogates contribute harmful supervision."""
     import numpy as _np, collections as _c
+    files = glob.glob(str(Path(root) / "attack" / "*.json"))
+    per_tag = _c.Counter()
+    for f in files:
+        b = Path(f).stem
+        if "__" in b:
+            per_tag[b.split("__", 1)[0]] += 1
+    complete = {t for t, n in per_tag.items() if n >= min_arms}
     acc = _c.defaultdict(list)
-    for f in glob.glob(str(Path(root) / "attack" / "*.json")):
+    for f in files:
         d = json.loads(Path(f).read_text())
         tag = d["tag"]
-        if tag == exclude_tag:
+        if tag == exclude_tag or tag not in complete:
             continue
         if suffix and not tag.endswith(suffix):
             continue
