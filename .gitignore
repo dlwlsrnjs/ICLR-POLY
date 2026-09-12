@@ -33,3 +33,6 @@ experiments_suite/exp05_willingness_probe/results/*.log
 
 # Local inference runtime logs (results carry full provenance)
 /logs/
+
+# shared-box bucket staging for L40S harmful pulls
+.l40s_bucket_stage/
