@@ -38,6 +38,7 @@
 \input{liveqe_numbers.tex}
 \input{strat_numbers.tex}
 \input{acq_numbers.tex}
+\input{confirmatory_numbers.tex}
 
 \title{PolyJigsaw: Adaptive Per-Target Multilingual Jailbreaks with Audited Probe and Evaluation Costs}
 
@@ -297,7 +298,7 @@ interleaving reaches $0.692$---recovering the request is not the same as having 
 
 Table~\ref{tab:sel_queryeff} reports offline configuration-evaluation budgets: the constant-prior GP reaches the benign selector's three-evaluation level at \pjquninMJ{} and \pjquninLG{} evaluations. These are replay results with simulated observation noise, not measured API request savings. Each observation represents a batch of 64 MultiJail or 40 Lingua-SafetyBench items. The constant-prior baseline uses the panel-wide mean harmful outcome, including the evaluated target, and therefore is not strictly uninformed. The cross-target reference additionally uses configuration-specific harmful outcomes from other targets. These distinctions limit causal claims about the benign prior.
 
-\paragraph{Where the advantage lives, and why the acquisition is not the free parameter.} The average query cost hides a sharp concentration (Table~\ref{tab:strat}, top). Stratifying targets by winning-region width, ours leads within-budget solve rate in every stratum and pooled query cost; the gain concentrates on mid-difficulty targets, where the free prior lifts solve rate to $\pjstMidOursS\%$ against the uninformed GP's $\pjstMidFlatS\%$---which there even trails random ($\pjstMidRandS\%$), the kernel over-generalizing without a prior to anchor it. The gap is the prior's, not the acquisition rule's: with prior and kernel fixed, GP-UCB($\beta{=}1$) is Pareto-best (Table~\ref{tab:strat}, bottom)---top solve rate ($\pjacqOursS\%$) at a query cost tied with the fastest alternative (EI, $\pjacqEiQ$ vs $\pjacqOursQ$)---so the selection machinery is not where a defender should look for slack.
+\paragraph{Where the advantage lives, and why the acquisition is not the free parameter.} The average query cost hides a sharp concentration (Table~\ref{tab:strat}, top). Stratifying targets by winning-region width, ours leads within-budget solve rate in every stratum and pooled query cost; the gain concentrates on mid-difficulty targets, where the free prior lifts solve rate to $\pjstMidOursS\%$ against the uninformed GP's $\pjstMidFlatS\%$---which there even trails random ($\pjstMidRandS\%$), the kernel over-generalizing without a prior to anchor it. The gap is the prior's, not the acquisition rule's: with prior and kernel fixed, GP-UCB($\beta{=}1$) is Pareto-best (Table~\ref{tab:strat}, bottom)---top solve rate ($\pjacqOursS\%$) at a query cost tied with the fastest alternative (EI, $\pjacqEiQ$ vs $\pjacqOursQ$)---so the selection machinery is not where a defender should look for slack. An extended \pjcfModels{}-model panel re-tests these selection choices under a stricter item-level split, and a learned policy, cheaper multi-fidelity allocation and robust additive transfer are compared there (Appendix~\ref{app:confirmatory}); it uses an unsafe-answer outcome without the reconstruction gate, so its numbers are not comparable to the verified results here.
 
 These counts are replayed; run \emph{live} against real endpoints the same concentration holds (Table~\ref{tab:liveqe}). On the four endpoints where the frozen selector recovers the strongest verified attacks it reaches $95\%$ of that attack in \pjlqOursLo{}--\pjlqOursHi{} online queries---finding a verified $\pjlqTopBV$ on Llama-3.1-8B in \pjlqLEours{}---while a truly prior-free random search over the same arms needs \pjlqRandLo{}--12 or never matches it on the highest-value targets.
 
@@ -895,6 +896,77 @@ variant is analysed separately in Appendix~\ref{sec:judge}) the strict gate refl
 reconstruction: on all five targets with stored generations, every row whose reconstruction matches
 the original request also carries a complete answer section, so the model emitted both sections and
 reassembled the sentence rather than defaulting to it.
+
+\subsection{Confirmatory selector experiments on an extended panel}
+\label{app:confirmatory}
+The panel above fixes the configuration space and the probe recipe, and it is small enough that a
+selector can look good for reasons that do not survive a stricter split. We therefore re-ran the
+selection question on an extended panel of \pjcfModels{} open models spanning \pjcfFamilies{}
+families, over the \pjcfArms{}-arm cross-product space, on both collections. Two things differ from
+the main text and make these numbers incomparable to Tables~\ref{tab:heldin} and~\ref{tab:heldout}:
+the outcome here is the Qwen3Guard unsafe answer rate alone, with reconstruction \emph{not} applied
+as a gate, and the unit of inference is the model family rather than the model. Confidence intervals
+are family-cluster bootstraps over \pjcfStatClusters{} clusters with \pjcfStatBoot{} resamples, and
+$p$-values are exact two-sided family sign-flip tests, unadjusted for multiplicity. With only
+\pjcfStatClusters{} families these tests are underpowered by construction, so we read them as
+direction and magnitude, not as decisions.
+
+\paragraph{Strict item-held-out transfer.} Table~\ref{tab:confirm_strict} splits items as well as
+models: within each benchmark half the items train the source prior, a quarter calibrate the target,
+and a quarter are held out for scoring, with a leave-one-family-out fold on top and
+\pjcfStrictSeeds{} independent splits. Target test outcomes never reach the prior, the kernel, the
+configuration selection, the arm queries or the recommendation rule. A robust additive-transfer GP,
+which learns source relevance over the four arm axes and selects its own configuration by
+leave-one-source-family-out replay, is worth most where the budget is smallest: at $B{=}2$ its
+posterior recommendation reaches \pjcfStrictMSpostBTwo{} against the existing structured GP's
+\pjcfStrictGPpostBTwo{} ($\pjcfDStrictMSpostBTwo$ [$\pjcfDStrictMSpostBTwolo$,
+$\pjcfDStrictMSpostBTwohi$], $p=\pjcfDStrictMSpostBTwop$). At $B{=}16$ the CVaR-25 variant is ahead
+on the point estimate (\pjcfStrictCVpostBSixteen{} vs \pjcfStrictGPpostBSixteen{}) but its interval
+contains zero ($\pjcfDStrictCVpostBSixteen$ [$\pjcfDStrictCVpostBSixteenlo$,
+$\pjcfDStrictCVpostBSixteenhi$]), and under the best-observed rule the existing GP is ahead at
+$B{=}8$. The honest summary is a robust low-budget advantage and an unresolved high-budget one. The
+hindsight oracle over held-out test items is \pjcfStrictOracle{}, an upper bound that no budget here
+approaches.
+\input{tab_confirm_strict.tex}
+
+\paragraph{Cheaper allocation does not work at this calibration size.} If shallow measurements were
+informative, an attacker could test many arms on few items instead of few arms on many.
+Table~\ref{tab:confirm_mfid} charges both schemes the same way---one cost unit is one target
+response judged on one calibration item---and the hypothesis fails. At $B{=}16$-equivalent cost the
+multi-fidelity graph kernel-UCB reaches \pjcfMfidMFBSixteen{} against full-fidelity
+\pjcfMfidFullBSixteen{} ($\pjcfDMfidBSixteen$ [$\pjcfDMfidBSixteenlo$, $\pjcfDMfidBSixteenhi$],
+$p=\pjcfDMfidBSixteenp$), and prior-seeded successive halving is no better. With calibration sets of
+ten to sixteen items, per-arm estimates from a handful of items are too noisy to rank arms, so the
+budget is better spent measuring fewer arms properly. This is a negative result about our own
+protocol, not about multi-fidelity search in general: it would likely reverse with larger item pools.
+\input{tab_confirm_mfid.tex}
+
+\paragraph{A learned policy is not the missing ingredient.} Table~\ref{tab:confirm_selector} replaces
+the GP with a policy over arms that sees the harmless context, the queried-arm mask, observed
+calibration outcomes and the remaining budget; it is initialised by supervised ranking and trained
+with PPO on source families only, and evaluated on \pjcfSelSplits{} item splits. At the cold start
+and at $B{=}2$ it leads (\pjcfSelPPOBTwo{} against random search's \pjcfSelRandBTwo{},
+$\pjcfDSelVsRandBTwo$ [$\pjcfDSelVsRandBTwolo$, $\pjcfDSelVsRandBTwohi$], $p=\pjcfDSelVsRandBTwop$),
+but by $B{=}8$ it is level with random and its learned recommendation head never overtakes the
+structured GP. What the ablations do show is that both inputs carry signal: removing the harmless
+context costs $\pjcfDSelCtxBSixteen$ at $B{=}16$ ($p=\pjcfDSelCtxBSixteenp$) and removing online
+feedback costs $\pjcfDSelFbBEight$ at $B{=}8$ ($p=\pjcfDSelFbBEightp$). We therefore do not claim a
+learned selector beats Bayesian search; we claim the two ingredients the main text relies on---a
+harmless prior and online feedback---are separately load-bearing under a stricter split.
+\input{tab_confirm_selector.tex}
+
+\paragraph{What we take from this.} The three results support a budget-adaptive reading rather than a
+single winner. Below two evaluations, the harmless prior and learned context decide; between two and
+four, robust additive transfer is the better optimiser; from eight evaluations on, the structured GP
+with full-fidelity calibration remains the safest default; and no part of the protocol should spend
+its budget on partial arm measurements. Table~\ref{tab:confirm_endtoend} reports the same methods as
+an aggregate full-benchmark replay against discrete adaptations of published search strategies, where
+POLY's warm start followed by tree refinement leads (\pjcfEndPolyTreeAtBudget{} at sixteen
+evaluations against \pjcfEndFlatAtBudget{} for the same search without a prior). That comparison is
+an upper-resource diagnostic: it reuses stored outcomes, charges no attacker-side generation cost,
+and the baselines are re-implementations over our arm space rather than reproductions of the
+published systems, so it is reported apart from the strict result above.
+\input{tab_confirm_endtoend.tex}
 
 \subsection{Additional sensitivity analyses}
 \label{app:additional}

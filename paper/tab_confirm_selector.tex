@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering
+\small
+\caption{\textbf{Learned contextual selector, family-held-out.} A policy over arms is initialised by
+supervised ranking and trained with PPO on source families only; its context is built from harmless
+FLORES reconstruction and FalseReject over-refusal probes, the queried-arm mask, observed calibration
+outcomes and the remaining budget. Entries average repetitions, then models, datasets and training
+seeds, then the seven held-out families, giving the 3 item splits equal weight. Learning helps at the
+cold start and through its ablations; it does not dominate random search or the structured GP once
+enough target queries are available.}
+\label{tab:confirm_selector}
+\begin{tabular}{lccccc}
+\toprule
+Method & $B{=}0$ & $B{=}2$ & $B{=}4$ & $B{=}8$ & $B{=}16$ \\
+\midrule
+Family-balanced fixed prior & 0.5760 & 0.5760 & 0.5760 & 0.5760 & 0.5760 \\
+Random, best observed & 0.5760 & 0.5433 & 0.5902 & 0.6121 & 0.6221 \\
+Supervised context selector & 0.5735 & 0.5898 & 0.5934 & 0.6033 & 0.6079 \\
+PPO without context & 0.5644 & 0.5644 & 0.5657 & 0.5619 & 0.5679 \\
+PPO without feedback & \textbf{0.5964} & 0.5974 & 0.5919 & 0.5877 & 0.5783 \\
+PPO context and feedback & \textbf{0.5964} & \textbf{0.6031} & \textbf{0.6027} & 0.6112 & 0.6198 \\
+PPO queries, best-observed incumbent & 0.5760 & 0.5954 & 0.6003 & \textbf{0.6155} & \textbf{0.6263} \\
+\bottomrule
+\end{tabular}
+\end{table}

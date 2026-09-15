@@ -210,3 +210,26 @@
   (qwen25_7b 공동0.68). per-language 스윕은 오프라인 곡선으로 대체.
 - 코드: scripts/{structured_policy_ext,gp_bai,agentic_probe(+irt),open_optimize,benign_recon_sweep}.py.
   문서: docs/{PROBE_OPTIMIZATION_FRAMING,BENIGN_DRIVEN_CONTRIBUTION,AGENTIC_PROBE}_2026-09-04.md.
+
+## 2026-09-15 — L40S 17모델 패널 회수 + 확정 실험 3종 레포 반영
+
+- 다른 GPU 서버(L40S)가 2026-09-14까지 올린 산출물을 프라이빗 버킷에서 전부 내려받았다
+  (`0913/L40S-only/` 1.46GB + 루트 트리 ~0.9GB). GitHub `dlwlsrnjs/ICLR-POLY` main은 f773e95로
+  로컬과 동일했고 새 커밋은 없었다 — L40S 코드는 버킷에만, 그것도 일부만 있다.
+- 패널이 9모델/23~292 arm에서 **17모델 / 7계열 / 160 arm(공간 C) / MJ+LG**로 확장됐다.
+  1차 지표는 Qwen3Guard unsafe ASR(U)이고 재구성은 게이트로 쓰지 않는다.
+- 확정 실험 3종을 `experiments_suite/exp06_confirmatory_selector/`로 반영하고 표를 생성했다
+  (`scripts/make_confirmatory_tables.py` → `paper/tab_confirm_*.tex`, `confirmatory_numbers.tex`).
+  1. **엄격 item-held-out 가산 전이 BO**: 항목 50/25/25 분할 + 계열 LOO, 15개 분할.
+     B=2에서 advanced mean-std posterior 0.6717 vs structured GP posterior 0.6512(+0.0205,
+     CI [+0.0047,+0.0418], 부호뒤집기 p=0.0543). B=8에서는 structured GP가 best-observed로 앞선다.
+     오라클(사후 상한) 0.8359.
+  2. **동일 item-cost 다중충실도**: 음성 결과. B=16에서 graph kernel-UCB가 full-fidelity GP 대비
+     -0.0418 (CI [-0.0816,-0.0103], p=0.0388). 보정 항목 10~16개 규모에서는 전량측정이 낫다.
+  3. **학습 selector(PPO)**: random/GP를 일관되게 이기지 못한다. 다만 절제는 강하다 —
+     문맥 유무 B=16 +0.0518(p=0.0233), 피드백 유무 B=8 +0.0235(p=0.0233).
+- 따라서 논문 주장은 "PPO가 BO를 이긴다"가 아니라 **예산 적응형 selector 스택**으로 간다:
+  B=0~2 무해 prior/문맥 warm start, B=2~4 robust 가산 BO, B>=8 structured GP, 다중충실도는 쓰지 않음.
+- **미해결**: 결과를 만든 러너 일부(`pilot_family_loo_asr_selector.py` 등 7개)가 버킷에 없어
+  이 서버에서 확정 실험을 재실행할 수 없다. 목록과 회수 명령은
+  `docs/L40S_CODE_GAP_2026-09-15.md`. 또 이 박스에는 LaTeX 툴체인이 없어 PDF 재빌드는 못 했다.

@@ -1,0 +1,41 @@
+2026-09-14T16:31:01+00:00	WAIT final_audit_pid=3024872
+2026-09-14T16:32:29+00:00	WAIT final_audit_pid=3024872
+2026-09-14T18:07:33+00:00	QUEUE_START experiments=8 panel_models=17 families=7
+2026-09-14T18:07:33+00:00	START step=conventional_asr
+2026-09-14T18:07:33+00:00	START step=strict_harmless_prior
+2026-09-14T18:07:33+00:00	START step=family_heldout_selector
+2026-09-14T18:07:33+00:00	START step=family_source_matrix
+2026-09-14T18:07:58+00:00	COMPLETE step=family_heldout_selector models=17 families=7
+2026-09-14T18:07:58+00:00	START step=kernel_axis_ablation
+2026-09-14T18:08:03+00:00	COMPLETE step=family_source_matrix models=17 families=7
+2026-09-14T18:08:03+00:00	START step=poly_bo_nested
+2026-09-14T18:08:22+00:00	COMPLETE step=strict_harmless_prior models=17 families=7
+2026-09-14T18:08:22+00:00	START step=end_to_end_search_baselines
+2026-09-14T18:08:22+00:00	COMPLETE step=kernel_axis_ablation models=17 families=7
+2026-09-14T18:08:22+00:00	START step=falsereject_transfer
+2026-09-14T18:08:23+00:00	COMPLETE step=falsereject_transfer models=17 families=0
+2026-09-14T18:08:47+00:00	COMPLETE step=poly_bo_nested models=17 families=7
+2026-09-14T18:08:55+00:00	COMPLETE step=conventional_asr models=17 families=7
+2026-09-14T18:09:17+00:00	COMPLETE step=end_to_end_search_baselines models=17 families=7
+2026-09-14T18:42:22+00:00	WAIT final_audit_pid=99999999
+2026-09-14T18:42:22+00:00	QUEUE_START experiments=8 panel_models=17 families=7
+2026-09-14T18:42:22+00:00	SKIP step=conventional_asr reason=valid_17model_output
+2026-09-14T18:42:22+00:00	SKIP step=strict_harmless_prior reason=valid_17model_output
+2026-09-14T18:42:23+00:00	SKIP step=family_heldout_selector reason=valid_17model_output
+2026-09-14T18:42:23+00:00	SKIP step=family_source_matrix reason=valid_17model_output
+2026-09-14T18:42:24+00:00	SKIP step=poly_bo_nested reason=valid_17model_output
+2026-09-14T18:42:24+00:00	SKIP step=end_to_end_search_baselines reason=valid_17model_output
+2026-09-14T18:42:24+00:00	SKIP step=kernel_axis_ablation reason=valid_17model_output
+2026-09-14T18:42:24+00:00	SKIP step=falsereject_transfer reason=valid_17model_output
+2026-09-14T18:42:29+00:00	UPLOAD_OK file=pilot_conventional_asr_l40s17_b16_20260914.json
+2026-09-14T18:42:32+00:00	UPLOAD_OK file=pilot_harmless_only_prior_l40s17_b16_20260914.json
+2026-09-14T18:42:37+00:00	UPLOAD_OK file=pilot_family_loo_asr_selector_l40s17_b16_20260914.json
+2026-09-14T18:42:42+00:00	UPLOAD_OK file=pilot_family_source_matrix_l40s17_b8_20260914.json
+2026-09-14T18:42:45+00:00	UPLOAD_OK file=pilot_end_to_end_search_baselines_l40s17_b16_20260914.json
+2026-09-14T18:42:50+00:00	UPLOAD_OK file=pilot_poly_bo_l40s17_b16_20260914.json
+2026-09-14T18:42:55+00:00	UPLOAD_OK file=pilot_kernel_ablation_l40s17_b8_20260914.json
+2026-09-14T18:42:58+00:00	UPLOAD_OK file=transfer_validation_l40s17_20260914.json
+2026-09-14T18:43:02+00:00	UPLOAD_OK file=post17_analysis_summary_20260914.json
+2026-09-14T18:43:05+00:00	UPLOAD_OK file=post17_analysis_queue_status.tsv
+2026-09-14T18:43:09+00:00	UPLOAD_OK file=pilot_poly_bo_l40s17_b16_20260914_selector.json
+2026-09-14T18:43:09+00:00	QUEUE_COMPLETE experiments=8 outputs_valid=8 uploaded=1

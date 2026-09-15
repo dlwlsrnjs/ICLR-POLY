@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering
+\small
+\caption{\textbf{Aggregate replay against search-strategy adaptations.} Family-macro unsafe ASR over
+the full benchmark, best observed arm within budget. The three search adaptations are discrete
+re-implementations over the same arm space, not native reproductions of the published systems, and
+attacker-side generation cost is not represented; the handcrafted library searches its own four-arm
+pool. This is an upper-resource diagnostic and is reported separately from the strict item-held-out
+result in Table~\ref{tab:confirm_strict}.}
+\label{tab:confirm_endtoend}
+\begin{tabular}{lcccc}
+\toprule
+Method & ASR@4 & ASR@8 & ASR@16 & curve AUC \\
+\midrule
+Handcrafted attack library, rank selector & 0.7433 & 0.7433 & 0.7433 & 0.7257 \\
+Uniform random over the arm space & 0.7143 & 0.7539 & 0.7771 & 0.7345 \\
+Evolutionary fuzzer (GPTFuzzer-style) & 0.6807 & 0.7436 & 0.7822 & 0.7219 \\
+Tree pruning (TAP-style) & 0.7221 & 0.7693 & 0.7941 & 0.7455 \\
+Quality-diversity archive (MAP-Elites-style) & 0.6911 & 0.7451 & 0.7757 & 0.7238 \\
+Additive GP-UCB, no prior & 0.7351 & 0.7712 & 0.7929 & 0.7503 \\
+POLY warm start and additive GP-UCB & 0.7413 & 0.7790 & 0.7948 & 0.7670 \\
+POLY warm start and tree refinement & \textbf{0.7458} & \textbf{0.7840} & \textbf{0.7997} & \textbf{0.7717} \\
+\bottomrule
+\end{tabular}
+\end{table}

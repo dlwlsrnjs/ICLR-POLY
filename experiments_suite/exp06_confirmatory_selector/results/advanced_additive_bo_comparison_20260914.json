@@ -1,0 +1,44 @@
+{
+  "schema": "polyjigsaw/advanced-additive-bo-comparison/v1",
+  "panel": "17 models / 7 families / MultiJail+Lingua-SafetyBench / 160 arms",
+  "metric": "family-macro aggregate Qwen3Guard unsafe ASR; best observed arm",
+  "budget": 16,
+  "oracle_family_macro": 0.8142142857142858,
+  "primary": {
+    "method": "nested additive-transfer GP with CVaR-25 source-family selection",
+    "asr_at_4": 0.7753095238095238,
+    "asr_at_8": 0.7944226190476191,
+    "asr_at_16": 0.8022976190476191,
+    "auc": 0.7803642113095238,
+    "remaining_oracle_gap": 0.011916666666666687,
+    "oracle_gap_closed_from_shared_first_arm": 0.8952490581833402,
+    "artifact": "pilot_advanced_additive_bo_cvar25_l40s17_b16_20260914.json"
+  },
+  "robust_secondary": {
+    "method": "nested additive-transfer GP with minimax source-family selection",
+    "asr_at_4": 0.7782738095238095,
+    "asr_at_8": 0.7940654761904762,
+    "asr_at_16": 0.8017559523809524,
+    "auc": 0.7817380952380952,
+    "remaining_oracle_gap": 0.012458333333333349,
+    "oracle_gap_closed_from_shared_first_arm": 0.8904876517371284,
+    "artifact": "pilot_advanced_additive_bo_minimax_l40s17_b16_20260914.json"
+  },
+  "previous_best": {
+    "method": "POLY warm-tree refinement",
+    "asr_at_4": 0.7458330654761899,
+    "asr_at_8": 0.7839550297619043,
+    "asr_at_16": 0.7997293749999995,
+    "auc": 0.7716988913690472,
+    "artifact": "pilot_end_to_end_search_baselines_l40s17_b16_20260914.json"
+  },
+  "primary_minus_previous": {
+    "asr_at_4": 0.0294764583333339,
+    "asr_at_8": 0.0104675892857148,
+    "asr_at_16": 0.0025682440476196,
+    "auc": 0.0086653199404766,
+    "remaining_oracle_gap_reduction_fraction": 0.1773043315404969
+  },
+  "sensitivity_note": "Mean-minus-standard-deviation penalties 2 through 100 also exceed the previous ASR@16 result for most tested values; penalty 8 reaches 0.802589 but is retained as sensitivity rather than the primary result.",
+  "diagnostic_not_primary": "A fixed configuration selected after inspecting the full panel reaches ASR@16 0.807137. It is target-informed hypothesis generation and must be validated on a new external family before being reported as a generalization result."
+}

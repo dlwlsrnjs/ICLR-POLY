@@ -1,0 +1,2251 @@
+{
+  "protocol": {
+    "unit_of_inference": "model family (7 clusters)",
+    "point_estimate": "mean of paired family-level differences",
+    "confidence_interval": "20000 family-cluster bootstrap resamples",
+    "hypothesis_test": "exact two-sided family-level sign-flip randomization test",
+    "multiplicity": "raw p-values; contrasts are prespecified and no multiplicity correction is applied"
+  },
+  "comparisons": [
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_meanstd",
+      "control": "structured_gp_crossfamily_incumbent",
+      "budget": 2,
+      "family_macro_treatment": 0.6686557539682539,
+      "family_macro_control": 0.6511855158730159,
+      "paired_difference": 0.017470238095238073,
+      "family_cluster_bootstrap_95ci": [
+        -0.0028769841269841007,
+        0.04283730158730149
+      ],
+      "exact_family_signflip_p_two_sided": 0.2713178294573643,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.011527777777777692,
+        "gemma": 0.04555555555555535,
+        "glm": 0.002083333333333326,
+        "llama": 0.080625,
+        "mistral": -0.009583333333333277,
+        "phi": 0.0008333333333333526,
+        "qwen": -0.008749999999999925
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_cvar25",
+      "control": "structured_gp_crossfamily_incumbent",
+      "budget": 2,
+      "family_macro_treatment": 0.6671626984126984,
+      "family_macro_control": 0.6511855158730159,
+      "paired_difference": 0.015977182539682572,
+      "family_cluster_bootstrap_95ci": [
+        -0.004553571428571331,
+        0.04168154761904758
+      ],
+      "exact_family_signflip_p_two_sided": 0.3488372093023256,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.017083333333333228,
+        "gemma": 0.03944444444444428,
+        "glm": 0.0,
+        "llama": 0.08187500000000009,
+        "mistral": -0.014999999999999791,
+        "phi": -0.004166666666666652,
+        "qwen": -0.007395833333333157
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_minimax",
+      "control": "structured_gp_crossfamily_incumbent",
+      "budget": 2,
+      "family_macro_treatment": 0.6680357142857142,
+      "family_macro_control": 0.6511855158730159,
+      "paired_difference": 0.01685019841269836,
+      "family_cluster_bootstrap_95ci": [
+        -0.004434523809523853,
+        0.04286210317460311
+      ],
+      "exact_family_signflip_p_two_sided": 0.3023255813953488,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.009999999999999898,
+        "gemma": 0.040555555555555345,
+        "glm": 0.002083333333333326,
+        "llama": 0.08333333333333331,
+        "mistral": -0.023958333333333304,
+        "phi": 0.00854166666666667,
+        "qwen": -0.0026041666666667407
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_meanstd_posterior",
+      "control": "structured_gp_crossfamily_posterior",
+      "budget": 2,
+      "family_macro_treatment": 0.671671626984127,
+      "family_macro_control": 0.6512053571428572,
+      "paired_difference": 0.02046626984126983,
+      "family_cluster_bootstrap_95ci": [
+        0.004742063492063472,
+        0.04181547619047623
+      ],
+      "exact_family_signflip_p_two_sided": 0.05426356589147287,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.008611111111111125,
+        "gemma": 0.026944444444444327,
+        "glm": 0.005416666666666514,
+        "llama": 0.0762500000000001,
+        "mistral": 0.007708333333333539,
+        "phi": 0.025416666666666643,
+        "qwen": -0.007083333333333441
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_cvar25_posterior",
+      "control": "structured_gp_crossfamily_posterior",
+      "budget": 2,
+      "family_macro_treatment": 0.6675396825396824,
+      "family_macro_control": 0.6512053571428572,
+      "paired_difference": 0.01633432539682537,
+      "family_cluster_bootstrap_95ci": [
+        0.0023710317460317043,
+        0.03487599206349208
+      ],
+      "exact_family_signflip_p_two_sided": 0.10077519379844961,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.012083333333333335,
+        "gemma": 0.012777777777777666,
+        "glm": 0.0033333333333331883,
+        "llama": 0.06645833333333345,
+        "mistral": -0.00020833333333325488,
+        "phi": 0.025833333333333264,
+        "qwen": -0.00593750000000004
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_minimax_posterior",
+      "control": "structured_gp_crossfamily_posterior",
+      "budget": 2,
+      "family_macro_treatment": 0.666423611111111,
+      "family_macro_control": 0.6512053571428572,
+      "paired_difference": 0.015218253968253928,
+      "family_cluster_bootstrap_95ci": [
+        0.0012698412698412145,
+        0.034414682539682516
+      ],
+      "exact_family_signflip_p_two_sided": 0.11627906976744186,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.005138888888888915,
+        "gemma": 0.012638888888888866,
+        "glm": 0.005416666666666514,
+        "llama": 0.0672916666666667,
+        "mistral": 0.0006250000000000977,
+        "phi": 0.023333333333333206,
+        "qwen": -0.007916666666666794
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_meanstd",
+      "control": "structured_gp_crossfamily_incumbent",
+      "budget": 4,
+      "family_macro_treatment": 0.6779761904761905,
+      "family_macro_control": 0.6740873015873016,
+      "paired_difference": 0.0038888888888888623,
+      "family_cluster_bootstrap_95ci": [
+        -0.014503968253968269,
+        0.02862103174603175
+      ],
+      "exact_family_signflip_p_two_sided": 0.8914728682170543,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.01791666666666658,
+        "gemma": 0.00013888888888879958,
+        "glm": -0.018749999999999933,
+        "llama": 0.0714583333333334,
+        "mistral": -0.01145833333333346,
+        "phi": -0.011458333333333348,
+        "qwen": -0.020625000000000004
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_cvar25",
+      "control": "structured_gp_crossfamily_incumbent",
+      "budget": 4,
+      "family_macro_treatment": 0.6822470238095237,
+      "family_macro_control": 0.6740873015873016,
+      "paired_difference": 0.008159722222222197,
+      "family_cluster_bootstrap_95ci": [
+        -0.017043650793650826,
+        0.03969246031746032
+      ],
+      "exact_family_signflip_p_two_sided": 0.7209302325581395,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.03736111111111107,
+        "gemma": 0.005277777777777715,
+        "glm": -0.02749999999999997,
+        "llama": 0.09020833333333345,
+        "mistral": -0.0189583333333333,
+        "phi": -0.007916666666666905,
+        "qwen": -0.021354166666666674
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_minimax",
+      "control": "structured_gp_crossfamily_incumbent",
+      "budget": 4,
+      "family_macro_treatment": 0.6817906746031746,
+      "family_macro_control": 0.6740873015873016,
+      "paired_difference": 0.007703373015872999,
+      "family_cluster_bootstrap_95ci": [
+        -0.013953373015873025,
+        0.03768353174603175
+      ],
+      "exact_family_signflip_p_two_sided": 0.8604651162790697,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.02097222222222217,
+        "gemma": -0.005694444444444446,
+        "glm": -0.007083333333333219,
+        "llama": 0.09125000000000005,
+        "mistral": -0.021666666666666723,
+        "phi": -0.004166666666666874,
+        "qwen": -0.01968749999999997
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_meanstd_posterior",
+      "control": "structured_gp_crossfamily_posterior",
+      "budget": 4,
+      "family_macro_treatment": 0.6772172619047618,
+      "family_macro_control": 0.6725049603174603,
+      "paired_difference": 0.004712301587301515,
+      "family_cluster_bootstrap_95ci": [
+        -0.013799603174603239,
+        0.02658730158730151
+      ],
+      "exact_family_signflip_p_two_sided": 0.7364341085271318,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.02749999999999997,
+        "gemma": 0.004027777777777741,
+        "glm": -0.01416666666666666,
+        "llama": 0.059791666666666576,
+        "mistral": -0.005416666666666736,
+        "phi": -0.010625000000000218,
+        "qwen": -0.028125000000000067
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_cvar25_posterior",
+      "control": "structured_gp_crossfamily_posterior",
+      "budget": 4,
+      "family_macro_treatment": 0.6822222222222223,
+      "family_macro_control": 0.6725049603174603,
+      "paired_difference": 0.009717261904761933,
+      "family_cluster_bootstrap_95ci": [
+        -0.014538690476190417,
+        0.037291666666666674
+      ],
+      "exact_family_signflip_p_two_sided": 0.5658914728682171,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.04583333333333339,
+        "gemma": 0.011249999999999982,
+        "glm": -0.02083333333333326,
+        "llama": 0.078125,
+        "mistral": -0.012499999999999845,
+        "phi": -0.009583333333333388,
+        "qwen": -0.024270833333333353
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_minimax_posterior",
+      "control": "structured_gp_crossfamily_posterior",
+      "budget": 4,
+      "family_macro_treatment": 0.6782589285714286,
+      "family_macro_control": 0.6725049603174603,
+      "paired_difference": 0.005753968253968201,
+      "family_cluster_bootstrap_95ci": [
+        -0.01351190476190478,
+        0.028968253968253865
+      ],
+      "exact_family_signflip_p_two_sided": 0.7054263565891473,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.033194444444444415,
+        "gemma": 0.0016666666666667052,
+        "glm": -0.005833333333333357,
+        "llama": 0.06333333333333313,
+        "mistral": -0.013541666666666785,
+        "phi": -0.016250000000000098,
+        "qwen": -0.0222916666666666
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_meanstd",
+      "control": "structured_gp_crossfamily_incumbent",
+      "budget": 8,
+      "family_macro_treatment": 0.6853571428571428,
+      "family_macro_control": 0.6913392857142858,
+      "paired_difference": -0.005982142857142857,
+      "family_cluster_bootstrap_95ci": [
+        -0.014642857142857133,
+        0.004374999999999986
+      ],
+      "exact_family_signflip_p_two_sided": 0.3178294573643411,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.019583333333333286,
+        "gemma": 0.004166666666666652,
+        "glm": -0.017916666666666692,
+        "llama": -0.010208333333333264,
+        "mistral": -0.004375000000000018,
+        "phi": -0.013958333333333295,
+        "qwen": -0.019166666666666665
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_cvar25",
+      "control": "structured_gp_crossfamily_incumbent",
+      "budget": 8,
+      "family_macro_treatment": 0.6864186507936508,
+      "family_macro_control": 0.6913392857142858,
+      "paired_difference": -0.004920634920634929,
+      "family_cluster_bootstrap_95ci": [
+        -0.016398809523809486,
+        0.006587301587301618
+      ],
+      "exact_family_signflip_p_two_sided": 0.5038759689922481,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.0213888888888889,
+        "gemma": 0.0025000000000000577,
+        "glm": -0.032916666666666594,
+        "llama": 0.0031250000000000444,
+        "mistral": -0.007500000000000173,
+        "phi": -0.00854166666666667,
+        "qwen": -0.012500000000000067
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_minimax",
+      "control": "structured_gp_crossfamily_incumbent",
+      "budget": 8,
+      "family_macro_treatment": 0.6892410714285715,
+      "family_macro_control": 0.6913392857142858,
+      "paired_difference": -0.0020982142857143443,
+      "family_cluster_bootstrap_95ci": [
+        -0.011473958333333367,
+        0.007172619047619043
+      ],
+      "exact_family_signflip_p_two_sided": 0.689922480620155,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.005416666666666514,
+        "gemma": 1.1102230246251565e-16,
+        "glm": -0.018749999999999933,
+        "llama": 0.015000000000000124,
+        "mistral": -0.012291666666666923,
+        "phi": 0.012083333333333224,
+        "qwen": -0.016145833333333526
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_meanstd_posterior",
+      "control": "structured_gp_crossfamily_posterior",
+      "budget": 8,
+      "family_macro_treatment": 0.6858184523809524,
+      "family_macro_control": 0.6831051587301588,
+      "paired_difference": 0.002713293650793599,
+      "family_cluster_bootstrap_95ci": [
+        -0.005932539682539738,
+        0.01368055555555549
+      ],
+      "exact_family_signflip_p_two_sided": 0.7209302325581395,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.030416666666666536,
+        "gemma": -0.004027777777777852,
+        "glm": 0.0029166666666666785,
+        "llama": -0.00666666666666671,
+        "mistral": 0.0122916666666667,
+        "phi": -0.0047916666666667496,
+        "qwen": -0.01114583333333341
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_cvar25_posterior",
+      "control": "structured_gp_crossfamily_posterior",
+      "budget": 8,
+      "family_macro_treatment": 0.6851686507936509,
+      "family_macro_control": 0.6831051587301588,
+      "paired_difference": 0.0020634920634921006,
+      "family_cluster_bootstrap_95ci": [
+        -0.006845238095238055,
+        0.011319444444444484
+      ],
+      "exact_family_signflip_p_two_sided": 0.689922480620155,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.014861111111111103,
+        "gemma": -0.009166666666666656,
+        "glm": -0.00374999999999992,
+        "llama": 0.02083333333333337,
+        "mistral": 0.010833333333333361,
+        "phi": -0.005208333333333259,
+        "qwen": -0.013958333333333295
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_minimax_posterior",
+      "control": "structured_gp_crossfamily_posterior",
+      "budget": 8,
+      "family_macro_treatment": 0.6876636904761906,
+      "family_macro_control": 0.6831051587301588,
+      "paired_difference": 0.004558531746031745,
+      "family_cluster_bootstrap_95ci": [
+        -0.004389880952380957,
+        0.013938492063492038
+      ],
+      "exact_family_signflip_p_two_sided": 0.3953488372093023,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.019722222222222197,
+        "gemma": -0.004583333333333273,
+        "glm": 0.002083333333333326,
+        "llama": 0.0222916666666666,
+        "mistral": 0.011249999999999982,
+        "phi": -0.008541666666666559,
+        "qwen": -0.010312500000000058
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_meanstd",
+      "control": "structured_gp_crossfamily_incumbent",
+      "budget": 16,
+      "family_macro_treatment": 0.693422619047619,
+      "family_macro_control": 0.6955853174603174,
+      "paired_difference": -0.0021626984126984334,
+      "family_cluster_bootstrap_95ci": [
+        -0.010198412698412833,
+        0.008214285714285776
+      ],
+      "exact_family_signflip_p_two_sided": 0.7054263565891473,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.025416666666666754,
+        "gemma": -0.0005555555555555314,
+        "glm": -0.0029166666666666785,
+        "llama": -0.01458333333333317,
+        "mistral": 0.00041666666666650976,
+        "phi": -0.007916666666666683,
+        "qwen": -0.015000000000000235
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_cvar25",
+      "control": "structured_gp_crossfamily_incumbent",
+      "budget": 16,
+      "family_macro_treatment": 0.6971180555555555,
+      "family_macro_control": 0.6955853174603174,
+      "paired_difference": 0.0015327380952380812,
+      "family_cluster_bootstrap_95ci": [
+        -0.0073363095238095765,
+        0.014290674603174633
+      ],
+      "exact_family_signflip_p_two_sided": 0.9534883720930233,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.03694444444444456,
+        "gemma": -0.0036111111111112315,
+        "glm": -0.013333333333333308,
+        "llama": 0.0033333333333334103,
+        "mistral": -0.002083333333333437,
+        "phi": -0.00187499999999996,
+        "qwen": -0.008645833333333464
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_minimax",
+      "control": "structured_gp_crossfamily_incumbent",
+      "budget": 16,
+      "family_macro_treatment": 0.6961359126984127,
+      "family_macro_control": 0.6955853174603174,
+      "paired_difference": 0.0005505952380952131,
+      "family_cluster_bootstrap_95ci": [
+        -0.00950396825396836,
+        0.010615327380952447
+      ],
+      "exact_family_signflip_p_two_sided": 0.937984496124031,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.02013888888888904,
+        "gemma": 0.002361111111111036,
+        "glm": -0.012916666666666687,
+        "llama": 0.02000000000000013,
+        "mistral": -0.011041666666666727,
+        "phi": 0.0024999999999999467,
+        "qwen": -0.017187500000000244
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_meanstd_posterior",
+      "control": "structured_gp_crossfamily_posterior",
+      "budget": 16,
+      "family_macro_treatment": 0.6967906746031746,
+      "family_macro_control": 0.6906646825396825,
+      "paired_difference": 0.0061259920634920695,
+      "family_cluster_bootstrap_95ci": [
+        -0.004961061507936565,
+        0.018789682539682544
+      ],
+      "exact_family_signflip_p_two_sided": 0.4263565891472868,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.03500000000000003,
+        "gemma": 0.004861111111111205,
+        "glm": 0.023749999999999827,
+        "llama": 0.007291666666666807,
+        "mistral": -0.009375000000000133,
+        "phi": -0.009791666666666643,
+        "qwen": -0.008854166666666607
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_cvar25_posterior",
+      "control": "structured_gp_crossfamily_posterior",
+      "budget": 16,
+      "family_macro_treatment": 0.6996031746031746,
+      "family_macro_control": 0.6906646825396825,
+      "paired_difference": 0.008938492063492065,
+      "family_cluster_bootstrap_95ci": [
+        -0.0045238095238095966,
+        0.02355158730158735
+      ],
+      "exact_family_signflip_p_two_sided": 0.3333333333333333,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.04152777777777783,
+        "gemma": -0.005416666666666736,
+        "glm": 0.0183333333333332,
+        "llama": 0.028750000000000164,
+        "mistral": -0.005208333333333481,
+        "phi": -0.015833333333333255,
+        "qwen": 0.0004166666666667318
+      }
+    },
+    {
+      "experiment": "strict_itemheldout",
+      "treatment": "advanced_nested_minimax_posterior",
+      "control": "structured_gp_crossfamily_posterior",
+      "budget": 16,
+      "family_macro_treatment": 0.6944246031746032,
+      "family_macro_control": 0.6906646825396825,
+      "paired_difference": 0.0037599206349206516,
+      "family_cluster_bootstrap_95ci": [
+        -0.012420634920634959,
+        0.019365079365079346
+      ],
+      "exact_family_signflip_p_two_sided": 0.689922480620155,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.025555555555555665,
+        "gemma": -0.00694444444444442,
+        "glm": 0.026666666666666505,
+        "llama": 0.029166666666666785,
+        "mistral": -0.029166666666666674,
+        "phi": -0.01937500000000003,
+        "qwen": 0.0004166666666667318
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "multifidelity_graph_kernel_ucb",
+      "control": "full_fidelity_gp",
+      "budget": 2,
+      "family_macro_treatment": 0.6130017671130953,
+      "family_macro_control": 0.6406696428571429,
+      "paired_difference": -0.027667875744047627,
+      "family_cluster_bootstrap_95ci": [
+        -0.06248139880952381,
+        1.7206101190476402e-05
+      ],
+      "exact_family_signflip_p_two_sided": 0.13178294573643412,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.04019531250000008,
+        "gemma": -0.020950520833333375,
+        "glm": 0.028906250000000022,
+        "llama": -0.11964843749999998,
+        "mistral": -0.02669921875000003,
+        "phi": -0.009824218749999947,
+        "qwen": -0.005263671874999987
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "prior_seeded_successive_halving_top8",
+      "control": "full_fidelity_gp",
+      "budget": 2,
+      "family_macro_treatment": 0.6135081845238094,
+      "family_macro_control": 0.6406696428571429,
+      "paired_difference": -0.027161458333333388,
+      "family_cluster_bootstrap_95ci": [
+        -0.06706101190476196,
+        0.004064360119047586
+      ],
+      "exact_family_signflip_p_two_sided": 0.3023255813953488,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.06240885416666686,
+        "gemma": -0.021002604166666772,
+        "glm": 0.022499999999999964,
+        "llama": -0.13048828125,
+        "mistral": -0.004179687499999973,
+        "phi": 0.003183593749999991,
+        "qwen": 0.002265624999999938
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "prior_seeded_successive_halving_top16",
+      "control": "full_fidelity_gp",
+      "budget": 2,
+      "family_macro_treatment": 0.6088323102678572,
+      "family_macro_control": 0.6406696428571429,
+      "paired_difference": -0.03183733258928577,
+      "family_cluster_bootstrap_95ci": [
+        -0.07673363095238096,
+        0.0027078683035713924
+      ],
+      "exact_family_signflip_p_two_sided": 0.2558139534883721,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.054557291666666785,
+        "gemma": -0.04743489583333349,
+        "glm": 0.020234374999999916,
+        "llama": -0.14763671874999995,
+        "mistral": 0.0003906249999999778,
+        "phi": 0.0058203124999999245,
+        "qwen": 0.00032226562500003997
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "prior_seeded_successive_halving_top32",
+      "control": "full_fidelity_gp",
+      "budget": 2,
+      "family_macro_treatment": 0.608809058779762,
+      "family_macro_control": 0.6406696428571429,
+      "paired_difference": -0.031860584077380995,
+      "family_cluster_bootstrap_95ci": [
+        -0.07635277157738098,
+        0.0032296316964285365
+      ],
+      "exact_family_signflip_p_two_sided": 0.20930232558139536,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.05506510416666671,
+        "gemma": -0.047226562500000124,
+        "glm": 0.021132812499999987,
+        "llama": -0.14830078125,
+        "mistral": -0.006289062500000053,
+        "phi": 0.017539062500000036,
+        "qwen": -0.004814453125000062
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "multifidelity_graph_kernel_ucb",
+      "control": "full_fidelity_gp",
+      "budget": 4,
+      "family_macro_treatment": 0.6166224888392857,
+      "family_macro_control": 0.6403720238095237,
+      "paired_difference": -0.023749534970238097,
+      "family_cluster_bootstrap_95ci": [
+        -0.059841889880952355,
+        0.005255766369047581
+      ],
+      "exact_family_signflip_p_two_sided": 0.20930232558139536,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.03718749999999993,
+        "gemma": -0.0016276041666666297,
+        "glm": 0.03472656249999995,
+        "llama": -0.11878906249999999,
+        "mistral": -0.027851562499999982,
+        "phi": -0.011855468749999987,
+        "qwen": -0.003662109375000111
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "prior_seeded_successive_halving_top8",
+      "control": "full_fidelity_gp",
+      "budget": 4,
+      "family_macro_treatment": 0.6207747395833333,
+      "family_macro_control": 0.6403720238095237,
+      "paired_difference": -0.019597284226190496,
+      "family_cluster_bootstrap_95ci": [
+        -0.054895833333333366,
+        0.007965913318452245
+      ],
+      "exact_family_signflip_p_two_sided": 0.3643410852713178,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.052369791666666554,
+        "gemma": -0.008190104166666656,
+        "glm": 0.02734375,
+        "llama": -0.11050781250000008,
+        "mistral": -0.0012695312500000666,
+        "phi": 0.0019140625000000355,
+        "qwen": 0.0058984374999998535
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "prior_seeded_successive_halving_top16",
+      "control": "full_fidelity_gp",
+      "budget": 4,
+      "family_macro_treatment": 0.6172423735119048,
+      "family_macro_control": 0.6403720238095237,
+      "paired_difference": -0.023129650297619066,
+      "family_cluster_bootstrap_95ci": [
+        -0.06151134672619046,
+        0.007410714285714223
+      ],
+      "exact_family_signflip_p_two_sided": 0.3023255813953488,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.05634114583333322,
+        "gemma": -0.007578125000000102,
+        "glm": 0.03378906249999991,
+        "llama": -0.12123046874999999,
+        "mistral": -0.012929687500000009,
+        "phi": -0.0029296875,
+        "qwen": 0.005312499999999942
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "prior_seeded_successive_halving_top32",
+      "control": "full_fidelity_gp",
+      "budget": 4,
+      "family_macro_treatment": 0.6079627046130953,
+      "family_macro_control": 0.6403720238095237,
+      "paired_difference": -0.03240931919642858,
+      "family_cluster_bootstrap_95ci": [
+        -0.07440476190476193,
+        6.603422619046371e-05
+      ],
+      "exact_family_signflip_p_two_sided": 0.17829457364341086,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.04657552083333333,
+        "gemma": -0.0451432291666668,
+        "glm": 0.021132812499999987,
+        "llama": -0.14541015624999992,
+        "mistral": -0.012539062500000031,
+        "phi": 0.006484375000000098,
+        "qwen": -0.004814453125000062
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "multifidelity_graph_kernel_ucb",
+      "control": "full_fidelity_gp",
+      "budget": 8,
+      "family_macro_treatment": 0.6156384858630952,
+      "family_macro_control": 0.6513988095238095,
+      "paired_difference": -0.035760323660714306,
+      "family_cluster_bootstrap_95ci": [
+        -0.0668150111607143,
+        -0.009829799107142942
+      ],
+      "exact_family_signflip_p_two_sided": 0.03875968992248062,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.06546875000000002,
+        "gemma": -0.015429687500000067,
+        "glm": 0.003515625000000022,
+        "llama": -0.11166015624999998,
+        "mistral": -0.04998046874999995,
+        "phi": -0.005996093749999987,
+        "qwen": -0.005302734375000173
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "prior_seeded_successive_halving_top8",
+      "control": "full_fidelity_gp",
+      "budget": 8,
+      "family_macro_treatment": 0.6169633556547619,
+      "family_macro_control": 0.6513988095238095,
+      "paired_difference": -0.03443545386904763,
+      "family_cluster_bootstrap_95ci": [
+        -0.06596168154761907,
+        -0.006782924107142874
+      ],
+      "exact_family_signflip_p_two_sided": 0.03875968992248062,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.08755208333333331,
+        "gemma": -0.004062499999999969,
+        "glm": -0.0005078124999999822,
+        "llama": -0.10632812500000005,
+        "mistral": -0.02734375,
+        "phi": -0.015449218750000049,
+        "qwen": 0.0001953124999999334
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "prior_seeded_successive_halving_top16",
+      "control": "full_fidelity_gp",
+      "budget": 8,
+      "family_macro_treatment": 0.6217192150297619,
+      "family_macro_control": 0.6513988095238095,
+      "paired_difference": -0.029679594494047636,
+      "family_cluster_bootstrap_95ci": [
+        -0.06258277529761903,
+        -0.0005008370535714331
+      ],
+      "exact_family_signflip_p_two_sided": 0.17829457364341086,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.0881770833333333,
+        "gemma": 0.00308593750000008,
+        "glm": 0.011953125000000009,
+        "llama": -0.10103515625000004,
+        "mistral": -0.024941406249999964,
+        "phi": -0.007128906250000067,
+        "qwen": -0.0015136718750001776
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "prior_seeded_successive_halving_top32",
+      "control": "full_fidelity_gp",
+      "budget": 8,
+      "family_macro_treatment": 0.62044921875,
+      "family_macro_control": 0.6513988095238095,
+      "paired_difference": -0.03094959077380952,
+      "family_cluster_bootstrap_95ci": [
+        -0.06219494047619051,
+        -0.004177827380952364
+      ],
+      "exact_family_signflip_p_two_sided": 0.10077519379844961,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.0614973958333333,
+        "gemma": -0.017200520833333233,
+        "glm": 0.02230468750000003,
+        "llama": -0.10785156250000005,
+        "mistral": -0.03703124999999996,
+        "phi": -0.008730468750000053,
+        "qwen": -0.006640625000000067
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "multifidelity_graph_kernel_ucb",
+      "control": "full_fidelity_gp",
+      "budget": 16,
+      "family_macro_treatment": 0.6160579427083333,
+      "family_macro_control": 0.6578422619047618,
+      "paired_difference": -0.041784319196428624,
+      "family_cluster_bootstrap_95ci": [
+        -0.08155691964285723,
+        -0.010318080357142894
+      ],
+      "exact_family_signflip_p_two_sided": 0.03875968992248062,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.08000000000000007,
+        "gemma": -0.02367187500000012,
+        "glm": -0.0077734375000000355,
+        "llama": -0.14550781250000006,
+        "mistral": -0.031035156250000084,
+        "phi": -0.007031250000000044,
+        "qwen": 0.002529296875000031
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "prior_seeded_successive_halving_top8",
+      "control": "full_fidelity_gp",
+      "budget": 16,
+      "family_macro_treatment": 0.6169633556547619,
+      "family_macro_control": 0.6578422619047618,
+      "paired_difference": -0.040878906250000034,
+      "family_cluster_bootstrap_95ci": [
+        -0.07478083147321431,
+        -0.00997116815476194
+      ],
+      "exact_family_signflip_p_two_sided": 0.023255813953488372,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.1071354166666667,
+        "gemma": -0.006145833333333406,
+        "glm": -0.00675781249999996,
+        "llama": -0.11820312500000002,
+        "mistral": -0.028593750000000084,
+        "phi": -0.014824218750000062,
+        "qwen": -0.004492187500000022
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "prior_seeded_successive_halving_top16",
+      "control": "full_fidelity_gp",
+      "budget": 16,
+      "family_macro_treatment": 0.6217192150297619,
+      "family_macro_control": 0.6578422619047618,
+      "paired_difference": -0.036123046875000044,
+      "family_cluster_bootstrap_95ci": [
+        -0.07141787574404766,
+        -0.0036839657738095516
+      ],
+      "exact_family_signflip_p_two_sided": 0.10077519379844961,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.10776041666666669,
+        "gemma": 0.001002604166666643,
+        "glm": 0.005703125000000031,
+        "llama": -0.11291015625,
+        "mistral": -0.02619140625000005,
+        "phi": -0.00650390625000008,
+        "qwen": -0.006201171875000133
+      }
+    },
+    {
+      "experiment": "equal_item_cost_multifidelity",
+      "treatment": "prior_seeded_successive_halving_top32",
+      "control": "full_fidelity_gp",
+      "budget": 16,
+      "family_macro_treatment": 0.6312788318452381,
+      "family_macro_control": 0.6578422619047618,
+      "paired_difference": -0.02656343005952383,
+      "family_cluster_bootstrap_95ci": [
+        -0.06112258184523813,
+        0.0001841517857142927
+      ],
+      "exact_family_signflip_p_two_sided": 0.14728682170542637,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.05994791666666677,
+        "gemma": -0.0038671875000000355,
+        "glm": 0.014179687500000093,
+        "llama": -0.11515625000000002,
+        "mistral": -0.01830078125000012,
+        "phi": -0.0020703125000000044,
+        "qwen": -0.0007812499999999556
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "supervised_context",
+      "budget": 0,
+      "family_macro_treatment": 0.5963541718111153,
+      "family_macro_control": 0.5734953755936611,
+      "paired_difference": 0.022858796217454142,
+      "family_cluster_bootstrap_95ci": [
+        -0.006721229587124833,
+        0.05637524691188604
+      ],
+      "exact_family_signflip_p_two_sided": 0.3953488372093023,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.006944443892549668,
+        "gemma": 0.08101852072609794,
+        "glm": -0.019444442457623,
+        "llama": -0.01111111044883728,
+        "mistral": 0.005902774631977081,
+        "phi": 0.09930555356873405,
+        "qwen": 0.01128472139437986
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "ppo_no_context",
+      "budget": 0,
+      "family_macro_treatment": 0.5963541718111153,
+      "family_macro_control": 0.564360123275528,
+      "paired_difference": 0.03199404853558728,
+      "family_cluster_bootstrap_95ci": [
+        0.000297620360340375,
+        0.07718253993089237
+      ],
+      "exact_family_signflip_p_two_sided": 0.16279069767441862,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.010416666666666685,
+        "gemma": 0.1555555591152774,
+        "glm": 0.0,
+        "llama": -0.013888887026243746,
+        "mistral": 0.04201388441854048,
+        "phi": 0.021875003973642948,
+        "qwen": 0.02881944593456054
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "ppo_no_feedback",
+      "budget": 0,
+      "family_macro_treatment": 0.5963541718111153,
+      "family_macro_control": 0.5963541718111153,
+      "paired_difference": 0.0,
+      "family_cluster_bootstrap_95ci": [
+        0.0,
+        0.0
+      ],
+      "exact_family_signflip_p_two_sided": 1.0,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.0,
+        "gemma": 0.0,
+        "glm": 0.0,
+        "llama": 0.0,
+        "mistral": 0.0,
+        "phi": 0.0,
+        "qwen": 0.0
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "random_probe_best_observed",
+      "budget": 0,
+      "family_macro_treatment": 0.5963541718111153,
+      "family_macro_control": 0.5760416698952516,
+      "paired_difference": 0.020312501915863573,
+      "family_cluster_bootstrap_95ci": [
+        -0.020659720672974533,
+        0.06830729380811698
+      ],
+      "exact_family_signflip_p_two_sided": 0.5038759689922481,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.0243055559694767,
+        "gemma": 0.14166667022638857,
+        "glm": -0.03749999403953552,
+        "llama": 0.0590277827448315,
+        "mistral": -0.04861111111111116,
+        "phi": -0.012499998013178582,
+        "qwen": 0.01579860763417351
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_query_best_observed",
+      "control": "random_probe_best_observed",
+      "budget": 0,
+      "family_macro_treatment": 0.5760416681213039,
+      "family_macro_control": 0.5760416698952516,
+      "paired_difference": -1.7739477664591163e-09,
+      "family_cluster_bootstrap_95ci": [
+        -4.257474626813616e-09,
+        0.0
+      ],
+      "exact_family_signflip_p_two_sided": 0.5038759689922481,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.0,
+        "gemma": 0.0,
+        "glm": 0.0,
+        "llama": 0.0,
+        "mistral": 0.0,
+        "phi": -4.967053768289986e-09,
+        "qwen": -7.450580596923828e-09
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_query_best_observed",
+      "control": "ppo_no_feedback_query_best_observed",
+      "budget": 0,
+      "family_macro_treatment": 0.5760416681213039,
+      "family_macro_control": 0.5760416681213039,
+      "paired_difference": 0.0,
+      "family_cluster_bootstrap_95ci": [
+        0.0,
+        0.0
+      ],
+      "exact_family_signflip_p_two_sided": 1.0,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.0,
+        "gemma": 0.0,
+        "glm": 0.0,
+        "llama": 0.0,
+        "mistral": 0.0,
+        "phi": 0.0,
+        "qwen": 0.0
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "supervised_context",
+      "budget": 2,
+      "family_macro_treatment": 0.6031084713678826,
+      "family_macro_control": 0.589823085873846,
+      "paired_difference": 0.013285385494036675,
+      "family_cluster_bootstrap_95ci": [
+        -0.009705686833334956,
+        0.03455688163795801
+      ],
+      "exact_family_signflip_p_two_sided": 0.3488372093023256,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.005092593392840128,
+        "gemma": 0.05925926345366017,
+        "glm": -0.04374999801317847,
+        "llama": 0.012500006291601418,
+        "mistral": 0.02326389071014201,
+        "phi": 0.03715277794334626,
+        "qwen": -0.0005208353201547888
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "ppo_no_context",
+      "budget": 2,
+      "family_macro_treatment": 0.6031084713678826,
+      "family_macro_control": 0.5644179936104193,
+      "paired_difference": 0.038690477757463405,
+      "family_cluster_bootstrap_95ci": [
+        0.009391535792953163,
+        0.07792659086130914
+      ],
+      "exact_family_signflip_p_two_sided": 0.03875968992248062,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.0016203710326442855,
+        "gemma": 0.15046296793001668,
+        "glm": 0.0,
+        "llama": 0.0041666728340917225,
+        "mistral": 0.05624999685419929,
+        "phi": 0.02951388971673119,
+        "qwen": 0.02881944593456065
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "ppo_no_feedback",
+      "budget": 2,
+      "family_macro_treatment": 0.6031084713678826,
+      "family_macro_control": 0.5974454406215243,
+      "paired_difference": 0.005663030746358425,
+      "family_cluster_bootstrap_95ci": [
+        -0.01609808940085625,
+        0.024900795468104604
+      ],
+      "exact_family_signflip_p_two_sided": 0.6124031007751938,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.003240740133656439,
+        "gemma": 0.012268524478983078,
+        "glm": -0.04861111111111116,
+        "llama": 0.03680556122627521,
+        "mistral": -0.014930551250775692,
+        "phi": 0.0364583283662796,
+        "qwen": 0.0144097233812015
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "random_probe_best_observed",
+      "budget": 2,
+      "family_macro_treatment": 0.6031084713678826,
+      "family_macro_control": 0.5432850393569362,
+      "paired_difference": 0.05982343201094653,
+      "family_cluster_bootstrap_95ci": [
+        0.016821169306214398,
+        0.1072879875023824
+      ],
+      "exact_family_signflip_p_two_sided": 0.10077519379844961,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.0007812499178625476,
+        "gemma": 0.1751157443871274,
+        "glm": 0.018760850252066308,
+        "llama": -0.01926811411168372,
+        "mistral": 0.06199272851032822,
+        "phi": 0.08124457277719754,
+        "qwen": 0.10169949217945251
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_query_best_observed",
+      "control": "random_probe_best_observed",
+      "budget": 2,
+      "family_macro_treatment": 0.5953703736541447,
+      "family_macro_control": 0.5432850393569362,
+      "paired_difference": 0.05208533429720862,
+      "family_cluster_bootstrap_95ci": [
+        0.006180739945280267,
+        0.09994671259944825
+      ],
+      "exact_family_signflip_p_two_sided": 0.11627906976744186,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.02948495273853452,
+        "gemma": 0.1621527728146046,
+        "glm": 0.018760850252066308,
+        "llama": -0.02760144943183851,
+        "mistral": 0.06754828207906227,
+        "phi": 0.0788140170560735,
+        "qwen": 0.0944078200490267
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_query_best_observed",
+      "control": "ppo_no_feedback_query_best_observed",
+      "budget": 2,
+      "family_macro_treatment": 0.5953703736541447,
+      "family_macro_control": 0.5958664054001765,
+      "paired_difference": -0.0004960317460317601,
+      "family_cluster_bootstrap_95ci": [
+        -0.0014880952380952803,
+        0.0
+      ],
+      "exact_family_signflip_p_two_sided": 1.0,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.0,
+        "gemma": -0.003472222222222321,
+        "glm": 0.0,
+        "llama": 0.0,
+        "mistral": 0.0,
+        "phi": 0.0,
+        "qwen": 0.0
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "supervised_context",
+      "budget": 4,
+      "family_macro_treatment": 0.6027447160274263,
+      "family_macro_control": 0.5934110489629564,
+      "paired_difference": 0.00933366706446995,
+      "family_cluster_bootstrap_95ci": [
+        -0.009243343991261956,
+        0.02934028145182071
+      ],
+      "exact_family_signflip_p_two_sided": 0.3953488372093023,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.019444446320886932,
+        "gemma": 0.05023148600701943,
+        "glm": -0.02083333002196408,
+        "llama": 0.028819451729456547,
+        "mistral": -0.01874999867545235,
+        "phi": 0.025347227851549747,
+        "qwen": -0.01892361376020657
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "ppo_no_context",
+      "budget": 4,
+      "family_macro_treatment": 0.6027447160274263,
+      "family_macro_control": 0.5657242108727731,
+      "paired_difference": 0.0370205051546532,
+      "family_cluster_bootstrap_95ci": [
+        0.004298944262758104,
+        0.07698660909479081
+      ],
+      "exact_family_signflip_p_two_sided": 0.08527131782945736,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.021759258790148617,
+        "gemma": 0.14236111607816493,
+        "glm": 0.01736111111111116,
+        "llama": 6.0018566228059456e-09,
+        "mistral": 0.06805555108520722,
+        "phi": 0.025000008443991306,
+        "qwen": 0.028125002152389778
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "ppo_no_feedback",
+      "budget": 4,
+      "family_macro_treatment": 0.6027447160274263,
+      "family_macro_control": 0.5919394895394958,
+      "paired_difference": 0.010805226487930515,
+      "family_cluster_bootstrap_95ci": [
+        -0.0018022462883323415,
+        0.024330771951960824
+      ],
+      "exact_family_signflip_p_two_sided": 0.20930232558139536,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.01342592484973093,
+        "gemma": 0.0009259305618429803,
+        "glm": 0.006944444444444531,
+        "llama": 0.001041669812467394,
+        "mistral": -0.01597222023540079,
+        "phi": 0.02638889186912108,
+        "qwen": 0.04288194411330748
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "random_probe_best_observed",
+      "budget": 4,
+      "family_macro_treatment": 0.6027447160274263,
+      "family_macro_control": 0.5902312796855643,
+      "paired_difference": 0.012513436341862114,
+      "family_cluster_bootstrap_95ci": [
+        -0.03539418744797349,
+        0.05273140607921899
+      ],
+      "exact_family_signflip_p_two_sided": 0.627906976744186,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.05170536746434801,
+        "gemma": 0.06423430579080669,
+        "glm": 0.03178168341724419,
+        "llama": -0.10501030246248572,
+        "mistral": 0.03091633992961662,
+        "phi": 0.05497233606486884,
+        "qwen": 0.062405059117332184
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_query_best_observed",
+      "control": "random_probe_best_observed",
+      "budget": 4,
+      "family_macro_treatment": 0.6002893537755997,
+      "family_macro_control": 0.5902312796855643,
+      "paired_difference": 0.010058074090035443,
+      "family_cluster_bootstrap_95ci": [
+        -0.04019433226764062,
+        0.053280780132534754
+      ],
+      "exact_family_signflip_p_two_sided": 0.7364341085271318,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.0720757368964971,
+        "gemma": 0.025576886683228217,
+        "glm": 0.07692057230613303,
+        "llama": -0.10535752683709787,
+        "mistral": 0.04619411307147758,
+        "phi": 0.04351399213515428,
+        "qwen": 0.05563421816784997
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_query_best_observed",
+      "control": "ppo_no_feedback_query_best_observed",
+      "budget": 4,
+      "family_macro_treatment": 0.6002893537755997,
+      "family_macro_control": 0.6007771182549063,
+      "paired_difference": -0.00048776447930658814,
+      "family_cluster_bootstrap_95ci": [
+        -0.002281745747914304,
+        0.0010499338860865404
+      ],
+      "exact_family_signflip_p_two_sided": 0.751937984496124,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.0,
+        "gemma": -0.0018518511895778689,
+        "glm": 0.0,
+        "llama": 0.00277777761220932,
+        "mistral": -0.005208333333333259,
+        "phi": 0.0,
+        "qwen": 0.0008680555555556912
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "supervised_context",
+      "budget": 8,
+      "family_macro_treatment": 0.6112351258674626,
+      "family_macro_control": 0.6033316845734599,
+      "paired_difference": 0.007903441294002778,
+      "family_cluster_bootstrap_95ci": [
+        -0.006216932659742079,
+        0.023743389519276396
+      ],
+      "exact_family_signflip_p_two_sided": 0.4263565891472868,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.015509257438006296,
+        "gemma": 0.04884259789078316,
+        "glm": -0.02083333002196408,
+        "llama": 0.005902787049611391,
+        "mistral": 0.00763888822661507,
+        "phi": 0.009722224540180568,
+        "qwen": -0.01145833606521296
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "ppo_no_context",
+      "budget": 8,
+      "family_macro_treatment": 0.6112351258674626,
+      "family_macro_control": 0.5618882319007916,
+      "paired_difference": 0.04934689396667101,
+      "family_cluster_bootstrap_95ci": [
+        0.018898813142662934,
+        0.08727678881278111
+      ],
+      "exact_family_signflip_p_two_sided": 0.03875968992248062,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.03680555453455009,
+        "gemma": 0.15046296793001668,
+        "glm": 0.01736111111111116,
+        "llama": -0.0013888825972874774,
+        "mistral": 0.07951388508081436,
+        "phi": 0.025000008443991306,
+        "qwen": 0.03767361326350094
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "ppo_no_feedback",
+      "budget": 8,
+      "family_macro_treatment": 0.6112351258674626,
+      "family_macro_control": 0.5877066852928943,
+      "paired_difference": 0.0235284405745684,
+      "family_cluster_bootstrap_95ci": [
+        0.013789683728227515,
+        0.033234128285022015
+      ],
+      "exact_family_signflip_p_two_sided": 0.023255813953488372,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.04004629701375967,
+        "gemma": 0.006250003973642948,
+        "glm": 0.02083333333333337,
+        "llama": 0.018402781751420738,
+        "mistral": 0.00520833229853046,
+        "phi": 0.03611111392577482,
+        "qwen": 0.0378472217255168
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "random_probe_best_observed",
+      "budget": 8,
+      "family_macro_treatment": 0.6112351258674626,
+      "family_macro_control": 0.6120725004817821,
+      "paired_difference": -0.0008373746143194305,
+      "family_cluster_bootstrap_95ci": [
+        -0.04993621892996501,
+        0.034265267060993865
+      ],
+      "exact_family_signflip_p_two_sided": 1.0,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.02977611550185988,
+        "gemma": 0.03203487019507323,
+        "glm": 0.02217881902793639,
+        "llama": -0.1368923552056206,
+        "mistral": 0.023803709496860392,
+        "phi": 0.03623589912765757,
+        "qwen": 0.04655355055971688
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_query_best_observed",
+      "control": "random_probe_best_observed",
+      "budget": 8,
+      "family_macro_treatment": 0.6155257955114678,
+      "family_macro_control": 0.6120725004817821,
+      "paired_difference": 0.0034532950296856497,
+      "family_cluster_bootstrap_95ci": [
+        -0.03358851953963351,
+        0.0339652533571651
+      ],
+      "exact_family_signflip_p_two_sided": 0.8449612403100775,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.032785373546950436,
+        "gemma": 0.012821896304592073,
+        "glm": 0.06731770791682523,
+        "llama": -0.08758680610723485,
+        "mistral": 0.016164819614560733,
+        "phi": 0.02234700030466119,
+        "qwen": 0.025893820721345606
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_query_best_observed",
+      "control": "ppo_no_feedback_query_best_observed",
+      "budget": 8,
+      "family_macro_treatment": 0.6155257955114678,
+      "family_macro_control": 0.6157903456814076,
+      "paired_difference": -0.0002645501699397273,
+      "family_cluster_bootstrap_95ci": [
+        -0.0007936505098191818,
+        0.0
+      ],
+      "exact_family_signflip_p_two_sided": 1.0,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.0,
+        "gemma": -0.001851851189578091,
+        "glm": 0.0,
+        "llama": 0.0,
+        "mistral": 0.0,
+        "phi": 0.0,
+        "qwen": 0.0
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "supervised_context",
+      "budget": 16,
+      "family_macro_treatment": 0.6197586044196098,
+      "family_macro_control": 0.6078703758558112,
+      "paired_difference": 0.011888228563798857,
+      "family_cluster_bootstrap_95ci": [
+        -0.008515212694724985,
+        0.035664685957488666
+      ],
+      "exact_family_signflip_p_two_sided": 0.4108527131782946,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.01689815052129595,
+        "gemma": 0.06574074868802693,
+        "glm": -0.009722226195865158,
+        "llama": 0.03472222822407883,
+        "mistral": -0.0131944451067183,
+        "phi": 0.03958333697583938,
+        "qwen": -0.017013892117473728
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "ppo_no_context",
+      "budget": 16,
+      "family_macro_treatment": 0.6197586044196098,
+      "family_macro_control": 0.5679315520085828,
+      "paired_difference": 0.05182705241102708,
+      "family_cluster_bootstrap_95ci": [
+        0.020486112536182457,
+        0.09131944815199533
+      ],
+      "exact_family_signflip_p_two_sided": 0.023255813953488372,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.0037037007234714814,
+        "gemma": 0.15370370875354178,
+        "glm": 0.01736111111111116,
+        "llama": 0.05555556155741215,
+        "mistral": 0.08298610730303668,
+        "phi": 0.022222230831781986,
+        "qwen": 0.02725694659683431
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "ppo_no_feedback",
+      "budget": 16,
+      "family_macro_treatment": 0.6197586044196098,
+      "family_macro_control": 0.5783068820164002,
+      "paired_difference": 0.04145172240320971,
+      "family_cluster_bootstrap_95ci": [
+        0.01502976560639953,
+        0.06972553204528245
+      ],
+      "exact_family_signflip_p_two_sided": 0.05426356589147287,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": 0.05624999561243599,
+        "gemma": 0.05300926389517624,
+        "glm": 0.02430555555555569,
+        "llama": 0.11006945123275119,
+        "mistral": -0.013541663686434502,
+        "phi": 0.007986118396123176,
+        "qwen": 0.0520833358168602
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_context",
+      "control": "random_probe_best_observed",
+      "budget": 16,
+      "family_macro_treatment": 0.6197586044196098,
+      "family_macro_control": 0.6220636651746524,
+      "paired_difference": -0.0023050607550426016,
+      "family_cluster_bootstrap_95ci": [
+        -0.03922151283314206,
+        0.02972431699810033
+      ],
+      "exact_family_signflip_p_two_sided": 0.9224806201550387,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.06580223147196829,
+        "gemma": 0.04161964981769284,
+        "glm": 0.016780597856268287,
+        "llama": -0.08496093152401352,
+        "mistral": 0.012573240499477834,
+        "phi": 0.026928715588938834,
+        "qwen": 0.0367255339483058
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_query_best_observed",
+      "control": "random_probe_best_observed",
+      "budget": 16,
+      "family_macro_treatment": 0.6262814171178632,
+      "family_macro_control": 0.6220636651746524,
+      "paired_difference": 0.004217751943210645,
+      "family_cluster_bootstrap_95ci": [
+        -0.01668468518004781,
+        0.022101051622672792
+      ],
+      "exact_family_signflip_p_two_sided": 0.6589147286821705,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.013950378019621401,
+        "gemma": 0.01754556779633276,
+        "glm": 0.009836153411823756,
+        "llama": -0.04711371807691955,
+        "mistral": 0.008406572839400495,
+        "phi": 0.04428981511025798,
+        "qwen": 0.010510250541200472
+      }
+    },
+    {
+      "experiment": "gpu_familyloo_selector",
+      "treatment": "ppo_query_best_observed",
+      "control": "ppo_no_feedback_query_best_observed",
+      "budget": 16,
+      "family_macro_treatment": 0.6262814171178632,
+      "family_macro_control": 0.6277116421984618,
+      "paired_difference": -0.0014302250805985509,
+      "family_cluster_bootstrap_95ci": [
+        -0.005423280139448753,
+        0.002645501462870871
+      ],
+      "exact_family_signflip_p_two_sided": 0.5658914728682171,
+      "families": [
+        "falcon",
+        "gemma",
+        "glm",
+        "llama",
+        "mistral",
+        "phi",
+        "qwen"
+      ],
+      "family_differences": {
+        "falcon": -0.01111111044883728,
+        "gemma": -0.0018518511895778689,
+        "glm": 0.0,
+        "llama": 0.0,
+        "mistral": -0.0027777784400515593,
+        "phi": 0.008333330353101132,
+        "qwen": -0.0026041658388242794
+      }
+    }
+  ]
+}

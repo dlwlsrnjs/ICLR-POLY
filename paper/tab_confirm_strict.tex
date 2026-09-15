@@ -1,0 +1,31 @@
+\begin{table}[t]
+\centering
+\small
+\caption{\textbf{Strict item-held-out transfer on the 17-model panel.} Family-macro Qwen3Guard
+unsafe ASR on target \emph{test} items, over 15 independent item splits and seven
+leave-one-family-out folds. Within each benchmark half the items train the source prior, a quarter
+calibrate the target, and a quarter are held out for scoring; target test outcomes never reach the
+prior, kernel, tuning, arm queries or recommendation rule. Columns are the number of target arm
+evaluations. The oracle is the best test arm in hindsight, an upper bound rather than an achievable
+target. Deterministic methods are scored by the posterior-recommendation run; random search is
+reported from the companion run that replays it with more repetitions, which the two runs otherwise
+match exactly.}
+\label{tab:confirm_strict}
+\begin{tabular}{lcccc}
+\toprule
+Method & $B{=}2$ & $B{=}4$ & $B{=}8$ & $B{=}16$ \\
+\midrule
+Random, best observed & 0.5895 & 0.6329 & 0.6562 & 0.6685 \\
+Fixed best from other families & 0.6255 & 0.6255 & 0.6255 & 0.6255 \\
+Structured GP, best observed & 0.6512 & 0.6741 & \textbf{0.6913} & 0.6956 \\
+Structured GP, posterior & 0.6512 & 0.6725 & 0.6831 & 0.6907 \\
+Advanced mean-std, best observed & 0.6687 & 0.6780 & 0.6854 & 0.6934 \\
+Advanced mean-std, posterior & \textbf{0.6717} & 0.6772 & 0.6858 & 0.6968 \\
+Advanced CVaR25, best observed & 0.6672 & \textbf{0.6822} & 0.6864 & 0.6971 \\
+Advanced CVaR25, posterior & 0.6675 & 0.6822 & 0.6852 & \textbf{0.6996} \\
+Advanced minimax & 0.6680 & 0.6818 & 0.6892 & 0.6961 \\
+\midrule
+Test oracle upper bound & \multicolumn{3}{c}{--} & 0.8359 \\
+\bottomrule
+\end{tabular}
+\end{table}

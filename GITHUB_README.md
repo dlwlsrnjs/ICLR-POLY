@@ -40,6 +40,15 @@ Layout after download (see `experiments_suite/BUCKET.md` for the full map):
 | `results/lang_rank_20260905/resource_order.json` | Lingua language order |
 | `results/**` | aggregate JSON (+ restricted `_raw*` harmful outputs) |
 
+### Extended 17-model confirmatory panel (2026-09-14, L40S)
+
+`experiments_suite/exp06_confirmatory_selector/` holds the runners, distilled summaries and
+family-clustered statistics for the 17-model / 7-family / 160-arm panel, plus the generator
+`scripts/make_confirmatory_tables.py` for `paper/tab_confirm_*.tex`. The full multi-megabyte
+replay records and selector checkpoints stay in the private bucket under
+`PolyJigsaw/0913/L40S-only/`; some runners are still only on the L40S box, listed in
+`docs/L40S_CODE_GAP_2026-09-15.md`.
+
 If you do **not** use the bucket, obtain the datasets officially and rebuild the local files:
 `python scripts/prepare_lingua_text.py --dataset-root <extracted>` then the pilot builders (see `docs/REPRODUCE.md`).
 

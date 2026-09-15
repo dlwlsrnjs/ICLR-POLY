@@ -21,6 +21,7 @@ exp03/04/05가 그 매트릭스를 분석만 한다. 292 공간 패널 수집은
 | exp03_heterogeneity | tab_headline, tab_heldin, tab_sel_permodel, tab_sel_ablation, tab_sel_persona, tab_sel_metrics, heldin_numbers | 고정최적 불가·모델별 최선·persona 축·gate 비용 | `permodel_technique_tables.py`, `make_selector_tables.py` | 내부 공용→분리 예정 | 🟡 분석기 이관 |
 | exp04_budget_queryeff | tab_sel_queryeff, tab_sel_budget, tab_strat, tab_acq, tab_sel_batch, query/strat/acq_numbers | 예산-정확도, 질의효율, 전략·획득함수 | `query_efficiency.py`, `query_eff_strat4.py`, `acq_compare.py`, `gp_bai.py` | 내부 공용→분리 예정 | 🟡 분석기 이관 |
 | exp05_heldout | tab_heldout, heldout_numbers, heldout_ablation, tab_sel_prior | held-out 전이·probe 선정 | `heldout_selector.py`, `benign_prior_selection.py` | 내부 공용→분리 예정 | 🟡 분석기 이관 |
+| exp06_confirmatory_selector | tab_confirm_strict, tab_confirm_mfid, tab_confirm_selector, tab_confirm_endtoend, confirmatory_numbers | 17모델 확정: 엄격 item-held-out BO, 다중충실도(음성), 학습 selector | `make_confirmatory_tables.py`(신규), `exp06_confirmatory_selector/code/` | **분리(mj/lg)** | ✅ L40S 수집 완료·표 생성 |
 | exp06_mechanism | factorization_numbers, tab_mechanism, tab_sel_corr | 이해×순응 인수분해 | factorization 스크립트 | 대체로 공간무관 | 🟡 |
 | exp07_stealth_ppl | ppl_numbers, ppl_nonqwen_numbers, tab_encoding | perplexity 스텔스, 인코딩 대비 | ppl/encoding 스크립트 | 공간무관 | 🟡 |
 | exp08_judge | tab_gateval, tab_safetyjudge, robust_numbers | judge 교차검증·저자원 번역판정·승자저주 | `judge_crosscheck*.py`, `robustness_checks.py` | 공간무관/내부 | 🟡 |

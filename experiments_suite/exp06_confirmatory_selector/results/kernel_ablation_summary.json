@@ -1,0 +1,157 @@
+{
+ "protocol": {
+  "metric": "U/ASR",
+  "outer_split": "leave-one-model-family-out",
+  "item_split": "50/25/25 train/calibration/test",
+  "budget": 8,
+  "models": [
+   "falcon3_10b",
+   "falcon3_3b",
+   "falcon3_7b",
+   "gemma2_27b",
+   "gemma2_2b_it",
+   "gemma2_9b_it",
+   "glm4_9b",
+   "llama31_8b_it",
+   "llama32_3b_it",
+   "mistral24b",
+   "mistral7b",
+   "phi35_mini",
+   "phi3_medium_14b",
+   "qwen25_14b",
+   "qwen25_32b",
+   "qwen25_3b",
+   "qwen25_7b"
+  ],
+  "families": [
+   "falcon",
+   "gemma",
+   "glm",
+   "llama",
+   "mistral",
+   "phi",
+   "qwen"
+  ]
+ },
+ "summary": [
+  {
+   "kernel": "willingness_only",
+   "family_macro_asr": 0.6534937686011906,
+   "family_scores": {
+    "falcon": 0.5754166666666668,
+    "gemma": 0.7822916666666667,
+    "glm": 0.65625,
+    "llama": 0.556875,
+    "mistral": 0.7121875,
+    "phi": 0.5818749999999999,
+    "qwen": 0.7095605468749999
+   }
+  },
+  {
+   "kernel": "additive_current+pibo_best_observed",
+   "family_macro_asr": 0.6495684523809524,
+   "family_scores": {
+    "falcon": 0.4775,
+    "gemma": 0.7604166666666666,
+    "glm": 0.73,
+    "llama": 0.5774999999999999,
+    "mistral": 0.6856249999999999,
+    "phi": 0.6012500000000001,
+    "qwen": 0.7146874999999999
+   }
+  },
+  {
+   "kernel": "additive_equal",
+   "family_macro_asr": 0.6424665178571429,
+   "family_scores": {
+    "falcon": 0.5191666666666667,
+    "gemma": 0.7945833333333334,
+    "glm": 0.68,
+    "llama": 0.53,
+    "mistral": 0.676875,
+    "phi": 0.58625,
+    "qwen": 0.7103906249999999
+   }
+  },
+  {
+   "kernel": "additive_current",
+   "family_macro_asr": 0.6390922619047619,
+   "family_scores": {
+    "falcon": 0.5179166666666667,
+    "gemma": 0.7966666666666667,
+    "glm": 0.6599999999999999,
+    "llama": 0.556875,
+    "mistral": 0.6675,
+    "phi": 0.5693750000000001,
+    "qwen": 0.7053125
+   }
+  },
+  {
+   "kernel": "joint_product",
+   "family_macro_asr": 0.6312946428571429,
+   "family_scores": {
+    "falcon": 0.49708333333333327,
+    "gemma": 0.8104166666666668,
+    "glm": 0.6799999999999999,
+    "llama": 0.43875000000000003,
+    "mistral": 0.680625,
+    "phi": 0.601875,
+    "qwen": 0.7103124999999999
+   }
+  },
+  {
+   "kernel": "composition_only+pibo_best_observed",
+   "family_macro_asr": 0.6141220238095239,
+   "family_scores": {
+    "falcon": 0.4525,
+    "gemma": 0.7591666666666668,
+    "glm": 0.73,
+    "llama": 0.4375,
+    "mistral": 0.645625,
+    "phi": 0.5650000000000001,
+    "qwen": 0.7090625
+   }
+  },
+  {
+   "kernel": "additive_current+pibo",
+   "family_macro_asr": 0.611577380952381,
+   "family_scores": {
+    "falcon": 0.5104166666666666,
+    "gemma": 0.76625,
+    "glm": 0.6625,
+    "llama": 0.37,
+    "mistral": 0.6849999999999999,
+    "phi": 0.5787500000000001,
+    "qwen": 0.7081249999999999
+   }
+  },
+  {
+   "kernel": "composition_only",
+   "family_macro_asr": 0.6106101190476191,
+   "family_scores": {
+    "falcon": 0.4325,
+    "gemma": 0.7870833333333335,
+    "glm": 0.6799999999999999,
+    "llama": 0.39875,
+    "mistral": 0.671875,
+    "phi": 0.5962500000000001,
+    "qwen": 0.7078125
+   }
+  },
+  {
+   "kernel": "composition_only+pibo",
+   "family_macro_asr": 0.5922767857142857,
+   "family_scores": {
+    "falcon": 0.41833333333333333,
+    "gemma": 0.7713541666666667,
+    "glm": 0.7074999999999999,
+    "llama": 0.32328124999999996,
+    "mistral": 0.653125,
+    "phi": 0.5760937500000001,
+    "qwen": 0.6962499999999999
+   }
+  }
+ ],
+ "source_artifact": "pilot_kernel_ablation_l40s17_b8_20260914.json",
+ "source_bucket": "hf://buckets/jin-kwon/poly/PolyJigsaw/0913/L40S-only/exp04_budget_queryeff/results"
+}
