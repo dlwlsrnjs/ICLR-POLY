@@ -1,0 +1,84 @@
+2026-09-15T11:45:25+00:00	QUEUE_START scope=17models_baseline_only dataset=MultiJail tlang=Swahili n=64
+2026-09-15T11:45:25+00:00	FOUND_COMPLETE tag=qwen25_7b_mj_sw
+2026-09-15T11:45:25+00:00	DOWNLOAD_START model=meta-llama/Llama-3.1-8B-Instruct attempt=1
+2026-09-15T11:45:25+00:00	DOWNLOAD_START model=Qwen/Qwen2.5-3B-Instruct attempt=1
+2026-09-15T11:47:32+00:00	DOWNLOAD_COMPLETE model=Qwen/Qwen2.5-3B-Instruct attempt=1
+2026-09-15T11:47:32+00:00	RUN_START tag=qwen25_3b_mj_sw model=Qwen/Qwen2.5-3B-Instruct GPUs=0,1 tp=1 tlang=Swahili
+2026-09-15T11:48:13+00:00	RUN_COMPLETE tag=qwen25_3b_mj_sw
+2026-09-15T11:48:14+00:00	CACHE_CLEANUP model=Qwen/Qwen2.5-3B-Instruct
+2026-09-15T11:48:14+00:00	DOWNLOAD_START model=Qwen/Qwen2.5-14B-Instruct attempt=1
+2026-09-15T11:48:23+00:00	DOWNLOAD_COMPLETE model=meta-llama/Llama-3.1-8B-Instruct attempt=1
+2026-09-15T11:48:23+00:00	RUN_START tag=llama31_8b_it_mj_sw model=meta-llama/Llama-3.1-8B-Instruct GPUs=2,3 tp=1 tlang=Swahili
+2026-09-15T11:49:15+00:00	RUN_COMPLETE tag=llama31_8b_it_mj_sw
+2026-09-15T11:49:18+00:00	CACHE_CLEANUP model=meta-llama/Llama-3.1-8B-Instruct
+2026-09-15T11:49:18+00:00	DOWNLOAD_START model=microsoft/Phi-3-medium-4k-instruct attempt=1
+2026-09-15T11:55:13+00:00	DOWNLOAD_COMPLETE model=Qwen/Qwen2.5-14B-Instruct attempt=1
+2026-09-15T11:55:13+00:00	RUN_START tag=qwen25_14b_mj_sw model=Qwen/Qwen2.5-14B-Instruct GPUs=0,1 tp=1 tlang=Swahili
+2026-09-15T11:55:41+00:00	DOWNLOAD_COMPLETE model=microsoft/Phi-3-medium-4k-instruct attempt=1
+2026-09-15T11:55:41+00:00	RUN_START tag=phi3_medium_14b_mj_sw model=microsoft/Phi-3-medium-4k-instruct GPUs=2,3 tp=1 tlang=Swahili
+2026-09-15T11:56:14+00:00	RUN_COMPLETE tag=qwen25_14b_mj_sw
+2026-09-15T11:56:18+00:00	CACHE_CLEANUP model=Qwen/Qwen2.5-14B-Instruct
+2026-09-15T11:56:18+00:00	DOWNLOAD_START model=meta-llama/Llama-3.2-3B-Instruct attempt=1
+2026-09-15T11:56:39+00:00	RUN_COMPLETE tag=phi3_medium_14b_mj_sw
+2026-09-15T11:56:43+00:00	CACHE_CLEANUP model=microsoft/Phi-3-medium-4k-instruct
+2026-09-15T11:56:43+00:00	DOWNLOAD_START model=mistralai/Mistral-7B-Instruct-v0.3 attempt=1
+2026-09-15T11:58:03+00:00	DOWNLOAD_COMPLETE model=meta-llama/Llama-3.2-3B-Instruct attempt=1
+2026-09-15T11:58:03+00:00	RUN_START tag=llama32_3b_it_mj_sw model=meta-llama/Llama-3.2-3B-Instruct GPUs=0,1 tp=1 tlang=Swahili
+2026-09-15T11:58:49+00:00	RUN_COMPLETE tag=llama32_3b_it_mj_sw
+2026-09-15T11:58:50+00:00	CACHE_CLEANUP model=meta-llama/Llama-3.2-3B-Instruct
+2026-09-15T11:58:50+00:00	DOWNLOAD_START model=google/gemma-2-2b-it attempt=1
+2026-09-15T12:00:51+00:00	DOWNLOAD_COMPLETE model=google/gemma-2-2b-it attempt=1
+2026-09-15T12:00:51+00:00	RUN_START tag=gemma2_2b_it_mj_sw model=google/gemma-2-2b-it GPUs=0,1 tp=1 tlang=Swahili
+2026-09-15T12:01:35+00:00	DOWNLOAD_COMPLETE model=mistralai/Mistral-7B-Instruct-v0.3 attempt=1
+2026-09-15T12:01:35+00:00	RUN_START tag=mistral7b_mj_sw model=mistralai/Mistral-7B-Instruct-v0.3 GPUs=2,3 tp=1 tlang=Swahili
+2026-09-15T12:01:37+00:00	RUN_COMPLETE tag=gemma2_2b_it_mj_sw
+2026-09-15T12:01:38+00:00	CACHE_CLEANUP model=google/gemma-2-2b-it
+2026-09-15T12:01:38+00:00	DOWNLOAD_START model=google/gemma-2-9b-it attempt=1
+2026-09-15T12:02:26+00:00	RUN_COMPLETE tag=mistral7b_mj_sw
+2026-09-15T12:02:31+00:00	CACHE_CLEANUP model=mistralai/Mistral-7B-Instruct-v0.3
+2026-09-15T12:02:31+00:00	DOWNLOAD_START model=tiiuae/Falcon3-7B-Instruct attempt=1
+2026-09-15T12:05:19+00:00	DOWNLOAD_COMPLETE model=google/gemma-2-9b-it attempt=1
+2026-09-15T12:05:19+00:00	RUN_START tag=gemma2_9b_it_mj_sw model=google/gemma-2-9b-it GPUs=0,1 tp=1 tlang=Swahili
+2026-09-15T12:06:07+00:00	DOWNLOAD_COMPLETE model=tiiuae/Falcon3-7B-Instruct attempt=1
+2026-09-15T12:06:07+00:00	RUN_START tag=falcon3_7b_mj_sw model=tiiuae/Falcon3-7B-Instruct GPUs=2,3 tp=1 tlang=Swahili
+2026-09-15T12:06:13+00:00	RUN_COMPLETE tag=gemma2_9b_it_mj_sw
+2026-09-15T12:06:16+00:00	CACHE_CLEANUP model=google/gemma-2-9b-it
+2026-09-15T12:06:16+00:00	DOWNLOAD_START model=microsoft/Phi-3.5-mini-instruct attempt=1
+2026-09-15T12:06:57+00:00	RUN_COMPLETE tag=falcon3_7b_mj_sw
+2026-09-15T12:06:59+00:00	CACHE_CLEANUP model=tiiuae/Falcon3-7B-Instruct
+2026-09-15T12:06:59+00:00	DOWNLOAD_START model=tiiuae/Falcon3-10B-Instruct attempt=1
+2026-09-15T12:07:35+00:00	DOWNLOAD_COMPLETE model=microsoft/Phi-3.5-mini-instruct attempt=1
+2026-09-15T12:07:35+00:00	RUN_START tag=phi35_mini_mj_sw model=microsoft/Phi-3.5-mini-instruct GPUs=0,1 tp=1 tlang=Swahili
+2026-09-15T12:08:19+00:00	RUN_COMPLETE tag=phi35_mini_mj_sw
+2026-09-15T12:08:20+00:00	CACHE_CLEANUP model=microsoft/Phi-3.5-mini-instruct
+2026-09-15T12:08:20+00:00	DOWNLOAD_START model=tiiuae/Falcon3-3B-Instruct attempt=1
+2026-09-15T12:10:28+00:00	DOWNLOAD_COMPLETE model=tiiuae/Falcon3-3B-Instruct attempt=1
+2026-09-15T12:10:28+00:00	RUN_START tag=falcon3_3b_mj_sw model=tiiuae/Falcon3-3B-Instruct GPUs=0,1 tp=1 tlang=Swahili
+2026-09-15T12:10:46+00:00	DOWNLOAD_COMPLETE model=tiiuae/Falcon3-10B-Instruct attempt=1
+2026-09-15T12:10:46+00:00	RUN_START tag=falcon3_10b_mj_sw model=tiiuae/Falcon3-10B-Instruct GPUs=2,3 tp=1 tlang=Swahili
+2026-09-15T12:11:11+00:00	RUN_COMPLETE tag=falcon3_3b_mj_sw
+2026-09-15T12:11:12+00:00	CACHE_CLEANUP model=tiiuae/Falcon3-3B-Instruct
+2026-09-15T12:11:40+00:00	RUN_COMPLETE tag=falcon3_10b_mj_sw
+2026-09-15T12:11:44+00:00	CACHE_CLEANUP model=tiiuae/Falcon3-10B-Instruct
+2026-09-15T12:11:44+00:00	DOWNLOAD_START model=THUDM/glm-4-9b-chat-hf attempt=1
+2026-09-15T12:14:17+00:00	DOWNLOAD_COMPLETE model=THUDM/glm-4-9b-chat-hf attempt=1
+2026-09-15T12:14:17+00:00	RUN_START tag=glm4_9b_mj_sw model=THUDM/glm-4-9b-chat-hf GPUs=2,3 tp=1 tlang=Swahili
+2026-09-15T12:15:08+00:00	RUN_COMPLETE tag=glm4_9b_mj_sw
+2026-09-15T12:15:10+00:00	CACHE_CLEANUP model=THUDM/glm-4-9b-chat-hf
+2026-09-15T12:15:10+00:00	TP1_LANES_COMPLETE lane_a=0 lane_b=0
+2026-09-15T12:15:10+00:00	DOWNLOAD_START model=Qwen/Qwen2.5-32B-Instruct attempt=1
+2026-09-15T12:23:34+00:00	DOWNLOAD_COMPLETE model=Qwen/Qwen2.5-32B-Instruct attempt=1
+2026-09-15T12:23:34+00:00	RUN_START tag=qwen25_32b_mj_sw model=Qwen/Qwen2.5-32B-Instruct GPUs=0,1,2 tp=2 tlang=Swahili
+2026-09-15T12:24:46+00:00	RUN_COMPLETE tag=qwen25_32b_mj_sw
+2026-09-15T12:24:56+00:00	CACHE_CLEANUP model=Qwen/Qwen2.5-32B-Instruct
+2026-09-15T12:24:56+00:00	DOWNLOAD_START model=mistralai/Mistral-Small-24B-Instruct-2501 attempt=1
+2026-09-15T12:36:51+00:00	DOWNLOAD_COMPLETE model=mistralai/Mistral-Small-24B-Instruct-2501 attempt=1
+2026-09-15T12:36:51+00:00	RUN_START tag=mistral24b_mj_sw model=mistralai/Mistral-Small-24B-Instruct-2501 GPUs=0,1,2 tp=2 tlang=Swahili
+2026-09-15T12:37:53+00:00	RUN_COMPLETE tag=mistral24b_mj_sw
+2026-09-15T12:38:06+00:00	CACHE_CLEANUP model=mistralai/Mistral-Small-24B-Instruct-2501
+2026-09-15T12:38:06+00:00	DOWNLOAD_START model=google/gemma-2-27b-it attempt=1
+2026-09-15T12:45:25+00:00	DOWNLOAD_COMPLETE model=google/gemma-2-27b-it attempt=1
+2026-09-15T12:45:25+00:00	RUN_START tag=gemma2_27b_mj_sw model=google/gemma-2-27b-it GPUs=0,1,2 tp=2 tlang=Swahili
+2026-09-15T12:46:37+00:00	RUN_COMPLETE tag=gemma2_27b_mj_sw
+2026-09-15T12:46:45+00:00	CACHE_CLEANUP model=google/gemma-2-27b-it
+2026-09-15T12:46:45+00:00	QUEUE_FINISHED completed=17 expected=17

@@ -1,0 +1,13 @@
+{
+  "schema": "polyjigsaw/mj-sw-baseline-integrity/v1",
+  "created_utc": "2026-09-15T12:46:45Z",
+  "collection": "MultiJail",
+  "method": "translated",
+  "translation_language": "Swahili",
+  "models_expected": 17,
+  "models_complete": 17,
+  "items_per_model": 64,
+  "raw_rows": 1088,
+  "problems": [],
+  "raw_storage": "private Hugging Face bucket; see UPLOAD_RECORD.md"
+}
