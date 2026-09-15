@@ -1,5 +1,9 @@
 # PolyJigsaw
 
+> **이전 실행의 baseline 격차를 재현하려면:** [실험 설정 차이 문서](docs/EXPERIMENT_SETUP.md)에서
+> probe-selected와 100개 이상 arm의 post-hoc best가 어떻게 다르게 비교됐는지, 그리고 당시의 정확한
+> 환경·표본·판정 방식을 먼저 확인하세요.
+
 PolyJigsaw는 하나의 요청을 4–6개의 의미 조각으로 나누고, 조각별 언어와 표시 순서를
 조정했을 때 다국어 LLM의 안전 행동이 어떻게 변하는지 연구하는 재현 가능한
 red-teaming 프로젝트입니다.

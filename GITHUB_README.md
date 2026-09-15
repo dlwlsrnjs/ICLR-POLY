@@ -8,6 +8,10 @@ datasets (below).
 > Safety: authorized academic AI-safety evaluation only. Do not commit harmful prompts, raw responses,
 > tokens, or local paths. Keep the private bucket private.
 
+**Why the earlier run appeared to beat the baselines by a large margin:** read
+[`docs/EXPERIMENT_SETUP.md`](docs/EXPERIMENT_SETUP.md). It separates the actual probe-selected arm
+from the post-hoc best of more than 100 evaluated arms, and records the exact old environment.
+
 ## 1. Get the data
 
 Two restricted, access-controlled datasets (their harmful text is never public here):
@@ -17,7 +21,8 @@ Two restricted, access-controlled datasets (their harmful text is never public h
 
 Fastest path for a collaborator with access: pull the working tree (code + small dataset inputs +
 aggregate results) from the **private** HF bucket `jin-kwon/poly`. Bucket commands need a
-bucket-capable `hf` (huggingface_hub ≥ 1.30).
+bucket-capable `hf` (huggingface_hub ≥ 1.30). Use a separate transfer environment: upgrading the
+locked collection environment changes the measured runtime.
 
 ```bash
 pip install -U "huggingface_hub[cli]"    # gives `hf sync` / `hf buckets`
@@ -55,12 +60,13 @@ If you do **not** use the bucket, obtain the datasets officially and rebuild the
 ## 2. Environment
 
 ```bash
-python -m venv .venv && . .venv/bin/activate
-pip install -r requirements.txt          # includes the exact collection stack
-python scripts/verify_repro_env.py        # add --require-models --require-data before collection
+python3.10 -m venv .venv-collection && . .venv-collection/bin/activate
+pip install -r requirements-collection.lock.txt
 export HF_HOME=<cache> HF_HUB_OFFLINE=0
 # judges: reconstruction = Qwen2.5-7B-Instruct, safety = Qwen3Guard-Gen-8B
-python -c "from huggingface_hub import snapshot_download as d; d('Qwen/Qwen2.5-7B-Instruct'); d('Qwen/Qwen3Guard-Gen-8B')"
+python -c "from huggingface_hub import snapshot_download as d; d('Qwen/Qwen2.5-7B-Instruct', revision='a09a35458c702b33eeacc393d103063234e8bc28'); d('Qwen/Qwen3Guard-Gen-8B', revision='4505cb1a6f1864f21f8b27f7daf1b9a1aab6edbb')"
+export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 TOKENIZERS_PARALLELISM=false
+python scripts/verify_repro_env.py --strict-reference --require-clean
 ```
 
 ## 3. Reproduce the paper tables (no GPU; from stored aggregates, minutes)

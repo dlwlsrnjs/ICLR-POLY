@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Fail-fast check for the exact 2026-09-10 panel collection environment.
 
-This prints only package versions, paths, and hashes; it never prints benchmark text.
+This prints only package versions, paths, hashes, git state, and behavior-changing environment
+variables; it never prints benchmark text.
 """
 from __future__ import annotations
 
@@ -9,6 +10,7 @@ import argparse
 import hashlib
 import json
 import os
+import subprocess
 import sys
 from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
@@ -53,6 +55,19 @@ SAMPLES = {
                "c2f4a920bf4b9371e06f7842d4491415faa9b3a1a76c6eea11ca38420ab6f10d"),
 }
 
+# These knobs were unset in the known-working reference collection.  Setting any of them can change
+# prompts, target generations, batching, or numerical execution.  Exact judge/target revisions are
+# allowed explicitly because they are equivalent to the checked-in defaults.
+REFERENCE_ENV = {
+    "POLY_REP_PENALTY": {None, "", "1", "1.0"},
+    "POLY_STRONG_RECON": {None, "", "0"},
+    "POLY_MAX_NUM_SEQS": {None, ""},
+    "VLLM_ENFORCE_EAGER": {None, "", "0"},
+    "POLY_RECON_JUDGE_REV": {None, "", EXPECTED_MODELS["models--Qwen--Qwen2.5-7B-Instruct"]},
+    "POLY_GUARD_JUDGE_REV": {None, "", EXPECTED_MODELS["models--Qwen--Qwen3Guard-Gen-8B"]},
+    "POLY_TARGET_REV": {None, "", EXPECTED_MODELS["models--Qwen--Qwen2.5-7B-Instruct"]},
+}
+
 
 def digest(path: Path) -> str:
     h = hashlib.sha256()
@@ -77,13 +92,44 @@ def sample_fingerprint(path: Path, n: int) -> str:
     return hashlib.sha256("\n".join(item_ids).encode()).hexdigest()
 
 
+def check_reference_environment() -> bool:
+    ok = True
+    for name, allowed in REFERENCE_ENV.items():
+        actual = os.environ.get(name)
+        valid = actual in allowed
+        shown = "UNSET" if actual is None or actual == "" else actual
+        print(f"[{'OK' if valid else 'XX'}] env {name}: {shown}")
+        ok = valid and ok
+    return ok
+
+
+def git_value(repo: Path, *args: str) -> str | None:
+    try:
+        result = subprocess.run(
+            ["git", "-C", str(repo), *args], check=True, capture_output=True, text=True)
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        return None
+    return result.stdout.strip()
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--hf-home", type=Path, default=None)
     parser.add_argument("--require-models", action="store_true")
     parser.add_argument("--require-data", action="store_true")
+    parser.add_argument(
+        "--strict-reference", action="store_true",
+        help="require models/data and reject behavior-changing env overrides for the Qwen2.5-7B reference")
+    parser.add_argument("--require-clean", action="store_true", help="fail if the git worktree is dirty")
+    parser.add_argument(
+        "--expected-commit", default="",
+        help="fail unless HEAD starts with this pinned commit hash (short hashes are accepted)")
     args = parser.parse_args()
+
+    if args.strict_reference:
+        args.require_models = True
+        args.require_data = True
 
     ok = report("python", f"{sys.version_info.major}.{sys.version_info.minor}", "3.10")
     for package, expected in EXPECTED_PACKAGES.items():
@@ -100,10 +146,18 @@ def main() -> int:
             ok = False
         else:
             for repo_name, revision in EXPECTED_MODELS.items():
-                snapshot = hf_home / "hub" / repo_name / "snapshots" / revision
+                model_root = hf_home / "hub" / repo_name
+                snapshot = model_root / "snapshots" / revision
                 present = snapshot.is_dir()
                 print(f"[{'OK' if present else 'XX'}] model {repo_name}: {revision}")
                 ok = present and ok
+                # Old/ intentionally preserves the original code, which loaded the cache's main ref
+                # without passing revision=.  Merely having the snapshot somewhere in the cache is
+                # therefore insufficient for exact reproduction of that path.
+                if args.strict_reference:
+                    main_ref = model_root / "refs" / "main"
+                    actual_ref = main_ref.read_text().strip() if main_ref.is_file() else "MISSING"
+                    ok = report(f"model ref {repo_name} main", actual_ref, revision) and ok
 
     if args.require_data:
         for relative, expected in EXPECTED_FILES.items():
@@ -114,6 +168,27 @@ def main() -> int:
             path = args.repo / relative
             actual = sample_fingerprint(path, n) if path.is_file() else "MISSING"
             ok = report(f"sample {name} n={n}", actual, expected) and ok
+
+    if args.strict_reference:
+        ok = check_reference_environment() and ok
+
+    head = git_value(args.repo, "rev-parse", "HEAD")
+    if head:
+        print(f"[OK] git HEAD: {head}")
+    elif args.expected_commit or args.require_clean:
+        print("[XX] git HEAD: unavailable")
+        ok = False
+
+    if args.expected_commit and head:
+        commit_ok = head.startswith(args.expected_commit)
+        print(f"[{'OK' if commit_ok else 'XX'}] expected commit: {args.expected_commit}")
+        ok = commit_ok and ok
+
+    if args.require_clean:
+        status = git_value(args.repo, "status", "--porcelain")
+        clean = status == ""
+        print(f"[{'OK' if clean else 'XX'}] git worktree: {'clean' if clean else 'dirty'}")
+        ok = clean and ok
 
     print("REPRO_ENV_OK" if ok else "REPRO_ENV_MISMATCH")
     return 0 if ok else 1
