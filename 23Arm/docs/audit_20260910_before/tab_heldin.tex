@@ -1,0 +1,26 @@
+\begin{table}[t]\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{\textbf{Per-model results on the nine held-in panel models} (primary; not averaged). Verified ASR of each attack \emph{technique} (rows) on each model (columns; Q=Qwen2.5, L=Llama-3, G=Gemma-2, with size); \textbf{ours} is the plaintext-warm-started selector's per-model pick ($\bar{q}\approx3$ harmful queries, no harmful supervision), \emph{oracle} the best arm. No single fixed technique wins on every model---translation dominates Qwen/Llama, a persona frame dominates Gemma---while the selector tracks each model's best. Last column is the model-averaged mean.}
+\label{tab:heldin}
+\begin{tabular}{lcccccccccc}
+\toprule
+Attack (verified ASR) & Q3B & Q7B & Q14B & Q32B & L3B & L8B & G2B & G9B & G27B & mean \\
+\midrule
+\multicolumn{11}{l}{\emph{MultiJail}} \\
+\quad low-resource translation & 0.77 & 0.83 & 0.75 & 0.58 & 0.72 & 0.67 & 0.34 & 0.20 & 0.20 & 0.56 \\
+\quad AIM persona & 0.25 & 0.27 & 0.47 & 0.48 & 0.00 & 0.52 & 0.73 & 0.81 & 0.89 & 0.49 \\
+\quad DeepInception & 0.66 & 0.58 & 0.44 & 0.23 & 0.17 & 0.44 & 0.44 & 0.69 & 0.41 & 0.45 \\
+\quad PAP persuasion & 0.17 & 0.11 & 0.11 & 0.11 & 0.03 & 0.19 & 0.03 & 0.05 & 0.02 & 0.09 \\
+\quad \textbf{ours (selector)} & \textbf{0.77} & \textbf{0.78} & \textbf{0.75} & \textbf{0.57} & \textbf{0.72} & \textbf{0.67} & \textbf{0.73} & \textbf{0.38} & \textbf{0.61} & \textbf{0.66} \\
+\quad oracle & 0.77 & 0.83 & 0.75 & 0.70 & 0.72 & 0.67 & 0.73 & 0.81 & 0.89 & 0.76 \\
+\midrule
+\multicolumn{11}{l}{\emph{Lingua-SafetyBench}} \\
+\quad low-resource translation & 0.28 & 0.33 & 0.20 & 0.17 & 0.38 & 0.10 & 0.23 & 0.25 & 0.20 & 0.24 \\
+\quad AIM persona & 0.65 & 0.60 & 0.80 & 0.82 & 0.00 & 0.38 & 0.78 & 0.93 & 0.97 & 0.66 \\
+\quad DeepInception & 0.62 & 0.62 & 0.72 & 0.53 & 0.40 & 0.60 & 0.75 & 0.72 & 0.78 & 0.64 \\
+\quad PAP persuasion & 0.53 & 0.30 & 0.33 & 0.17 & 0.00 & 0.17 & 0.05 & 0.12 & 0.10 & 0.20 \\
+\quad \textbf{ours (selector)} & \textbf{0.65} & \textbf{0.57} & \textbf{0.78} & \textbf{0.82} & \textbf{0.38} & \textbf{0.70} & \textbf{0.76} & \textbf{0.93} & \textbf{0.97} & \textbf{0.73} \\
+\quad oracle & 0.65 & 0.75 & 0.90 & 0.90 & 0.55 & 0.78 & 0.78 & 0.93 & 0.97 & 0.80 \\
+\bottomrule
+\end{tabular}
+\end{table}

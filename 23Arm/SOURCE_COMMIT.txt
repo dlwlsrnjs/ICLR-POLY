@@ -1,0 +1,9 @@
+Historical 23-arm code snapshot
+================================
+
+Git commit: 18fe64aeb4f5bc2ef9ee3b134774de219a9a1565
+
+The files copied from this commit retain their original paths below this directory. New archive-only
+files are README.md, SOURCE_COMMIT.txt, requirements-reference.lock.txt, .gitignore, and
+verify_bundle.py.
+

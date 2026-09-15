@@ -1,0 +1,26 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Main results: verified attack success (reconstruction-gated ASR) averaged over the nine-model panel under one consistent gate rule (Section~\ref{sec:gate}), with 95\% panel-bootstrap intervals on the ceiling, the best fixed configuration and the adaptive selector, and the paired per-target differences at the foot. Single-vector baselines receive the baseline-favourable ungated score; the selector uses no harmful supervision. \emph{PPL} is median prompt perplexity under Qwen2.5-7B (a stealth metric): our configurations sit in the low-perplexity band of the natural-language attacks (Table~\ref{tab:encoding}), so a filter tuned to high-perplexity obfuscations does not flag them.}
+\label{tab:sel_main}
+\begin{tabular}{lccc}
+\toprule
+Strategy & MultiJail & Lingua-SafetyBench & PPL \\
+\midrule
+PAP \citep{zeng2024pap} & 0.090 & 0.197 & \pjpplpap{} \\
+AIM (persona) & 0.491 & 0.658 & \pjpplaim{} \\
+DeepInception \citep{li2023deepinception} & 0.450 & 0.639 & \pjppldeepinception{} \\
+\midrule
+best fixed configuration (translation) & 0.563 [0.410, 0.707] & 0.678 [0.503, 0.831] & -- \\
+published attacks, adaptive (3 queries) & 0.587 & 0.724 & -- \\
+\midrule
+selector, fixed 3-query & 0.644 & 0.727 & \pjpplours{} \\
+\textbf{selector, difficulty-adaptive} & \textbf{0.664} [0.581, 0.732] & \textbf{0.726} [0.607, 0.834] & \pjpplours{} \\
+oracle (best arm per model) & 0.764 [0.724, 0.809] & 0.800 [0.711, 0.881] & -- \\
+\midrule
+\quad paired $\Delta$ vs.\ best fixed & +0.102 [-0.007, +0.216] & +0.049 [-0.072, +0.195] & 5/9, 5/9 \\
+\quad paired $\Delta$ vs.\ published-3 & +0.078 [-0.106, +0.251] & +0.004 [-0.019, +0.032] & 6/9, 5/9 \\
+\multicolumn{4}{l}{\footnotesize Adaptive budget: floor 3, cap 8, stop at 0.5; mean queries 3.1 (MultiJail), 3.4 (Lingua). Last column of $\Delta$ rows: targets improved. Bootstrap: 2{,}000 panel draws, 300 for the selector.} \\
+\bottomrule
+\end{tabular}
+\end{table}

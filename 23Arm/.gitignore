@@ -1,0 +1,8 @@
+# Restricted inputs and generated model outputs must not be committed.
+private_artifacts/
+results/
+models/
+*.log
+__pycache__/
+*.pyc
+

@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\small
+\caption{How much the probe has to see. A probe normally observes a full evaluation batch; here it observes only $m$ items, so its observation noise grows as $1/\sqrt{m}$. Verified ASR of the recommended configuration, averaged over the targets with a harmless probe.}
+\label{tab:sel_batch}
+\begin{tabular}{lccc|ccc}
+\toprule
+& \multicolumn{3}{c|}{MultiJail} & \multicolumn{3}{c}{Lingua-SafetyBench} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Items per probe & $B{=}3$ & $B{=}6$ & $B{=}10$ & $B{=}3$ & $B{=}6$ & $B{=}10$ \\
+\midrule
+1 & 0.496 & 0.519 & 0.521 & 0.671 & 0.684 & 0.681 \\
+5 & 0.534 & 0.607 & 0.616 & 0.724 & 0.725 & 0.725 \\
+10 & 0.535 & 0.636 & 0.657 & 0.731 & 0.728 & 0.737 \\
+20 & 0.528 & 0.646 & 0.671 & 0.739 & 0.738 & 0.741 \\
+full batch & 0.517 & 0.644 & 0.682 & 0.739 & 0.742 & 0.741 \\
+\midrule
+oracle & \multicolumn{3}{c|}{0.764} & \multicolumn{3}{c}{0.800} \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,28 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Which harmless measurement should warm-start the search. Each row is a prior computed \emph{without any harmful query}, except the last, which is the reconstruction column of the harmful runs and is listed only to show what leaked supervision would buy. $\rho$ is the mean Spearman correlation with verified ASR over the 23 configurations; the selector column is verified ASR at a three-query budget.}
+\label{tab:sel_prior}
+\begin{tabular}{lcccc}
+\toprule
+& \multicolumn{2}{c}{MultiJail} & \multicolumn{2}{c}{Lingua-SafetyBench} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Warm-start prior & $\rho$ & selector@3 & $\rho$ & selector@3 \\
+\midrule
+none (constant prior) & +0.00 & 0.406 & +0.00 & 0.589 \\
+benign reconstruction, 1 probe prompt & +0.00 & 0.440 & +0.00 & 0.641 \\
+benign reconstruction, 3 probe prompts & +0.19 & 0.587 & -0.05 & 0.657 \\
+benign reconstruction, 9 probe prompts & +0.12 & 0.422 & -0.05 & 0.711 \\
+benign reconstruction, full probe (15 prompts) & +0.37 & 0.620 & +0.09 & 0.648 \\
+benign answer-language fidelity & +0.07 & 0.434 & -0.04 & 0.620 \\
+benign persona adherence & -0.03 & 0.412 & -0.04 & 0.618 \\
+non-refusal on safety-adjacent harmless requests & -0.09 & 0.358 & -0.09 & 0.578 \\
+benign reconstruction $\times$ language fidelity & +0.37 & 0.624 & +0.08 & 0.653 \\
+benign reconstruction $\times$ safety-adjacent non-refusal & +0.33 & 0.622 & +0.05 & 0.667 \\
+harmful-run reconstruction (leaks; reference) & +0.41 & 0.689 & +0.26 & 0.686 \\
+\midrule
+chosen leave-one-target-out & -- & \textbf{0.646} & -- & \textbf{0.728} \\
+oracle & -- & 0.764 & -- & 0.800 \\
+\bottomrule
+\end{tabular}
+\end{table}

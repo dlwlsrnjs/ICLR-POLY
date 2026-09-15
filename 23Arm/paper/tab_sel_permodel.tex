@@ -1,0 +1,24 @@
+\begin{table}[t]
+\centering
+\small
+\caption{The best configuration is model-specific: it changes across the panel in both collections, so no fixed attack can be optimal everywhere. Scores follow the gate rule of Section~\ref{sec:gate}: hidden-request configurations are reconstruction-gated, clear-text ones (AIM, DeepInception, PAP, fiction only) are ungated.}
+\label{tab:sel_permodel}
+\begin{tabular}{lcccc}
+\toprule
+\multirow{2}{*}{Target} & \multicolumn{2}{c}{MultiJail} & \multicolumn{2}{c}{Lingua-SafetyBench} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+ & best configuration & ASR & best configuration & ASR \\
+\midrule
+Qwen2.5-3B & translation$^{\dagger}$ & 0.766 & fiction only$^{\dagger}$ & 0.650 \\
+Qwen2.5-7B & translation & 0.828 & role-split+persona & 0.750 \\
+Qwen2.5-14B & translation & 0.750 & role-split+persona & 0.900 \\
+Qwen2.5-32B & role-split+persona & 0.703 & role-split+persona$^{\dagger}$ & 0.900 \\
+Llama-3.2-3B & translation & 0.719 & amount $n{=}7$$^{\dagger}$ & 0.550 \\
+Llama-3.1-8B & translation & 0.672 & amount $n{=}7$$^{\dagger}$ & 0.775 \\
+Gemma-2-2B & AIM & 0.734 & AIM$^{\dagger}$ & 0.775 \\
+Gemma-2-9B & AIM & 0.812 & combination+persona$^{\dagger}$ & 0.925 \\
+Gemma-2-27B & AIM & 0.891 & AIM & 0.975 \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}\footnotesize $^{\dagger}$ the runner-up is within one standard error of this cell, so the winner is not resolved by these item counts.
+\end{table}

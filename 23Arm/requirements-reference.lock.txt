@@ -1,0 +1,16 @@
+# Exact core environment later recovered for the reference collection stack.
+# The historical requirements.txt is kept separately because it was the file present in the
+# 23-arm source snapshot. Do not relax these versions when reproducing target or judge generations.
+accelerate==1.15.0
+einops==0.8.2
+huggingface-hub==1.29.0
+ninja==1.13.2
+numpy==2.2.6
+safetensors==0.8.0
+sentencepiece==0.2.2
+tokenizers==0.23.1
+torch==2.13.0
+torchvision==0.28.0
+transformers==5.16.1
+vllm==0.28.0
+

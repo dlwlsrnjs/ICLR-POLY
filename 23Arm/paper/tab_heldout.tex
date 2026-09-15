@@ -1,0 +1,26 @@
+\begin{table}[t]\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{\textbf{Per-model results on seven held-out models} (six vendors, 3.8--24B; primary, not averaged), used in neither the arm space, probe selection, nor winner's-curse calibration. Rows/columns as in Table~\ref{tab:heldin} (Phi-3.5-mini, Mistral-7B, Falcon3-7B, GLM-4-9B, Mistral-Small-24B, OLMo-2-7B, Zephyr-7B); the frozen selector is applied with no re-tuning.}
+\label{tab:heldout}
+\begin{tabular}{lcccccccc}
+\toprule
+Attack (verified ASR) & Phi & Mis7 & Fal7 & GLM9 & Mis24 & OLM7 & Zep7 & mean \\
+\midrule
+\multicolumn{9}{l}{\emph{MultiJail}} \\
+\quad low-resource translation & 0.70 & 0.81 & 0.89 & 0.80 & 0.64 & 0.84 & 0.77 & 0.78 \\
+\quad AIM persona & 0.02 & 0.62 & 0.02 & 0.48 & 0.83 & 0.12 & 0.59 & 0.38 \\
+\quad DeepInception & 0.42 & 0.75 & 0.52 & 0.55 & 0.59 & 0.55 & 0.75 & 0.59 \\
+\quad PAP persuasion & 0.06 & 0.39 & 0.00 & 0.12 & 0.31 & 0.02 & 0.59 & 0.21 \\
+\quad \textbf{ours (selector)} & \textbf{0.70} & \textbf{0.80} & \textbf{0.89} & \textbf{0.80} & \textbf{0.83} & \textbf{0.81} & \textbf{0.77} & \textbf{0.80} \\
+\quad oracle & 0.70 & 0.81 & 0.89 & 0.80 & 0.83 & 0.84 & 0.77 & 0.81 \\
+\midrule
+\multicolumn{9}{l}{\emph{Lingua-SafetyBench}} \\
+\quad low-resource translation & 0.40 & 0.72 & 0.55 & 0.62 & 0.23 & 0.57 & 0.75 & 0.55 \\
+\quad AIM persona & 0.33 & 0.90 & 0.07 & 0.75 & 0.90 & 0.50 & 0.88 & 0.62 \\
+\quad DeepInception & 0.47 & 0.82 & 0.55 & 0.57 & 0.72 & 0.72 & 0.80 & 0.67 \\
+\quad PAP persuasion & 0.20 & 0.70 & 0.05 & 0.47 & 0.57 & 0.07 & 0.75 & 0.40 \\
+\quad \textbf{ours (selector)} & \textbf{0.53} & \textbf{0.87} & \textbf{0.55} & \textbf{0.73} & \textbf{0.90} & \textbf{0.57} & \textbf{0.75} & \textbf{0.70} \\
+\quad oracle & 0.57 & 0.90 & 0.57 & 0.75 & 0.90 & 0.72 & 0.88 & 0.76 \\
+\bottomrule
+\end{tabular}
+\end{table}
