@@ -66,24 +66,32 @@ python3 scripts/closed_compare.py attack \
 |---|---|---|
 | qwen25_3b | Qwen/Qwen2.5-3B-Instruct | aa8e72537993ba99e69dfaafa59ed015b17504d1 |
 | qwen25_7b | Qwen/Qwen2.5-7B-Instruct | a09a35458c702b33eeacc393d103063234e8bc28 |
-| qwen25_14b | Qwen/Qwen2.5-14B-Instruct | (기록 없음, 최신 태그 고정 후 기록할 것) |
+| qwen25_14b | Qwen/Qwen2.5-14B-Instruct | cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8 † |
 | qwen25_32b | Qwen/Qwen2.5-32B-Instruct | 5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd |
 | llama32_3b_it | meta-llama/Llama-3.2-3B-Instruct | 0cb88a4f764b7a12671c53f0838cd831a0843b95 |
-| llama31_8b_it | meta-llama/Llama-3.1-8B-Instruct | (기록 없음) |
-| gemma2_2b_it | google/gemma-2-2b-it | (기록 없음) |
-| gemma2_9b_it | google/gemma-2-9b-it | (기록 없음) |
+| llama31_8b_it | meta-llama/Llama-3.1-8B-Instruct | 0e9e39f249a16976918f6564b8830bc894c89659 † |
+| gemma2_2b_it | google/gemma-2-2b-it | 299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8 † |
+| gemma2_9b_it | google/gemma-2-9b-it | 11c9b309abf73637e4b6f9a3fa1e92e615547819 † |
 | gemma2_27b | google/gemma-2-27b-it | aaf20e6b9f4c0fcf043f6fb2a2068419086d77b0 |
 | mistral7b | mistralai/Mistral-7B-Instruct-v0.3 | c170c708c41dac9275d15a8fff4eca08d52bab71 |
-| mistral24b | mistralai/Mistral-Small-24B-Instruct-2501 | (기록 없음) |
+| mistral24b | mistralai/Mistral-Small-24B-Instruct-2501 | 9527884be6e5616bdd54de542f9ae13384489724 † |
 | phi35_mini | microsoft/Phi-3.5-mini-instruct | 2fe192450127e6a83f7441aef6e3ca586c338b77 |
 | phi3_medium_14b | microsoft/Phi-3-medium-4k-instruct | 48d87cd5e0523b430d77e93becd3655cd6897230 |
 | falcon3_3b | tiiuae/Falcon3-3B-Instruct | 411bb94318f94f7a5735b77109f456b1e74b42a1 |
-| falcon3_7b | tiiuae/Falcon3-7B-Instruct | (기록 없음) |
+| falcon3_7b | tiiuae/Falcon3-7B-Instruct | 1e57a0ecd176c7c139f289c60a74e57f887c3dfb † |
 | falcon3_10b | tiiuae/Falcon3-10B-Instruct | 8799bc6aec0152757221dc6b272d824642db6202 |
 | glm4_9b | THUDM/glm-4-9b-chat-hf | 8599336fc6c125203efb2360bfaf4c80eef1d1bf |
 
-리비전이 비어 있는 모델은 받은 리비전을 status 파일에 기록해 둘 것. 기존 패널과 같은 가중치여야
-비교가 성립한다.
+† 표시는 L40S의 수집 기록에 리비전이 남아 있지 않아 **H100 박스의 HF 캐시에서 읽은 참고값**이다.
+같은 가중치라는 보장이 없으니, 실행 전에 L40S 박스에서 대조할 것.
+
+```bash
+ls $HF_HOME/hub/models--<org>--<name>/snapshots/
+```
+
+해시가 다르면 L40S 쪽 값을 쓰고, 이 표를 고쳐서 커밋해 둘 것. 기존 패널과 같은 가중치여야 비교가
+성립한다. 리비전을 고정해 실행하려면 vLLM 호출 전에 해당 스냅샷만 캐시에 두거나
+`HF_HUB_OFFLINE=1`로 고정된 캐시를 쓴다.
 
 ## 5. 끝나고 확인할 것
 
