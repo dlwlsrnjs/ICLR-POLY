@@ -6,12 +6,15 @@ import numpy as np
 sys.path.insert(0,str(Path(__file__).parent))
 from run_lg_selector import features, gp_posterior, U0, BETA, SIGMA, CLEAR, G
 BEN=Path('/home/ubuntu/342/jinkwon/poly/bucket_0913/L40S-only/experiments_suite/exp02_panel_collect/results/benign')
-d=json.loads(Path('item_matrix.json').read_text())
+MX=sys.argv[1] if len(sys.argv)>1 else 'item_matrix.json'
+d=json.loads(Path(MX).read_text())
+SUF='_mj' if 'mj' in MX else '_lg'
 tags,items,matrix=d['tags'],d['items'],d['matrix']
 allarms=sorted(matrix[tags[0]])
 priors={t:json.loads((BEN/f'{t}.json').read_text())['prior'] for t in tags}
-PAPER9=sorted({'qwen25_3b_lg','qwen25_7b_lg','qwen25_14b_lg','qwen25_32b_lg','llama32_3b_it_lg',
- 'llama31_8b_it_lg','gemma2_2b_it_lg','gemma2_9b_it_lg','gemma2_27b_lg'})
+PAPER9=sorted({'qwen25_3b'+SUF,'qwen25_7b'+SUF,'qwen25_14b'+SUF,'qwen25_32b'+SUF,'llama32_3b_it'+SUF,
+ 'llama31_8b_it'+SUF,'gemma2_2b_it'+SUF,'gemma2_9b_it'+SUF,'gemma2_27b'+SUF})
+NEW8=sorted(set(tags)-set(PAPER9))
 def space(n):
     grid=[a for a in allarms if G.match(a)]
     if n=='164': keep=grid
@@ -34,7 +37,7 @@ def signflip(dv):
     st=(s*dv).mean(1); return float((np.abs(st)>=abs(dv.mean())-1e-12).mean())
 for spname in ('164','44'):
     arms=space(spname); F=np.array([features(a) for a in arms])
-    for subset,lab in ((PAPER9,'논문 9모델'),(tags,'전체 17모델')):
+    for subset,lab in ((PAPER9,'논문 9모델'),(NEW8,'나머지 8모델'),(tags,'전체 17모델')):
         per={k:{t:[] for t in subset} for k in ('fixed','ours3','ours8','rand3','aim','deep','oracle')}
         for s in range(30):
             rng=random.Random(1000+s); idx=list(range(len(items))); rng.shuffle(idx)

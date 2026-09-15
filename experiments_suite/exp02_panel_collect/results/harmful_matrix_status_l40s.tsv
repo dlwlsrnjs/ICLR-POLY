@@ -1,0 +1,51 @@
+2026-09-11T16:11:51+00:00	QUEUE_STARTED purpose=harmful_matrix space=C harmful=true
+2026-09-11T16:11:51+00:00	START model=tiiuae/Falcon3-7B-Instruct collection=mj GPUs=0,1 phase=harmful_matrix
+2026-09-11T16:11:51+00:00	START model=google/gemma-2-2b-it collection=mj GPUs=2,3 phase=harmful_matrix
+2026-09-11T16:59:56+00:00	QUEUE_STARTED purpose=harmful_matrix space=C harmful=true
+2026-09-11T16:59:56+00:00	START model=google/gemma-2-2b-it collection=mj GPUs=2,3 phase=harmful_matrix
+2026-09-11T16:59:56+00:00	START model=tiiuae/Falcon3-7B-Instruct collection=mj GPUs=0,1 phase=harmful_matrix
+2026-09-11T17:19:18+00:00	COMPLETE model=google/gemma-2-2b-it collection=mj
+2026-09-11T17:19:18+00:00	START model=google/gemma-2-2b-it collection=lg GPUs=2,3 phase=harmful_matrix
+2026-09-11T17:33:03+00:00	COMPLETE model=tiiuae/Falcon3-7B-Instruct collection=mj
+2026-09-11T17:33:03+00:00	START model=tiiuae/Falcon3-7B-Instruct collection=lg GPUs=0,1 phase=harmful_matrix
+2026-09-11T18:09:03+00:00	COMPLETE model=google/gemma-2-2b-it collection=lg
+2026-09-11T18:09:03+00:00	START model=meta-llama/Llama-3.1-8B-Instruct collection=mj GPUs=2,3 phase=harmful_matrix
+2026-09-11T18:43:06+00:00	COMPLETE model=tiiuae/Falcon3-7B-Instruct collection=lg
+2026-09-11T18:43:06+00:00	START model=google/gemma-2-9b-it collection=mj GPUs=0,1 phase=harmful_matrix
+2026-09-11T19:33:50+00:00	COMPLETE model=meta-llama/Llama-3.1-8B-Instruct collection=mj
+2026-09-11T19:33:50+00:00	START model=meta-llama/Llama-3.1-8B-Instruct collection=lg GPUs=2,3 phase=harmful_matrix
+2026-09-11T20:38:59+00:00	COMPLETE model=google/gemma-2-9b-it collection=mj
+2026-09-11T20:38:59+00:00	START model=google/gemma-2-9b-it collection=lg GPUs=0,1 phase=harmful_matrix
+2026-09-11T20:40:35+00:00	COMPLETE model=meta-llama/Llama-3.1-8B-Instruct collection=lg
+2026-09-11T22:31:12+00:00	COMPLETE model=google/gemma-2-9b-it collection=lg
+2026-09-11T22:31:12+00:00	ONE_GPU_LANES_DONE lane_a=0 lane_b=0
+2026-09-11T22:31:12+00:00	START model=mistralai/Mistral-Small-24B-Instruct-2501 collection=mj GPUs=0,1,2 phase=harmful_matrix
+2026-09-11T23:53:57+00:00	QUEUE_STARTED purpose=harmful_matrix space=C harmful=true
+2026-09-11T23:53:57+00:00	START model=google/gemma-2-2b-it collection=mj GPUs=2,3 phase=harmful_matrix
+2026-09-11T23:53:57+00:00	START model=tiiuae/Falcon3-7B-Instruct collection=mj GPUs=0,1 phase=harmful_matrix
+2026-09-11T23:53:57+00:00	COMPLETE model=google/gemma-2-2b-it collection=mj
+2026-09-11T23:53:57+00:00	START model=google/gemma-2-2b-it collection=lg GPUs=2,3 phase=harmful_matrix
+2026-09-11T23:53:57+00:00	COMPLETE model=tiiuae/Falcon3-7B-Instruct collection=mj
+2026-09-11T23:53:57+00:00	START model=tiiuae/Falcon3-7B-Instruct collection=lg GPUs=0,1 phase=harmful_matrix
+2026-09-11T23:53:58+00:00	COMPLETE model=google/gemma-2-2b-it collection=lg
+2026-09-11T23:53:58+00:00	START model=meta-llama/Llama-3.1-8B-Instruct collection=mj GPUs=2,3 phase=harmful_matrix
+2026-09-11T23:53:58+00:00	COMPLETE model=tiiuae/Falcon3-7B-Instruct collection=lg
+2026-09-11T23:53:58+00:00	START model=google/gemma-2-9b-it collection=mj GPUs=0,1 phase=harmful_matrix
+2026-09-11T23:53:58+00:00	COMPLETE model=meta-llama/Llama-3.1-8B-Instruct collection=mj
+2026-09-11T23:53:58+00:00	START model=meta-llama/Llama-3.1-8B-Instruct collection=lg GPUs=2,3 phase=harmful_matrix
+2026-09-11T23:53:58+00:00	COMPLETE model=google/gemma-2-9b-it collection=mj
+2026-09-11T23:53:58+00:00	START model=google/gemma-2-9b-it collection=lg GPUs=0,1 phase=harmful_matrix
+2026-09-11T23:53:59+00:00	COMPLETE model=meta-llama/Llama-3.1-8B-Instruct collection=lg
+2026-09-11T23:53:59+00:00	COMPLETE model=google/gemma-2-9b-it collection=lg
+2026-09-11T23:53:59+00:00	ONE_GPU_LANES_DONE lane_a=0 lane_b=0
+2026-09-11T23:53:59+00:00	START model=mistralai/Mistral-Small-24B-Instruct-2501 collection=mj GPUs=0,1,2 phase=harmful_matrix
+2026-09-12T00:10:15+00:00	COMPLETE model=mistralai/Mistral-Small-24B-Instruct-2501 collection=mj
+2026-09-12T00:10:15+00:00	START model=mistralai/Mistral-Small-24B-Instruct-2501 collection=lg GPUs=0,1,2 phase=harmful_matrix
+2026-09-12T01:32:44+00:00	COMPLETE model=mistralai/Mistral-Small-24B-Instruct-2501 collection=lg
+2026-09-12T01:32:44+00:00	START model=google/gemma-2-27b-it collection=mj GPUs=0,1,2 phase=harmful_matrix
+2026-09-12T03:20:33+00:00	COMPLETE model=google/gemma-2-27b-it collection=mj
+2026-09-12T03:20:33+00:00	START model=google/gemma-2-27b-it collection=lg GPUs=0,1,2 phase=harmful_matrix
+2026-09-12T04:55:18+00:00	COMPLETE model=google/gemma-2-27b-it collection=lg
+2026-09-12T04:55:18+00:00	START model=Qwen/Qwen2.5-14B-Instruct collection=mj GPUs=2,3 phase=harmful_matrix
+2026-09-12T06:39:42+00:00	COMPLETE model=Qwen/Qwen2.5-14B-Instruct collection=mj
+2026-09-12T06:39:42+00:00	START model=Qwen/Qwen2.5-14B-Instruct collection=lg GPUs=2,3 phase=harmful_matrix

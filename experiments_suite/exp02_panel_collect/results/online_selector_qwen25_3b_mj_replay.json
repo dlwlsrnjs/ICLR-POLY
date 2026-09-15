@@ -1,0 +1,124 @@
+{
+  "tag": "qwen25_3b_mj",
+  "mode": "replay",
+  "dropped_axis": "none",
+  "axis_info": {
+    "comp_informative": true,
+    "will_informative": true,
+    "will_source": "surrogate_transfer"
+  },
+  "online_drop": {
+    "drop_axis": "none",
+    "budget": 8,
+    "best": 0.547,
+    "selected": "g8_ordered_n8__pap",
+    "trajectory": [
+      {
+        "step": 1,
+        "arm": "g5_ordered_n2__persona+fiction+pap",
+        "verified": 0.5,
+        "running_best": 0.5
+      },
+      {
+        "step": 2,
+        "arm": "g3_ordered_n2__role",
+        "verified": 0.547,
+        "running_best": 0.547
+      },
+      {
+        "step": 3,
+        "arm": "g3_shuffled_n8__persona+fiction",
+        "verified": 0.438,
+        "running_best": 0.547
+      },
+      {
+        "step": 4,
+        "arm": "g3_ordered_n6__fiction+pap",
+        "verified": 0.234,
+        "running_best": 0.547
+      },
+      {
+        "step": 5,
+        "arm": "g12_ordered_n2__persona",
+        "verified": 0.219,
+        "running_best": 0.547
+      },
+      {
+        "step": 6,
+        "arm": "g3_ordered_n2__persona+pap",
+        "verified": 0.453,
+        "running_best": 0.547
+      },
+      {
+        "step": 7,
+        "arm": "g3_shuffled_n6__fiction",
+        "verified": 0.375,
+        "running_best": 0.547
+      },
+      {
+        "step": 8,
+        "arm": "m_translated",
+        "verified": 0.5,
+        "running_best": 0.547
+      }
+    ]
+  },
+  "online_nodrop": {
+    "drop_axis": "none",
+    "budget": 8,
+    "best": 0.5,
+    "selected": "g3_shuffled_n2__plain",
+    "trajectory": [
+      {
+        "step": 1,
+        "arm": "g5_ordered_n2__persona+fiction+pap",
+        "verified": 0.5,
+        "running_best": 0.5
+      },
+      {
+        "step": 2,
+        "arm": "g3_ordered_n2__plain",
+        "verified": 0.453,
+        "running_best": 0.5
+      },
+      {
+        "step": 3,
+        "arm": "g3_shuffled_n8__role",
+        "verified": 0.406,
+        "running_best": 0.5
+      },
+      {
+        "step": 4,
+        "arm": "g12_ordered_n2__fiction",
+        "verified": 0.391,
+        "running_best": 0.5
+      },
+      {
+        "step": 5,
+        "arm": "g3_ordered_n6__pap",
+        "verified": 0.266,
+        "running_best": 0.5
+      },
+      {
+        "step": 6,
+        "arm": "g3_ordered_n2__persona",
+        "verified": 0.234,
+        "running_best": 0.5
+      },
+      {
+        "step": 7,
+        "arm": "g3_shuffled_n6__persona+fiction",
+        "verified": 0.453,
+        "running_best": 0.5
+      },
+      {
+        "step": 8,
+        "arm": "g12_ordered_n2__persona+pap",
+        "verified": 0.375,
+        "running_best": 0.5
+      }
+    ]
+  },
+  "effect_best": 0.047,
+  "ts": "2026-09-12T11:06:20"
+}
