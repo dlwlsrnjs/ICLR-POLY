@@ -1,0 +1,7 @@
+# Reference only: observed prior environment; not a validated full-grid installer.
+vllm==0.8.5
+torch==2.6.0
+torchvision==0.21.0
+transformers==4.57.6
+tokenizers==0.22.2
+huggingface-hub==0.36.2
