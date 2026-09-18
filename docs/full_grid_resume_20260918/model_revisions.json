@@ -1,0 +1,189 @@
+{
+  "qwen25_3b": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "eed00b17e22553979d090fa492e587e92885e328914c8e0b0b78f0a0d3576b3b",
+      "tokenizer_config.json": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+      "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+    }
+  },
+  "qwen25_7b": {
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "7463bb0ea78315365e6c6b74de4e73bbcc8359dfb0c5a737584e077d42c0b03c",
+      "tokenizer_config.json": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+      "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+    }
+  },
+  "qwen25_14b": {
+    "model": "Qwen/Qwen2.5-14B-Instruct",
+    "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "0f2085dbbe2ee251bd6a6a0797d84a6ce34436044d629aa3cba793b43d311a9e",
+      "tokenizer_config.json": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+      "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+    }
+  },
+  "llama32_3b_it": {
+    "model": "meta-llama/Llama-3.2-3B-Instruct",
+    "revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "39fb36dc5416f445ebc4e71cb71fbcf6727e80a35836d8ba1a1474c318467b7a",
+      "tokenizer_config.json": "9823dcfdc1121869029da45192238e85cf44f0b232a6d9dc20e4fe6f4242a14e",
+      "tokenizer.json": "79e3e522635f3171300913bb421464a87de6222182a0570b9b2ccba2a964b2b4"
+    }
+  },
+  "llama31_8b_it": {
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "29e4c210b0d6ac178b16b2a255a568bdb23b581e50ca1ef6a6d071dd85704e6e",
+      "tokenizer_config.json": "177c7b61e616fecb84c17ce0591acb92c6c4d60e9ac5ababfb940ff23bbcd424",
+      "tokenizer.json": "79e3e522635f3171300913bb421464a87de6222182a0570b9b2ccba2a964b2b4"
+    }
+  },
+  "gemma2_2b_it": {
+    "model": "google/gemma-2-2b-it",
+    "revision": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "eacec6c5ca317a87ed2c46789d9705b9274db5027e7ba59da739bfae23addb55",
+      "tokenizer_config.json": "cb32b7929c62608d46572e813112b3ad8a841fb98fdd6a4da8559e368a951c89",
+      "tokenizer.json": "3f289bc05132635a8bc7aca7aa21255efd5e18f3710f43e3cdb96bcd41be4922"
+    }
+  },
+  "gemma2_9b_it": {
+    "model": "google/gemma-2-9b-it",
+    "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "8ecc124513fdb0bb31bf51b4f0dd6c8658a68296dc8cd30af612205ff4a1bc49",
+      "tokenizer_config.json": "cb32b7929c62608d46572e813112b3ad8a841fb98fdd6a4da8559e368a951c89",
+      "tokenizer.json": "3f289bc05132635a8bc7aca7aa21255efd5e18f3710f43e3cdb96bcd41be4922"
+    }
+  },
+  "glm4_9b": {
+    "model": "THUDM/glm-4-9b-chat-hf",
+    "revision": "8599336fc6c125203efb2360bfaf4c80eef1d1bf",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "8ec64bc0dff4835a800b9eceb059e2b8263f783c898812175aa1ccdda074f596",
+      "tokenizer_config.json": "5ac39fe659e4fafd9e93dc158883590a73339ced96e1a91c767cd12a9cb3f8df",
+      "tokenizer.json": "8a7269d6daa6328de533def0082ff9d3a825bb89036cbcc665c324f941f67fbf"
+    }
+  },
+  "mistral7b": {
+    "model": "mistralai/Mistral-7B-Instruct-v0.3",
+    "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "affafc6478ec0fd07a32f0ca57aa2fc57743f4d17d6730f86a96ac24d1507f99",
+      "tokenizer_config.json": "0533dec9cfe319163801b6618d0f3ec9cfa126b6288e3df5deca6e32acb09cd2",
+      "tokenizer.json": "e553af6fff7d7ad76e830608b218c5c0b0822998d5a1a96099a74cd3c1cb1a49"
+    }
+  },
+  "falcon3_3b": {
+    "model": "tiiuae/Falcon3-3B-Instruct",
+    "revision": "411bb94318f94f7a5735b77109f456b1e74b42a1",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "086ad14ee022bd8c7d0bff64fc49d96d8fc5051b467ecbef64bf97a192708e0c",
+      "tokenizer_config.json": "2e6f9ee711000ac383a007148159f3b9d8b23bf32efc593f1156c6ba65cddaef",
+      "tokenizer.json": "96c1b62711ea59cb36cf4ab46cc551fc64b2168ac0a288448026088fb9ec7f4a"
+    }
+  },
+  "falcon3_7b": {
+    "model": "tiiuae/Falcon3-7B-Instruct",
+    "revision": "1e57a0ecd176c7c139f289c60a74e57f887c3dfb",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "7a8b434b91929e25bc2b96a5adf2b29f8e822a8bdbd249ce1fb09e2fa12beda7",
+      "tokenizer_config.json": "2e6f9ee711000ac383a007148159f3b9d8b23bf32efc593f1156c6ba65cddaef",
+      "tokenizer.json": "96c1b62711ea59cb36cf4ab46cc551fc64b2168ac0a288448026088fb9ec7f4a"
+    }
+  },
+  "falcon3_10b": {
+    "model": "tiiuae/Falcon3-10B-Instruct",
+    "revision": "8799bc6aec0152757221dc6b272d824642db6202",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "3192d1e0593446cb03d71705b446f4f674f077076c2931f91ff76d49f934cc26",
+      "tokenizer_config.json": "2e6f9ee711000ac383a007148159f3b9d8b23bf32efc593f1156c6ba65cddaef",
+      "tokenizer.json": "96c1b62711ea59cb36cf4ab46cc551fc64b2168ac0a288448026088fb9ec7f4a"
+    }
+  },
+  "phi35_mini": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "revision": "2fe192450127e6a83f7441aef6e3ca586c338b77",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "224de4f6a15b9d2a89695ec04b7f7ab2dd93a008a506979925e5a88cb5804974",
+      "tokenizer_config.json": "92a6e3f894075fda19f47d8755c6ce65b2a974716307d13ae5d79196011ebb44",
+      "tokenizer.json": "9e2ae3d66819f163cdcfedba5078f3a3af8118c2712491ed60912f77886bda6f"
+    }
+  },
+  "phi3_medium_14b": {
+    "model": "microsoft/Phi-3-medium-4k-instruct",
+    "revision": "48d87cd5e0523b430d77e93becd3655cd6897230",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "0e2dee0d6396679ed3e51bece60f063d506ea791fdb445a0d65a7f3e2d9aa6e7",
+      "tokenizer_config.json": "7a176e2c0b8aa486b71a86d94bfd2a298ead18728becf25e5b69f436f2b98bd5",
+      "tokenizer.json": "0bbddd4b39b594027b022cf22c47669dcd9e05ffc3b6d4a972b39a713750f823"
+    }
+  },
+  "gemma2_27b": {
+    "model": "google/gemma-2-27b-it",
+    "revision": "aaf20e6b9f4c0fcf043f6fb2a2068419086d77b0",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "8e560335c5f3156a7340edd8087e9a23339b71072338016f46f3f5ef89b8eb05",
+      "tokenizer_config.json": "cb32b7929c62608d46572e813112b3ad8a841fb98fdd6a4da8559e368a951c89",
+      "tokenizer.json": "3f289bc05132635a8bc7aca7aa21255efd5e18f3710f43e3cdb96bcd41be4922"
+    }
+  },
+  "qwen25_32b": {
+    "model": "Qwen/Qwen2.5-32B-Instruct",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "9c6772f138ef9e5b3d1c18f2c87e451bbc01f5f1a4eabb36f9bf4f53829b903e",
+      "tokenizer_config.json": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+      "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+    }
+  },
+  "mistral24b": {
+    "model": "mistralai/Mistral-Small-24B-Instruct-2501",
+    "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+    "revision_evidence": "current local HF refs/main; original target logs used revision=None",
+    "config_present": true,
+    "artifact_sha256": {
+      "config.json": "ff5f8d1747db4e16def20db719d867e74d0b764330249357351b2b44520b8001",
+      "tokenizer_config.json": "85090a231c4b1432c95cf62d5857777df08c0939fc698bf89b91ccc96f92400e",
+      "tokenizer.json": "b76085f9923309d873994d444989f7eb6ec074b06f25b58f1e8d7b7741070949"
+    }
+  }
+}

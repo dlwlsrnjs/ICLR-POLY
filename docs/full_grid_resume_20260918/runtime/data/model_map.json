@@ -1,0 +1,157 @@
+{
+  "qwen25_3b": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "util": 0.25,
+    "tp": 1,
+    "gated": false,
+    "big": false,
+    "max_model_len": 8192,
+    "hf_overrides": null
+  },
+  "qwen25_7b": {
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "util": 0.4,
+    "tp": 1,
+    "gated": false,
+    "big": false,
+    "max_model_len": 8192,
+    "hf_overrides": null
+  },
+  "qwen25_14b": {
+    "model": "Qwen/Qwen2.5-14B-Instruct",
+    "util": 0.7,
+    "tp": 1,
+    "gated": false,
+    "big": false,
+    "max_model_len": 8192,
+    "hf_overrides": null
+  },
+  "llama32_3b_it": {
+    "model": "meta-llama/Llama-3.2-3B-Instruct",
+    "util": 0.25,
+    "tp": 1,
+    "gated": true,
+    "big": false,
+    "max_model_len": 8192,
+    "hf_overrides": null
+  },
+  "llama31_8b_it": {
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "util": 0.4,
+    "tp": 1,
+    "gated": true,
+    "big": false,
+    "max_model_len": 8192,
+    "hf_overrides": null
+  },
+  "gemma2_2b_it": {
+    "model": "google/gemma-2-2b-it",
+    "util": 0.25,
+    "tp": 1,
+    "gated": true,
+    "big": false,
+    "max_model_len": 8192,
+    "hf_overrides": null
+  },
+  "gemma2_9b_it": {
+    "model": "google/gemma-2-9b-it",
+    "util": 0.4,
+    "tp": 1,
+    "gated": true,
+    "big": false,
+    "max_model_len": 8192,
+    "hf_overrides": null
+  },
+  "glm4_9b": {
+    "model": "THUDM/glm-4-9b-chat-hf",
+    "util": 0.4,
+    "tp": 1,
+    "gated": false,
+    "big": false,
+    "max_model_len": 8192,
+    "hf_overrides": null
+  },
+  "mistral7b": {
+    "model": "mistralai/Mistral-7B-Instruct-v0.3",
+    "util": 0.4,
+    "tp": 1,
+    "gated": false,
+    "big": false,
+    "max_model_len": 8192,
+    "hf_overrides": {
+      "head_dim": 128
+    }
+  },
+  "falcon3_3b": {
+    "model": "tiiuae/Falcon3-3B-Instruct",
+    "util": 0.25,
+    "tp": 1,
+    "gated": false,
+    "big": false,
+    "max_model_len": 8192,
+    "hf_overrides": null
+  },
+  "falcon3_7b": {
+    "model": "tiiuae/Falcon3-7B-Instruct",
+    "util": 0.4,
+    "tp": 1,
+    "gated": false,
+    "big": false,
+    "max_model_len": 8192,
+    "hf_overrides": null
+  },
+  "falcon3_10b": {
+    "model": "tiiuae/Falcon3-10B-Instruct",
+    "util": 0.45,
+    "tp": 1,
+    "gated": false,
+    "big": false,
+    "max_model_len": 8192,
+    "hf_overrides": null
+  },
+  "phi35_mini": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "util": 0.25,
+    "tp": 1,
+    "gated": false,
+    "big": false,
+    "max_model_len": 4096,
+    "hf_overrides": null
+  },
+  "phi3_medium_14b": {
+    "model": "microsoft/Phi-3-medium-4k-instruct",
+    "util": 0.7,
+    "tp": 1,
+    "gated": false,
+    "big": true,
+    "max_model_len": 4096,
+    "hf_overrides": null
+  },
+  "gemma2_27b": {
+    "model": "google/gemma-2-27b-it",
+    "util": 0.85,
+    "tp": 1,
+    "gated": true,
+    "big": true,
+    "max_model_len": 8192,
+    "hf_overrides": null
+  },
+  "qwen25_32b": {
+    "model": "Qwen/Qwen2.5-32B-Instruct",
+    "util": 0.9,
+    "tp": 1,
+    "gated": false,
+    "big": true,
+    "max_model_len": 8192,
+    "hf_overrides": null
+  },
+  "mistral24b": {
+    "model": "mistralai/Mistral-Small-24B-Instruct-2501",
+    "util": 0.8,
+    "tp": 1,
+    "gated": false,
+    "big": true,
+    "max_model_len": 8192,
+    "hf_overrides": null
+  }
+}
