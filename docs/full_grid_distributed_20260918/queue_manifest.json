@@ -1,0 +1,135 @@
+{
+  "schema": "poly_full_grid_distributed_queue_v1",
+  "run_id": "full_grid_20260917_v1",
+  "checkpoint_time_utc": "2026-09-18T09:13:39+00:00",
+  "source_branch": "docs/full-grid-handoff-20260917",
+  "protocol": {
+    "arm_count": 160,
+    "datasets": {
+      "mj": {
+        "collection": "MultiJail",
+        "items_per_arm": 315,
+        "translation_language": "Bengali"
+      },
+      "lg": {
+        "collection": "Lingua-SafetyBench",
+        "items_per_arm": 250,
+        "translation_language": "Norwegian"
+      }
+    },
+    "target_dtype": "bfloat16",
+    "target_max_model_len": 8192,
+    "target_max_new_tokens": 1024,
+    "reconstruction_judge": {
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "revision": "a09a35458c702b33eeacc393d103063234e8bc28"
+    },
+    "guard_judge": {
+      "model": "Qwen/Qwen3Guard-Gen-8B",
+      "revision": "4505cb1a6f1864f21f8b27f7daf1b9a1aab6edbb"
+    },
+    "required_versions": {
+      "python": "3.10.12",
+      "torch": "2.6.0+cu124",
+      "vllm": "0.8.5",
+      "transformers": "4.57.6",
+      "tokenizers": "0.22.2",
+      "huggingface_hub": "0.36.2"
+    }
+  },
+  "checkpoint": {
+    "total_primary_units": 22,
+    "receipted_units": 5,
+    "active_units": [
+      {
+        "owner": "l40s_small",
+        "model": "llama31_8b_it",
+        "dataset": "lg",
+        "generated_arms": 33,
+        "reconstruction_arms": 33,
+        "guard_arms": 32,
+        "finalized_arms": 32
+      }
+    ],
+    "receipted": [
+      "qwen25_7b/mj",
+      "qwen25_7b/lg",
+      "llama32_3b_it/mj",
+      "llama32_3b_it/lg",
+      "llama31_8b_it/mj"
+    ],
+    "future_units": 16
+  },
+  "shards": [
+    {
+      "id": "l40s-continuation",
+      "owner": "l40s_small",
+      "status": "reserved_local",
+      "models": [
+        "gemma2_2b_it",
+        "gemma2_9b_it",
+        "phi35_mini"
+      ],
+      "datasets": [
+        "mj",
+        "lg"
+      ],
+      "primary_units": 6
+    },
+    {
+      "id": "dist-shard-a",
+      "owner": "dist-shard-a",
+      "status": "ready_after_local_queue_constraint",
+      "models": [
+        "mistral7b",
+        "falcon3_7b"
+      ],
+      "datasets": [
+        "mj",
+        "lg"
+      ],
+      "primary_units": 4
+    },
+    {
+      "id": "dist-shard-b",
+      "owner": "dist-shard-b",
+      "status": "ready_after_local_queue_constraint",
+      "models": [
+        "falcon3_3b",
+        "falcon3_10b"
+      ],
+      "datasets": [
+        "mj",
+        "lg"
+      ],
+      "primary_units": 4
+    },
+    {
+      "id": "dist-shard-c",
+      "owner": "dist-shard-c",
+      "status": "ready_after_local_queue_constraint",
+      "models": [
+        "glm4_9b"
+      ],
+      "datasets": [
+        "mj",
+        "lg"
+      ],
+      "primary_units": 2
+    }
+  ],
+  "activation_guard": {
+    "reason": "The already-running l40s_small Python process loaded the original all-model tuple. Constrain or restart it with only llama31_8b_it plus l40s-continuation before starting dist shards, otherwise duplicate generation is possible.",
+    "local_models_after_restart": [
+      "llama31_8b_it",
+      "gemma2_2b_it",
+      "gemma2_9b_it",
+      "phi35_mini"
+    ]
+  },
+  "excluded": {
+    "qwen25_3b": "assigned to another GPU server and not part of this 11-model queue",
+    "false_reject": "not part of the harmful MJ/LG full grid",
+    "method_baselines": "not part of the 160-arm grid"
+  }
+}
