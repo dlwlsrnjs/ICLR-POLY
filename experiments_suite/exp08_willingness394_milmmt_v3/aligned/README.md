@@ -1,3 +1,5 @@
+Current dataset: use [the confirmed 331-item panel connection](curated331/README.md). The 394-item examples below describe the earlier bank.
+
 # 무해 이해 prior로 고정한 MJ·LG 5프레임 수집
 
 **고정값은 `g3_ordered_n2`입니다.** 같은 모델·문항·언어·퍼즐을 유지하고 C 공간의 `plain/persona/fiction/pap/persona+fiction` 다섯 프레임만 바꿉니다. MJ는 English+Bengali, LG는 English+Norwegian입니다. 언어당 3조각, 전체 최대 6조각이며, ordered는 각 언어 내부 순서를 유지하는 기존 grid 정의를 그대로 따릅니다.

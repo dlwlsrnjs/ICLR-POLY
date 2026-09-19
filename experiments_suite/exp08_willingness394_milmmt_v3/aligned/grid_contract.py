@@ -70,4 +70,6 @@ class GridContract:
         prompt = self.compose(row, languages, len(languages), fragments, order, ws)
         return {'prompt': prompt, 'messages': [{'role': 'user', 'content': prompt}],
                 'payload_sha256': hashlib.sha256(p['mixed_paragraph'].encode()).hexdigest(),
-                'actual_fragments': len(p['records'])}
+                'actual_fragments': len(p['records']),
+                'fragment_records': p['records'], 'gold_ids': p['gold_ids'],
+                'gold_english': p['gold_english'], 'source_translations': row['questions']}

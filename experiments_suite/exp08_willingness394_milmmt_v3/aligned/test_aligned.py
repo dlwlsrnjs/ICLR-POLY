@@ -57,6 +57,21 @@ class AlignedTests(unittest.TestCase):
         self.assertEqual([j['frame'] for j in jobs],FRAMES)
         self.assertTrue(all('PRESENTATION MODE' not in j['prompt'] for j in jobs))
 
+    def test_frozen_corpus_hash_rejects_same_size_different_text(self):
+        self.config['corpus_sha256'] = digest([self.item])
+        changed = dict(self.item, prompt='A different request')
+        with self.assertRaisesRegex(ValueError, 'Corpus differs'):
+            build(self.config, [changed], [], REPO)
+
+    def test_gold_fragments_rebuild_frozen_original(self):
+        jobs, _ = build(self.config, [self.item], [self.translation], REPO)
+        for job in jobs:
+            byid = {r['id']:r for r in job['fragment_records']}
+            for lang, ids in job['gold_ids'].items():
+                text = ' '.join(byid[i]['text'] for i in ids)
+                self.assertEqual(text.split(), job['source_translations'][lang].split())
+            self.assertEqual(job['gold_english'], self.item['prompt'])
+
     def test_missing_language_blocks_every_frame_without_fallback(self):
         self.config['languages']=['English','Bengali'];self.config['dataset']='mj'
         jobs, blocked=build(self.config,[self.item],[self.translation],REPO)

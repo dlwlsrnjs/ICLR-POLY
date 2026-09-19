@@ -1,0 +1,151 @@
+{
+  "schema": "curated_bank_cpu_audit_v1",
+  "items": 331,
+  "items_sha256": "76668acf427d1484b201421b0b5a03ce34672637a36b0ce8a0dd6af829f7e311",
+  "lg_structural_prompts_checked": 1655,
+  "frame_payload_invariance": true,
+  "english_norwegian_roundtrip": "equal after whitespace normalization",
+  "production_configs_checked": 34,
+  "production_status": {
+    "lg_falcon3_10b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_falcon3_3b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_falcon3_7b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_gemma2_27b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_gemma2_2b_it": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_gemma2_9b_it": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_glm4_9b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_llama31_8b_it": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_llama32_3b_it": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_mistral24b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_mistral7b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_phi35_mini": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_phi3_medium_14b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_qwen25_14b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_qwen25_32b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_qwen25_3b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "lg_qwen25_7b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_falcon3_10b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_falcon3_3b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_falcon3_7b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_gemma2_27b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_gemma2_2b_it": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_gemma2_9b_it": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_glm4_9b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_llama31_8b_it": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_llama32_3b_it": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_mistral24b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_mistral7b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_phi35_mini": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_phi3_medium_14b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_qwen25_14b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_qwen25_32b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_qwen25_3b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    },
+    "mj_qwen25_7b": {
+      "eligible_items": 0,
+      "blocked_items": 331
+    }
+  },
+  "semantic_translation_qa": "not run",
+  "target_model_inference": "not run",
+  "willingness_covariance": "not estimable: no new target responses",
+  "legacy_responses_used": false
+}

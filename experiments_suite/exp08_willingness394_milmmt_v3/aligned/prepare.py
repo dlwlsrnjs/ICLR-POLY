@@ -11,6 +11,8 @@ def build(config, items, translations, repo):
     if config.get('system_message') is not None or config.get('strong_reconstruction_prompt') is not False:
         raise ValueError('Only the default user-only panel contract is supported')
     if config['frames'] != FRAMES: raise ValueError('Frame order differs from canonical five frames')
+    if config.get('corpus_sha256') and digest(items) != config['corpus_sha256']:
+        raise ValueError('Corpus differs from the frozen selected bank')
     ids = [x['id'] for x in items]
     if len(ids) != config['expected_items'] or len(set(ids)) != len(ids):
         raise ValueError('Wrong corpus size or duplicate item IDs')
