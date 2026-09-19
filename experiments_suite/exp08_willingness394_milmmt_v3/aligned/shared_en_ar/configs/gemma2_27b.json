@@ -1,0 +1,43 @@
+{
+  "schema": "benign_fixed_cell_v1",
+  "dataset": "shared_en_ar",
+  "target_model": "google/gemma-2-27b-it",
+  "target_revision": "aaf20e6b9f4c0fcf043f6fb2a2068419086d77b0",
+  "expected_items": 331,
+  "cell": "g3_ordered_n2",
+  "languages": [
+    "English",
+    "Arabic"
+  ],
+  "frames": [
+    "plain",
+    "persona",
+    "fiction",
+    "pap",
+    "persona+fiction"
+  ],
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 320,
+    "seed": 0,
+    "repetition_penalty": 1.0
+  },
+  "max_model_len": 4096,
+  "system_message": null,
+  "strong_reconstruction_prompt": false,
+  "renderer_sha256": {
+    "scripts/closed_compare.py": "38ea26012b7f9670e0af9d8eeeab8b17bba1faf84f3a562e8c35b105431963ff",
+    "scripts/combo_eval.py": "13773a07e8fe99cd13d1ea45fa87f9d3c1cd1fd8356215b643027b40fbf66964",
+    "scripts/run_qwen_interleaving_probe.py": "9659ee3a88183e9ed203102f261cbf0929ed5b5ed493e2e0adf28216081c95cf",
+    "scripts/online_live.py": "4b4499668d597d24c4285989f5a434a147d1c3c5c322f839176ac67631763b3d"
+  },
+  "benign_selection_sha256": "18dbc0e0f6118aad603c5fe983493a844ce81bce6d077476c4fa4e699a4efd42",
+  "willingness_estimand": "nonrefusal conditional on successful reconstruction and nontruncated output, common items across all five frames",
+  "minimum_common_items": 100,
+  "corpus": "overrefusal331_min5of9",
+  "corpus_sha256": "76668acf427d1484b201421b0b5a03ce34672637a36b0ce8a0dd6af829f7e311",
+  "model_tag": "gemma2_27b",
+  "language_profile": "shared_en_ar",
+  "canonical_mj_lg_language_profile": false
+}

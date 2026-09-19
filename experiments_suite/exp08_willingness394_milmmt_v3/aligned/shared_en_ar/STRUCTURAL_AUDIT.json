@@ -1,0 +1,15 @@
+{
+  "items": 331,
+  "languages": [
+    "English",
+    "Arabic"
+  ],
+  "cell": "g3_ordered_n2",
+  "structural_prompts_checked": 1655,
+  "original_mismatches": 0,
+  "normalized_fragment_roundtrip": true,
+  "frame_payload_invariance": true,
+  "semantic_qa": "running",
+  "target_model_smoke": "running",
+  "canonical_mj_lg_n2": false
+}
