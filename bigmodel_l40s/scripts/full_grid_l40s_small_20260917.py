@@ -116,6 +116,12 @@ MODELS = (
               "8799bc6aec0152757221dc6b272d824642db6202", 0.60),
     ModelSpec("THUDM/glm-4-9b-chat-hf", "glm4_9b",
               "8599336fc6c125203efb2360bfaf4c80eef1d1bf", 0.55, True),
+    # Reinstated 2026-09-19: excluded from this queue on 2026-09-17 pending confirmed
+    # external collection; no output ever appeared under any known owner prefix in the
+    # bucket, so it is collected here under a distinct owner (never l40s_small) to avoid
+    # colliding with that external run if it resumes.
+    ModelSpec("Qwen/Qwen2.5-3B-Instruct", "qwen25_3b",
+              "aa8e72537993ba99e69dfaafa59ed015b17504d1", 0.25),
 )
 
 DATASETS = (
