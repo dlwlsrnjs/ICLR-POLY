@@ -1,0 +1,22 @@
+[
+  {
+    "path": "polyjigsaw_grid_collect_runtime/data/multijail_v1/harm_grid.jsonl",
+    "rows": 315,
+    "exact_original_matches": 0
+  },
+  {
+    "path": "bucket_root/private_artifacts/multijail_v1/harm_grid.jsonl",
+    "rows": 315,
+    "exact_original_matches": 0
+  },
+  {
+    "path": "bucket_root/private_artifacts/multijail_v1/benign_probe.jsonl",
+    "rows": 100,
+    "exact_original_matches": 0
+  },
+  {
+    "path": "target_prior_only_20260916/prior_completion_17models_20260918/reconstruction/flores_selected_source_rows.jsonl",
+    "rows": 48,
+    "exact_original_matches": 0
+  }
+]

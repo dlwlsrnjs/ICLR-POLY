@@ -1,0 +1,24 @@
+{
+  "schema": "existing_translation_reuse_v1",
+  "items": 331,
+  "matching_originals": {
+    "Norwegian": 6
+  },
+  "reused_nonenglish": {
+    "Norwegian": 5
+  },
+  "source_files": {
+    "target_prior_only_20260916/runs/willingness394_milmmt_v3/inputs/accepted_translations.json": "c5a35c4415b0537e185ae70bddeb568077c97311653dab3c5c85120279302692",
+    "target_prior_only_20260916/runs/willingness394_milmmt_v3/outputs/translations.jsonl": "0e4887634c73354ffdc7874b6211278777fbddd240a639c1f5abadf07f9f234d",
+    "target_prior_only_20260916/runs/willingness394_milmmt_v3/outputs/translation_qa.jsonl": "28beb889196004f8279de5a6fe7efc43cba5b87f67a22ee6d3c286311285e06d",
+    "target_prior_only_20260916/runs/willingness394_milmmt_v3/outputs/translation_qa.metadata.json": "d5d7ec744b124a93930a936492041f29f10c1c326afdf60e354e66000cd798f1"
+  },
+  "policy": "exact original + exact accepted translation + completed matching Qwen32 QA; MiLMMT only",
+  "reused_ids": [
+    "falsereject::fr-111",
+    "falsereject::fr-594",
+    "falsereject::fr-623",
+    "falsereject::fr-1037",
+    "falsereject::fr-1088"
+  ]
+}

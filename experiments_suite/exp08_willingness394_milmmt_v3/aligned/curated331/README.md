@@ -38,8 +38,13 @@ normalization; all five frames share the same payload. All 34 configurations
 correctly block production collection without accepted translations.
 This checks the builder, not a model's reconstruction ability.
 
-There are 331 Norwegian translations awaiting semantic QA and 331 Bengali
-translations still needed. Translation/backtranslation existence alone does
+Follow-up recovery found 5 QA-accepted Norwegian translations in the older
+MiLMMT run, matched by exact original text and completed Qwen32 judgment.
+Thus 326 Norwegian items still need QA; 331 Bengali translations remain unfound.
+The initial CPU audit above predates this recovery. The existing 331-item run
+already contains 993 forward/backtranslation pairs: Norwegian, Finnish and
+Arabic, 331 each. Its original Norwegian translations need no new translation.
+The recovered 5 may use a different earlier translation of the same original. Translation/backtranslation existence alone does
 not certify semantic equivalence. Do not manually relabel these translations
 as QA-accepted. After real QA, supply an independently saved accepted-translation
 file to `prepare.py`; preserve QA evidence and its hashes alongside it.
@@ -58,3 +63,23 @@ claimed by this connection audit.** Old `g5_ordered_n4` responses are not reused
 as `g3_ordered_n2` results. Runtime compatibility of all 17 models is still to be
 verified. The saved configurations specify model identities, not evidence that
 all 17 model runtimes have passed.
+
+## Reuse existing verified translations
+
+```bash
+python3 "$ALIGNED/reuse_existing_translations.py" --inputs "$OUT/inputs" --previous "$PREVIOUS_MILMMT_RUN" --out "$OUT/recovered_qa"
+python3 "$ALIGNED/prepare.py" --config "$OUT/inputs/configs/lg_qwen25_7b.json" --items "$OUT/inputs/items.json" --translations "$OUT/recovered_qa/accepted_translations.json" --out "$OUT/lg_qwen7b_recovered_qa"
+```
+
+Actual check: 5 eligible items, 25 jobs, 326 blocked. Full original translation,
+backtranslation, judge prompt/output and metadata are retained locally in
+`recovered_qa/reuse_evidence.json`. Summary hashes and IDs are in
+`reuse_report.json`. Initial frozen inputs remain unchanged.
+
+The earlier `willingness394_v1` run also has 6 overlapping QA-accepted Norwegian
+translations, but uses a different translator revision. They were not silently
+mixed into this MiLMMT collection. The MiLMMT version of one of those six fails
+its own semantic QA; a different version's pass cannot certify that text.
+The workspace Bengali banks and restored file index were searched;
+`bengali_search_report.json` records zero exact-original matches in the source
+banks found. This is a scoped search result, not proof no other external copy exists.
