@@ -71,8 +71,11 @@ GPU=0 bash "$P/run.sh" smoke
 GPU=1 bash "$P/run.sh" qa
 ```
 
-Qwen32 BF16, CPU offload 48 GiB, GPU memory utilization 0.30,
-max_num_seqs 8, max_num_batched_tokens 1024로 실행합니다.
+Qwen32 BF16을 단일 전용 L40S에서 실행할 때 검증한 기본값은 CPU offload
+25 GiB, GPU memory utilization 0.95, max_num_seqs 16,
+max_num_batched_tokens 2048, batch size 32입니다. 이 설정으로 331개 판정을
+완료했으며 284개가 통과하고 47개가 보류됐습니다. 공유 GPU에서는 여유 VRAM에
+맞춰 값을 낮추거나, 가능하면 두 개의 빈 GPU에서 tensor parallel을 사용하세요.
 실행 서버의 RAM·VRAM 여유를 먼저 확인하세요. 공유 GPU에서는 다른 프로세스의
 사용량에 따라 이 설정도 실패할 수 있습니다. 영어·아랍어·역번역의 의미와
 언어를 판정하며, `OUT/qa/judgments.jsonl`에 전체 입출력·종료 사유를 보존합니다.
@@ -92,7 +95,7 @@ bash "$P/run.sh" prepare
 ### 4. Qwen7B 본 수집
 
 ```bash
-GPU=0 MODEL_TAG=qwen25_7b MEMORY_UTILIZATION=.30 BATCH_SIZE=8 \
+GPU=0 MODEL_TAG=qwen25_7b MEMORY_UTILIZATION=.85 BATCH_SIZE=8 \
   bash "$P/run.sh" collect
 ```
 
@@ -102,6 +105,15 @@ GPU=0 MODEL_TAG=qwen25_7b MEMORY_UTILIZATION=.30 BATCH_SIZE=8 \
 수집 결과는 `OUT/panel/<model_tag>/responses.jsonl`에 전체 입력·출력·종료
 사유·토큰 수와 함께 저장됩니다. 같은 입력·런타임이면 중단 지점부터 재개합니다.
 입력이나 런타임이 달라지면 새 OUT을 사용합니다.
+
+여러 고정 snapshot을 중단 재개 가능한 순차 큐로 돌릴 때는
+`code/run_panel_queue.py`에 `--model TAG=/snapshot/path`를 반복해 전달합니다.
+`--after-pid`로 선행 큐 종료를 기다릴 수 있고, 각 큐는 별도
+`--status-file`과 모델별 로그를 남깁니다. 제한된 임시 저장소에서 마지막 대형
+모델을 하나씩 staging하려면 `code/run_remaining_models.py`, 전체 수집 후 GPU
+두 장에서 reconstruction/WildGuard를 병렬 판정하고 prior를 집계하려면
+`code/run_judge_queue.py`를 사용합니다. 두 보조 실행기는 완성 행 수를 검사하며,
+불완전한 모델의 가중치나 결과를 자동 삭제하지 않습니다.
 
 ## 판정 및 의지축 해석
 
@@ -119,12 +131,10 @@ Non-refusal은 답변의 정확성/충실도와 동일하지 않습니다. 선�
 
 `STRUCTURAL_AUDIT.json`: 실제 영어·아랍어 퍼즐 1,655개에서 원문 복원과
 프레임 간 조각 동일성 확인. 이것은 생성 코드 검증이며 모델 재조합 성공률은 아닙니다.
-`RUN_STATUS.json`은 기록 시각의 스냅샷입니다. 첫 7B 실행은 KV 캐시 부족,
-첫 32B QA는 초기 메모리 점검 중 OOM으로 실패했습니다. 첫 재시도 7B도 KV 캐시 부족으로 실패했으며, 32B QA 재시도도 KV 캐시 부족으로 종료됐습니다.
-현재 1024토큰용 새 설정은 준비됐으며 GPU 추론은 재시작하지 않은 상태입니다.
-아래 값은 이 공유 서버에서 시도한 설정이지 실행 성공이 검증된 설정이 아닙니다.
-전용 GPU에서 실행할 때는 예를 들어 MEMORY_UTILIZATION=.85처럼 환경에 맞게
-설정하세요. 공유 GPU에서는 이를 그대로 올리면 다른 작업과 충돌할 수 있습니다.
-수정한 메모리 설정과 실패 이력을 포함했습니다. 실제 완료 여부는 각 실행 폴더의 로그와
-응답 파일로 확인합니다. `continue_after_qa.py`는 이 서버에서 돌린 후속
-실행 보조 도구이며, 위 단계별 실행에는 필요하지 않습니다.
+`RUN_STATUS.json`은 기록 시각의 스냅샷입니다. 초기 0.30 설정은 KV 캐시를
+확보하지 못해 실패했습니다. 이후 전용 L40S에서 30응답 smoke를 완료했고
+(30/30 정상 종료, 필수 두 section 존재), 위의 조정된 설정으로 Qwen32 QA
+331건도 완료했습니다. 대상 패널 수집은 중단 재개 가능한 `collect.py`와
+`code/run_panel_queue.py`로 순차 실행합니다. 공유 GPU에서는 높은 utilization을
+그대로 사용하지 말고 실제 여유 VRAM을 먼저 확인하세요. 실제 진행 여부는 실행
+폴더의 `pipeline_status*.json`, 모델별 로그, 응답 행 수로 확인합니다.

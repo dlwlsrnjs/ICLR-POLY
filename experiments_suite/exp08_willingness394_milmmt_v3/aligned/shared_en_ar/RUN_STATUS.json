@@ -1,33 +1,44 @@
 {
-  "recorded_at_utc": "2026-09-19T18:06:48.948975+00:00",
+  "recorded_at_utc": "2026-09-19T20:44:30Z",
   "dataset_items": 331,
   "canonical_mj_lg": false,
   "initial_failures": [
-    "Qwen7B: no KV cache memory",
-    "Qwen32B QA: CUDA out of memory during initialization"
+    "Qwen7B at memory utilization 0.30: no KV cache memory",
+    "Qwen32B QA at memory utilization 0.30: no KV cache memory"
   ],
-  "retry": {
-    "target_memory_utilization": 0.3,
+  "validated_runtime": {
+    "target_memory_utilization": 0.85,
+    "target_batch_size": 8,
     "target_max_num_batched_tokens": 2048,
-    "qa_memory_utilization": 0.3,
-    "qa_cpu_offload_gb": 48,
-    "qa_max_num_seqs": 8,
-    "qa_max_num_batched_tokens": 1024
+    "qa_memory_utilization": 0.95,
+    "qa_cpu_offload_gb": 25,
+    "qa_max_num_seqs": 16,
+    "qa_max_num_batched_tokens": 2048,
+    "qa_batch_size": 32
   },
-  "pipeline": {
-    "stage": "waiting_for_qa_and_smoke",
-    "updated": "2026-09-19T17:56:44Z",
-    "qa_pid": 3839325,
-    "smoke_pid": 3829340
+  "smoke": {
+    "responses": 30,
+    "normal_stop": 30,
+    "required_sections_present": 30,
+    "truncated": 0
   },
-  "smoke_responses": 0,
-  "qa_judgments": 0,
-  "main_responses": 0,
-  "smoke_retry_status": "failed: no available memory for KV cache blocks",
-  "qa_retry_status": "failed: no available memory for KV cache blocks",
-  "runtime_success_confirmed": false,
-  "latest_status_update_utc": "2026-09-19T18:39:48.306966+00:00",
+  "translation_qa": {
+    "judgments": 331,
+    "pass_count": 284,
+    "fail_count": 47,
+    "judgments_sha256": "fe356173621da330ef6f277ed4241bb6e602003470d5344f343a77ad72b068c5"
+  },
+  "panel": {
+    "models": 17,
+    "jobs_per_model": 1420,
+    "current_model": "qwen25_7b",
+    "current_model_responses_at_snapshot": 864,
+    "current_gpu": 3,
+    "queued_single_gpu_models": 14,
+    "queued_tensor_parallel_models": 3,
+    "judging": "queued_after_collection"
+  },
   "requested_target_max_tokens": 1024,
-  "current_pipeline_state": "configured_not_started",
-  "next_run": "willingness331_shared_en_ar_g3_ordered_n2_tokens1024"
+  "runtime_success_confirmed": true,
+  "current_pipeline_state": "main_collection_running"
 }

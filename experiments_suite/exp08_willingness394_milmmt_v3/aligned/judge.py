@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Prepare auditable annotation inputs and optionally run one existing judge stage."""
 import argparse
+import fcntl
 import hashlib
 import importlib.metadata
 import json
@@ -52,8 +53,16 @@ if __name__ == '__main__':
     p.add_argument('--run', type=Path, required=True)
     p.add_argument('--repo', type=Path, default=Path(__file__).resolve().parents[3])
     p.add_argument('--model-path', type=Path, help='Local judge snapshot, required for inference stages')
+    p.add_argument('--gpu', default='1', help='Physical GPU id used by the judge')
+    p.add_argument('--memory-utilization', type=float, default=.75,
+                   help='vLLM memory utilization for WildGuard/behavior stages')
+    p.add_argument('--batch-size', type=int, default=16,
+                   help='Reconstruction judge batch size')
     a = p.parse_args()
-    judge = prepare(a.run.resolve(), a.repo.resolve())
+    run = a.run.resolve()
+    with (run/'judge.prepare.lock').open('w') as preparation_lock:
+        fcntl.flock(preparation_lock, fcntl.LOCK_EX)
+        judge = prepare(run, a.repo.resolve())
     if a.stage == 'prepare': print(judge); sys.exit(0)
     if not a.model_path or not a.model_path.exists(): p.error('--model-path must name a local judge snapshot')
     expected_revisions = {'reconstruction':'a09a35458c702b33eeacc393d103063234e8bc28',
@@ -61,9 +70,15 @@ if __name__ == '__main__':
                           'behavior':'5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd'}
     if a.model_path.resolve().name != expected_revisions[a.stage]:
         raise ValueError('Judge snapshot differs from the frozen protocol')
-    env = dict(os.environ, CUDA_VISIBLE_DEVICES='1', VLLM_USE_V1='1', HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1')
+    if not a.gpu.isdigit() or not 0 < a.memory_utilization <= 1 or a.batch_size < 1:
+        p.error('Invalid GPU or runtime limits')
+    env = dict(os.environ, CUDA_VISIBLE_DEVICES=a.gpu, POLY_JUDGE_GPU=a.gpu,
+               POLY_WILDGUARD_MEMORY_UTILIZATION=str(a.memory_utilization),
+               VLLM_USE_V1='1', HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1')
     runtime = {'packages': {name: importlib.metadata.version(name) for name in (['torch','transformers'] if a.stage == 'reconstruction' else ['torch','transformers','vllm'])},
-               'stage': a.stage, 'model_snapshot': str(a.model_path.resolve()), 'gpu': 1,
+               'stage': a.stage, 'model_snapshot': str(a.model_path.resolve()), 'gpu': int(a.gpu),
+               'memory_utilization': a.memory_utilization if a.stage != 'reconstruction' else None,
+               'batch_size': a.batch_size if a.stage == 'reconstruction' else None,
                'judge_provenance_sha256': digest(json.loads((judge/'provenance.json').read_text()))}
     if a.stage == 'reconstruction':
         # This is the same equivalence judge as the MJ/LG grid, independently loaded.
@@ -71,7 +86,7 @@ if __name__ == '__main__':
             raise ValueError('Reconstruction judge must use the panel Qwen2.5-7B snapshot')
         cmd = [sys.executable, str(a.repo.resolve()/'scripts/judge_reconstruction_equivalence.py'),
                '--input', str(judge/'inputs/reconstruction.jsonl'), '--outdir', str(judge/'reconstruction'),
-               '--model', str(a.model_path.resolve()), '--device', 'cuda:0', '--batch-size', '16']
+               '--model', str(a.model_path.resolve()), '--device', 'cuda:0', '--batch-size', str(a.batch_size)]
     else:
         cmd = [sys.executable, str(judge/'code/batch_label.py'), a.stage, '--model', str(a.model_path.resolve())]
     mp = judge/(a.stage+'.runtime.json')

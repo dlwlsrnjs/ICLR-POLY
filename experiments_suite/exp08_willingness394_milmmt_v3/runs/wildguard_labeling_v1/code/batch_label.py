@@ -4,7 +4,8 @@ from label import WG,RUBRIC,checked_behavior,read
 R=Path(__file__).resolve().parents[1]
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('stage',choices=['wildguard','behavior']);ap.add_argument('--model',required=True);ap.add_argument('--limit',type=int);ap.add_argument('--pilot',action='store_true');ap.add_argument('--evidence',action='store_true');ap.add_argument('--retry-invalid',action='store_true');ap.add_argument('--gate-evidence',action='store_true');ap.add_argument('--batch',type=int,default=64);a=ap.parse_args()
- assert os.environ.get('CUDA_VISIBLE_DEVICES')=='1'
+ judge_gpu=os.environ.get('POLY_JUDGE_GPU','1')
+ assert os.environ.get('CUDA_VISIBLE_DEVICES')==judge_gpu
  assert os.environ.get('VLLM_USE_V1')=='1', 'raw-logprob rescore requires V1 sampler'
  from vllm import LLM,SamplingParams
  from transformers import AutoTokenizer,AutoConfig
@@ -42,7 +43,8 @@ def main():
  done={k for k,x in latest.items() if x.get('valid') or not a.retry_invalid};jobs=[x for x in jobs if x['key'] not in done]
  if a.limit:jobs=jobs[:a.limit]
  import importlib.metadata as md
- metadata={'model':a.model,'stage':a.stage,'gpu':1,'input_sha256':hashlib.sha256((R/'inputs/jobs.jsonl').read_bytes()).hexdigest(),'rubric_sha256':hashlib.sha256((WG if a.stage=='wildguard' else rubric).encode()).hexdigest(),'packages':{k:md.version(k) for k in ['vllm','torch','transformers']},'temperature':0,'max_model_len':8192,'probabilities':'uncalibrated conditional on preceding generated fields','automatic_not_gold':True}
+ mem=float(os.environ.get('POLY_WILDGUARD_MEMORY_UTILIZATION','.60')) if a.stage=='wildguard' else .92
+ metadata={'model':a.model,'stage':a.stage,'gpu':int(judge_gpu),'gpu_memory_utilization':mem,'input_sha256':hashlib.sha256((R/'inputs/jobs.jsonl').read_bytes()).hexdigest(),'rubric_sha256':hashlib.sha256((WG if a.stage=='wildguard' else rubric).encode()).hexdigest(),'packages':{k:md.version(k) for k in ['vllm','torch','transformers']},'temperature':0,'max_model_len':8192,'probabilities':'uncalibrated conditional on preceding generated fields','automatic_not_gold':True}
  metapath=path.with_suffix('.metadata.json')
  if metapath.exists():
   oldmeta=json.loads(metapath.read_text())
@@ -52,7 +54,6 @@ def main():
  if not jobs:print('NOTHING_PENDING',flush=True);return
  kwargs={}
  if getattr(cfg,'head_dim',None) is None and cfg.model_type=='mistral':kwargs['hf_overrides']={'head_dim':cfg.hidden_size//cfg.num_attention_heads}
- mem=.60 if a.stage=='wildguard' else .92
  llm=LLM(model=a.model,dtype='bfloat16',tensor_parallel_size=1,max_model_len=8192,gpu_memory_utilization=mem,enforce_eager=True,max_num_seqs=48,max_num_batched_tokens=8192,disable_log_stats=True,max_logprobs=50,enable_prefix_caching=True,**kwargs)
  yes=tok.encode('yes',add_special_tokens=False);no=tok.encode('no',add_special_tokens=False)
  if a.stage=='wildguard':assert len(yes)==len(no)==1
