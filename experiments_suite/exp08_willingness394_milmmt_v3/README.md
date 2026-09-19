@@ -1,5 +1,7 @@
 # FalseReject 394 / MiLMMT prior 수집 코드
 
+**MJ·LG에 맞춘 새 수집 설정은 [aligned/README.md](aligned/README.md)에 있습니다.** 무해 이해 prior로 `g3_ordered_n2`를 고정하고 기존 grid의 정확한 5프레임을 사용합니다. 아래 원본 보관본은 변경하지 않았습니다.
+
 Qwen2.5-7B-Instruct 대상으로 실행했던 `willingness394_milmmt_v3` 수집 소스의 독립 보관 폴더입니다. 원본 Python·shell 코드, 설정과 프레임 템플릿 27개를 변경 없이 보존했습니다. `SOURCE_MANIFEST.json`의 SHA-256으로 원본 일치를 검증할 수 있습니다.
 
 394개 원문, 번역, 조각 정렬, 생성 응답, 모델 가중치, 캐시와 기존 prior 데이터는 포함하지 않습니다. `COMPATIBILITY_AUDIT.json`은 GPU 호출 없는 코드 호환성 검사 결과입니다.
