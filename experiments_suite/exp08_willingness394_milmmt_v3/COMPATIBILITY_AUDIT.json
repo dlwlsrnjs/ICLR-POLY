@@ -1,0 +1,85 @@
+{
+  "repo_commit": "2e61055ee40b7d5ef22a0cd27844c0f5a7319343",
+  "archived_files_verified": 27,
+  "frame_mapping": {
+    "plain": {
+      "v3_frame": "plain",
+      "frame_text_identical": false
+    },
+    "persona": {
+      "v3_frame": "legacy_persona",
+      "frame_text_identical": true
+    },
+    "fiction": {
+      "v3_frame": "legacy_fiction",
+      "frame_text_identical": true
+    },
+    "pap": {
+      "v3_frame": "legacy_pap",
+      "frame_text_identical": true
+    },
+    "persona+fiction": {
+      "v3_frame": "legacy_persona_fiction",
+      "frame_text_identical": true
+    }
+  },
+  "comprehension_cells": 32,
+  "C_grid_arms": 160,
+  "v3_scenarios": 111,
+  "fragment_fixture": [
+    {
+      "languages": 2,
+      "v3_total_fragments": 5,
+      "grid_g5_total_fragments": 10
+    },
+    {
+      "languages": 4,
+      "v3_total_fragments": 5,
+      "grid_g5_total_fragments": 20
+    }
+  ],
+  "full_prompt_identical": false,
+  "v3_target": "Qwen/Qwen2.5-7B-Instruct",
+  "dataset_evidence": {
+    "mj": {
+      "result_files": 292,
+      "C_grid_arms_present": 160,
+      "grid_frame_counts": {
+        "fiction": 32,
+        "fiction+pap": 32,
+        "pap": 32,
+        "persona": 32,
+        "persona+fiction": 32,
+        "persona+fiction+pap": 32,
+        "persona+pap": 32,
+        "plain": 32,
+        "role": 32
+      },
+      "comprehension_cells": 32,
+      "comprehension_source": "experiments_suite/exp02_panel_collect/results/benign/qwen25_7b_mj.json",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "collection": "MultiJail"
+    },
+    "lg": {
+      "result_files": 292,
+      "C_grid_arms_present": 160,
+      "grid_frame_counts": {
+        "fiction": 32,
+        "fiction+pap": 32,
+        "pap": 32,
+        "persona": 32,
+        "persona+fiction": 32,
+        "persona+fiction+pap": 32,
+        "persona+pap": 32,
+        "plain": 32,
+        "role": 32
+      },
+      "comprehension_cells": 32,
+      "comprehension_source": "experiments_suite/exp02_panel_collect/results/benign/qwen25_7b_lg.json",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "collection": "Lingua-SafetyBench"
+    }
+  },
+  "conclusion": "Four frame texts match; plain, full wrapper, fragment semantics and language coverage differ. Factorized transfer requires explicit assumptions; these are not matched 160-cell observations.",
+  "gpu_calls": 0
+}

@@ -1,0 +1,142 @@
+{
+  "source_root": "target_prior_only_20260916",
+  "snapshot_date": "2026-09-20",
+  "source_files_unchanged": true,
+  "files": [
+    {
+      "path": "prototypes/game_frames_v1/build_examples.py",
+      "sha256": "d8074a6c6388c8a3d7ebe1f1c84fc030cc516e1abeb212491def0f1cc9d2f9f9",
+      "bytes": 7621
+    },
+    {
+      "path": "runs/wildguard_labeling_v1/code/batch_label.py",
+      "sha256": "41e64ed56e44bf6aabdb6d92ea8da22cfd57a7590be764e20811c25875b7f5c8",
+      "bytes": 9777
+    },
+    {
+      "path": "runs/wildguard_labeling_v1/code/label.py",
+      "sha256": "c72edd53b139a1b79237fd22d822fed3eebcf42958d7279a71b9b0dd808007df",
+      "bytes": 10273
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/code/accept_translations.py",
+      "sha256": "4d2a2311a39e094acfa7bf4fc2c907c3af0640365e035f6d2081a7437d0b6953",
+      "bytes": 2279
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/code/check_layout.py",
+      "sha256": "689962402dd7898fde7ca61d086bcac0899f616b4ed640bde7474124e1bfcd06",
+      "bytes": 1051
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/code/collect_pipeline.py",
+      "sha256": "ac321932a6ba6fdcb64a115fba47b55bc48ab49ea3c4b9ffb3cf92328e4d05c8",
+      "bytes": 1530
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/code/export_prior.py",
+      "sha256": "579bf4e12878255408fa42ea3ebf955034dce3ddef17830667d93efd55c8ab18",
+      "bytes": 2840
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/code/manage.py",
+      "sha256": "831381a4d89fd52401e617269f62976a3b913e71939b56ea465d0137a7de2c14",
+      "bytes": 1658
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/code/prepare_judges.py",
+      "sha256": "35781024a68fe080216b09c99199b6f40faa37bb9af0f52f814373585be818f3",
+      "bytes": 1478
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/code/run.py",
+      "sha256": "f5d7699e6051fd2ca2d06fa915edf509b7bd33e22ef129d96af93083a15a604c",
+      "bytes": 5406
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/code/scenarios.py",
+      "sha256": "83bb3fd9ae3a0db9d84a97848c5b7d3b61f561355ecd44597a45bef88eb88425",
+      "bytes": 6158
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/code/summarize.py",
+      "sha256": "c37cde116381060e2b1efabc25f55acd5cfd6fd78002262c2a7f72232489c18e",
+      "bytes": 2788
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/code/translate.py",
+      "sha256": "987f873b282e7eda9f28be64381b1c972bedc41dc05178b0aeca5f82b839026d",
+      "bytes": 4059
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/code/translation_qa.py",
+      "sha256": "9e9b040fd528b522ffa885c68135a78142facc0707b21e10747051bfd566c1eb",
+      "bytes": 7493
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/code/verify_scenarios.py",
+      "sha256": "79d017bd922b1dd6d19d13b8b8f0495750fcdba74e5bed1b972f695ebdc3f67b",
+      "bytes": 2823
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/code/verify_translation.py",
+      "sha256": "88202b823392ba85a7cb70720c6992a1f3f4d7a588f2053a21a8db81ad5c05ab",
+      "bytes": 2278
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/collect_all.sh",
+      "sha256": "5960c6e4ff36f2feb32e23fe9dd15d4e89464928710685f00ccd294c3ccf969e",
+      "bytes": 385
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/configs/expanded_394.json",
+      "sha256": "2b3d03f5fe664c8b2144b7952facdbc1cee74c50aa26000c5247953344edc229",
+      "bytes": 1101
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/configs/legacy_394.json",
+      "sha256": "225769907196ed94c3117ad2d1bc09b1ec90ec4ac80f67385a0628841075ed15",
+      "bytes": 1078
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/configs/mixed4_smoke.json",
+      "sha256": "14b9040c18351511d7059b73d3a9365405fe6072164c7f6de8afb9e48d9f373d",
+      "bytes": 838
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/env.sh",
+      "sha256": "600dadb3b4afe02f84c42ebbf0850d2ec40cda45ecf69f3dd9f911d62c24f70d",
+      "bytes": 327
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/inputs/frames.json",
+      "sha256": "48e74defc5e03006fbe348aa20321d02c463c9f5e0049829008ff66f6fb45498",
+      "bytes": 4019
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/judge.sh",
+      "sha256": "38d6cd97d7cd201d27d6926e5916bf6afafc30f0b1387864934dd35e5aa25130",
+      "bytes": 692
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/prepare_inputs.sh",
+      "sha256": "8a724170824d62aa40f8268dd732192a8df60e0febbbd5375f21a6d2ec7050bd",
+      "bytes": 329
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/run.sh",
+      "sha256": "64a6a41d5ba4016fb29c6dc958fe527f992c9dbecf3bdd1125dfff02277bea05",
+      "bytes": 255
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/translate.sh",
+      "sha256": "d1cb0d66681731b1a573ba91fab3fdf199468e12ed9add9fa25392d5928c83f7",
+      "bytes": 245
+    },
+    {
+      "path": "runs/willingness394_milmmt_v3/translation_qa.sh",
+      "sha256": "1b856c349fe25c885b55919b2ddaa5123271ce66667a0ae9bacab0d2c6443b4c",
+      "bytes": 308
+    }
+  ]
+}

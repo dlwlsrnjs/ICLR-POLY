@@ -1,0 +1,59 @@
+{
+  "seed": 20260916,
+  "target_model": "Qwen/Qwen2.5-7B-Instruct",
+  "target_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "target_memory": 0.4,
+  "max_tokens": 1024,
+  "gpu": 1,
+  "frames": [
+    "plain",
+    "persona_archivist",
+    "persona_explorer",
+    "scene_single",
+    "scene_nested3",
+    "pap_logical",
+    "pap_alliance",
+    "legacy_persona",
+    "legacy_fiction",
+    "legacy_pap",
+    "legacy_persona_fiction"
+  ],
+  "orders": [
+    "ordered",
+    "reverse",
+    "shuffled"
+  ],
+  "mixed_profiles": [
+    [
+      "English",
+      "Norwegian"
+    ],
+    [
+      "English",
+      "Norwegian",
+      "Finnish",
+      "Arabic"
+    ]
+  ],
+  "assignment_rotations": [
+    0
+  ],
+  "include_raw_control": true,
+  "include_intact_controls": true,
+  "languages": [
+    "English",
+    "Norwegian",
+    "Finnish",
+    "Arabic"
+  ],
+  "name": "expanded_394__milmmt",
+  "fragment_counts": [
+    3,
+    5,
+    8,
+    12
+  ],
+  "monolingual_puzzles": true,
+  "translation_model": "xiaomi-research/MiLMMT-46-12B-v1.0",
+  "translation_revision": "a27dbbb37142ff076990820a1c9f0827beb5d6ea"
+}
