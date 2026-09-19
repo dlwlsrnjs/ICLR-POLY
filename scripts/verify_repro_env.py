@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail-fast check for the exact 2026-09-10 panel collection environment.
+"""Fail-fast check for the user-confirmed, metadata-backed collection environment.
 
 This prints only package versions, paths, hashes, git state, and behavior-changing environment
 variables; it never prints benchmark text.
@@ -17,18 +17,17 @@ from pathlib import Path
 
 
 EXPECTED_PACKAGES = {
-    "accelerate": "1.15.0",
     "einops": "0.8.2",
-    "huggingface-hub": "1.29.0",
+    "huggingface-hub": "0.36.2",
     "ninja": "1.13.2",
     "numpy": "2.2.6",
     "safetensors": "0.8.0",
     "sentencepiece": "0.2.2",
-    "tokenizers": "0.23.1",
-    "torch": "2.13.0",
-    "torchvision": "0.28.0",
-    "transformers": "5.16.1",
-    "vllm": "0.28.0",
+    "tokenizers": "0.22.2",
+    "torch": "2.6.0",
+    "torchvision": "0.21.0",
+    "transformers": "4.57.6",
+    "vllm": "0.8.5"
 }
 EXPECTED_MODELS = {
     "models--Qwen--Qwen2.5-7B-Instruct": "a09a35458c702b33eeacc393d103063234e8bc28",

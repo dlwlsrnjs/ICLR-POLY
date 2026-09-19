@@ -11,7 +11,7 @@ not the older 23-arm manuscript implementation.
 - `experiments_suite/exp02_panel_collect/`: MultiJail and Lingua matrix drivers
 - `experiments_suite/exp03_heterogeneity/analyze.py`: completion-aware analysis
 - `tests/test_revised_suite.py`: offline protocol tests
-- `environment-used.txt`: versions installed in the environment that produced the reference run
+- `environment-used.txt`: corrected collection versions, confirmed by the user and the 17 curated-331 model metadata files
 - `reference_results.json`: safe aggregate checkpoints for comparison
 
 Private benchmark rows and raw model generations are intentionally excluded.

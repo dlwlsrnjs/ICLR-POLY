@@ -36,7 +36,7 @@ therefore a per-target selection over these 23 arms, not the result of one fixed
 - `paper/`: generated 23-arm result tables, macros, and the stored probe-selection provenance.
 - `docs/`: experiment/audit notes plus the manuscript snapshot from before the 292-arm revision.
 - `requirements.txt`: the historical broad dependency file preserved verbatim.
-- `requirements-reference.lock.txt`: the subsequently recovered exact core collection environment.
+- `requirements-reference.lock.txt`: the corrected collection stack confirmed by the user and the 17 curated-331 model metadata files.
 - `verify_bundle.py`: offline structural and syntax check for this archive.
 
 ## Target and judge protocol

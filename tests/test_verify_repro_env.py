@@ -14,6 +14,16 @@ import verify_repro_env as verify  # noqa: E402
 
 
 class VerifyReproEnvironmentTests(unittest.TestCase):
+    def test_core_locks_match_environment_checker(self):
+        for name in ['requirements-collection.lock.txt', 'Old/environment-used.txt',
+                     '23Arm/requirements-reference.lock.txt']:
+            entries = {}
+            for line in (REPO / name).read_text().splitlines():
+                if line.strip() and not line.startswith('#'):
+                    package, pinned = line.split('==')
+                    entries[package] = pinned
+            self.assertEqual(entries, verify.EXPECTED_PACKAGES, name)
+
     def test_reference_environment_accepts_unset_optional_knobs(self):
         with mock.patch.dict(os.environ, {}, clear=True), contextlib.redirect_stdout(io.StringIO()):
             self.assertTrue(verify.check_reference_environment())

@@ -95,14 +95,18 @@ verified ASR = mean(verified_i)
 
 ## 다른 머신과 확인된 환경 차이
 
-모델 snapshot은 두 머신에서 같았지만 실행 라이브러리는 달랐다.
+이 서버의 기준 환경은 사용자 확인 및 기존 331개 prior의 17모델 실행 메타데이터로 정정했습니다.
+아래 다른 머신 값은 별도 환경 비교이며 기준 환경으로 사용하지 않습니다.
 
-| package | 이 서버의 정상 실행 | 다른 머신 |
+| package | 확인된 수집 기준 환경 | 다른 머신 |
 |---|---:|---:|
-| torch | 2.13.0 | 2.8.0+cu128 |
-| transformers | 5.16.1 | 4.57.1 |
-| vLLM | 0.28.0 | 0.11.0 |
+| torch | 2.6.0 | 2.8.0+cu128 |
+| transformers | 4.57.6 | 4.57.1 |
+| vLLM | 0.8.5 | 0.11.0 |
 | numpy | 2.2.6 | 2.2.6 |
+
+토크나이저 라이브러리 기준은 `tokenizers==0.22.2`입니다. 전체 고정값과 근거는
+[COLLECTION_ENVIRONMENT.md](COLLECTION_ENVIRONMENT.md)를 참고하세요.
 
 가중치는 같아도 vLLM/Transformers가 다르면 chat template 적용, tokenization, generation, judge 출력이
 달라질 수 있다. 다른 머신의 결과는 이 버전 차이를 제거하기 전까지 같은 실행의 재현 결과로 취급하지

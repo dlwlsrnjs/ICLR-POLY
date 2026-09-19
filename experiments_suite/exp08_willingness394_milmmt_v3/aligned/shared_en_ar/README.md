@@ -36,7 +36,9 @@ LG 기본 n2는 영어+노르웨이어입니다. 영어+아랍어 결과를 기�
 
 모델 실행에 NVIDIA GPU와 모델 가중치가 필요합니다. 가중치는 이 저장소에
 포함하지 않습니다. 로컬에서 사용한 환경은 Python 3.10, vLLM 0.8.5,
-PyTorch 2.6.0, Transformers 4.57.6입니다. 모든 17모델의 실행 호환성이
+PyTorch 2.6.0, Transformers 4.57.6, tokenizers 0.22.2입니다.
+저장소 루트의 `requirements-collection.lock.txt`와 환경 검사기도 이 실제 환경으로
+정정했습니다. 근거는 [수집 환경 문서](../../../../docs/COLLECTION_ENVIRONMENT.md)에 있습니다. 모든 17모델의 실행 호환성이
 검증된 것은 아닙니다. 특히 대형 모델은 아래 7B용 메모리 설정으로 실행할 수 없습니다.
 CPU 데이터 검증·퍼즐 생성은 표준 Python으로 가능합니다.
 

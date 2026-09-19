@@ -1,0 +1,176 @@
+{
+  "source": "willingness_overrefusal331_17models_20260918/models/*/metadata.json",
+  "model_count": 17,
+  "records": [
+    {
+      "model_tag": "falcon3_10b",
+      "metadata_sha256": "b5cd7c7665f280d135b31a8dbdf8b506b7189e93b685e9a6d63f1ebe796b612f",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "falcon3_3b",
+      "metadata_sha256": "1eadfb41e63ceca1f16e7e32a07566a6a9f7d15593dd1e2716a493ec27305392",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "falcon3_7b",
+      "metadata_sha256": "94e4473c25f02eb5ab27bf1aaf7dc07122fc155b4c4b4f94d9effab6f73f1f16",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "gemma2_27b",
+      "metadata_sha256": "954e5c053da05022517fda0eb7e8686db7d2f3722210460a6d24ef0c103bfc87",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "gemma2_2b_it",
+      "metadata_sha256": "635f86287cb0c3bd0bf2b2fef607ede186bde1489739f8117c29aa192308c900",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "gemma2_9b_it",
+      "metadata_sha256": "f1225ddea003d378e8eacc17ee7a8499db52cfb8fbb626f5cf878571d7fb1231",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "glm4_9b",
+      "metadata_sha256": "df3d99a1809ac4adf279e1449dd07358dd2d1ed670a674d784d2f8629ef587de",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "llama31_8b_it",
+      "metadata_sha256": "37ed1f218b858c9e3bf1212436abbb037f9168eb24a2f9156982b43a6a42f905",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "llama32_3b_it",
+      "metadata_sha256": "3925bf98b1eeecfbeb44ed62f889336d396376adc7250c185df3ba8d11632405",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "mistral24b",
+      "metadata_sha256": "c987e45de5c5de0be1d4c96251c63a004317920d3d3543b2ba9eb01cdf1160d4",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "mistral7b",
+      "metadata_sha256": "187dda8a5d8461f240d405257d79c2c1eec9b2b9012e7b807cb936ae1538c9c0",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "phi35_mini",
+      "metadata_sha256": "55c45bb70685a6b7641e3bd167dca1ba956d90109026e1f107fdf92589f15258",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "phi3_medium_14b",
+      "metadata_sha256": "a391394a2f63af8a58e7142c9321a8e3a511f59f5d17034f310ea61ef2bc887a",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "qwen25_14b",
+      "metadata_sha256": "931dbb205116d881b7c6f7b3b7ec58c898d3e152780bed5bb03cd803117a1e77",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "qwen25_32b",
+      "metadata_sha256": "d851bf34ccb23547ce2f5781546de1a07d118eca2fbe83cf886fc62aa7c721fc",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "qwen25_3b",
+      "metadata_sha256": "705da8badd92cf54a1717695847e1f8499e1a8dec66cd23f33cf44394698134f",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    },
+    {
+      "model_tag": "qwen25_7b",
+      "metadata_sha256": "8ec9920bdf488cfe451e798a241a073e14c7946b877709ef5291b79069873da7",
+      "packages": {
+        "vllm": "0.8.5",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "torch": "2.6.0"
+      }
+    }
+  ]
+}

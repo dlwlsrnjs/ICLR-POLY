@@ -18,18 +18,27 @@ comparison-basis drift. Metric definition is fixed:
   Parse failure = false. For a gated puzzle arm, a missing `[ANSWER]` = false unconditionally.
 - Implementation: `scripts/closed_compare.py` (scoring), `scripts/online_live.py` (judges).
 
-## 1. Pinned environment (the stack that produced the reported panel numbers)
+## 1. Pinned environment (confirmed actual collection stack)
+
+The user confirmed this collection environment; all 17 model metadata files in
+`willingness_overrefusal331_17models_20260918/models/*/metadata.json` independently
+record the same four core versions:
+
 ```
-torch==2.13.0
-transformers==5.16.1
-vllm==0.28.0
+torch==2.6.0
+transformers==4.57.6
+tokenizers==0.22.2
+vllm==0.8.5
 numpy==2.2.6
 ```
-`requirements-collection.lock.txt` pins the complete core collection stack, including vLLM and its
-tokenization/model-loading dependencies. `requirements.txt` includes this lock and then adds the
-analysis dependencies, so no second unpinned vLLM install is needed. A plain install made from the
-old requirements (`transformers<5`, vLLM absent or unpinned) gives different generations and judge
-outputs.
+
+`requirements-collection.lock.txt` and `scripts/verify_repro_env.py` use this
+verified stack. `requirements.txt` includes the lock and adds analysis packages.
+The previous version declarations in these files were incorrect and have been
+replaced; they must not be treated as evidence of a separate MJ/LG runtime.
+See [COLLECTION_ENVIRONMENT.md](COLLECTION_ENVIRONMENT.md) for the evidence and
+scope. Package equality alone does not make different prompts, languages,
+sampling settings or judge protocols the same experiment.
 
 Install and verify before collection. For the known-working Qwen2.5-7B reference, use the strict mode;
 it also rejects behavior-changing environment overrides:
