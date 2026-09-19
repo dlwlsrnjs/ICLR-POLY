@@ -41,7 +41,8 @@ def main():
     parser.add_argument('--python', type=Path, required=True)
     parser.add_argument('--reconstruction-model', type=Path, required=True)
     parser.add_argument('--wildguard-model', type=Path, required=True)
-    parser.add_argument('--after-pid', type=int, required=True)
+    parser.add_argument('--after-pid', type=int,
+                        help='Wait for this predecessor when launched independently')
     parser.add_argument('--reconstruction-gpu', default='2')
     parser.add_argument('--wildguard-gpu', default='3')
     args = parser.parse_args()
@@ -78,9 +79,10 @@ def main():
         atomic_json(status_path, value)
         print(json.dumps(value, sort_keys=True), flush=True)
 
-    status('waiting_for_target_collection', predecessor_pid=args.after_pid)
-    while alive(args.after_pid):
-        time.sleep(20)
+    if args.after_pid is not None:
+        status('waiting_for_target_collection', predecessor_pid=args.after_pid)
+        while alive(args.after_pid):
+            time.sleep(20)
 
     for tag in expected:
         target = run/'panel'/tag

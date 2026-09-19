@@ -44,6 +44,7 @@ CLEANUP_AFTER_COMPLETE = [
     ('falcon3_10b', 'models--tiiuae--Falcon3-10B-Instruct'),
     ('glm4_9b', 'models--THUDM--glm-4-9b-chat-hf'),
     ('qwen25_14b', 'models--Qwen--Qwen2.5-14B-Instruct'),
+    ('qwen25_32b', 'models--Qwen--Qwen2.5-32B-Instruct'),
 ]
 
 
@@ -91,7 +92,8 @@ def main():
     parser.add_argument('--hf-cli', type=Path, required=True)
     parser.add_argument('--hf-home', type=Path, required=True)
     parser.add_argument('--token-path', type=Path, required=True)
-    parser.add_argument('--after-pid', type=int, required=True)
+    parser.add_argument('--after-pid', type=int,
+                        help='Wait for this predecessor when launched independently')
     args = parser.parse_args()
 
     run = args.run.resolve()
@@ -122,9 +124,10 @@ def main():
         atomic_json(status_path, value)
         print(json.dumps(value, sort_keys=True), flush=True)
 
-    status('waiting_for_predecessor', predecessor_pid=args.after_pid)
-    while alive(args.after_pid):
-        time.sleep(20)
+    if args.after_pid is not None:
+        status('waiting_for_predecessor', predecessor_pid=args.after_pid)
+        while alive(args.after_pid):
+            time.sleep(20)
 
     status('cleaning_completed_caches')
     for tag, cache in CLEANUP_AFTER_COMPLETE:
