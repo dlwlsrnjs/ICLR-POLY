@@ -1,0 +1,29 @@
+{
+  "recorded_at_utc": "2026-09-19T18:06:48.948975+00:00",
+  "dataset_items": 331,
+  "canonical_mj_lg": false,
+  "initial_failures": [
+    "Qwen7B: no KV cache memory",
+    "Qwen32B QA: CUDA out of memory during initialization"
+  ],
+  "retry": {
+    "target_memory_utilization": 0.3,
+    "target_max_num_batched_tokens": 2048,
+    "qa_memory_utilization": 0.3,
+    "qa_cpu_offload_gb": 48,
+    "qa_max_num_seqs": 8,
+    "qa_max_num_batched_tokens": 1024
+  },
+  "pipeline": {
+    "stage": "waiting_for_qa_and_smoke",
+    "updated": "2026-09-19T17:56:44Z",
+    "qa_pid": 3839325,
+    "smoke_pid": 3829340
+  },
+  "smoke_responses": 0,
+  "qa_judgments": 0,
+  "main_responses": 0,
+  "smoke_retry_status": "failed: no available memory for KV cache blocks",
+  "qa_retry_status": "checkpoint loading; no judgments yet",
+  "runtime_success_confirmed": false
+}

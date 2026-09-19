@@ -1,0 +1,12 @@
+{
+  "by_dataset": {
+    "falsereject": 212,
+    "orbench_hard": 119
+  },
+  "harmful_evaluation_calls": 0,
+  "items_sha256": "ec7f615c515cc00ea1924466b78233b56598b6a783902d4e957269ec390577de",
+  "rows": 331,
+  "schema": "overrefusal-willingness-items/v1",
+  "source": "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/prior_completion_17models_20260918/willingness_overrefusal_recovered_20260918/01_source_pools/hard_overrefusal_combined_min5.jsonl",
+  "source_sha256": "5f523236b4d5df3c26144f9a5f7490f524d5ab2fbf55d373c262ed55ed440a60"
+}

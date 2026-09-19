@@ -1,0 +1,10 @@
+{
+  "model": "xiaomi-research/MiLMMT-46-12B-v1.0",
+  "revision": "a27dbbb37142ff076990820a1c9f0827beb5d6ea",
+  "vllm": "0.8.5",
+  "temperature": 0,
+  "max_tokens": 512,
+  "seed": 20260918,
+  "jobs": 993,
+  "items_sha256": "ec7f615c515cc00ea1924466b78233b56598b6a783902d4e957269ec390577de"
+}

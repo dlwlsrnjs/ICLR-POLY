@@ -1,0 +1,38 @@
+{
+  "schema": "published_curated331_bundle_v1",
+  "rows": 331,
+  "by_dataset": {
+    "falsereject": 212,
+    "orbench_hard": 119
+  },
+  "languages": [
+    "English",
+    "Norwegian",
+    "Finnish",
+    "Arabic"
+  ],
+  "translation_rows": 993,
+  "selection_rule": "bare_refuse_count >= 5 among 9 screened models",
+  "files": {
+    "data/items.json": {
+      "sha256": "e1659f492cf3396a4f8ec68d3852e72e5f49063dc5a110e50160d2f0ef6ad1c8",
+      "bytes": 233988
+    },
+    "data/original_items.json": {
+      "sha256": "ec7f615c515cc00ea1924466b78233b56598b6a783902d4e957269ec390577de",
+      "bytes": 168868
+    },
+    "data/original_items_manifest.json": {
+      "sha256": "7c0a4dcee66ae48427f8d5c22e871ea4026e3b75b9d68aa882353fd206e42832",
+      "bytes": 546
+    },
+    "data/translation_metadata.json": {
+      "sha256": "2e2602607f64e8c7a0f46ba8169b759be1c0032bf93cd7b3b45531db8023ef39",
+      "bytes": 291
+    },
+    "data/translations.jsonl": {
+      "sha256": "28cead91dd59a26ddc6a8065b7b946a373fa7fab78edc687ee2fad6944d69cea",
+      "bytes": 1537931
+    }
+  }
+}
