@@ -24,6 +24,10 @@
   "qa_judgments": 0,
   "main_responses": 0,
   "smoke_retry_status": "failed: no available memory for KV cache blocks",
-  "qa_retry_status": "checkpoint loading; no judgments yet",
-  "runtime_success_confirmed": false
+  "qa_retry_status": "failed: no available memory for KV cache blocks",
+  "runtime_success_confirmed": false,
+  "latest_status_update_utc": "2026-09-19T18:39:48.306966+00:00",
+  "requested_target_max_tokens": 1024,
+  "current_pipeline_state": "configured_not_started",
+  "next_run": "willingness331_shared_en_ar_g3_ordered_n2_tokens1024"
 }

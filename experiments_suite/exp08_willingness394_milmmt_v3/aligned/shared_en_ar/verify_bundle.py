@@ -23,4 +23,5 @@ configs=list((p/'configs').glob('*.json'));assert len(configs)==17
 for f in configs:
  c=json.loads(f.read_text());assert c['languages']==['English','Arabic'] and c['cell']=='g3_ordered_n2'
  assert c['expected_items']==331 and c['corpus_sha256']==digest(items)
+ assert c['sampling']['max_tokens']==1024
 print('PASS: 331 unique originals; 993 translations; exact English identity; 17 frozen shared-language configs; all data checksums.')

@@ -26,7 +26,7 @@ MJ/LG의 기존 **무해 이해 prior만** 읽는 `select_benign_anchor.py`로 3
 
 - `grid_contract.py`는 저장소의 실제 `closed_compare._compose` 함수와 `build_puzzle`을 사용합니다. GPU 의존성을 피하려고 신뢰하는 저장소 소스에서 해당 함수와 상수만 로드하며, 네 소스 파일의 해시를 설정에 고정합니다.
 - 다섯 프레임의 전체 user prompt, plain 문구, 퍼즐 분할·배열·seed가 기존 grid와 같습니다. 기존 v3의 GAME/PRESENTATION MODE와 추가 영어 system 지시는 사용하지 않습니다.
-- Qwen2.5-7B revision을 고정하고, 패널의 기본 user-only chat, temperature 0, max_tokens 320, max_model_len 4096을 맞췄습니다. 변경된 출력 예산으로 기존 1,024토큰 응답을 섞지 않습니다.
+- Qwen2.5-7B revision을 고정하고, 기본 user-only chat과 temperature 0을 유지합니다. 사용자 요청에 따라 대상 모델 응답 한도는 max_tokens 1024이며 max_model_len은 4096입니다. 출력 한도가 같더라도 언어·퍼즐·프롬프트가 다른 과거 응답과 섞지 않습니다.
 - 런타임 패키지 버전과 chat template 해시를 기록하고 재개 시 일치시킵니다. GPU 추론을 실행하지 않았으므로 다른 vLLM 버전 간 생성 결과까지 동일하다고 검증한 것은 아닙니다.
 - translation QA를 통과한 전체 문장을 언어당 g조각으로 분할합니다. 과거 v3의 조각별 정렬 파일은 필요하지 않습니다. 누락 언어를 영어나 다른 언어로 대체하지 않습니다.
 
