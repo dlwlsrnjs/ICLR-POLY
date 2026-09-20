@@ -1,6 +1,23 @@
 {
   "schema": "exp09_success_gated_clustered_online/v1",
   "routing_unit": "one original MJ/LG item",
+  "final_arm_space": {
+    "understanding_axis": {
+      "size": 32,
+      "factors": {
+        "fragment_count_g": [3, 5, 8, 12],
+        "order": ["ordered", "shuffled"],
+        "language_load_n": [2, 4, 6, 8]
+      }
+    },
+    "willingness_axis": {
+      "size": 5,
+      "frames": ["plain", "persona", "fiction", "pap", "persona+fiction"]
+    },
+    "cross_product_size": 160,
+    "prior_factorization": "mu0_q(understanding, willingness) = R_q(understanding) * W_q(willingness)",
+    "eligibility": "understanding reconstruction success AND positive willingness effect on the common reconstruction-success cohort"
+  },
   "text_routing": {
     "corpus": "331 harmless English originals with multilingual views retained",
     "metric": "cosine_on_l2_normalized_embeddings",

@@ -10,6 +10,8 @@
 ## 사전 고정 규칙
 
 1. arm은 이해축 `(g, order, n)`과 의지축 `frame`으로 분해한다.
+   최종 공간은 이해축 `4 g × 2 order × 4 n = 32`와 의지축
+   `plain/persona/fiction/PAP/persona+fiction = 5`의 교차곱, 총 **160 arm**이다.
 2. 이해축 클러스터 중심에는 의미 재구성에 성공한 지점만, 의지축 중심에는 재구성 성공 문항에서
    frame의 paired 수행 효과가 확인된 지점만 넣는다. 실패점은 중심에서 제외하지만 경계 관측으로 보존한다.
 3. selection/calibration과 final test 문항은 분리한다. test harmful 응답은 arm 선택에 사용하지 않는다.
@@ -189,3 +191,7 @@ test에 맞춰 바꾸지 않는다. 현재 저장소에는 이 text-cosine index
 이는 새 331 이해축을 아직 반영하지 않은 예비 비교다. 특히 exploratory 최고값을 test에 맞춘 최종
 정책으로 사용하지 않는다. 331 R/F/Y 결과가 완성되면 동일 코드를 success/effect-gated cluster prior로
 교체하고, 내부 validation이 고른 하나의 정책을 held-out test에 적용한다.
+
+또한 위 빠른 historical hybrid replay는 기존 item matrix와 정규식의 제약 때문에
+`8개 n=2 이해 cell × plain/persona/fiction 3개 = 24 arm`만 사용했다. PAP,
+persona+fiction과 `n=4/6/8`을 포함하지 않은 회귀 시험이므로 최종 160-arm 성능으로 해석하지 않는다.
