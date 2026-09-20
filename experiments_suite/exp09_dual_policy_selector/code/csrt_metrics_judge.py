@@ -145,6 +145,11 @@ def main() -> None:
                     "response_sha256": digest(response),
                     "valid": scores is not None,
                 }
+                # Preserve non-content grouping metadata so downstream aggregation never
+                # has to join on an ambiguous row order. Prompts and responses remain hashed.
+                for name in ("dataset", "model_tag", "target_model", "method", "attack", "arm", "item_id", "split"):
+                    if name in row:
+                        result[name] = row[name]
                 if scores is None:
                     result["error"] = error
                 else:
