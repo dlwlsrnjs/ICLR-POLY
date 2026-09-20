@@ -1,0 +1,20 @@
+{
+  "comparisons": [
+    {
+      "dataset": "mj",
+      "comparison": "g3_ordered_n2 versus g12_shuffled_n8, plain frame only",
+      "lower": 1,
+      "equal": 0,
+      "higher": 16
+    },
+    {
+      "dataset": "lg",
+      "comparison": "g3_ordered_n2 versus g12_shuffled_n8, plain frame only",
+      "lower": 2,
+      "equal": 2,
+      "higher": 13
+    }
+  ],
+  "selection_uses_asr": false,
+  "causal_claim": false
+}

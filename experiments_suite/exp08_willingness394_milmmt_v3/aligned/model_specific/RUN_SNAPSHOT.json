@@ -1,0 +1,63 @@
+{
+  "captured_at": "2026-09-20T01:21:53.487272+00:00",
+  "local_run": "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/runs/willingness331_model_specific_overlap8_v2_20260920",
+  "status": {
+    "stage": "calibration_collection",
+    "active_model": "falcon3_10b",
+    "failures": [],
+    "total_models": 17
+  },
+  "continuation": {
+    "stage": "translate_extra",
+    "command": [
+      "/tmp/poly-model-anchors-20260920/experiments_suite/exp08_willingness394_milmmt_v3/aligned/model_specific/translate_extra.py",
+      "--run",
+      "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/runs/willingness331_model_specific_overlap8_v2_20260920/extra_translations",
+      "--items",
+      "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/runs/willingness331_model_specific_overlap8_v2_20260920/inputs/items.json",
+      "--model",
+      "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/model_cache/models--xiaomi-research--MiLMMT-46-12B-v1.0/snapshots/a27dbbb37142ff076990820a1c9f0827beb5d6ea",
+      "--languages",
+      "Chinese",
+      "Bengali",
+      "Thai",
+      "Korean",
+      "--gpu",
+      "1"
+    ]
+  },
+  "counts": {
+    "qwen25_7b": 200,
+    "gemma2_2b_it": 100,
+    "gemma2_27b": 100,
+    "falcon3_3b": 100,
+    "falcon3_10b": 100,
+    "falcon3_7b": 100
+  },
+  "qa_by_language": {
+    "Arabic": {
+      "fail": 44,
+      "pass": 287
+    },
+    "Norwegian": {
+      "pass": 306,
+      "fail": 25
+    },
+    "Finnish": {
+      "fail": 55,
+      "pass": 276
+    }
+  },
+  "new_willingness_responses": 0,
+  "tests": {
+    "new_protocol": 4,
+    "existing_aligned": 17
+  },
+  "known_recovered_errors": [
+    "QA accepted-row postprocessing key corrected and resumed from all 993 saved judgments without regenerating judgments.",
+    "Continuation status Path serialization corrected before starting dependent jobs."
+  ],
+  "translation_scope": "331 items x 7 supported foreign languages; balanced MJ/LG overlap.",
+  "reused_n2_responses": 600,
+  "new_forward_translations": 384
+}

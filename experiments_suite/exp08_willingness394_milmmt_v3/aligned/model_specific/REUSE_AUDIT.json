@@ -1,0 +1,48 @@
+{
+  "models": [
+    {
+      "model": "falcon3_10b",
+      "reused_n2_responses": 100,
+      "source_file": "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/runs/willingness331_model_specific_20260920/calibration/falcon3_10b/responses.jsonl",
+      "source_sha256": "25bac909eee31d52bd4a3f7ee43a1a22fd954611ce4e3a8090e23788abdf32bf",
+      "source_metadata_sha256": "7386e63f7511dd896bba36da4c5058a6ddd0a5232eb13c15b9a29d5df7fd4969"
+    },
+    {
+      "model": "falcon3_3b",
+      "reused_n2_responses": 100,
+      "source_file": "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/runs/willingness331_model_specific_20260920/calibration/falcon3_3b/responses.jsonl",
+      "source_sha256": "ace872429a5f5a540be91adbdd52db1fa298da70de94b8045f5a690185427b53",
+      "source_metadata_sha256": "b7ab9697047675b34ccc3610d68a1b3fd15b9e74b05032e4987c4f6e47b549c5"
+    },
+    {
+      "model": "falcon3_7b",
+      "reused_n2_responses": 100,
+      "source_file": "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/runs/willingness331_model_specific_20260920/calibration/falcon3_7b/responses.jsonl",
+      "source_sha256": "44463a04c9aa16dd6a2c7680dd7d608f6d8de414c9279350c4baa7c823ed81e9",
+      "source_metadata_sha256": "7bd5a5a17b56b9ab0a654cb75ac7fd34686ae250b55286edbcd671ba6581c808"
+    },
+    {
+      "model": "gemma2_27b",
+      "reused_n2_responses": 100,
+      "source_file": "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/runs/willingness331_model_specific_20260920/calibration/gemma2_27b/responses.jsonl",
+      "source_sha256": "7cf69d10be4ff4ad97cae70e3a0462cde80c9e8502ab2dfadf8f18ee8076eee1",
+      "source_metadata_sha256": "e626bd5038005c2dbb64e90877fa6559ee6d5a5e5718eb05ef4f948931fdaf1f"
+    },
+    {
+      "model": "gemma2_2b_it",
+      "reused_n2_responses": 100,
+      "source_file": "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/runs/willingness331_model_specific_20260920/calibration/gemma2_2b_it/responses.jsonl",
+      "source_sha256": "54cf3726b73293389fe3edc57127943c7c4a9dc2822b2a10c86a834fbc018131",
+      "source_metadata_sha256": "e1016bfe48d7d91734efa0002e86ae653b094187d715af63d3d19d8587bc7fbe"
+    },
+    {
+      "model": "qwen25_7b",
+      "reused_n2_responses": 100,
+      "source_file": "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/runs/willingness331_model_specific_20260920/calibration/qwen25_7b/responses.jsonl",
+      "source_sha256": "40a5997de53ae142ef0232659d697f65da1f123ea96c9ece7be79c321d6fce02",
+      "source_metadata_sha256": "b0496565669d84405684038e7dd95a8bdb95f9f83e4a7d9058a7205e235423ce"
+    }
+  ],
+  "total_reused": 600,
+  "all_n4_plus_recomputed": true
+}

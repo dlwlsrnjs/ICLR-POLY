@@ -1,0 +1,37 @@
+{
+  "model": "xiaomi-research/MiLMMT-46-12B-v1.0",
+  "revision": "a27dbbb37142ff076990820a1c9f0827beb5d6ea",
+  "chosen_at": "2026-09-20T01:11:10.067711+00:00",
+  "source_items": 331,
+  "english_immutable": true,
+  "target_languages": [
+    "Arabic",
+    "Chinese",
+    "Norwegian",
+    "Finnish",
+    "Bengali",
+    "Thai",
+    "Korean"
+  ],
+  "total_foreign_pairs": 2317,
+  "new_pairs": 1324,
+  "existing_pairs": 993,
+  "official_model_card": "https://huggingface.co/xiaomi-research/MiLMMT-46-12B-v1.0",
+  "research_paper": "https://arxiv.org/abs/2608.10812",
+  "selection_basis": "Dedicated translation model supporting every requested language; developer-reported 46-language comparisons include TranslateGemma. This is not proof of superiority on this bank. Existing 993 pairs used the same pinned model; preserves translator consistency.",
+  "qa": "Qwen2.5-32B semantic comparison of original, translation and backtranslation; model judgments are not human gold. Failed translations are retained and excluded from accepted inputs.",
+  "new_translation_max_tokens": 1024,
+  "existing_translation_max_tokens": 512,
+  "normalization": "Chinese is the grid label; translation prompts use the officially supported name Chinese (Simplified).",
+  "existing_languages": [
+    "Arabic",
+    "Norwegian",
+    "Finnish"
+  ],
+  "new_languages": [
+    "Chinese",
+    "Bengali",
+    "Thai",
+    "Korean"
+  ]
+}

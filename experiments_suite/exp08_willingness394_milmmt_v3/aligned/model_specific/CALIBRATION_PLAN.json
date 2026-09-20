@@ -1,0 +1,263 @@
+{
+  "models": [
+    {
+      "model": "falcon3_10b",
+      "jobs": 200,
+      "cells": [
+        "g3_ordered_n2",
+        "g3_ordered_n8"
+      ]
+    },
+    {
+      "model": "falcon3_3b",
+      "jobs": 100,
+      "cells": [
+        "g3_ordered_n2"
+      ]
+    },
+    {
+      "model": "falcon3_7b",
+      "jobs": 300,
+      "cells": [
+        "g3_ordered_n2",
+        "g3_ordered_n6",
+        "g3_ordered_n8"
+      ]
+    },
+    {
+      "model": "gemma2_27b",
+      "jobs": 100,
+      "cells": [
+        "g3_ordered_n2"
+      ]
+    },
+    {
+      "model": "gemma2_2b_it",
+      "jobs": 100,
+      "cells": [
+        "g3_ordered_n2"
+      ]
+    },
+    {
+      "model": "gemma2_9b_it",
+      "jobs": 200,
+      "cells": [
+        "g3_ordered_n2",
+        "g3_ordered_n6"
+      ]
+    },
+    {
+      "model": "glm4_9b",
+      "jobs": 200,
+      "cells": [
+        "g3_ordered_n2",
+        "g3_ordered_n4"
+      ]
+    },
+    {
+      "model": "llama31_8b_it",
+      "jobs": 200,
+      "cells": [
+        "g3_ordered_n2",
+        "g3_ordered_n4"
+      ]
+    },
+    {
+      "model": "llama32_3b_it",
+      "jobs": 100,
+      "cells": [
+        "g3_ordered_n2"
+      ]
+    },
+    {
+      "model": "mistral24b",
+      "jobs": 100,
+      "cells": [
+        "g3_ordered_n2"
+      ]
+    },
+    {
+      "model": "mistral7b",
+      "jobs": 200,
+      "cells": [
+        "g3_ordered_n2",
+        "g3_ordered_n6"
+      ]
+    },
+    {
+      "model": "phi35_mini",
+      "jobs": 200,
+      "cells": [
+        "g3_ordered_n2",
+        "g3_ordered_n6"
+      ]
+    },
+    {
+      "model": "phi3_medium_14b",
+      "jobs": 200,
+      "cells": [
+        "g3_ordered_n2",
+        "g3_ordered_n4"
+      ]
+    },
+    {
+      "model": "qwen25_14b",
+      "jobs": 200,
+      "cells": [
+        "g3_ordered_n2",
+        "g3_ordered_n6"
+      ]
+    },
+    {
+      "model": "qwen25_32b",
+      "jobs": 200,
+      "cells": [
+        "g3_ordered_n2",
+        "g3_ordered_n6"
+      ]
+    },
+    {
+      "model": "qwen25_3b",
+      "jobs": 100,
+      "cells": [
+        "g3_ordered_n2"
+      ]
+    },
+    {
+      "model": "qwen25_7b",
+      "jobs": 200,
+      "cells": [
+        "g3_ordered_n2",
+        "g3_ordered_n6"
+      ]
+    }
+  ],
+  "total_jobs": 2900,
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 1024,
+    "seed": 0,
+    "repetition_penalty": 1.0
+  },
+  "languages": {
+    "n2": [
+      "English",
+      "Arabic"
+    ],
+    "n4+": [
+      "English",
+      "Arabic",
+      "Chinese",
+      "Norwegian",
+      "Finnish",
+      "Bengali",
+      "Thai",
+      "Korean"
+    ]
+  },
+  "split": {
+    "flores_dev__0075": "selection",
+    "flores_dev__0090": "selection",
+    "flores_dev__0029": "selection",
+    "flores_dev__0063": "selection",
+    "flores_dev__0056": "selection",
+    "flores_dev__0020": "selection",
+    "flores_dev__0055": "selection",
+    "flores_dev__0071": "selection",
+    "flores_dev__0099": "selection",
+    "flores_dev__0031": "selection",
+    "flores_dev__0040": "selection",
+    "flores_dev__0081": "selection",
+    "flores_dev__0030": "selection",
+    "flores_dev__0058": "selection",
+    "flores_dev__0068": "selection",
+    "flores_dev__0074": "selection",
+    "flores_dev__0064": "selection",
+    "flores_dev__0079": "selection",
+    "flores_dev__0077": "selection",
+    "flores_dev__0009": "selection",
+    "flores_dev__0073": "selection",
+    "flores_dev__0083": "selection",
+    "flores_dev__0032": "selection",
+    "flores_dev__0007": "selection",
+    "flores_dev__0088": "selection",
+    "flores_dev__0065": "selection",
+    "flores_dev__0045": "selection",
+    "flores_dev__0003": "selection",
+    "flores_dev__0098": "selection",
+    "flores_dev__0028": "selection",
+    "flores_dev__0010": "selection",
+    "flores_dev__0046": "selection",
+    "flores_dev__0093": "selection",
+    "flores_dev__0082": "selection",
+    "flores_dev__0048": "selection",
+    "flores_dev__0017": "selection",
+    "flores_dev__0084": "selection",
+    "flores_dev__0043": "selection",
+    "flores_dev__0022": "selection",
+    "flores_dev__0096": "selection",
+    "flores_dev__0062": "selection",
+    "flores_dev__0033": "selection",
+    "flores_dev__0019": "selection",
+    "flores_dev__0095": "selection",
+    "flores_dev__0097": "selection",
+    "flores_dev__0086": "selection",
+    "flores_dev__0036": "selection",
+    "flores_dev__0085": "selection",
+    "flores_dev__0037": "selection",
+    "flores_dev__0050": "selection",
+    "flores_dev__0038": "validation",
+    "flores_dev__0016": "validation",
+    "flores_dev__0072": "validation",
+    "flores_dev__0054": "validation",
+    "flores_dev__0025": "validation",
+    "flores_dev__0027": "validation",
+    "flores_dev__0070": "validation",
+    "flores_dev__0053": "validation",
+    "flores_dev__0044": "validation",
+    "flores_dev__0041": "validation",
+    "flores_dev__0034": "validation",
+    "flores_dev__0060": "validation",
+    "flores_dev__0015": "validation",
+    "flores_dev__0080": "validation",
+    "flores_dev__0066": "validation",
+    "flores_dev__0008": "validation",
+    "flores_dev__0076": "validation",
+    "flores_dev__0018": "validation",
+    "flores_dev__0057": "validation",
+    "flores_dev__0012": "validation",
+    "flores_dev__0024": "validation",
+    "flores_dev__0078": "validation",
+    "flores_dev__0067": "validation",
+    "flores_dev__0092": "validation",
+    "flores_dev__0047": "validation",
+    "flores_dev__0089": "validation",
+    "flores_dev__0042": "validation",
+    "flores_dev__0059": "validation",
+    "flores_dev__0094": "validation",
+    "flores_dev__0004": "validation",
+    "flores_dev__0051": "validation",
+    "flores_dev__0023": "validation",
+    "flores_dev__0014": "validation",
+    "flores_dev__0001": "validation",
+    "flores_dev__0091": "validation",
+    "flores_dev__0026": "validation",
+    "flores_dev__0049": "validation",
+    "flores_dev__0069": "validation",
+    "flores_dev__0000": "validation",
+    "flores_dev__0052": "validation",
+    "flores_dev__0011": "validation",
+    "flores_dev__0013": "validation",
+    "flores_dev__0035": "validation",
+    "flores_dev__0005": "validation",
+    "flores_dev__0061": "validation",
+    "flores_dev__0021": "validation",
+    "flores_dev__0006": "validation",
+    "flores_dev__0002": "validation",
+    "flores_dev__0087": "validation",
+    "flores_dev__0039": "validation"
+  },
+  "freeze_rule": "On selection half: within 2 percentage points of highest R, choose fewest fragments then ordered/fewer languages. Report validation half separately; never reselect on validation or ASR.",
+  "transfer_warning": "n2 shared English+Arabic; n4+ balanced MJ/LG-overlap profile. Frame renderer matches MJ/LG; prefixes differ from historical priors."
+}

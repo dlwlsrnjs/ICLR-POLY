@@ -1,0 +1,74 @@
+{
+  "calibration_jobs": 2900,
+  "models": 17,
+  "conditions": 29,
+  "language_profile": {
+    "ordered_languages": [
+      "English",
+      "Arabic",
+      "Chinese",
+      "Norwegian",
+      "Finnish",
+      "Bengali",
+      "Thai",
+      "Korean"
+    ],
+    "profiles": {
+      "n2": [
+        "English",
+        "Arabic"
+      ],
+      "n4": [
+        "English",
+        "Arabic",
+        "Chinese",
+        "Norwegian"
+      ],
+      "n6": [
+        "English",
+        "Arabic",
+        "Chinese",
+        "Norwegian",
+        "Finnish",
+        "Bengali"
+      ],
+      "n8": [
+        "English",
+        "Arabic",
+        "Chinese",
+        "Norwegian",
+        "Finnish",
+        "Bengali",
+        "Thai",
+        "Korean"
+      ]
+    },
+    "shared_mj_lg": [
+      "English",
+      "Arabic",
+      "Chinese"
+    ],
+    "lg_overlap": [
+      "English",
+      "Arabic",
+      "Chinese",
+      "Norwegian",
+      "Finnish"
+    ],
+    "mj_overlap": [
+      "English",
+      "Arabic",
+      "Chinese",
+      "Bengali",
+      "Thai",
+      "Korean"
+    ],
+    "officially_supported_by_translator": true,
+    "canonical_mj_or_lg_prefix": false
+  },
+  "all_language_fragments_roundtrip": true,
+  "selection_validation_items_per_cell": [
+    50,
+    50
+  ]
+}

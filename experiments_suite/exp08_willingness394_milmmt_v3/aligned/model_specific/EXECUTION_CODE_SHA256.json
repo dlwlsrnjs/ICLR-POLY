@@ -1,0 +1,36 @@
+{
+  "captured_at": "2026-09-20T01:21:53.484244+00:00",
+  "code_sha256": {
+    "analyze.py": "ea8a39697f975f5dd2893aadcd455cca45a25c46aa2b734476892c60f2f3eb03",
+    "calibrate.py": "43c3132320c19963c906f28ad7c24567331b9ee9ed91eda1f9e567b14784ea15",
+    "qa_existing.py": "ec2e26fb0b7083928cea2960fad6538994fbf666f0392f9edda2fa59e3980bf0",
+    "test_protocol.py": "ed925d325df5726e5ed28af1c7af0240dff978bc0612d363a0d8e6e0ae014144",
+    "qa_languages.py": "577811ceb65a483fff7af368e64c0037e3c5778156986b22a595916ae7941a49",
+    "translate_extra.py": "cfbbd464b5b2f7f2b3823ab9f9e6a0c4e2de79ea3576b3fdb85d5398e6d33f5d",
+    "continue_collection.py": "f60c357af6ea93579f5cb0e623f80a2e6ea7f8118b0a567a88637e9c416b397c",
+    "panel_summary.py": "bc65def84304db8bb3bb4ac4ab4036b1ff85e064396b7b9a6f1bb47d07fd67c4",
+    "export_bank.py": "de68bcdbb3836c5b3619a0940d60563272047e3c63b22014f980ecb7abd817a6",
+    "judge_local.py": "bee4fd713eafb5febc1ceefd8dee2a08e28e51a7bc228f44df627fae3d11711c",
+    "reuse_exact_n2.py": "fe3cb4c425db50268b46105f86fc7f9aec689f9f055ad903074ca838bc6bd5de"
+  },
+  "translator_runtime": {
+    "gpu": 1,
+    "vllm_use_v1": true,
+    "gpu_memory_utilization": 0.9,
+    "max_num_seqs": 16,
+    "max_num_batched_tokens": 2048,
+    "enable_chunked_prefill": true,
+    "dtype": "bfloat16",
+    "max_model_len": 4096,
+    "max_output_tokens": 1024
+  },
+  "target_runtime": {
+    "gpu": 0,
+    "vllm_use_v1": false,
+    "gpu_memory_utilization": 0.9,
+    "max_num_seqs": 16,
+    "dtype": "bfloat16",
+    "max_model_len": 4096,
+    "max_output_tokens": 1024
+  }
+}
