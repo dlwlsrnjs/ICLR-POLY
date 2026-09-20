@@ -190,6 +190,10 @@ def main() -> None:
     parser.add_argument("--num-shards", type=int, default=1)
     parser.add_argument("--shard-index", type=int)
     parser.add_argument("--merge-only", action="store_true")
+    parser.add_argument(
+        "--stage", choices=("both", "reconstruction", "fulfillment"), default="both",
+        help="Run both judges or only one stage while preserving separate resumable outputs.",
+    )
     args = parser.parse_args()
     if args.num_shards < 1:
         raise ValueError("--num-shards must be positive")
@@ -227,8 +231,10 @@ def main() -> None:
         source = [row for index, row in enumerate(source) if index % args.num_shards == args.shard_index]
     tokenizer = AutoTokenizer.from_pretrained(args.model, local_files_only=True)
     backend = TransformersBackend(args.model, tokenizer)
-    run_stage("reconstruction", source, outdir / f"reconstruction{suffix}.jsonl", tokenizer, backend, args.batch)
-    run_stage("fulfillment", source, outdir / f"fulfillment{suffix}.jsonl", tokenizer, backend, args.batch)
+    if args.stage in {"both", "reconstruction"}:
+        run_stage("reconstruction", source, outdir / f"reconstruction{suffix}.jsonl", tokenizer, backend, args.batch)
+    if args.stage in {"both", "fulfillment"}:
+        run_stage("fulfillment", source, outdir / f"fulfillment{suffix}.jsonl", tokenizer, backend, args.batch)
     print(json.dumps({"stage": "complete", "run": str(args.run), "rows": len(source)}), flush=True)
 
 
