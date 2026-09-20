@@ -1,5 +1,8 @@
 {
-  "batch": 4,
-  "fallback": 2,
-  "time": 1789923019.548145
+  "batch": 8,
+  "fallback_sequence": [
+    4,
+    2
+  ],
+  "time": 1789923271.6829631
 }

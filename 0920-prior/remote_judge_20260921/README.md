@@ -32,3 +32,5 @@ cat process.json queue_status.json gpu0.json gpu1.json
 ## GPU0 배치 4 시험
 
 사용자 요청으로 GPU0만 batch 4로 재개합니다. `gpu0_batch_trial.py`가 원본 판정 코드를 별도 프로세스로 실행하며 CUDA OOM이면 `gpu0_batch_override.json`에 batch 2를 기록하고 저장된 valid 판정부터 재개합니다. 이후 모델에도 fallback batch 2를 유지합니다. GPU1 batch 16 및 실행 중 프로세스는 변경하지 않았습니다. run_one_gpu 원본은 `run_one_gpu.original.sh`에 보존했습니다. 판정 Python 코드/rubric/토큰 한도는 변경하지 않았습니다.
+
+사용자의 추가 요청으로 GPU0 batch 8을 시험합니다. CUDA OOM이면 8 → 4 → 2 순서로 낮추고 해당 값을 이후 모델에도 유지합니다. GPU1 batch 16은 계속 실행합니다.

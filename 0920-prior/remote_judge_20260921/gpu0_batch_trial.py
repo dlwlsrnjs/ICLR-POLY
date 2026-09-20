@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""GPU0-only batch 4 trial; persist batch 2 fallback on CUDA OOM."""
+"""GPU0 batch trial; persist descending batch fallback on CUDA OOM."""
 import json,os,subprocess,sys,time
 from pathlib import Path
 R=Path(__file__).resolve().parent
@@ -20,10 +20,11 @@ while True:
   if 'out of memory' in line.lower():oom=True
   print(line,end='',flush=True)
  rc=child.wait()
- if rc and oom and batch==4:
-  batch=2
-  control.write_text(json.dumps({'batch':2,'reason':'CUDA OOM at batch 4; user-authorized fallback','time':time.time()},indent=2)+'\n')
-  print(json.dumps({'event':'gpu0_batch_fallback','batch':2,'time':time.time()}),flush=True)
+ if rc and oom and batch>2:
+  previous_batch=batch
+  batch=max(2,batch//2)
+  control.write_text(json.dumps({'batch':batch,'reason':f'CUDA OOM at batch {previous_batch}; user-authorized fallback','time':time.time()},indent=2)+'\n')
+  print(json.dumps({'event':'gpu0_batch_fallback','batch':batch,'time':time.time()}),flush=True)
   time.sleep(3)
   continue
  sys.exit(rc if rc>=0 else 128-rc)
