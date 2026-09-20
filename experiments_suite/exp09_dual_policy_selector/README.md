@@ -146,8 +146,13 @@ test에 맞춰 바꾸지 않는다. 현재 저장소에는 이 text-cosine index
   LG `combined TF-IDF + kmeans(2) + factorized` 0.6113.
 - harmful 1--8회 exploratory 최고: MJ `prior-order@8` 0.5320,
   LG `prior-order@5` 0.6610.
-- harmless willingness 반복: `Thompson@80` 0.9752, frame oracle 0.9824;
-  `Thompson@20`도 0.9494.
+- 기존 harmless frame 반복 결과의 `oracle=0.9824`는 **의지축 수행 오라클이나 ASR이 아니다**.
+  고정 `g3_ordered_n2`에서 다섯 frame 모두 재구성에 성공한 완전사례만 남기고 WildGuard
+  `non-refusal`을 측정한 조건부 frame 상한이다. 원 체크포인트도 331개가 아니라 모델당 284개이며,
+  완전사례 필터 때문에 한 모델이 평가에서 빠졌지만 구 결과의 `models=17` 표기는 이를 반영하지 않았다.
+  재구성 실패를 0점으로 포함한 17모델 엄격 재계산에서는 oracle 0.9502, Thompson 10/20/80회가
+  각각 0.8898/0.9172/0.9380이었다. 최종 의지축은 Qwen2.5-32B 요청수행 판정과 plain 대비 paired
+  effect를 사용하고, positive effect가 확인된 arm만 success-gated cluster에 넣는다.
 - GitHub의 frozen BAI 규칙(무해 `μ0`에서 시작해 harmful residual을 GP-UCB로 갱신하고 마지막
   posterior-mean argmax를 추천)으로 계산하면, MJ 최고는 `plateau(p10,e=.01) + fixed8` 0.5325,
   LG 최고는 `plateau(p5,e=.01) + fixed8` 0.6727이다.
