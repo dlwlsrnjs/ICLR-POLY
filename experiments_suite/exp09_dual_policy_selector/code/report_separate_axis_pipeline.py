@@ -24,6 +24,7 @@ def main() -> None:
     for dataset, payload in search["datasets"].items():
         selected = {
             "schema": "poly_frozen_separate_axis_policy/v1",
+            "status": "analysis_only_dataset_specific",
             "dataset": dataset,
             "selected_without_test_feedback": True,
             "selection_validation_test_items": payload["item_counts"],
@@ -62,6 +63,7 @@ def main() -> None:
     if global_payload:
         frozen_global = {
             "schema": "poly_frozen_global_separate_axis_policy/v1",
+            "status": "canonical_final",
             "selected_without_test_feedback": True,
             "selection_objective": "equal MJ/LG macro",
             "policy": global_payload["chosen_policy"],

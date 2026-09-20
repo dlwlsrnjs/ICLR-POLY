@@ -800,6 +800,16 @@
       }
     },
     {
+      "check": "canonical_final_is_p5",
+      "ok": true,
+      "detail": {
+        "status": "canonical_final",
+        "method": "P5_response_state_dynamic",
+        "joint_prior": false,
+        "joint_posterior": false
+      }
+    },
+    {
       "check": "understanding_evidence_partition",
       "ok": true,
       "detail": {

@@ -1,5 +1,6 @@
 {
   "schema": "poly_frozen_separate_axis_policy/v1",
+  "status": "analysis_only_dataset_specific",
   "dataset": "mj",
   "selected_without_test_feedback": true,
   "selection_validation_test_items": {

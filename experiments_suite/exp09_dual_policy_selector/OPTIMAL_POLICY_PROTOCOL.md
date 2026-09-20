@@ -135,6 +135,10 @@ P4--P10의 118개 후보를 selection에서 비교하고 상위 후보를 valida
 동결 설정은 `results/OPTIMAL_PIPELINE_REPORT.md`, `results/selected_pipeline_mj.json`,
 `results/selected_pipeline_lg.json`, `results/selected_pipeline_global.json`에 있다.
 
+최종 주 방법은 통일 정책 P5 하나로 고정한다. MJ별 P5와 LG별 P9 선택은 구성요소 분석용으로만
+보존하며 데이터셋 이름을 알고 방법을 바꾸는 운용 규칙으로 사용하지 않는다. canonical 설정 파일은
+`config/final_p5_response_state_dynamic.json`이다.
+
 P9/P10은 성공·실패를 모두 직접 평균하는 단순화 후보였다. LG에서는 P9가 선택됐지만 MJ와 통합
 validation에서는 success-gated positive prior와 실패/거부 상태 전이를 분리한 P5가 더 안정적이었다.
 따라서 raw 실패 데이터를 버리지 않되, positive prior 중심에는 넣지 않고 posterior likelihood,

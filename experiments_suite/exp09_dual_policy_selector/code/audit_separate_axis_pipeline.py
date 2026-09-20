@@ -66,6 +66,13 @@ def main():
     check("full_evidence_no_joint_state",
           not any(contract[key] for key in ("joint_prior", "joint_posterior", "joint_cluster", "joint_gp")),
           contract)
+    final_config = json.loads((experiment / "config/final_p5_response_state_dynamic.json").read_text())
+    check("canonical_final_is_p5",
+          final_config.get("status") == "canonical_final"
+          and final_config.get("method") == "P5_response_state_dynamic"
+          and final_config.get("joint_prior") is False
+          and final_config.get("joint_posterior") is False,
+          {key: final_config.get(key) for key in ("status", "method", "joint_prior", "joint_posterior")})
     evidence = json.loads((experiment / "results/full_evidence_prior_audit.json").read_text())["totals"]
     u = evidence["understanding"]; w = evidence["willingness"]
     check("understanding_evidence_partition",

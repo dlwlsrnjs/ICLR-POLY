@@ -1,5 +1,6 @@
 {
   "schema": "poly_frozen_global_separate_axis_policy/v1",
+  "status": "canonical_final",
   "selected_without_test_feedback": true,
   "selection_objective": "equal MJ/LG macro",
   "policy": {

@@ -4,6 +4,10 @@
 > 구현·탐색·held-out 평가를 완료했다. 최종 설정과 수치는
 > [`results/OPTIMAL_PIPELINE_REPORT.md`](results/OPTIMAL_PIPELINE_REPORT.md)에 있다. 아래의
 > “빠른 replay” 절은 개발 과정의 historical 결과이며 현재 최종 정책이 아니다.
+>
+> **최종 canonical method는 `P5_response_state_dynamic` 하나로 고정한다.** MJ/LG별 별도 선택값은
+> ablation 분석용이며 배포·논문 주 방법 선택에는 사용하지 않는다. 정확한 설정은
+> [`config/final_p5_response_state_dynamic.json`](config/final_p5_response_state_dynamic.json)에 있다.
 
 이 실험은 동일한 prior, arm 공간, split, 점수 함수를 사용해 다음 두 정책을 비교한다.
 

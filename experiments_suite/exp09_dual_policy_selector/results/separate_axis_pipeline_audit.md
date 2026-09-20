@@ -160,5 +160,6 @@ Overall: **PASS**
 | `search_has_heldout_test` | PASS | `['mj', 'lg']` |
 | `search_has_global_frozen_policy` | PASS | `P5_response_state_dynamic` |
 | `full_evidence_no_joint_state` | PASS | `{'joint_prior': False, 'joint_posterior': False, 'joint_cluster': False, 'joint_gp': False, 'renderer_only_consumes_two_selected_setting_values': True}` |
+| `canonical_final_is_p5` | PASS | `{'status': 'canonical_final', 'method': 'P5_response_state_dynamic', 'joint_prior': False, 'joint_posterior': False}` |
 | `understanding_evidence_partition` | PASS | `{'rows': 180064, 'valid_success': 125005, 'valid_failure': 55058, 'invalid': 1}` |
 | `willingness_evidence_partition` | PASS | `{'rows': 28135, 'eligible_r1': 23379, 'valid_success': 2708, 'valid_failure': 20671, 'reconstruction_failure': 4741, 'invalid_or_missing_judge': 15}` |
