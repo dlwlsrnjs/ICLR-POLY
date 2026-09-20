@@ -11,7 +11,27 @@
     "qa_accepted": 2317,
     "qa_needs_review": 0,
     "understanding_axis": "not_started",
-    "willingness_axis": "wait_for_validated_understanding_anchor"
+    "willingness_axis": "wait_for_validated_understanding_anchor",
+    "imported_fixed_willingness_prior": {
+      "user_label": "92daeab",
+      "remote_checkpoint": "hf://buckets/jin-kwon/poly/PolyJigsaw/exp08_runs/willingness331_shared_en_ar_1024_run1/checkpoints/20260920T123409Z",
+      "local_path": "/home/ljk98/POLY/workspaces/prior_axes_mj_lg_20260920/01_harmless331/willingness_prior_fixed_g3_ordered_n2_20260920T123409Z",
+      "canonical_link": "/home/ljk98/POLY/workspaces/prior_axes_mj_lg_20260920/01_harmless331/willingness_prior_92daeab",
+      "fixed_comprehension_cell": "g3_ordered_n2",
+      "languages": [
+        "English",
+        "Arabic"
+      ],
+      "eligible_items": 284,
+      "jobs_per_model": 1420,
+      "collection_complete_models": 17,
+      "wildguard_complete_models": 17,
+      "reconstruction_complete_models": 17,
+      "prior_complete_models": 17,
+      "manifest_entries_verified": 416,
+      "manifest_sha256": "b5205df806c8a005f0c1083906504adcc289c48b4d429b2662a5154a4651c941",
+      "note": "llama32_3b_it prior status is insufficient_common_reconstruction"
+    }
   },
   "historical_mj_lg": {
     "primary_snapshot": "/home/ljk98/POLY/snapshot_out/20260919_primary_large_complete_v1",

@@ -37,6 +37,19 @@ source paths.env
 - 영어331개, 7언어2,317쌍, Qwen2.5-32B 의미 QA 2,317/2,317 통과, 재검토0
 - 원격 재다운로드 후 SHA256 105개 항목 일치, 영어 원문 불변 확인
 
+### 이해 조건 고정 의지 prior — canonical `92daeab`
+
+- 로컬 canonical link: `/home/ljk98/POLY/workspaces/prior_axes_mj_lg_20260920/01_harmless331/willingness_prior_92daeab`
+- 실제 로컬 디렉터리: `/home/ljk98/POLY/workspaces/prior_axes_mj_lg_20260920/01_harmless331/willingness_prior_fixed_g3_ordered_n2_20260920T123409Z`
+- Hugging Face: `hf://buckets/jin-kwon/poly/PolyJigsaw/exp08_runs/willingness331_shared_en_ar_1024_run1/checkpoints/20260920T123409Z`
+- 고정 이해 조건: `g3_ordered_n2` — English+Arabic, 언어당3조각, 언어 내 ordered
+- 변화 의지 프레임: plain/persona/fiction/pap/persona+fiction
+- 완료: collection/WildGuard/reconstruction/prior summary 모두17/17
+- 적격 문항284개, 모델당1,420 jobs
+- manifest SHA256: `b5205df806c8a005f0c1083906504adcc289c48b4d429b2662a5154a4651c941`; 416개 항목 전부 크기·SHA256 검증 통과
+
+`llama32_3b_it`는 prior 파일까지 완결됐지만 `insufficient_common_reconstruction` 상태다. `92daeab` 문자열은 원격 경로나 manifest에 없으므로 사용자 지정 식별자로 기록하고, 실제 불변 식별에는 checkpoint timestamp와 manifest SHA256을 사용한다. 먼저 발견한 `20260920T095639Z`는 prior summary0/17인 중간본이라 사용하지 않는다.
+
 ### 기존 MJ/LG primary 5모델 완료본
 
 - 불변 스냅샷: `/home/ljk98/POLY/snapshot_out/20260919_primary_large_complete_v1`
@@ -58,7 +71,7 @@ source paths.env
 
 - 번역 입력: 완료 및 원격 검증 완료
 - 이해축 prior: 실행 전
-- 의지축 prior: 이해축 anchor 선택 전이므로 실행 전
+- 최종 8언어 기반 새 의지축 prior: 이해축 anchor 선택 전이므로 실행 전. 별도로 위의 기존 English+Arabic 고정-cell prior는17/17 완료본을 확보함
 - GPU job: 이 문서 기록 시 사용자 job 0개, 전체 Slurm queue 0개
 - 노드: h200-0, h200-1, rtx6000-0 모두 `idle`로 관측됨
 
