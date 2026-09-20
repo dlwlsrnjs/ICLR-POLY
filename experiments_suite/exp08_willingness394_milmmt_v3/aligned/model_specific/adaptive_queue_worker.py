@@ -192,6 +192,11 @@ def main():
     results[tag]=dict(**result,willingness_status=json.loads((dest/'willingness_prior.json').read_text())['status']);results[tag]['status']='complete';save(run/'results.json',results)
    except Exception as e:
     results[tag]=dict(status='failed',error=str(e));save(run/'results.json',results)
+  followup=run/'FOLLOWUP_COMMAND.json'
+  if followup.exists() and not (run/'FOLLOWUP_COMPLETED.json').exists():
+   spec=json.loads(followup.read_text());status('running_followup',description=spec['description'])
+   with (run/'followup.log').open('a') as log:subprocess.run(spec['command'],stdout=log,stderr=subprocess.STDOUT,check=True)
+   save(run/'FOLLOWUP_COMPLETED.json',dict(command=spec['command'],time=time.time(),note='Child process completed; inspect child results.json for per-model outcomes.'))
   status('finished',results={k:v['status'] for k,v in results.items()})
  except KeyboardInterrupt:status('stopped_between_stages')
  except Exception as e:status('failed',error=str(e));raise
