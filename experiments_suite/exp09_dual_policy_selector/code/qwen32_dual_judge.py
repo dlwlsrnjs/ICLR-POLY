@@ -157,12 +157,44 @@ def run_stage(name: str, source: list[dict], out: Path, tokenizer, backend, batc
             print(json.dumps({"stage": name, "completed": len(done) + offset + len(group), "total": len(source), "elapsed": round(time.time() - started, 1)}), flush=True)
 
 
+def merge_shards(outdir: Path, source: list[dict], num_shards: int, protocol: dict) -> None:
+    """Merge independently written judge shards without concurrent-file corruption."""
+    expected = {row["key"] for row in source}
+    for stage in ("reconstruction", "fulfillment"):
+        merged: dict[str, dict] = {}
+        for shard_index in range(num_shards):
+            path = outdir / f"{stage}.shard-{shard_index:02d}-of-{num_shards:02d}.jsonl"
+            if not path.exists():
+                raise RuntimeError(f"Missing shard: {path}")
+            for row in rows(path):
+                if row.get("valid") is True:
+                    merged[row["key"]] = row
+        missing = expected - merged.keys()
+        extra = merged.keys() - expected
+        if missing or extra:
+            raise RuntimeError(f"Incomplete {stage} merge: missing={len(missing)} extra={len(extra)}")
+        target = outdir / f"{stage}.jsonl"
+        temporary = target.with_suffix(".jsonl.tmp")
+        with temporary.open("w", encoding="utf-8") as handle:
+            for row in source:
+                handle.write(json.dumps(merged[row["key"]], ensure_ascii=False) + "\n")
+        temporary.replace(target)
+    (outdir / "protocol.json").write_text(json.dumps(protocol, indent=2) + "\n")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run", type=Path, required=True)
     parser.add_argument("--model", type=Path, required=True)
     parser.add_argument("--batch", type=int, default=32)
+    parser.add_argument("--num-shards", type=int, default=1)
+    parser.add_argument("--shard-index", type=int)
+    parser.add_argument("--merge-only", action="store_true")
     args = parser.parse_args()
+    if args.num_shards < 1:
+        raise ValueError("--num-shards must be positive")
+    if not args.merge_only and args.num_shards > 1 and args.shard_index not in range(args.num_shards):
+        raise ValueError("Sharded runs require --shard-index in [0, num_shards)")
     if args.model.resolve().name != REVISION:
         raise ValueError("Unexpected Qwen2.5-32B revision")
     response_file = args.run / "responses.jsonl"
@@ -182,14 +214,21 @@ def main() -> None:
         "reconstruction_rubric_sha256": hashlib.sha256(RECON_SYSTEM.encode()).hexdigest(),
         "fulfillment_rubric_sha256": hashlib.sha256(FULFILL_SYSTEM.encode()).hexdigest(),
     }
-    protocol_file = outdir / "protocol.json"
+    if args.merge_only:
+        merge_shards(outdir, source, args.num_shards, protocol)
+        print(json.dumps({"stage": "merged", "run": str(args.run), "rows": len(source)}), flush=True)
+        return
+    suffix = "" if args.num_shards == 1 else f".shard-{args.shard_index:02d}-of-{args.num_shards:02d}"
+    protocol_file = outdir / ("protocol.json" if not suffix else f"protocol{suffix}.json")
     if protocol_file.exists() and json.loads(protocol_file.read_text()) != protocol:
         raise RuntimeError("Protocol or source responses changed")
     protocol_file.write_text(json.dumps(protocol, indent=2) + "\n")
+    if args.num_shards > 1:
+        source = [row for index, row in enumerate(source) if index % args.num_shards == args.shard_index]
     tokenizer = AutoTokenizer.from_pretrained(args.model, local_files_only=True)
     backend = TransformersBackend(args.model, tokenizer)
-    run_stage("reconstruction", source, outdir / "reconstruction.jsonl", tokenizer, backend, args.batch)
-    run_stage("fulfillment", source, outdir / "fulfillment.jsonl", tokenizer, backend, args.batch)
+    run_stage("reconstruction", source, outdir / f"reconstruction{suffix}.jsonl", tokenizer, backend, args.batch)
+    run_stage("fulfillment", source, outdir / f"fulfillment{suffix}.jsonl", tokenizer, backend, args.batch)
     print(json.dumps({"stage": "complete", "run": str(args.run), "rows": len(source)}), flush=True)
 
 
