@@ -79,7 +79,11 @@ def harmful_refine(arms, feats, prior, calibration, rng, mode):
             confident = mean[order[0]] - mean[order[1]] >= 0.10
             succeeded = max(outcomes) >= 0.50
             if confident or succeeded: break
-    return max(queried, key=lambda index: outcomes[queried.index(index)]), len(queried)
+    # BAI recommendation follows the repository's frozen method: the harmful
+    # observations correct the harmless warm-start residual, then we recommend
+    # the posterior-mean maximizer (which may be an unqueried neighbour).
+    mean, _ = gp_posterior(feats[queried], feats, np.array(outcomes), mean0[queried], mean0)
+    return int(np.argmax(mean)), len(queried)
 
 
 def main():

@@ -82,7 +82,8 @@ target text
   -> cosine top-k over the 331 harmless originals (multilingual input은 같은 item의 번역 view 포함)
   -> similarity-weighted vote over those items' validated understanding/willingness cluster IDs
   -> cluster-conditioned arm prior
-  -> H0 harmless-only update 또는 H3-H8 harmful-confirmation GP
+  -> 이 값을 그대로 GP의 prior mean μ0(c)로 사용
+  -> H0 harmless-only 추천 또는 H3-H8 GP-UCB residual update
 ```
 
 여기서 text cosine은 **어느 prior cluster로 들어갈지** 정하고, GP kernel은 그 cluster 안에서
@@ -112,11 +113,12 @@ test에 맞춰 바꾸지 않는다. 현재 저장소에는 이 text-cosine index
   LG `prior-order@5` 0.6610.
 - harmless willingness 반복: `Thompson@80` 0.9752, frame oracle 0.9824;
   `Thompson@20`도 0.9494.
-- free-harmless 뒤 harmful 확인: MJ는 `harmless fixed40 + harmful fixed5` 0.5281,
-  LG는 `harmless fixed80 + harmful fixed8` 0.6653.
+- GitHub의 frozen BAI 규칙(무해 `μ0`에서 시작해 harmful residual을 GP-UCB로 갱신하고 마지막
+  posterior-mean argmax를 추천)으로 계산하면, MJ 최고는 `plateau(p10,e=.01) + fixed8` 0.5325,
+  LG 최고는 `plateau(p5,e=.01) + fixed8` 0.6727이다.
 - harmful 0회: MJ `harmless fixed80` 0.4536, LG `harmless fixed20` 0.6190.
-- adaptive switch 예: MJ `plateau(p10,e=.01) + adaptive5`는 harmful 평균 2.57회에서 0.5136,
-  LG `fixed20 + adaptive3`는 harmful 평균 1.38회에서 0.6363.
+- adaptive switch 예: MJ `plateau(p10,e=.01) + adaptive5`는 harmful 평균 2.57회에서 0.5168,
+  LG `fixed20 + adaptive3`는 harmful 평균 1.38회에서 0.6368.
 - plateau 뒤 상위 2개 harmless arm만 40/80회까지 더 파는 무료 국소 미세조정도 비교했다. 유해 확인
   0회 기준 MJ는 0.4441/0.4473, LG는 0.5964/0.6049였고, 전체 arm을 계속 탐색한 기존
   harmless-only 최고(MJ 0.4536, LG 0.6190)보다 낮았다. 따라서 현재 5-frame prior에서는 조기
