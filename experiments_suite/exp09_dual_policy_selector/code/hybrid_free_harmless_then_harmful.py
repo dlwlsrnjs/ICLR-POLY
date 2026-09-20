@@ -18,22 +18,36 @@ CELL_FRAME = re.compile(r"^(g(?:3|5|8|12)_(?:ordered|shuffled)_n2)__(plain|perso
 def harmless_posterior(matrix, train, rng, mode):
     counts = np.zeros(len(FRAMES)); success = np.zeros(len(FRAMES)); cursor = np.zeros(len(FRAMES), int)
     queues = [rng.permutation(train) for _ in FRAMES]
+    local_candidates = None
     if mode.startswith("fixed"):
-        maximum = int(mode.removeprefix("fixed")); patience = None; epsilon = None
+        maximum = int(mode.removeprefix("fixed")); patience = None; epsilon = None; local_budget = None
     else:
-        _, p, e = mode.split("_"); maximum = 80; patience = int(p.removeprefix("p")); epsilon = float(e.removeprefix("e"))
+        parts = mode.split("_")
+        patience = int(parts[1].removeprefix("p")); epsilon = float(parts[2].removeprefix("e"))
+        local_budget = int(parts[3].removeprefix("local")) if len(parts) == 4 else None
+        maximum = local_budget or 80
     best_history, value_history = [], []
     for step in range(maximum):
-        unseen = np.flatnonzero(counts == 0)
-        arm = int(unseen[0]) if len(unseen) else int(np.argmax(rng.beta(success + 1, counts - success + 1)))
+        allowed = np.arange(len(FRAMES)) if local_candidates is None else local_candidates
+        unseen = allowed[counts[allowed] == 0]
+        if len(unseen):
+            arm = int(unseen[0])
+        else:
+            draws = rng.beta(success[allowed] + 1, counts[allowed] - success[allowed] + 1)
+            arm = int(allowed[np.argmax(draws)])
         item = queues[arm][cursor[arm] % len(train)]; cursor[arm] += 1
         counts[arm] += 1; success[arm] += matrix[item, arm]
         posterior = (success + 1) / (counts + 2)
         best_history.append(int(np.argmax(posterior))); value_history.append(float(np.max(posterior)))
-        if patience and step + 1 >= max(10, patience):
+        if patience and local_candidates is None and step + 1 >= max(10, patience):
             stable = len(set(best_history[-patience:])) == 1
             plateau = abs(value_history[-1] - value_history[-patience]) <= epsilon
-            if stable and plateau: break
+            if stable and plateau:
+                if local_budget is None:
+                    break
+                # Harmless queries are free: keep the two strongest posterior arms and
+                # spend the remaining harmless budget locally before any harmful check.
+                local_candidates = np.argsort(posterior)[-2:]
     return (success + 1) / (counts + 2), int(counts.sum())
 
 
@@ -79,7 +93,11 @@ def main():
         if len(loaded[0]) >= 20:
             harmless[path.name] = loaded
     benign_root = suite / "exp02_panel_collect/results/benign"
-    harmless_modes = ("fixed20", "fixed40", "fixed80", "plateau_p5_e0.01", "plateau_p10_e0.01", "plateau_p10_e0.03")
+    harmless_modes = (
+        "fixed20", "fixed40", "fixed80",
+        "plateau_p5_e0.01", "plateau_p10_e0.01", "plateau_p10_e0.03",
+        "plateau_p10_e0.01_local40", "plateau_p10_e0.01_local80",
+    )
     harmful_modes = ("none", "fixed3", "fixed5", "fixed8", "adaptive3", "adaptive5", "adaptive8")
     output = {}
     for dataset in ("mj", "lg"):

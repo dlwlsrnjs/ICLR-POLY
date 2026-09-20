@@ -117,6 +117,11 @@ test에 맞춰 바꾸지 않는다. 현재 저장소에는 이 text-cosine index
 - harmful 0회: MJ `harmless fixed80` 0.4536, LG `harmless fixed20` 0.6190.
 - adaptive switch 예: MJ `plateau(p10,e=.01) + adaptive5`는 harmful 평균 2.57회에서 0.5136,
   LG `fixed20 + adaptive3`는 harmful 평균 1.38회에서 0.6363.
+- plateau 뒤 상위 2개 harmless arm만 40/80회까지 더 파는 무료 국소 미세조정도 비교했다. 유해 확인
+  0회 기준 MJ는 0.4441/0.4473, LG는 0.5964/0.6049였고, 전체 arm을 계속 탐색한 기존
+  harmless-only 최고(MJ 0.4536, LG 0.6190)보다 낮았다. 따라서 현재 5-frame prior에서는 조기
+  top-2 고정보다 전체 후보를 유지하는 Thompson 탐색이 낫다. 32개 이해축 R/F/Y가 완성되면
+  success-gated cluster 안에서 같은 국소 미세조정을 다시 평가한다.
 
 이는 새 331 이해축을 아직 반영하지 않은 예비 비교다. 특히 exploratory 최고값을 test에 맞춘 최종
 정책으로 사용하지 않는다. 331 R/F/Y 결과가 완성되면 동일 코드를 success/effect-gated cluster prior로
