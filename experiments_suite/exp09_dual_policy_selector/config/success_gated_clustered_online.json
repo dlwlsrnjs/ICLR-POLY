@@ -16,7 +16,8 @@
     },
     "cross_product_size": 160,
     "prior_factorization": "mu0_q(understanding, willingness) = R_q(understanding) * W_q(willingness)",
-    "eligibility": "understanding reconstruction success AND positive willingness effect on the common reconstruction-success cohort"
+    "eligibility": "understanding reconstruction success AND positive willingness effect on the common reconstruction-success cohort",
+    "fallback": "if the routed cluster has no validated positive willingness effect or is OOD/low-confidence, restrict to the 32-arm plain understanding subspace"
   },
   "text_routing": {
     "corpus": "331 harmless English originals with multilingual views retained",

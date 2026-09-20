@@ -12,6 +12,8 @@
 1. arm은 이해축 `(g, order, n)`과 의지축 `frame`으로 분해한다.
    최종 공간은 이해축 `4 g × 2 order × 4 n = 32`와 의지축
    `plain/persona/fiction/PAP/persona+fiction = 5`의 교차곱, 총 **160 arm**이다.
+   단, 문항이 OOD이거나 해당 cosine cluster에서 plain 대비 positive willingness effect가 검증된
+   frame이 하나도 없으면 억지로 160개를 탐색하지 않고 plain의 32-arm 이해축 subspace로 fallback한다.
 2. 이해축 클러스터 중심에는 의미 재구성에 성공한 지점만, 의지축 중심에는 재구성 성공 문항에서
    frame의 paired 수행 효과가 확인된 지점만 넣는다. 실패점은 중심에서 제외하지만 경계 관측으로 보존한다.
 3. selection/calibration과 final test 문항은 분리한다. test harmful 응답은 arm 선택에 사용하지 않는다.
