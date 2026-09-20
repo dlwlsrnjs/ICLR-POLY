@@ -1,0 +1,408 @@
+{
+  "mj": {
+    "schema": "exp09_text_routing_harmful_supervision_upper_bound_v1",
+    "warning": "Historical harmful item labels train the router; this is not harmless-only evidence.",
+    "dataset": "mj",
+    "models": 17,
+    "families": [
+      "falcon",
+      "gemma",
+      "glm",
+      "llama",
+      "mistral",
+      "phi",
+      "qwen"
+    ],
+    "items": 64,
+    "arms": 24,
+    "outer_splits": 40,
+    "inner_selected_method_counts": {
+      "word:kmeans2:joint": 2,
+      "char:kmeans2:factorized": 5,
+      "char:knn10:factorized": 3,
+      "combined:kmeans2:joint": 5,
+      "combined:kmeans4:factorized": 1,
+      "word:knn5:factorized": 2,
+      "char:knn3:factorized": 1,
+      "char:knn10:joint": 5,
+      "char:kmeans4:factorized": 1,
+      "combined:kmeans2:factorized": 3,
+      "char:knn5:factorized": 2,
+      "char:kmeans2:joint": 2,
+      "scenario:factorized": 1,
+      "word:kmeans4:factorized": 1,
+      "word:kmeans2:factorized": 3,
+      "combined:knn10:factorized": 1,
+      "word:knn10:factorized": 1,
+      "combined:knn5:joint": 1
+    },
+    "nested_selected_macro": 0.46811755952380946,
+    "nested_selected_per_family": {
+      "falcon": 0.28046875,
+      "gemma": 0.6260416666666666,
+      "glm": 0.521875,
+      "llama": 0.4703125,
+      "mistral": 0.5109375,
+      "phi": 0.34140625,
+      "qwen": 0.5257812500000001
+    },
+    "exploratory_ranking": [
+      {
+        "method": "char:kmeans2:factorized",
+        "macro": 0.4853701636904762
+      },
+      {
+        "method": "word:kmeans2:joint",
+        "macro": 0.48374255952380957
+      },
+      {
+        "method": "combined:kmeans2:joint",
+        "macro": 0.48342633928571427
+      },
+      {
+        "method": "char:kmeans2:joint",
+        "macro": 0.4827380952380952
+      },
+      {
+        "method": "combined:kmeans2:factorized",
+        "macro": 0.48204055059523815
+      },
+      {
+        "method": "word:kmeans2:factorized",
+        "macro": 0.4817522321428571
+      },
+      {
+        "method": "word:kmeans4:factorized",
+        "macro": 0.47170758928571427
+      },
+      {
+        "method": "combined:kmeans4:factorized",
+        "macro": 0.4715029761904762
+      },
+      {
+        "method": "char:kmeans4:factorized",
+        "macro": 0.46939174107142856
+      },
+      {
+        "method": "word:knn10:factorized",
+        "macro": 0.4657087053571428
+      },
+      {
+        "method": "char:kmeans4:joint",
+        "macro": 0.46465773809523814
+      },
+      {
+        "method": "combined:kmeans4:joint",
+        "macro": 0.46424851190476196
+      },
+      {
+        "method": "combined:knn10:factorized",
+        "macro": 0.4624906994047619
+      },
+      {
+        "method": "word:knn10:joint",
+        "macro": 0.46086309523809527
+      },
+      {
+        "method": "combined:knn10:joint",
+        "macro": 0.4604259672619047
+      },
+      {
+        "method": "word:kmeans4:joint",
+        "macro": 0.4596075148809523
+      },
+      {
+        "method": "char:knn10:factorized",
+        "macro": 0.45795200892857146
+      },
+      {
+        "method": "char:knn10:joint",
+        "macro": 0.45709635416666666
+      },
+      {
+        "method": "char:knn5:factorized",
+        "macro": 0.4470331101190476
+      },
+      {
+        "method": "word:knn5:factorized",
+        "macro": 0.44180617559523805
+      },
+      {
+        "method": "combined:knn5:factorized",
+        "macro": 0.4416480654761905
+      },
+      {
+        "method": "char:knn5:joint",
+        "macro": 0.4374813988095238
+      },
+      {
+        "method": "word:knn5:joint",
+        "macro": 0.43720238095238095
+      },
+      {
+        "method": "combined:knn5:joint",
+        "macro": 0.43625372023809517
+      },
+      {
+        "method": "scenario:factorized",
+        "macro": 0.43598400297619044
+      },
+      {
+        "method": "scenario:joint",
+        "macro": 0.42979910714285713
+      },
+      {
+        "method": "char:knn3:factorized",
+        "macro": 0.4280040922619048
+      },
+      {
+        "method": "combined:knn3:factorized",
+        "macro": 0.4267113095238096
+      },
+      {
+        "method": "word:knn3:factorized",
+        "macro": 0.42390252976190473
+      },
+      {
+        "method": "char:knn3:joint",
+        "macro": 0.41535528273809524
+      },
+      {
+        "method": "combined:knn3:joint",
+        "macro": 0.41275111607142856
+      },
+      {
+        "method": "word:knn3:joint",
+        "macro": 0.4102864583333333
+      },
+      {
+        "method": "char:knn1:factorized",
+        "macro": 0.3771763392857142
+      },
+      {
+        "method": "combined:knn1:factorized",
+        "macro": 0.3771019345238095
+      },
+      {
+        "method": "word:knn1:factorized",
+        "macro": 0.37636718750000003
+      },
+      {
+        "method": "char:knn1:joint",
+        "macro": 0.36252790178571426
+      },
+      {
+        "method": "combined:knn1:joint",
+        "macro": 0.3591145833333333
+      },
+      {
+        "method": "word:knn1:joint",
+        "macro": 0.3557570684523809
+      }
+    ]
+  },
+  "lg": {
+    "schema": "exp09_text_routing_harmful_supervision_upper_bound_v1",
+    "warning": "Historical harmful item labels train the router; this is not harmless-only evidence.",
+    "dataset": "lg",
+    "models": 17,
+    "families": [
+      "falcon",
+      "gemma",
+      "glm",
+      "llama",
+      "mistral",
+      "phi",
+      "qwen"
+    ],
+    "items": 40,
+    "arms": 24,
+    "outer_splits": 40,
+    "inner_selected_method_counts": {
+      "combined:knn10:factorized": 2,
+      "combined:kmeans2:factorized": 2,
+      "word:knn5:factorized": 3,
+      "combined:knn3:factorized": 1,
+      "char:knn10:factorized": 2,
+      "word:kmeans2:joint": 4,
+      "char:kmeans2:joint": 2,
+      "word:kmeans2:factorized": 1,
+      "char:knn10:joint": 5,
+      "combined:kmeans2:joint": 3,
+      "word:knn10:joint": 2,
+      "char:kmeans4:factorized": 1,
+      "combined:knn5:joint": 1,
+      "combined:knn10:joint": 2,
+      "combined:kmeans4:factorized": 2,
+      "char:knn5:factorized": 1,
+      "word:knn3:factorized": 1,
+      "char:kmeans2:factorized": 1,
+      "combined:knn5:factorized": 2,
+      "word:knn10:factorized": 2
+    },
+    "nested_selected_macro": 0.5908928571428572,
+    "nested_selected_per_family": {
+      "falcon": 0.3941666666666667,
+      "gemma": 0.6708333333333334,
+      "glm": 0.6287499999999999,
+      "llama": 0.5825,
+      "mistral": 0.608125,
+      "phi": 0.526875,
+      "qwen": 0.725
+    },
+    "exploratory_ranking": [
+      {
+        "method": "combined:kmeans2:factorized",
+        "macro": 0.611279761904762
+      },
+      {
+        "method": "char:kmeans2:factorized",
+        "macro": 0.6103125
+      },
+      {
+        "method": "word:kmeans2:factorized",
+        "macro": 0.6101934523809524
+      },
+      {
+        "method": "char:kmeans2:joint",
+        "macro": 0.6099404761904763
+      },
+      {
+        "method": "combined:kmeans2:joint",
+        "macro": 0.6081547619047619
+      },
+      {
+        "method": "word:kmeans2:joint",
+        "macro": 0.602202380952381
+      },
+      {
+        "method": "char:knn10:factorized",
+        "macro": 0.6020833333333332
+      },
+      {
+        "method": "combined:knn10:factorized",
+        "macro": 0.5969642857142857
+      },
+      {
+        "method": "char:knn10:joint",
+        "macro": 0.5968005952380951
+      },
+      {
+        "method": "char:kmeans4:factorized",
+        "macro": 0.5941071428571428
+      },
+      {
+        "method": "combined:kmeans4:factorized",
+        "macro": 0.5935714285714286
+      },
+      {
+        "method": "combined:knn10:joint",
+        "macro": 0.5932589285714285
+      },
+      {
+        "method": "word:kmeans4:factorized",
+        "macro": 0.5915625
+      },
+      {
+        "method": "word:knn10:joint",
+        "macro": 0.5897172619047619
+      },
+      {
+        "method": "word:knn10:factorized",
+        "macro": 0.589419642857143
+      },
+      {
+        "method": "combined:kmeans4:joint",
+        "macro": 0.5801785714285713
+      },
+      {
+        "method": "word:kmeans4:joint",
+        "macro": 0.5781101190476191
+      },
+      {
+        "method": "char:kmeans4:joint",
+        "macro": 0.5759077380952381
+      },
+      {
+        "method": "combined:knn5:factorized",
+        "macro": 0.5746875000000001
+      },
+      {
+        "method": "char:knn5:factorized",
+        "macro": 0.5742708333333334
+      },
+      {
+        "method": "word:knn5:factorized",
+        "macro": 0.5715029761904761
+      },
+      {
+        "method": "scenario:factorized",
+        "macro": 0.570952380952381
+      },
+      {
+        "method": "char:knn5:joint",
+        "macro": 0.5624702380952381
+      },
+      {
+        "method": "combined:knn5:joint",
+        "macro": 0.559404761904762
+      },
+      {
+        "method": "word:knn5:joint",
+        "macro": 0.5570833333333335
+      },
+      {
+        "method": "combined:knn3:factorized",
+        "macro": 0.5506845238095238
+      },
+      {
+        "method": "char:knn3:factorized",
+        "macro": 0.5505059523809523
+      },
+      {
+        "method": "word:knn3:factorized",
+        "macro": 0.5469642857142857
+      },
+      {
+        "method": "char:knn3:joint",
+        "macro": 0.5376934523809525
+      },
+      {
+        "method": "scenario:joint",
+        "macro": 0.5356547619047619
+      },
+      {
+        "method": "combined:knn3:joint",
+        "macro": 0.5307440476190476
+      },
+      {
+        "method": "word:knn3:joint",
+        "macro": 0.528184523809524
+      },
+      {
+        "method": "char:knn1:factorized",
+        "macro": 0.5190178571428572
+      },
+      {
+        "method": "combined:knn1:factorized",
+        "macro": 0.5154613095238095
+      },
+      {
+        "method": "word:knn1:factorized",
+        "macro": 0.5123363095238095
+      },
+      {
+        "method": "char:knn1:joint",
+        "macro": 0.47677083333333325
+      },
+      {
+        "method": "combined:knn1:joint",
+        "macro": 0.46973214285714276
+      },
+      {
+        "method": "word:knn1:joint",
+        "macro": 0.46645833333333325
+      }
+    ]
+  }
+}

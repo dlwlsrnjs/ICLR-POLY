@@ -29,7 +29,10 @@ def prepare(run, repo):
     for name in ['batch_label.py','label.py']:
         content = (source/name).read_bytes()
         if name == 'batch_label.py':
-            content = content.replace(b"assert os.environ.get('CUDA_VISIBLE_DEVICES')=='1'", b"assert os.environ.get('CUDA_VISIBLE_DEVICES') in ('0','1')")
+            content = content.replace(
+                b"assert os.environ.get('CUDA_VISIBLE_DEVICES')=='1'",
+                b"assert os.environ.get('CUDA_VISIBLE_DEVICES','').isdigit()",
+            )
         if name == 'batch_label.py':
             content = content.replace(b' llm=LLM(', b" mem=min(mem,float(os.environ.get('POLY_GPU_MEMORY_UTILIZATION','0.9')))\n llm=LLM(")
             content = content.replace(b"'gpu':1,", b"'gpu':int(os.environ['CUDA_VISIBLE_DEVICES']),")
@@ -59,8 +62,9 @@ if __name__ == '__main__':
     p.add_argument('--run', type=Path, required=True)
     p.add_argument('--repo', type=Path, default=Path(__file__).resolve().parents[4])
     p.add_argument('--model-path', type=Path, help='Local judge snapshot, required for inference stages')
-    p.add_argument('--gpu', type=int, choices=[0,1], default=0)
+    p.add_argument('--gpu', type=int, default=0)
     a = p.parse_args()
+    if a.gpu < 0: p.error('--gpu must be non-negative')
     judge = prepare(a.run.resolve(), a.repo.resolve())
     if a.stage == 'prepare': print(judge); sys.exit(0)
     if not a.model_path or not a.model_path.exists(): p.error('--model-path must name a local judge snapshot')

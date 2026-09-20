@@ -1,0 +1,548 @@
+{
+  "mj": {
+    "schema": "exp09_historical_harmful_confirmation_replay_v1",
+    "warning": "prior_only is not the new dynamic harmless-only policy",
+    "matrix": "/home/ljk98/POLY/ICLR-POLY-0920/experiments_suite/exp07_panel17_selector_replay/results/mj_item_matrix.json",
+    "models": [
+      "falcon3_7b_mj",
+      "gemma2_2b_it_mj",
+      "gemma2_9b_it_mj",
+      "llama31_8b_it_mj",
+      "llama32_3b_it_mj",
+      "mistral24b_mj",
+      "mistral7b_mj",
+      "phi35_mini_mj",
+      "qwen25_14b_mj",
+      "qwen25_32b_mj",
+      "qwen25_3b_mj",
+      "qwen25_7b_mj"
+    ],
+    "families": [
+      "falcon",
+      "gemma",
+      "llama",
+      "mistral",
+      "phi",
+      "qwen"
+    ],
+    "items": 64,
+    "arms": [
+      "g12_ordered_n2__fiction",
+      "g12_ordered_n2__persona",
+      "g12_ordered_n2__plain",
+      "g12_shuffled_n2__fiction",
+      "g12_shuffled_n2__persona",
+      "g12_shuffled_n2__plain",
+      "g3_ordered_n2__fiction",
+      "g3_ordered_n2__persona",
+      "g3_ordered_n2__plain",
+      "g3_shuffled_n2__fiction",
+      "g3_shuffled_n2__persona",
+      "g3_shuffled_n2__plain",
+      "g5_ordered_n2__fiction",
+      "g5_ordered_n2__persona",
+      "g5_ordered_n2__plain",
+      "g5_shuffled_n2__fiction",
+      "g5_shuffled_n2__persona",
+      "g5_shuffled_n2__plain",
+      "g8_ordered_n2__fiction",
+      "g8_ordered_n2__persona",
+      "g8_ordered_n2__plain",
+      "g8_shuffled_n2__fiction",
+      "g8_shuffled_n2__persona",
+      "g8_shuffled_n2__plain"
+    ],
+    "splits": 40,
+    "per_model": {
+      "prior_only": {
+        "falcon3_7b_mj": 0.30703125,
+        "gemma2_2b_it_mj": 0.21171875,
+        "gemma2_9b_it_mj": 0.028125,
+        "llama31_8b_it_mj": 0.56953125,
+        "llama32_3b_it_mj": 0.35859375,
+        "mistral24b_mj": 0.2765625,
+        "mistral7b_mj": 0.1875,
+        "phi35_mini_mj": 0.16640625,
+        "qwen25_14b_mj": 0.09921875,
+        "qwen25_32b_mj": 0.1078125,
+        "qwen25_3b_mj": 0.46484375,
+        "qwen25_7b_mj": 0.24375
+      },
+      "fixed_family_loo": {
+        "falcon3_7b_mj": 0.228125,
+        "gemma2_2b_it_mj": 0.42109375,
+        "gemma2_9b_it_mj": 0.284375,
+        "llama31_8b_it_mj": 0.5640625,
+        "llama32_3b_it_mj": 0.01015625,
+        "mistral24b_mj": 0.58671875,
+        "mistral7b_mj": 0.41640625,
+        "phi35_mini_mj": 0.16640625,
+        "qwen25_14b_mj": 0.4171875,
+        "qwen25_32b_mj": 0.74765625,
+        "qwen25_3b_mj": 0.25546875,
+        "qwen25_7b_mj": 0.23359375
+      },
+      "warm_gp_3": {
+        "falcon3_7b_mj": 0.30703125,
+        "gemma2_2b_it_mj": 0.503125,
+        "gemma2_9b_it_mj": 0.590625,
+        "llama31_8b_it_mj": 0.68828125,
+        "llama32_3b_it_mj": 0.32890625,
+        "mistral24b_mj": 0.67109375,
+        "mistral7b_mj": 0.4953125,
+        "phi35_mini_mj": 0.2640625,
+        "qwen25_14b_mj": 0.421875,
+        "qwen25_32b_mj": 0.665625,
+        "qwen25_3b_mj": 0.45859375,
+        "qwen25_7b_mj": 0.58125
+      },
+      "warm_gp_4": {
+        "falcon3_7b_mj": 0.365625,
+        "gemma2_2b_it_mj": 0.51640625,
+        "gemma2_9b_it_mj": 0.58828125,
+        "llama31_8b_it_mj": 0.6734375,
+        "llama32_3b_it_mj": 0.31875,
+        "mistral24b_mj": 0.6546875,
+        "mistral7b_mj": 0.48359375,
+        "phi35_mini_mj": 0.290625,
+        "qwen25_14b_mj": 0.41015625,
+        "qwen25_32b_mj": 0.6828125,
+        "qwen25_3b_mj": 0.45078125,
+        "qwen25_7b_mj": 0.58984375
+      },
+      "warm_gp_5": {
+        "falcon3_7b_mj": 0.35625,
+        "gemma2_2b_it_mj": 0.53671875,
+        "gemma2_9b_it_mj": 0.59375,
+        "llama31_8b_it_mj": 0.6734375,
+        "llama32_3b_it_mj": 0.309375,
+        "mistral24b_mj": 0.6640625,
+        "mistral7b_mj": 0.48359375,
+        "phi35_mini_mj": 0.290625,
+        "qwen25_14b_mj": 0.4265625,
+        "qwen25_32b_mj": 0.71171875,
+        "qwen25_3b_mj": 0.446875,
+        "qwen25_7b_mj": 0.58984375
+      },
+      "warm_gp_6": {
+        "falcon3_7b_mj": 0.35625,
+        "gemma2_2b_it_mj": 0.53671875,
+        "gemma2_9b_it_mj": 0.59375,
+        "llama31_8b_it_mj": 0.6734375,
+        "llama32_3b_it_mj": 0.309375,
+        "mistral24b_mj": 0.6625,
+        "mistral7b_mj": 0.48359375,
+        "phi35_mini_mj": 0.290625,
+        "qwen25_14b_mj": 0.43828125,
+        "qwen25_32b_mj": 0.72109375,
+        "qwen25_3b_mj": 0.44453125,
+        "qwen25_7b_mj": 0.58984375
+      },
+      "warm_gp_7": {
+        "falcon3_7b_mj": 0.35625,
+        "gemma2_2b_it_mj": 0.53671875,
+        "gemma2_9b_it_mj": 0.59375,
+        "llama31_8b_it_mj": 0.6734375,
+        "llama32_3b_it_mj": 0.309375,
+        "mistral24b_mj": 0.6625,
+        "mistral7b_mj": 0.48359375,
+        "phi35_mini_mj": 0.28671875,
+        "qwen25_14b_mj": 0.496875,
+        "qwen25_32b_mj": 0.71953125,
+        "qwen25_3b_mj": 0.44296875,
+        "qwen25_7b_mj": 0.58984375
+      },
+      "warm_gp_8": {
+        "falcon3_7b_mj": 0.35625,
+        "gemma2_2b_it_mj": 0.5296875,
+        "gemma2_9b_it_mj": 0.59296875,
+        "llama31_8b_it_mj": 0.6734375,
+        "llama32_3b_it_mj": 0.309375,
+        "mistral24b_mj": 0.659375,
+        "mistral7b_mj": 0.48359375,
+        "phi35_mini_mj": 0.28671875,
+        "qwen25_14b_mj": 0.53125,
+        "qwen25_32b_mj": 0.71796875,
+        "qwen25_3b_mj": 0.44296875,
+        "qwen25_7b_mj": 0.58984375
+      }
+    },
+    "per_family": {
+      "prior_only": {
+        "falcon": 0.30703125,
+        "gemma": 0.11992187500000001,
+        "llama": 0.46406250000000004,
+        "mistral": 0.23203125,
+        "phi": 0.16640625,
+        "qwen": 0.22890625
+      },
+      "fixed_family_loo": {
+        "falcon": 0.228125,
+        "gemma": 0.352734375,
+        "llama": 0.287109375,
+        "mistral": 0.5015624999999999,
+        "phi": 0.16640625,
+        "qwen": 0.41347656250000003
+      },
+      "warm_gp_3": {
+        "falcon": 0.30703125,
+        "gemma": 0.546875,
+        "llama": 0.50859375,
+        "mistral": 0.583203125,
+        "phi": 0.2640625,
+        "qwen": 0.5318359374999999
+      },
+      "warm_gp_4": {
+        "falcon": 0.365625,
+        "gemma": 0.5523437499999999,
+        "llama": 0.49609375,
+        "mistral": 0.569140625,
+        "phi": 0.290625,
+        "qwen": 0.5333984375
+      },
+      "warm_gp_5": {
+        "falcon": 0.35625,
+        "gemma": 0.565234375,
+        "llama": 0.49140625000000004,
+        "mistral": 0.573828125,
+        "phi": 0.290625,
+        "qwen": 0.54375
+      },
+      "warm_gp_6": {
+        "falcon": 0.35625,
+        "gemma": 0.565234375,
+        "llama": 0.49140625000000004,
+        "mistral": 0.573046875,
+        "phi": 0.290625,
+        "qwen": 0.5484375
+      },
+      "warm_gp_7": {
+        "falcon": 0.35625,
+        "gemma": 0.565234375,
+        "llama": 0.49140625000000004,
+        "mistral": 0.573046875,
+        "phi": 0.28671875,
+        "qwen": 0.5623046875
+      },
+      "warm_gp_8": {
+        "falcon": 0.35625,
+        "gemma": 0.561328125,
+        "llama": 0.49140625000000004,
+        "mistral": 0.571484375,
+        "phi": 0.28671875,
+        "qwen": 0.5705078125
+      }
+    },
+    "comparisons": {
+      "warm_gp_3": {
+        "mean_delta_vs_prior_only": 0.20387369791666665,
+        "family_wins": 5,
+        "families": 6,
+        "sign_flip_p": 0.0625
+      },
+      "warm_gp_4": {
+        "mean_delta_vs_prior_only": 0.21481119791666667,
+        "family_wins": 6,
+        "families": 6,
+        "sign_flip_p": 0.03125
+      },
+      "warm_gp_5": {
+        "mean_delta_vs_prior_only": 0.21712239583333334,
+        "family_wins": 6,
+        "families": 6,
+        "sign_flip_p": 0.03125
+      },
+      "warm_gp_6": {
+        "mean_delta_vs_prior_only": 0.2177734375,
+        "family_wins": 6,
+        "families": 6,
+        "sign_flip_p": 0.03125
+      },
+      "warm_gp_7": {
+        "mean_delta_vs_prior_only": 0.21943359374999996,
+        "family_wins": 6,
+        "families": 6,
+        "sign_flip_p": 0.03125
+      },
+      "warm_gp_8": {
+        "mean_delta_vs_prior_only": 0.21988932291666666,
+        "family_wins": 6,
+        "families": 6,
+        "sign_flip_p": 0.03125
+      }
+    }
+  },
+  "lg": {
+    "schema": "exp09_historical_harmful_confirmation_replay_v1",
+    "warning": "prior_only is not the new dynamic harmless-only policy",
+    "matrix": "/home/ljk98/POLY/ICLR-POLY-0920/experiments_suite/exp07_panel17_selector_replay/results/lg_item_matrix.json",
+    "models": [
+      "falcon3_7b_lg",
+      "gemma2_2b_it_lg",
+      "gemma2_9b_it_lg",
+      "llama31_8b_it_lg",
+      "llama32_3b_it_lg",
+      "mistral24b_lg",
+      "mistral7b_lg",
+      "phi35_mini_lg",
+      "qwen25_14b_lg",
+      "qwen25_32b_lg",
+      "qwen25_3b_lg",
+      "qwen25_7b_lg"
+    ],
+    "families": [
+      "falcon",
+      "gemma",
+      "llama",
+      "mistral",
+      "phi",
+      "qwen"
+    ],
+    "items": 40,
+    "arms": [
+      "g12_ordered_n2__fiction",
+      "g12_ordered_n2__persona",
+      "g12_ordered_n2__plain",
+      "g12_shuffled_n2__fiction",
+      "g12_shuffled_n2__persona",
+      "g12_shuffled_n2__plain",
+      "g3_ordered_n2__fiction",
+      "g3_ordered_n2__persona",
+      "g3_ordered_n2__plain",
+      "g3_shuffled_n2__fiction",
+      "g3_shuffled_n2__persona",
+      "g3_shuffled_n2__plain",
+      "g5_ordered_n2__fiction",
+      "g5_ordered_n2__persona",
+      "g5_ordered_n2__plain",
+      "g5_shuffled_n2__fiction",
+      "g5_shuffled_n2__persona",
+      "g5_shuffled_n2__plain",
+      "g8_ordered_n2__fiction",
+      "g8_ordered_n2__persona",
+      "g8_ordered_n2__plain",
+      "g8_shuffled_n2__fiction",
+      "g8_shuffled_n2__persona",
+      "g8_shuffled_n2__plain"
+    ],
+    "splits": 40,
+    "per_model": {
+      "prior_only": {
+        "falcon3_7b_lg": 0.63125,
+        "gemma2_2b_it_lg": 0.27999999999999997,
+        "gemma2_9b_it_lg": 0.5062500000000001,
+        "llama31_8b_it_lg": 0.7787499999999999,
+        "llama32_3b_it_lg": 0.0,
+        "mistral24b_lg": 0.19749999999999998,
+        "mistral7b_lg": 0.73,
+        "phi35_mini_lg": 0.37374999999999997,
+        "qwen25_14b_lg": 0.7299999999999999,
+        "qwen25_32b_lg": 0.6300000000000001,
+        "qwen25_3b_lg": 0.4487500000000001,
+        "qwen25_7b_lg": 0.70625
+      },
+      "fixed_family_loo": {
+        "falcon3_7b_lg": 0.5587500000000001,
+        "gemma2_2b_it_lg": 0.38875000000000004,
+        "gemma2_9b_it_lg": 0.8125,
+        "llama31_8b_it_lg": 0.6849999999999999,
+        "llama32_3b_it_lg": 0.0,
+        "mistral24b_lg": 0.56125,
+        "mistral7b_lg": 0.6312499999999999,
+        "phi35_mini_lg": 0.49749999999999994,
+        "qwen25_14b_lg": 0.73125,
+        "qwen25_32b_lg": 0.8237500000000001,
+        "qwen25_3b_lg": 0.51375,
+        "qwen25_7b_lg": 0.7262500000000001
+      },
+      "warm_gp_3": {
+        "falcon3_7b_lg": 0.6224999999999999,
+        "gemma2_2b_it_lg": 0.34125,
+        "gemma2_9b_it_lg": 0.81125,
+        "llama31_8b_it_lg": 0.7787499999999999,
+        "llama32_3b_it_lg": 0.26375,
+        "mistral24b_lg": 0.43499999999999994,
+        "mistral7b_lg": 0.73,
+        "phi35_mini_lg": 0.49750000000000005,
+        "qwen25_14b_lg": 0.71,
+        "qwen25_32b_lg": 0.8237500000000001,
+        "qwen25_3b_lg": 0.6725,
+        "qwen25_7b_lg": 0.6975
+      },
+      "warm_gp_4": {
+        "falcon3_7b_lg": 0.6137499999999999,
+        "gemma2_2b_it_lg": 0.32125,
+        "gemma2_9b_it_lg": 0.81125,
+        "llama31_8b_it_lg": 0.77125,
+        "llama32_3b_it_lg": 0.26375,
+        "mistral24b_lg": 0.57875,
+        "mistral7b_lg": 0.73,
+        "phi35_mini_lg": 0.49750000000000005,
+        "qwen25_14b_lg": 0.7150000000000001,
+        "qwen25_32b_lg": 0.81875,
+        "qwen25_3b_lg": 0.6612500000000001,
+        "qwen25_7b_lg": 0.6875
+      },
+      "warm_gp_5": {
+        "falcon3_7b_lg": 0.5975,
+        "gemma2_2b_it_lg": 0.32625000000000004,
+        "gemma2_9b_it_lg": 0.81125,
+        "llama31_8b_it_lg": 0.765,
+        "llama32_3b_it_lg": 0.26875,
+        "mistral24b_lg": 0.635,
+        "mistral7b_lg": 0.73,
+        "phi35_mini_lg": 0.49750000000000005,
+        "qwen25_14b_lg": 0.72,
+        "qwen25_32b_lg": 0.81875,
+        "qwen25_3b_lg": 0.6612500000000001,
+        "qwen25_7b_lg": 0.6875
+      },
+      "warm_gp_6": {
+        "falcon3_7b_lg": 0.59375,
+        "gemma2_2b_it_lg": 0.325,
+        "gemma2_9b_it_lg": 0.81125,
+        "llama31_8b_it_lg": 0.765,
+        "llama32_3b_it_lg": 0.2975,
+        "mistral24b_lg": 0.635,
+        "mistral7b_lg": 0.73,
+        "phi35_mini_lg": 0.4800000000000001,
+        "qwen25_14b_lg": 0.7375,
+        "qwen25_32b_lg": 0.81875,
+        "qwen25_3b_lg": 0.6612500000000001,
+        "qwen25_7b_lg": 0.68625
+      },
+      "warm_gp_7": {
+        "falcon3_7b_lg": 0.5912499999999999,
+        "gemma2_2b_it_lg": 0.33125,
+        "gemma2_9b_it_lg": 0.81125,
+        "llama31_8b_it_lg": 0.76125,
+        "llama32_3b_it_lg": 0.34125,
+        "mistral24b_lg": 0.64,
+        "mistral7b_lg": 0.73,
+        "phi35_mini_lg": 0.4800000000000001,
+        "qwen25_14b_lg": 0.74375,
+        "qwen25_32b_lg": 0.81875,
+        "qwen25_3b_lg": 0.6599999999999999,
+        "qwen25_7b_lg": 0.68625
+      },
+      "warm_gp_8": {
+        "falcon3_7b_lg": 0.58375,
+        "gemma2_2b_it_lg": 0.33375,
+        "gemma2_9b_it_lg": 0.81125,
+        "llama31_8b_it_lg": 0.7575,
+        "llama32_3b_it_lg": 0.36124999999999996,
+        "mistral24b_lg": 0.6375,
+        "mistral7b_lg": 0.73,
+        "phi35_mini_lg": 0.4800000000000001,
+        "qwen25_14b_lg": 0.74375,
+        "qwen25_32b_lg": 0.81875,
+        "qwen25_3b_lg": 0.6599999999999999,
+        "qwen25_7b_lg": 0.68
+      }
+    },
+    "per_family": {
+      "prior_only": {
+        "falcon": 0.63125,
+        "gemma": 0.39312500000000006,
+        "llama": 0.38937499999999997,
+        "mistral": 0.46375,
+        "phi": 0.37374999999999997,
+        "qwen": 0.6287499999999999
+      },
+      "fixed_family_loo": {
+        "falcon": 0.5587500000000001,
+        "gemma": 0.600625,
+        "llama": 0.34249999999999997,
+        "mistral": 0.59625,
+        "phi": 0.49749999999999994,
+        "qwen": 0.69875
+      },
+      "warm_gp_3": {
+        "falcon": 0.6224999999999999,
+        "gemma": 0.57625,
+        "llama": 0.52125,
+        "mistral": 0.5825,
+        "phi": 0.49750000000000005,
+        "qwen": 0.7259374999999999
+      },
+      "warm_gp_4": {
+        "falcon": 0.6137499999999999,
+        "gemma": 0.56625,
+        "llama": 0.5175,
+        "mistral": 0.6543749999999999,
+        "phi": 0.49750000000000005,
+        "qwen": 0.7206250000000001
+      },
+      "warm_gp_5": {
+        "falcon": 0.5975,
+        "gemma": 0.5687500000000001,
+        "llama": 0.516875,
+        "mistral": 0.6825,
+        "phi": 0.49750000000000005,
+        "qwen": 0.721875
+      },
+      "warm_gp_6": {
+        "falcon": 0.59375,
+        "gemma": 0.568125,
+        "llama": 0.53125,
+        "mistral": 0.6825,
+        "phi": 0.4800000000000001,
+        "qwen": 0.7259375000000001
+      },
+      "warm_gp_7": {
+        "falcon": 0.5912499999999999,
+        "gemma": 0.57125,
+        "llama": 0.55125,
+        "mistral": 0.685,
+        "phi": 0.4800000000000001,
+        "qwen": 0.7271875000000001
+      },
+      "warm_gp_8": {
+        "falcon": 0.58375,
+        "gemma": 0.5725,
+        "llama": 0.559375,
+        "mistral": 0.68375,
+        "phi": 0.4800000000000001,
+        "qwen": 0.7256250000000001
+      }
+    },
+    "comparisons": {
+      "warm_gp_3": {
+        "mean_delta_vs_prior_only": 0.10765625000000001,
+        "family_wins": 5,
+        "families": 6,
+        "sign_flip_p": 0.0625
+      },
+      "warm_gp_4": {
+        "mean_delta_vs_prior_only": 0.115,
+        "family_wins": 5,
+        "families": 6,
+        "sign_flip_p": 0.0625
+      },
+      "warm_gp_5": {
+        "mean_delta_vs_prior_only": 0.11750000000000005,
+        "family_wins": 5,
+        "families": 6,
+        "sign_flip_p": 0.0625
+      },
+      "warm_gp_6": {
+        "mean_delta_vs_prior_only": 0.11692708333333339,
+        "family_wins": 5,
+        "families": 6,
+        "sign_flip_p": 0.0625
+      },
+      "warm_gp_7": {
+        "mean_delta_vs_prior_only": 0.12098958333333339,
+        "family_wins": 5,
+        "families": 6,
+        "sign_flip_p": 0.0625
+      },
+      "warm_gp_8": {
+        "mean_delta_vs_prior_only": 0.12083333333333336,
+        "family_wins": 5,
+        "families": 6,
+        "sign_flip_p": 0.0625
+      }
+    }
+  }
+}

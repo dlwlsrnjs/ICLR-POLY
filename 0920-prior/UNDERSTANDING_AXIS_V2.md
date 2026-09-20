@@ -6,7 +6,9 @@
 
 ## 공통 입력
 
-- 언어 순서는 English, Arabic, Chinese, Norwegian, Finnish, Bengali, Thai, Korean이다.
+- 사용 가능한 언어는 English, Arabic, Chinese, Norwegian, Finnish, Bengali, Thai, Korean이다.
+  각 문항에서 English를 고정하고 나머지7언어를 고정 seed로 무작위 순열화한다. n2/n4/n6/n8은
+  그 문항별 순열의 중첩 prefix를 사용하며, 같은 선택을 모든 모델·g·순서 조건에 적용한다.
 - 번역 수정이 끝나면 모든 모델에 같은331개 문항과 같은 번역 revision을 사용한다.
 - plain 프레임만 사용한다. 의지축 프레임은 이해축 anchor가 확인된 뒤에만 적용한다.
 - 생성은 각 모델의 고정 revision, native chat template, BF16, temperature0, top_p1,
@@ -63,3 +65,27 @@ R 증가를 사용한다. 이 기준은 운영상 정의이며 보편적인 심�
 
 의지축 `plain/persona/fiction/pap/persona+fiction`은 모델별 anchor가 위 절차로
 확인된 뒤 동일 문항·동일 이해축 조건에서 수집한다.
+
+## 32조건 퍼즐 입력 생성
+
+최종 번역 release를 기존 MJ/LG와 동일한 퍼즐 renderer로 변환하는 코드는
+`experiments_suite/exp08_willingness394_milmmt_v3/aligned/model_specific/prepare_understanding32.py`다.
+이 코드는 renderer를 재구현하지 않고 해시로 고정된 `GridContract`를 호출하며, 기존
+`TRANSITION331_PLAN.json`의 selection100/validation231 분할을 그대로 사용한다.
+
+```bash
+python prepare_understanding32.py \
+  --release /home/ljk98/POLY/prior331_runs/translation_repair_20260920/hf_release_all2317_accepted_v3 \
+  --out /home/ljk98/POLY/workspaces/prior_axes_mj_lg_20260920/01_harmless331/runs/understanding_axis/v2_plain32_inputs \
+  --language-seed 20260920
+```
+
+기본 all 출력은 모델당 `331문항 × 32조건 = 10,592`개이며 17모델 전체는 180,064개다.
+문항 표본 추출 옵션은 두지 않으며 331개 전부를 만든다. 각 job에는 기존
+selection/validation 표지만 분석 메타데이터로 보존하고 입력 생성 제외 조건으로 쓰지 않는다.
+
+언어는 각 문항마다 English를 고정하고 나머지7언어를 `--language-seed`로 결정론적으로
+무작위 순열화한다. n2/n4/n6/n8은 같은 순열의 앞1/3/5/7개를 더하므로 한 문항 안에서
+언어 집합이 중첩된다. 같은 문항+n의 언어 선택은 모든 g, ordered/shuffled, target 모델에서
+동일하여 언어 선택 차이가 조건·모델 비교에 섞이지 않는다. seed와 규칙은 manifest에 남긴다.
+모델별 디렉터리의 `manifest.json`과 `jobs.jsonl`은 기존 `collect.py`가 직접 읽는다.

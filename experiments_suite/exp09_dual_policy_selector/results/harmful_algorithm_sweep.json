@@ -1,0 +1,2112 @@
+{
+  "mj": {
+    "matrix": "/home/ljk98/POLY/ICLR-POLY-0920/experiments_suite/exp07_panel17_selector_replay/results/mj_item_matrix.json",
+    "models": [
+      "falcon3_7b_mj",
+      "gemma2_2b_it_mj",
+      "gemma2_9b_it_mj",
+      "llama31_8b_it_mj",
+      "llama32_3b_it_mj",
+      "mistral24b_mj",
+      "mistral7b_mj",
+      "phi35_mini_mj",
+      "qwen25_14b_mj",
+      "qwen25_32b_mj",
+      "qwen25_3b_mj",
+      "qwen25_7b_mj"
+    ],
+    "arms": [
+      "g12_ordered_n2__fiction",
+      "g12_ordered_n2__persona",
+      "g12_ordered_n2__plain",
+      "g12_shuffled_n2__fiction",
+      "g12_shuffled_n2__persona",
+      "g12_shuffled_n2__plain",
+      "g3_ordered_n2__fiction",
+      "g3_ordered_n2__persona",
+      "g3_ordered_n2__plain",
+      "g3_shuffled_n2__fiction",
+      "g3_shuffled_n2__persona",
+      "g3_shuffled_n2__plain",
+      "g5_ordered_n2__fiction",
+      "g5_ordered_n2__persona",
+      "g5_ordered_n2__plain",
+      "g5_shuffled_n2__fiction",
+      "g5_shuffled_n2__persona",
+      "g5_shuffled_n2__plain",
+      "g8_ordered_n2__fiction",
+      "g8_ordered_n2__persona",
+      "g8_ordered_n2__plain",
+      "g8_shuffled_n2__fiction",
+      "g8_shuffled_n2__persona",
+      "g8_shuffled_n2__plain"
+    ],
+    "splits": 40,
+    "warning": "Historical replay; harmful calibration batches are table lookups.",
+    "ranking": [
+      {
+        "method": "prior_order@8",
+        "model_macro": 0.5319661458333333,
+        "per_model": {
+          "falcon3_7b_mj": 0.3359375,
+          "gemma2_2b_it_mj": 0.5453125,
+          "gemma2_9b_it_mj": 0.634375,
+          "llama31_8b_it_mj": 0.6953125,
+          "llama32_3b_it_mj": 0.3109375,
+          "mistral24b_mj": 0.67734375,
+          "mistral7b_mj": 0.484375,
+          "phi35_mini_mj": 0.31171875,
+          "qwen25_14b_mj": 0.57421875,
+          "qwen25_32b_mj": 0.73984375,
+          "qwen25_3b_mj": 0.4515625,
+          "qwen25_7b_mj": 0.62265625
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@8",
+        "model_macro": 0.5149739583333334,
+        "per_model": {
+          "falcon3_7b_mj": 0.32578125,
+          "gemma2_2b_it_mj": 0.5375,
+          "gemma2_9b_it_mj": 0.59609375,
+          "llama31_8b_it_mj": 0.6953125,
+          "llama32_3b_it_mj": 0.30078125,
+          "mistral24b_mj": 0.6640625,
+          "mistral7b_mj": 0.4875,
+          "phi35_mini_mj": 0.284375,
+          "qwen25_14b_mj": 0.54375,
+          "qwen25_32b_mj": 0.71796875,
+          "qwen25_3b_mj": 0.440625,
+          "qwen25_7b_mj": 0.5859375
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@7",
+        "model_macro": 0.5139973958333334,
+        "per_model": {
+          "falcon3_7b_mj": 0.33671875,
+          "gemma2_2b_it_mj": 0.5375,
+          "gemma2_9b_it_mj": 0.5890625,
+          "llama31_8b_it_mj": 0.6875,
+          "llama32_3b_it_mj": 0.29765625,
+          "mistral24b_mj": 0.6609375,
+          "mistral7b_mj": 0.4875,
+          "phi35_mini_mj": 0.28828125,
+          "qwen25_14b_mj": 0.5265625,
+          "qwen25_32b_mj": 0.71796875,
+          "qwen25_3b_mj": 0.43828125,
+          "qwen25_7b_mj": 0.6
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@8",
+        "model_macro": 0.5129557291666667,
+        "per_model": {
+          "falcon3_7b_mj": 0.33671875,
+          "gemma2_2b_it_mj": 0.534375,
+          "gemma2_9b_it_mj": 0.5890625,
+          "llama31_8b_it_mj": 0.684375,
+          "llama32_3b_it_mj": 0.2984375,
+          "mistral24b_mj": 0.6515625,
+          "mistral7b_mj": 0.4875,
+          "phi35_mini_mj": 0.28828125,
+          "qwen25_14b_mj": 0.5359375,
+          "qwen25_32b_mj": 0.71640625,
+          "qwen25_3b_mj": 0.4328125,
+          "qwen25_7b_mj": 0.6
+        }
+      },
+      {
+        "method": "gp_greedy@5",
+        "model_macro": 0.5128255208333333,
+        "per_model": {
+          "falcon3_7b_mj": 0.3359375,
+          "gemma2_2b_it_mj": 0.53671875,
+          "gemma2_9b_it_mj": 0.5875,
+          "llama31_8b_it_mj": 0.6875,
+          "llama32_3b_it_mj": 0.3109375,
+          "mistral24b_mj": 0.61796875,
+          "mistral7b_mj": 0.49375,
+          "phi35_mini_mj": 0.3046875,
+          "qwen25_14b_mj": 0.4828125,
+          "qwen25_32b_mj": 0.7296875,
+          "qwen25_3b_mj": 0.44921875,
+          "qwen25_7b_mj": 0.6171875
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@8",
+        "model_macro": 0.5127604166666667,
+        "per_model": {
+          "falcon3_7b_mj": 0.33203125,
+          "gemma2_2b_it_mj": 0.52734375,
+          "gemma2_9b_it_mj": 0.58828125,
+          "llama31_8b_it_mj": 0.684375,
+          "llama32_3b_it_mj": 0.29765625,
+          "mistral24b_mj": 0.65,
+          "mistral7b_mj": 0.4875,
+          "phi35_mini_mj": 0.29296875,
+          "qwen25_14b_mj": 0.51875,
+          "qwen25_32b_mj": 0.72109375,
+          "qwen25_3b_mj": 0.45,
+          "qwen25_7b_mj": 0.603125
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@5",
+        "model_macro": 0.5126953125,
+        "per_model": {
+          "falcon3_7b_mj": 0.340625,
+          "gemma2_2b_it_mj": 0.54375,
+          "gemma2_9b_it_mj": 0.5875,
+          "llama31_8b_it_mj": 0.6953125,
+          "llama32_3b_it_mj": 0.3109375,
+          "mistral24b_mj": 0.665625,
+          "mistral7b_mj": 0.4875,
+          "phi35_mini_mj": 0.29296875,
+          "qwen25_14b_mj": 0.45703125,
+          "qwen25_32b_mj": 0.71015625,
+          "qwen25_3b_mj": 0.4578125,
+          "qwen25_7b_mj": 0.603125
+        }
+      },
+      {
+        "method": "gp_greedy@8",
+        "model_macro": 0.5126302083333333,
+        "per_model": {
+          "falcon3_7b_mj": 0.334375,
+          "gemma2_2b_it_mj": 0.528125,
+          "gemma2_9b_it_mj": 0.58359375,
+          "llama31_8b_it_mj": 0.684375,
+          "llama32_3b_it_mj": 0.29765625,
+          "mistral24b_mj": 0.66015625,
+          "mistral7b_mj": 0.478125,
+          "phi35_mini_mj": 0.3046875,
+          "qwen25_14b_mj": 0.490625,
+          "qwen25_32b_mj": 0.728125,
+          "qwen25_3b_mj": 0.45234375,
+          "qwen25_7b_mj": 0.609375
+        }
+      },
+      {
+        "method": "gp_greedy@4",
+        "model_macro": 0.5120442708333334,
+        "per_model": {
+          "falcon3_7b_mj": 0.35390625,
+          "gemma2_2b_it_mj": 0.53984375,
+          "gemma2_9b_it_mj": 0.58125,
+          "llama31_8b_it_mj": 0.6875,
+          "llama32_3b_it_mj": 0.3140625,
+          "mistral24b_mj": 0.59609375,
+          "mistral7b_mj": 0.48828125,
+          "phi35_mini_mj": 0.30859375,
+          "qwen25_14b_mj": 0.48125,
+          "qwen25_32b_mj": 0.7125,
+          "qwen25_3b_mj": 0.459375,
+          "qwen25_7b_mj": 0.621875
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@7",
+        "model_macro": 0.51171875,
+        "per_model": {
+          "falcon3_7b_mj": 0.33203125,
+          "gemma2_2b_it_mj": 0.534375,
+          "gemma2_9b_it_mj": 0.58828125,
+          "llama31_8b_it_mj": 0.684375,
+          "llama32_3b_it_mj": 0.29765625,
+          "mistral24b_mj": 0.653125,
+          "mistral7b_mj": 0.4875,
+          "phi35_mini_mj": 0.29296875,
+          "qwen25_14b_mj": 0.50703125,
+          "qwen25_32b_mj": 0.72109375,
+          "qwen25_3b_mj": 0.4390625,
+          "qwen25_7b_mj": 0.603125
+        }
+      },
+      {
+        "method": "gp_greedy@7",
+        "model_macro": 0.5115885416666667,
+        "per_model": {
+          "falcon3_7b_mj": 0.334375,
+          "gemma2_2b_it_mj": 0.5234375,
+          "gemma2_9b_it_mj": 0.58828125,
+          "llama31_8b_it_mj": 0.684375,
+          "llama32_3b_it_mj": 0.29765625,
+          "mistral24b_mj": 0.6484375,
+          "mistral7b_mj": 0.4875,
+          "phi35_mini_mj": 0.3046875,
+          "qwen25_14b_mj": 0.4875,
+          "qwen25_32b_mj": 0.72421875,
+          "qwen25_3b_mj": 0.44921875,
+          "qwen25_7b_mj": 0.609375
+        }
+      },
+      {
+        "method": "gp_greedy@6",
+        "model_macro": 0.5110677083333334,
+        "per_model": {
+          "falcon3_7b_mj": 0.3375,
+          "gemma2_2b_it_mj": 0.5265625,
+          "gemma2_9b_it_mj": 0.5859375,
+          "llama31_8b_it_mj": 0.6875,
+          "llama32_3b_it_mj": 0.29765625,
+          "mistral24b_mj": 0.62890625,
+          "mistral7b_mj": 0.49375,
+          "phi35_mini_mj": 0.3046875,
+          "qwen25_14b_mj": 0.4875,
+          "qwen25_32b_mj": 0.72421875,
+          "qwen25_3b_mj": 0.44921875,
+          "qwen25_7b_mj": 0.609375
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@5",
+        "model_macro": 0.5103515625,
+        "per_model": {
+          "falcon3_7b_mj": 0.33671875,
+          "gemma2_2b_it_mj": 0.5453125,
+          "gemma2_9b_it_mj": 0.5875,
+          "llama31_8b_it_mj": 0.6953125,
+          "llama32_3b_it_mj": 0.29921875,
+          "mistral24b_mj": 0.665625,
+          "mistral7b_mj": 0.49609375,
+          "phi35_mini_mj": 0.28828125,
+          "qwen25_14b_mj": 0.446875,
+          "qwen25_32b_mj": 0.715625,
+          "qwen25_3b_mj": 0.44375,
+          "qwen25_7b_mj": 0.60390625
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@6",
+        "model_macro": 0.5098958333333333,
+        "per_model": {
+          "falcon3_7b_mj": 0.33671875,
+          "gemma2_2b_it_mj": 0.5359375,
+          "gemma2_9b_it_mj": 0.58984375,
+          "llama31_8b_it_mj": 0.6921875,
+          "llama32_3b_it_mj": 0.29765625,
+          "mistral24b_mj": 0.66328125,
+          "mistral7b_mj": 0.4875,
+          "phi35_mini_mj": 0.29296875,
+          "qwen25_14b_mj": 0.45703125,
+          "qwen25_32b_mj": 0.71875,
+          "qwen25_3b_mj": 0.44375,
+          "qwen25_7b_mj": 0.603125
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@7",
+        "model_macro": 0.5098958333333333,
+        "per_model": {
+          "falcon3_7b_mj": 0.31796875,
+          "gemma2_2b_it_mj": 0.53359375,
+          "gemma2_9b_it_mj": 0.6,
+          "llama31_8b_it_mj": 0.6953125,
+          "llama32_3b_it_mj": 0.30078125,
+          "mistral24b_mj": 0.6640625,
+          "mistral7b_mj": 0.4875,
+          "phi35_mini_mj": 0.284375,
+          "qwen25_14b_mj": 0.4875,
+          "qwen25_32b_mj": 0.72578125,
+          "qwen25_3b_mj": 0.440625,
+          "qwen25_7b_mj": 0.58125
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@6",
+        "model_macro": 0.5093098958333332,
+        "per_model": {
+          "falcon3_7b_mj": 0.33671875,
+          "gemma2_2b_it_mj": 0.5359375,
+          "gemma2_9b_it_mj": 0.59140625,
+          "llama31_8b_it_mj": 0.6953125,
+          "llama32_3b_it_mj": 0.29765625,
+          "mistral24b_mj": 0.66328125,
+          "mistral7b_mj": 0.49609375,
+          "phi35_mini_mj": 0.28828125,
+          "qwen25_14b_mj": 0.44453125,
+          "qwen25_32b_mj": 0.71796875,
+          "qwen25_3b_mj": 0.440625,
+          "qwen25_7b_mj": 0.60390625
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@6",
+        "model_macro": 0.5070312499999999,
+        "per_model": {
+          "falcon3_7b_mj": 0.3125,
+          "gemma2_2b_it_mj": 0.51328125,
+          "gemma2_9b_it_mj": 0.60546875,
+          "llama31_8b_it_mj": 0.6953125,
+          "llama32_3b_it_mj": 0.3046875,
+          "mistral24b_mj": 0.6640625,
+          "mistral7b_mj": 0.49609375,
+          "phi35_mini_mj": 0.29765625,
+          "qwen25_14b_mj": 0.44765625,
+          "qwen25_32b_mj": 0.72578125,
+          "qwen25_3b_mj": 0.440625,
+          "qwen25_7b_mj": 0.58125
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@4",
+        "model_macro": 0.5064453125,
+        "per_model": {
+          "falcon3_7b_mj": 0.35390625,
+          "gemma2_2b_it_mj": 0.53828125,
+          "gemma2_9b_it_mj": 0.58125,
+          "llama31_8b_it_mj": 0.6953125,
+          "llama32_3b_it_mj": 0.31640625,
+          "mistral24b_mj": 0.63359375,
+          "mistral7b_mj": 0.49609375,
+          "phi35_mini_mj": 0.29296875,
+          "qwen25_14b_mj": 0.4109375,
+          "qwen25_32b_mj": 0.69296875,
+          "qwen25_3b_mj": 0.4609375,
+          "qwen25_7b_mj": 0.6046875
+        }
+      },
+      {
+        "method": "gp_thompson@8",
+        "model_macro": 0.5043619791666667,
+        "per_model": {
+          "falcon3_7b_mj": 0.32421875,
+          "gemma2_2b_it_mj": 0.52265625,
+          "gemma2_9b_it_mj": 0.6046875,
+          "llama31_8b_it_mj": 0.63515625,
+          "llama32_3b_it_mj": 0.303125,
+          "mistral24b_mj": 0.653125,
+          "mistral7b_mj": 0.43203125,
+          "phi35_mini_mj": 0.29453125,
+          "qwen25_14b_mj": 0.5203125,
+          "qwen25_32b_mj": 0.7265625,
+          "qwen25_3b_mj": 0.45234375,
+          "qwen25_7b_mj": 0.58359375
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@4",
+        "model_macro": 0.5039713541666667,
+        "per_model": {
+          "falcon3_7b_mj": 0.35078125,
+          "gemma2_2b_it_mj": 0.52890625,
+          "gemma2_9b_it_mj": 0.58203125,
+          "llama31_8b_it_mj": 0.6953125,
+          "llama32_3b_it_mj": 0.30703125,
+          "mistral24b_mj": 0.65078125,
+          "mistral7b_mj": 0.49609375,
+          "phi35_mini_mj": 0.28828125,
+          "qwen25_14b_mj": 0.409375,
+          "qwen25_32b_mj": 0.68515625,
+          "qwen25_3b_mj": 0.45,
+          "qwen25_7b_mj": 0.60390625
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@3",
+        "model_macro": 0.5024088541666666,
+        "per_model": {
+          "falcon3_7b_mj": 0.31796875,
+          "gemma2_2b_it_mj": 0.50859375,
+          "gemma2_9b_it_mj": 0.5984375,
+          "llama31_8b_it_mj": 0.70234375,
+          "llama32_3b_it_mj": 0.32109375,
+          "mistral24b_mj": 0.62421875,
+          "mistral7b_mj": 0.50234375,
+          "phi35_mini_mj": 0.29140625,
+          "qwen25_14b_mj": 0.4203125,
+          "qwen25_32b_mj": 0.684375,
+          "qwen25_3b_mj": 0.4609375,
+          "qwen25_7b_mj": 0.596875
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@3",
+        "model_macro": 0.4996744791666667,
+        "per_model": {
+          "falcon3_7b_mj": 0.30078125,
+          "gemma2_2b_it_mj": 0.49921875,
+          "gemma2_9b_it_mj": 0.5984375,
+          "llama31_8b_it_mj": 0.70234375,
+          "llama32_3b_it_mj": 0.3328125,
+          "mistral24b_mj": 0.65234375,
+          "mistral7b_mj": 0.50234375,
+          "phi35_mini_mj": 0.2734375,
+          "qwen25_14b_mj": 0.42265625,
+          "qwen25_32b_mj": 0.67265625,
+          "qwen25_3b_mj": 0.4609375,
+          "qwen25_7b_mj": 0.578125
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@5",
+        "model_macro": 0.4994140624999999,
+        "per_model": {
+          "falcon3_7b_mj": 0.30234375,
+          "gemma2_2b_it_mj": 0.49609375,
+          "gemma2_9b_it_mj": 0.60703125,
+          "llama31_8b_it_mj": 0.6953125,
+          "llama32_3b_it_mj": 0.30703125,
+          "mistral24b_mj": 0.6734375,
+          "mistral7b_mj": 0.49609375,
+          "phi35_mini_mj": 0.29765625,
+          "qwen25_14b_mj": 0.41015625,
+          "qwen25_32b_mj": 0.68203125,
+          "qwen25_3b_mj": 0.440625,
+          "qwen25_7b_mj": 0.58515625
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@3",
+        "model_macro": 0.4982421875,
+        "per_model": {
+          "falcon3_7b_mj": 0.2734375,
+          "gemma2_2b_it_mj": 0.49296875,
+          "gemma2_9b_it_mj": 0.5984375,
+          "llama31_8b_it_mj": 0.7,
+          "llama32_3b_it_mj": 0.3390625,
+          "mistral24b_mj": 0.64296875,
+          "mistral7b_mj": 0.50234375,
+          "phi35_mini_mj": 0.27734375,
+          "qwen25_14b_mj": 0.41953125,
+          "qwen25_32b_mj": 0.6953125,
+          "qwen25_3b_mj": 0.4609375,
+          "qwen25_7b_mj": 0.5765625
+        }
+      },
+      {
+        "method": "prior_order@7",
+        "model_macro": 0.4979817708333334,
+        "per_model": {
+          "falcon3_7b_mj": 0.3359375,
+          "gemma2_2b_it_mj": 0.5453125,
+          "gemma2_9b_it_mj": 0.228125,
+          "llama31_8b_it_mj": 0.70234375,
+          "llama32_3b_it_mj": 0.3109375,
+          "mistral24b_mj": 0.67734375,
+          "mistral7b_mj": 0.484375,
+          "phi35_mini_mj": 0.31171875,
+          "qwen25_14b_mj": 0.57421875,
+          "qwen25_32b_mj": 0.73984375,
+          "qwen25_3b_mj": 0.44296875,
+          "qwen25_7b_mj": 0.62265625
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@4",
+        "model_macro": 0.49733072916666665,
+        "per_model": {
+          "falcon3_7b_mj": 0.29453125,
+          "gemma2_2b_it_mj": 0.4859375,
+          "gemma2_9b_it_mj": 0.6046875,
+          "llama31_8b_it_mj": 0.6953125,
+          "llama32_3b_it_mj": 0.30703125,
+          "mistral24b_mj": 0.66875,
+          "mistral7b_mj": 0.49609375,
+          "phi35_mini_mj": 0.29765625,
+          "qwen25_14b_mj": 0.41015625,
+          "qwen25_32b_mj": 0.67265625,
+          "qwen25_3b_mj": 0.45,
+          "qwen25_7b_mj": 0.58515625
+        }
+      },
+      {
+        "method": "gp_greedy@3",
+        "model_macro": 0.49635416666666665,
+        "per_model": {
+          "falcon3_7b_mj": 0.35390625,
+          "gemma2_2b_it_mj": 0.45859375,
+          "gemma2_9b_it_mj": 0.5984375,
+          "llama31_8b_it_mj": 0.68515625,
+          "llama32_3b_it_mj": 0.3265625,
+          "mistral24b_mj": 0.5671875,
+          "mistral7b_mj": 0.45546875,
+          "phi35_mini_mj": 0.31328125,
+          "qwen25_14b_mj": 0.42734375,
+          "qwen25_32b_mj": 0.690625,
+          "qwen25_3b_mj": 0.46015625,
+          "qwen25_7b_mj": 0.61953125
+        }
+      },
+      {
+        "method": "gp_thompson@6",
+        "model_macro": 0.4953125,
+        "per_model": {
+          "falcon3_7b_mj": 0.33046875,
+          "gemma2_2b_it_mj": 0.50859375,
+          "gemma2_9b_it_mj": 0.60546875,
+          "llama31_8b_it_mj": 0.64765625,
+          "llama32_3b_it_mj": 0.31640625,
+          "mistral24b_mj": 0.65,
+          "mistral7b_mj": 0.39453125,
+          "phi35_mini_mj": 0.2703125,
+          "qwen25_14b_mj": 0.4984375,
+          "qwen25_32b_mj": 0.71015625,
+          "qwen25_3b_mj": 0.4578125,
+          "qwen25_7b_mj": 0.55390625
+        }
+      },
+      {
+        "method": "gp_thompson@5",
+        "model_macro": 0.4916015624999999,
+        "per_model": {
+          "falcon3_7b_mj": 0.31328125,
+          "gemma2_2b_it_mj": 0.50546875,
+          "gemma2_9b_it_mj": 0.61171875,
+          "llama31_8b_it_mj": 0.62734375,
+          "llama32_3b_it_mj": 0.325,
+          "mistral24b_mj": 0.634375,
+          "mistral7b_mj": 0.42578125,
+          "phi35_mini_mj": 0.27109375,
+          "qwen25_14b_mj": 0.4875,
+          "qwen25_32b_mj": 0.71484375,
+          "qwen25_3b_mj": 0.46015625,
+          "qwen25_7b_mj": 0.52265625
+        }
+      },
+      {
+        "method": "gp_thompson@7",
+        "model_macro": 0.4904947916666667,
+        "per_model": {
+          "falcon3_7b_mj": 0.315625,
+          "gemma2_2b_it_mj": 0.47890625,
+          "gemma2_9b_it_mj": 0.59609375,
+          "llama31_8b_it_mj": 0.64453125,
+          "llama32_3b_it_mj": 0.30234375,
+          "mistral24b_mj": 0.64765625,
+          "mistral7b_mj": 0.4046875,
+          "phi35_mini_mj": 0.27578125,
+          "qwen25_14b_mj": 0.50703125,
+          "qwen25_32b_mj": 0.7125,
+          "qwen25_3b_mj": 0.45,
+          "qwen25_7b_mj": 0.55078125
+        }
+      },
+      {
+        "method": "prior_order@6",
+        "model_macro": 0.4876302083333334,
+        "per_model": {
+          "falcon3_7b_mj": 0.3359375,
+          "gemma2_2b_it_mj": 0.38359375,
+          "gemma2_9b_it_mj": 0.23984375,
+          "llama31_8b_it_mj": 0.70234375,
+          "llama32_3b_it_mj": 0.31328125,
+          "mistral24b_mj": 0.67734375,
+          "mistral7b_mj": 0.49296875,
+          "phi35_mini_mj": 0.3265625,
+          "qwen25_14b_mj": 0.57421875,
+          "qwen25_32b_mj": 0.73984375,
+          "qwen25_3b_mj": 0.44296875,
+          "qwen25_7b_mj": 0.62265625
+        }
+      },
+      {
+        "method": "gp_thompson@4",
+        "model_macro": 0.47792968750000003,
+        "per_model": {
+          "falcon3_7b_mj": 0.33203125,
+          "gemma2_2b_it_mj": 0.5078125,
+          "gemma2_9b_it_mj": 0.5703125,
+          "llama31_8b_it_mj": 0.59453125,
+          "llama32_3b_it_mj": 0.3203125,
+          "mistral24b_mj": 0.63046875,
+          "mistral7b_mj": 0.4203125,
+          "phi35_mini_mj": 0.23359375,
+          "qwen25_14b_mj": 0.4765625,
+          "qwen25_32b_mj": 0.68046875,
+          "qwen25_3b_mj": 0.4640625,
+          "qwen25_7b_mj": 0.5046875
+        }
+      },
+      {
+        "method": "random@8",
+        "model_macro": 0.4761718750000001,
+        "per_model": {
+          "falcon3_7b_mj": 0.2921875,
+          "gemma2_2b_it_mj": 0.496875,
+          "gemma2_9b_it_mj": 0.60546875,
+          "llama31_8b_it_mj": 0.59765625,
+          "llama32_3b_it_mj": 0.303125,
+          "mistral24b_mj": 0.62578125,
+          "mistral7b_mj": 0.37890625,
+          "phi35_mini_mj": 0.23671875,
+          "qwen25_14b_mj": 0.48046875,
+          "qwen25_32b_mj": 0.69296875,
+          "qwen25_3b_mj": 0.45234375,
+          "qwen25_7b_mj": 0.5515625
+        }
+      },
+      {
+        "method": "prior_order@5",
+        "model_macro": 0.46933593749999997,
+        "per_model": {
+          "falcon3_7b_mj": 0.3359375,
+          "gemma2_2b_it_mj": 0.38359375,
+          "gemma2_9b_it_mj": 0.23984375,
+          "llama31_8b_it_mj": 0.70234375,
+          "llama32_3b_it_mj": 0.31328125,
+          "mistral24b_mj": 0.56328125,
+          "mistral7b_mj": 0.50234375,
+          "phi35_mini_mj": 0.3265625,
+          "qwen25_14b_mj": 0.57421875,
+          "qwen25_32b_mj": 0.75234375,
+          "qwen25_3b_mj": 0.44296875,
+          "qwen25_7b_mj": 0.4953125
+        }
+      },
+      {
+        "method": "random@7",
+        "model_macro": 0.4632161458333333,
+        "per_model": {
+          "falcon3_7b_mj": 0.2984375,
+          "gemma2_2b_it_mj": 0.48046875,
+          "gemma2_9b_it_mj": 0.5671875,
+          "llama31_8b_it_mj": 0.5890625,
+          "llama32_3b_it_mj": 0.303125,
+          "mistral24b_mj": 0.621875,
+          "mistral7b_mj": 0.37265625,
+          "phi35_mini_mj": 0.23828125,
+          "qwen25_14b_mj": 0.47421875,
+          "qwen25_32b_mj": 0.678125,
+          "qwen25_3b_mj": 0.4421875,
+          "qwen25_7b_mj": 0.49296875
+        }
+      },
+      {
+        "method": "gp_thompson@3",
+        "model_macro": 0.4622395833333333,
+        "per_model": {
+          "falcon3_7b_mj": 0.31484375,
+          "gemma2_2b_it_mj": 0.45859375,
+          "gemma2_9b_it_mj": 0.52578125,
+          "llama31_8b_it_mj": 0.60078125,
+          "llama32_3b_it_mj": 0.334375,
+          "mistral24b_mj": 0.61015625,
+          "mistral7b_mj": 0.36796875,
+          "phi35_mini_mj": 0.22890625,
+          "qwen25_14b_mj": 0.4703125,
+          "qwen25_32b_mj": 0.66484375,
+          "qwen25_3b_mj": 0.48203125,
+          "qwen25_7b_mj": 0.48828125
+        }
+      },
+      {
+        "method": "random@6",
+        "model_macro": 0.4549479166666666,
+        "per_model": {
+          "falcon3_7b_mj": 0.29140625,
+          "gemma2_2b_it_mj": 0.4890625,
+          "gemma2_9b_it_mj": 0.571875,
+          "llama31_8b_it_mj": 0.5890625,
+          "llama32_3b_it_mj": 0.28359375,
+          "mistral24b_mj": 0.61796875,
+          "mistral7b_mj": 0.384375,
+          "phi35_mini_mj": 0.209375,
+          "qwen25_14b_mj": 0.4671875,
+          "qwen25_32b_mj": 0.6609375,
+          "qwen25_3b_mj": 0.4296875,
+          "qwen25_7b_mj": 0.46484375
+        }
+      },
+      {
+        "method": "random@5",
+        "model_macro": 0.4493489583333334,
+        "per_model": {
+          "falcon3_7b_mj": 0.30546875,
+          "gemma2_2b_it_mj": 0.48125,
+          "gemma2_9b_it_mj": 0.58046875,
+          "llama31_8b_it_mj": 0.56953125,
+          "llama32_3b_it_mj": 0.25078125,
+          "mistral24b_mj": 0.60703125,
+          "mistral7b_mj": 0.384375,
+          "phi35_mini_mj": 0.2,
+          "qwen25_14b_mj": 0.475,
+          "qwen25_32b_mj": 0.6671875,
+          "qwen25_3b_mj": 0.42421875,
+          "qwen25_7b_mj": 0.446875
+        }
+      },
+      {
+        "method": "random@4",
+        "model_macro": 0.4328776041666667,
+        "per_model": {
+          "falcon3_7b_mj": 0.2484375,
+          "gemma2_2b_it_mj": 0.4546875,
+          "gemma2_9b_it_mj": 0.4796875,
+          "llama31_8b_it_mj": 0.59296875,
+          "llama32_3b_it_mj": 0.25078125,
+          "mistral24b_mj": 0.59765625,
+          "mistral7b_mj": 0.3875,
+          "phi35_mini_mj": 0.19921875,
+          "qwen25_14b_mj": 0.44921875,
+          "qwen25_32b_mj": 0.665625,
+          "qwen25_3b_mj": 0.40625,
+          "qwen25_7b_mj": 0.4625
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@2",
+        "model_macro": 0.40520833333333334,
+        "per_model": {
+          "falcon3_7b_mj": 0.303125,
+          "gemma2_2b_it_mj": 0.41953125,
+          "gemma2_9b_it_mj": 0.2765625,
+          "llama31_8b_it_mj": 0.56328125,
+          "llama32_3b_it_mj": 0.35625,
+          "mistral24b_mj": 0.56328125,
+          "mistral7b_mj": 0.378125,
+          "phi35_mini_mj": 0.16953125,
+          "qwen25_14b_mj": 0.40625,
+          "qwen25_32b_mj": 0.70078125,
+          "qwen25_3b_mj": 0.46875,
+          "qwen25_7b_mj": 0.25703125
+        }
+      },
+      {
+        "method": "gp_thompson@2",
+        "model_macro": 0.40488281249999997,
+        "per_model": {
+          "falcon3_7b_mj": 0.29375,
+          "gemma2_2b_it_mj": 0.39375,
+          "gemma2_9b_it_mj": 0.3859375,
+          "llama31_8b_it_mj": 0.58203125,
+          "llama32_3b_it_mj": 0.25390625,
+          "mistral24b_mj": 0.53046875,
+          "mistral7b_mj": 0.33203125,
+          "phi35_mini_mj": 0.19140625,
+          "qwen25_14b_mj": 0.46640625,
+          "qwen25_32b_mj": 0.5859375,
+          "qwen25_3b_mj": 0.42578125,
+          "qwen25_7b_mj": 0.4171875
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@2",
+        "model_macro": 0.40305989583333335,
+        "per_model": {
+          "falcon3_7b_mj": 0.303125,
+          "gemma2_2b_it_mj": 0.3984375,
+          "gemma2_9b_it_mj": 0.2765625,
+          "llama31_8b_it_mj": 0.56328125,
+          "llama32_3b_it_mj": 0.35625,
+          "mistral24b_mj": 0.56328125,
+          "mistral7b_mj": 0.378125,
+          "phi35_mini_mj": 0.16953125,
+          "qwen25_14b_mj": 0.40625,
+          "qwen25_32b_mj": 0.69609375,
+          "qwen25_3b_mj": 0.46875,
+          "qwen25_7b_mj": 0.25703125
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@2",
+        "model_macro": 0.40195312499999997,
+        "per_model": {
+          "falcon3_7b_mj": 0.303125,
+          "gemma2_2b_it_mj": 0.43515625,
+          "gemma2_9b_it_mj": 0.2765625,
+          "llama31_8b_it_mj": 0.56328125,
+          "llama32_3b_it_mj": 0.35625,
+          "mistral24b_mj": 0.51953125,
+          "mistral7b_mj": 0.378125,
+          "phi35_mini_mj": 0.17734375,
+          "qwen25_14b_mj": 0.40390625,
+          "qwen25_32b_mj": 0.70078125,
+          "qwen25_3b_mj": 0.46875,
+          "qwen25_7b_mj": 0.240625
+        }
+      },
+      {
+        "method": "gp_greedy@2",
+        "model_macro": 0.39921874999999996,
+        "per_model": {
+          "falcon3_7b_mj": 0.303125,
+          "gemma2_2b_it_mj": 0.35859375,
+          "gemma2_9b_it_mj": 0.2765625,
+          "llama31_8b_it_mj": 0.56328125,
+          "llama32_3b_it_mj": 0.35625,
+          "mistral24b_mj": 0.56328125,
+          "mistral7b_mj": 0.378125,
+          "phi35_mini_mj": 0.16953125,
+          "qwen25_14b_mj": 0.40625,
+          "qwen25_32b_mj": 0.68984375,
+          "qwen25_3b_mj": 0.46875,
+          "qwen25_7b_mj": 0.25703125
+        }
+      },
+      {
+        "method": "random@3",
+        "model_macro": 0.39505208333333336,
+        "per_model": {
+          "falcon3_7b_mj": 0.25078125,
+          "gemma2_2b_it_mj": 0.43984375,
+          "gemma2_9b_it_mj": 0.4671875,
+          "llama31_8b_it_mj": 0.5484375,
+          "llama32_3b_it_mj": 0.190625,
+          "mistral24b_mj": 0.5125,
+          "mistral7b_mj": 0.3484375,
+          "phi35_mini_mj": 0.19296875,
+          "qwen25_14b_mj": 0.43984375,
+          "qwen25_32b_mj": 0.60390625,
+          "qwen25_3b_mj": 0.34453125,
+          "qwen25_7b_mj": 0.4015625
+        }
+      },
+      {
+        "method": "prior_order@4",
+        "model_macro": 0.3537109375,
+        "per_model": {
+          "falcon3_7b_mj": 0.3484375,
+          "gemma2_2b_it_mj": 0.328125,
+          "gemma2_9b_it_mj": 0.27734375,
+          "llama31_8b_it_mj": 0.70234375,
+          "llama32_3b_it_mj": 0.31328125,
+          "mistral24b_mj": 0.56328125,
+          "mistral7b_mj": 0.50234375,
+          "phi35_mini_mj": 0.3265625,
+          "qwen25_14b_mj": 0.11171875,
+          "qwen25_32b_mj": 0.08515625,
+          "qwen25_3b_mj": 0.44296875,
+          "qwen25_7b_mj": 0.24296875
+        }
+      },
+      {
+        "method": "random@2",
+        "model_macro": 0.3500651041666667,
+        "per_model": {
+          "falcon3_7b_mj": 0.21796875,
+          "gemma2_2b_it_mj": 0.37265625,
+          "gemma2_9b_it_mj": 0.3453125,
+          "llama31_8b_it_mj": 0.5328125,
+          "llama32_3b_it_mj": 0.17109375,
+          "mistral24b_mj": 0.50234375,
+          "mistral7b_mj": 0.2984375,
+          "phi35_mini_mj": 0.16015625,
+          "qwen25_14b_mj": 0.36953125,
+          "qwen25_32b_mj": 0.490625,
+          "qwen25_3b_mj": 0.38125,
+          "qwen25_7b_mj": 0.35859375
+        }
+      },
+      {
+        "method": "gp_thompson@1",
+        "model_macro": 0.3197265625,
+        "per_model": {
+          "falcon3_7b_mj": 0.21875,
+          "gemma2_2b_it_mj": 0.3671875,
+          "gemma2_9b_it_mj": 0.28671875,
+          "llama31_8b_it_mj": 0.51875,
+          "llama32_3b_it_mj": 0.1546875,
+          "mistral24b_mj": 0.396875,
+          "mistral7b_mj": 0.30625,
+          "phi35_mini_mj": 0.1421875,
+          "qwen25_14b_mj": 0.28828125,
+          "qwen25_32b_mj": 0.4546875,
+          "qwen25_3b_mj": 0.35546875,
+          "qwen25_7b_mj": 0.346875
+        }
+      },
+      {
+        "method": "prior_order@3",
+        "model_macro": 0.290234375,
+        "per_model": {
+          "falcon3_7b_mj": 0.35390625,
+          "gemma2_2b_it_mj": 0.265625,
+          "gemma2_9b_it_mj": 0.01640625,
+          "llama31_8b_it_mj": 0.70234375,
+          "llama32_3b_it_mj": 0.321875,
+          "mistral24b_mj": 0.2671875,
+          "mistral7b_mj": 0.3703125,
+          "phi35_mini_mj": 0.3265625,
+          "qwen25_14b_mj": 0.1,
+          "qwen25_32b_mj": 0.08984375,
+          "qwen25_3b_mj": 0.4609375,
+          "qwen25_7b_mj": 0.2078125
+        }
+      },
+      {
+        "method": "random@1",
+        "model_macro": 0.28515625,
+        "per_model": {
+          "falcon3_7b_mj": 0.1796875,
+          "gemma2_2b_it_mj": 0.29140625,
+          "gemma2_9b_it_mj": 0.24609375,
+          "llama31_8b_it_mj": 0.48984375,
+          "llama32_3b_it_mj": 0.07109375,
+          "mistral24b_mj": 0.4203125,
+          "mistral7b_mj": 0.2578125,
+          "phi35_mini_mj": 0.1453125,
+          "qwen25_14b_mj": 0.334375,
+          "qwen25_32b_mj": 0.428125,
+          "qwen25_3b_mj": 0.2421875,
+          "qwen25_7b_mj": 0.315625
+        }
+      },
+      {
+        "method": "prior_order@2",
+        "model_macro": 0.2593098958333333,
+        "per_model": {
+          "falcon3_7b_mj": 0.35390625,
+          "gemma2_2b_it_mj": 0.2890625,
+          "gemma2_9b_it_mj": 0.02109375,
+          "llama31_8b_it_mj": 0.56328125,
+          "llama32_3b_it_mj": 0.35625,
+          "mistral24b_mj": 0.271875,
+          "mistral7b_mj": 0.18125,
+          "phi35_mini_mj": 0.16953125,
+          "qwen25_14b_mj": 0.10859375,
+          "qwen25_32b_mj": 0.09453125,
+          "qwen25_3b_mj": 0.46875,
+          "qwen25_7b_mj": 0.23359375
+        }
+      },
+      {
+        "method": "prior_order@1",
+        "model_macro": 0.25201822916666666,
+        "per_model": {
+          "falcon3_7b_mj": 0.303125,
+          "gemma2_2b_it_mj": 0.20390625,
+          "gemma2_9b_it_mj": 0.02734375,
+          "llama31_8b_it_mj": 0.57890625,
+          "llama32_3b_it_mj": 0.35625,
+          "mistral24b_mj": 0.271875,
+          "mistral7b_mj": 0.1875,
+          "phi35_mini_mj": 0.18125,
+          "qwen25_14b_mj": 0.1,
+          "qwen25_32b_mj": 0.1078125,
+          "qwen25_3b_mj": 0.46875,
+          "qwen25_7b_mj": 0.2375
+        }
+      },
+      {
+        "method": "gp_greedy@1",
+        "model_macro": 0.25201822916666666,
+        "per_model": {
+          "falcon3_7b_mj": 0.303125,
+          "gemma2_2b_it_mj": 0.20390625,
+          "gemma2_9b_it_mj": 0.02734375,
+          "llama31_8b_it_mj": 0.57890625,
+          "llama32_3b_it_mj": 0.35625,
+          "mistral24b_mj": 0.271875,
+          "mistral7b_mj": 0.1875,
+          "phi35_mini_mj": 0.18125,
+          "qwen25_14b_mj": 0.1,
+          "qwen25_32b_mj": 0.1078125,
+          "qwen25_3b_mj": 0.46875,
+          "qwen25_7b_mj": 0.2375
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@1",
+        "model_macro": 0.25201822916666666,
+        "per_model": {
+          "falcon3_7b_mj": 0.303125,
+          "gemma2_2b_it_mj": 0.20390625,
+          "gemma2_9b_it_mj": 0.02734375,
+          "llama31_8b_it_mj": 0.57890625,
+          "llama32_3b_it_mj": 0.35625,
+          "mistral24b_mj": 0.271875,
+          "mistral7b_mj": 0.1875,
+          "phi35_mini_mj": 0.18125,
+          "qwen25_14b_mj": 0.1,
+          "qwen25_32b_mj": 0.1078125,
+          "qwen25_3b_mj": 0.46875,
+          "qwen25_7b_mj": 0.2375
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@1",
+        "model_macro": 0.25201822916666666,
+        "per_model": {
+          "falcon3_7b_mj": 0.303125,
+          "gemma2_2b_it_mj": 0.20390625,
+          "gemma2_9b_it_mj": 0.02734375,
+          "llama31_8b_it_mj": 0.57890625,
+          "llama32_3b_it_mj": 0.35625,
+          "mistral24b_mj": 0.271875,
+          "mistral7b_mj": 0.1875,
+          "phi35_mini_mj": 0.18125,
+          "qwen25_14b_mj": 0.1,
+          "qwen25_32b_mj": 0.1078125,
+          "qwen25_3b_mj": 0.46875,
+          "qwen25_7b_mj": 0.2375
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@1",
+        "model_macro": 0.25201822916666666,
+        "per_model": {
+          "falcon3_7b_mj": 0.303125,
+          "gemma2_2b_it_mj": 0.20390625,
+          "gemma2_9b_it_mj": 0.02734375,
+          "llama31_8b_it_mj": 0.57890625,
+          "llama32_3b_it_mj": 0.35625,
+          "mistral24b_mj": 0.271875,
+          "mistral7b_mj": 0.1875,
+          "phi35_mini_mj": 0.18125,
+          "qwen25_14b_mj": 0.1,
+          "qwen25_32b_mj": 0.1078125,
+          "qwen25_3b_mj": 0.46875,
+          "qwen25_7b_mj": 0.2375
+        }
+      }
+    ]
+  },
+  "lg": {
+    "matrix": "/home/ljk98/POLY/ICLR-POLY-0920/experiments_suite/exp07_panel17_selector_replay/results/lg_item_matrix.json",
+    "models": [
+      "falcon3_7b_lg",
+      "gemma2_2b_it_lg",
+      "gemma2_9b_it_lg",
+      "llama31_8b_it_lg",
+      "llama32_3b_it_lg",
+      "mistral24b_lg",
+      "mistral7b_lg",
+      "phi35_mini_lg",
+      "qwen25_14b_lg",
+      "qwen25_32b_lg",
+      "qwen25_3b_lg",
+      "qwen25_7b_lg"
+    ],
+    "arms": [
+      "g12_ordered_n2__fiction",
+      "g12_ordered_n2__persona",
+      "g12_ordered_n2__plain",
+      "g12_shuffled_n2__fiction",
+      "g12_shuffled_n2__persona",
+      "g12_shuffled_n2__plain",
+      "g3_ordered_n2__fiction",
+      "g3_ordered_n2__persona",
+      "g3_ordered_n2__plain",
+      "g3_shuffled_n2__fiction",
+      "g3_shuffled_n2__persona",
+      "g3_shuffled_n2__plain",
+      "g5_ordered_n2__fiction",
+      "g5_ordered_n2__persona",
+      "g5_ordered_n2__plain",
+      "g5_shuffled_n2__fiction",
+      "g5_shuffled_n2__persona",
+      "g5_shuffled_n2__plain",
+      "g8_ordered_n2__fiction",
+      "g8_ordered_n2__persona",
+      "g8_ordered_n2__plain",
+      "g8_shuffled_n2__fiction",
+      "g8_shuffled_n2__persona",
+      "g8_shuffled_n2__plain"
+    ],
+    "splits": 40,
+    "warning": "Historical replay; harmful calibration batches are table lookups.",
+    "ranking": [
+      {
+        "method": "prior_order@5",
+        "model_macro": 0.6610416666666666,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.36500000000000005,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.7787499999999999,
+          "llama32_3b_it_lg": 0.46125,
+          "mistral24b_lg": 0.6337499999999999,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.77,
+          "qwen25_32b_lg": 0.8474999999999999,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.68625
+        }
+      },
+      {
+        "method": "prior_order@6",
+        "model_macro": 0.66,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.36500000000000005,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.7787499999999999,
+          "llama32_3b_it_lg": 0.43375,
+          "mistral24b_lg": 0.6337499999999999,
+          "mistral7b_lg": 0.7275,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.795,
+          "qwen25_32b_lg": 0.8474999999999999,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.68625
+        }
+      },
+      {
+        "method": "prior_order@7",
+        "model_macro": 0.6591666666666667,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.36,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.7787499999999999,
+          "llama32_3b_it_lg": 0.43375,
+          "mistral24b_lg": 0.6337499999999999,
+          "mistral7b_lg": 0.7275,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.795,
+          "qwen25_32b_lg": 0.8474999999999999,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.68125
+        }
+      },
+      {
+        "method": "gp_greedy@8",
+        "model_macro": 0.6555208333333333,
+        "per_model": {
+          "falcon3_7b_lg": 0.63,
+          "gemma2_2b_it_lg": 0.36125,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.7775000000000001,
+          "llama32_3b_it_lg": 0.38125,
+          "mistral24b_lg": 0.64375,
+          "mistral7b_lg": 0.7275,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.8024999999999999,
+          "qwen25_32b_lg": 0.8474999999999999,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.67875
+        }
+      },
+      {
+        "method": "prior_order@4",
+        "model_macro": 0.6551041666666667,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.375,
+          "gemma2_9b_it_lg": 0.8474999999999999,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.46125,
+          "mistral24b_lg": 0.5225000000000001,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.77,
+          "qwen25_32b_lg": 0.8474999999999999,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.69375
+        }
+      },
+      {
+        "method": "gp_greedy@5",
+        "model_macro": 0.6542708333333334,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.37,
+          "gemma2_9b_it_lg": 0.8462500000000001,
+          "llama31_8b_it_lg": 0.7787499999999999,
+          "llama32_3b_it_lg": 0.3875,
+          "mistral24b_lg": 0.6125,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.8012499999999999,
+          "qwen25_32b_lg": 0.8150000000000001,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.685
+        }
+      },
+      {
+        "method": "gp_greedy@7",
+        "model_macro": 0.6539583333333333,
+        "per_model": {
+          "falcon3_7b_lg": 0.63,
+          "gemma2_2b_it_lg": 0.36125,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.7787499999999999,
+          "llama32_3b_it_lg": 0.38125,
+          "mistral24b_lg": 0.63,
+          "mistral7b_lg": 0.7275,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.80375,
+          "qwen25_32b_lg": 0.8399999999999999,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.67875
+        }
+      },
+      {
+        "method": "prior_order@8",
+        "model_macro": 0.6538541666666666,
+        "per_model": {
+          "falcon3_7b_lg": 0.6287499999999999,
+          "gemma2_2b_it_lg": 0.36,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.7787499999999999,
+          "llama32_3b_it_lg": 0.38125,
+          "mistral24b_lg": 0.6337499999999999,
+          "mistral7b_lg": 0.7275,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.795,
+          "qwen25_32b_lg": 0.8474999999999999,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.6775
+        }
+      },
+      {
+        "method": "gp_greedy@6",
+        "model_macro": 0.6537499999999999,
+        "per_model": {
+          "falcon3_7b_lg": 0.6325000000000001,
+          "gemma2_2b_it_lg": 0.36374999999999996,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.7787499999999999,
+          "llama32_3b_it_lg": 0.38125,
+          "mistral24b_lg": 0.6125,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.80375,
+          "qwen25_32b_lg": 0.8399999999999999,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.67875
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@5",
+        "model_macro": 0.6536458333333334,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.35374999999999995,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.7787499999999999,
+          "llama32_3b_it_lg": 0.37,
+          "mistral24b_lg": 0.63875,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.78875,
+          "qwen25_32b_lg": 0.8375,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.68625
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@6",
+        "model_macro": 0.6525,
+        "per_model": {
+          "falcon3_7b_lg": 0.61625,
+          "gemma2_2b_it_lg": 0.3525,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.7775000000000001,
+          "llama32_3b_it_lg": 0.39,
+          "mistral24b_lg": 0.6325000000000001,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.79125,
+          "qwen25_32b_lg": 0.8375,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.67875
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@8",
+        "model_macro": 0.6517708333333333,
+        "per_model": {
+          "falcon3_7b_lg": 0.61625,
+          "gemma2_2b_it_lg": 0.34375,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.775,
+          "llama32_3b_it_lg": 0.3825,
+          "mistral24b_lg": 0.63875,
+          "mistral7b_lg": 0.7275,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.805,
+          "qwen25_32b_lg": 0.8375,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.67875
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@7",
+        "model_macro": 0.6516666666666667,
+        "per_model": {
+          "falcon3_7b_lg": 0.61625,
+          "gemma2_2b_it_lg": 0.34875,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.7775000000000001,
+          "llama32_3b_it_lg": 0.37750000000000006,
+          "mistral24b_lg": 0.6362500000000001,
+          "mistral7b_lg": 0.7275,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.80375,
+          "qwen25_32b_lg": 0.8375,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.67875
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@4",
+        "model_macro": 0.6504166666666666,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.35625,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.37374999999999997,
+          "mistral24b_lg": 0.58375,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.78625,
+          "qwen25_32b_lg": 0.8387499999999999,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.6875
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@8",
+        "model_macro": 0.6478125,
+        "per_model": {
+          "falcon3_7b_lg": 0.61125,
+          "gemma2_2b_it_lg": 0.345,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.77125,
+          "llama32_3b_it_lg": 0.36375,
+          "mistral24b_lg": 0.63125,
+          "mistral7b_lg": 0.7275,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.79125,
+          "qwen25_32b_lg": 0.8375,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.67875
+        }
+      },
+      {
+        "method": "gp_greedy@4",
+        "model_macro": 0.6467708333333332,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.37124999999999997,
+          "gemma2_9b_it_lg": 0.8462500000000001,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.40499999999999997,
+          "mistral24b_lg": 0.5875,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.7924999999999999,
+          "qwen25_32b_lg": 0.73,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.685
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@7",
+        "model_macro": 0.6446875,
+        "per_model": {
+          "falcon3_7b_lg": 0.61625,
+          "gemma2_2b_it_lg": 0.34625,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.77375,
+          "llama32_3b_it_lg": 0.3175,
+          "mistral24b_lg": 0.63125,
+          "mistral7b_lg": 0.7275,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.79125,
+          "qwen25_32b_lg": 0.8375,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.67875
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@6",
+        "model_macro": 0.6432291666666667,
+        "per_model": {
+          "falcon3_7b_lg": 0.61625,
+          "gemma2_2b_it_lg": 0.34875,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.7825,
+          "llama32_3b_it_lg": 0.3025,
+          "mistral24b_lg": 0.6337499999999999,
+          "mistral7b_lg": 0.7275,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.775,
+          "qwen25_32b_lg": 0.8375,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.67875
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@5",
+        "model_macro": 0.6430208333333335,
+        "per_model": {
+          "falcon3_7b_lg": 0.62375,
+          "gemma2_2b_it_lg": 0.35375000000000006,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.7849999999999999,
+          "llama32_3b_it_lg": 0.29000000000000004,
+          "mistral24b_lg": 0.6337499999999999,
+          "mistral7b_lg": 0.7275,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.7625,
+          "qwen25_32b_lg": 0.8375,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.68625
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@4",
+        "model_macro": 0.6384375000000001,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.3525,
+          "gemma2_9b_it_lg": 0.8350000000000002,
+          "llama31_8b_it_lg": 0.7862500000000001,
+          "llama32_3b_it_lg": 0.27375,
+          "mistral24b_lg": 0.57625,
+          "mistral7b_lg": 0.7275,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.7675000000000001,
+          "qwen25_32b_lg": 0.8375,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.6875
+        }
+      },
+      {
+        "method": "prior_order@3",
+        "model_macro": 0.631875,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.37875,
+          "gemma2_9b_it_lg": 0.8474999999999999,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.16875,
+          "mistral24b_lg": 0.5225000000000001,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49250000000000005,
+          "qwen25_14b_lg": 0.7787499999999999,
+          "qwen25_32b_lg": 0.8474999999999999,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.69375
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@7",
+        "model_macro": 0.63125,
+        "per_model": {
+          "falcon3_7b_lg": 0.61625,
+          "gemma2_2b_it_lg": 0.34875,
+          "gemma2_9b_it_lg": 0.83125,
+          "llama31_8b_it_lg": 0.7762500000000001,
+          "llama32_3b_it_lg": 0.27375,
+          "mistral24b_lg": 0.4912500000000001,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.7875,
+          "qwen25_32b_lg": 0.8375,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.69375
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@6",
+        "model_macro": 0.6311458333333334,
+        "per_model": {
+          "falcon3_7b_lg": 0.61625,
+          "gemma2_2b_it_lg": 0.35,
+          "gemma2_9b_it_lg": 0.83125,
+          "llama31_8b_it_lg": 0.7775000000000001,
+          "llama32_3b_it_lg": 0.27375,
+          "mistral24b_lg": 0.49625,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.7787499999999999,
+          "qwen25_32b_lg": 0.8375,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.69375
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@8",
+        "model_macro": 0.6310416666666667,
+        "per_model": {
+          "falcon3_7b_lg": 0.61125,
+          "gemma2_2b_it_lg": 0.34500000000000003,
+          "gemma2_9b_it_lg": 0.83125,
+          "llama31_8b_it_lg": 0.77375,
+          "llama32_3b_it_lg": 0.27375,
+          "mistral24b_lg": 0.4987500000000001,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.79,
+          "qwen25_32b_lg": 0.8375,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.6925000000000001
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@3",
+        "model_macro": 0.6302083333333331,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.36625,
+          "gemma2_9b_it_lg": 0.8425,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.26125,
+          "mistral24b_lg": 0.4375,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49250000000000005,
+          "qwen25_14b_lg": 0.7699999999999999,
+          "qwen25_32b_lg": 0.8462499999999998,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.69375
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@5",
+        "model_macro": 0.6301041666666668,
+        "per_model": {
+          "falcon3_7b_lg": 0.61875,
+          "gemma2_2b_it_lg": 0.3525,
+          "gemma2_9b_it_lg": 0.83125,
+          "llama31_8b_it_lg": 0.78125,
+          "llama32_3b_it_lg": 0.27375,
+          "mistral24b_lg": 0.49499999999999994,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.7587499999999999,
+          "qwen25_32b_lg": 0.8375,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.69375
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@4",
+        "model_macro": 0.629375,
+        "per_model": {
+          "falcon3_7b_lg": 0.62125,
+          "gemma2_2b_it_lg": 0.35,
+          "gemma2_9b_it_lg": 0.8324999999999999,
+          "llama31_8b_it_lg": 0.78125,
+          "llama32_3b_it_lg": 0.27375,
+          "mistral24b_lg": 0.475,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.76875,
+          "qwen25_32b_lg": 0.8375,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.69375
+        }
+      },
+      {
+        "method": "gp_thompson@8",
+        "model_macro": 0.6290625000000001,
+        "per_model": {
+          "falcon3_7b_lg": 0.61875,
+          "gemma2_2b_it_lg": 0.33625,
+          "gemma2_9b_it_lg": 0.8262499999999999,
+          "llama31_8b_it_lg": 0.755,
+          "llama32_3b_it_lg": 0.34124999999999994,
+          "mistral24b_lg": 0.61375,
+          "mistral7b_lg": 0.64125,
+          "phi35_mini_lg": 0.46875,
+          "qwen25_14b_lg": 0.775,
+          "qwen25_32b_lg": 0.8425,
+          "qwen25_3b_lg": 0.6375,
+          "qwen25_7b_lg": 0.6925
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@3",
+        "model_macro": 0.6280208333333334,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.36625,
+          "gemma2_9b_it_lg": 0.83625,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.27375,
+          "mistral24b_lg": 0.4375,
+          "mistral7b_lg": 0.7275,
+          "phi35_mini_lg": 0.49250000000000005,
+          "qwen25_14b_lg": 0.7462500000000001,
+          "qwen25_32b_lg": 0.8474999999999999,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.69375
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@3",
+        "model_macro": 0.6264583333333333,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.36625,
+          "gemma2_9b_it_lg": 0.8387500000000001,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.27375,
+          "mistral24b_lg": 0.4375,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49250000000000005,
+          "qwen25_14b_lg": 0.74,
+          "qwen25_32b_lg": 0.8225,
+          "qwen25_3b_lg": 0.69,
+          "qwen25_7b_lg": 0.69375
+        }
+      },
+      {
+        "method": "gp_thompson@7",
+        "model_macro": 0.6208333333333333,
+        "per_model": {
+          "falcon3_7b_lg": 0.61875,
+          "gemma2_2b_it_lg": 0.35250000000000004,
+          "gemma2_9b_it_lg": 0.8149999999999998,
+          "llama31_8b_it_lg": 0.75125,
+          "llama32_3b_it_lg": 0.28625,
+          "mistral24b_lg": 0.585,
+          "mistral7b_lg": 0.6425000000000001,
+          "phi35_mini_lg": 0.49124999999999996,
+          "qwen25_14b_lg": 0.78,
+          "qwen25_32b_lg": 0.8387499999999999,
+          "qwen25_3b_lg": 0.61,
+          "qwen25_7b_lg": 0.67875
+        }
+      },
+      {
+        "method": "gp_greedy@3",
+        "model_macro": 0.6192708333333333,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.36375,
+          "gemma2_9b_it_lg": 0.83625,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.27375,
+          "mistral24b_lg": 0.4700000000000001,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.49250000000000005,
+          "qwen25_14b_lg": 0.7662500000000001,
+          "qwen25_32b_lg": 0.6975,
+          "qwen25_3b_lg": 0.6762499999999999,
+          "qwen25_7b_lg": 0.6925000000000001
+        }
+      },
+      {
+        "method": "prior_order@2",
+        "model_macro": 0.6184375,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.37875,
+          "gemma2_9b_it_lg": 0.8474999999999999,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.16875,
+          "mistral24b_lg": 0.5675000000000001,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.50625,
+          "qwen25_14b_lg": 0.7575,
+          "qwen25_32b_lg": 0.8474999999999999,
+          "qwen25_3b_lg": 0.49124999999999996,
+          "qwen25_7b_lg": 0.69375
+        }
+      },
+      {
+        "method": "gp_thompson@5",
+        "model_macro": 0.6134375,
+        "per_model": {
+          "falcon3_7b_lg": 0.60375,
+          "gemma2_2b_it_lg": 0.355,
+          "gemma2_9b_it_lg": 0.8012500000000001,
+          "llama31_8b_it_lg": 0.745,
+          "llama32_3b_it_lg": 0.29874999999999996,
+          "mistral24b_lg": 0.5725,
+          "mistral7b_lg": 0.6287499999999999,
+          "phi35_mini_lg": 0.4375,
+          "qwen25_14b_lg": 0.7787499999999999,
+          "qwen25_32b_lg": 0.8337499999999999,
+          "qwen25_3b_lg": 0.6125,
+          "qwen25_7b_lg": 0.69375
+        }
+      },
+      {
+        "method": "gp_thompson@6",
+        "model_macro": 0.6117708333333333,
+        "per_model": {
+          "falcon3_7b_lg": 0.61625,
+          "gemma2_2b_it_lg": 0.35,
+          "gemma2_9b_it_lg": 0.80625,
+          "llama31_8b_it_lg": 0.73625,
+          "llama32_3b_it_lg": 0.29375,
+          "mistral24b_lg": 0.57875,
+          "mistral7b_lg": 0.60875,
+          "phi35_mini_lg": 0.4674999999999999,
+          "qwen25_14b_lg": 0.76125,
+          "qwen25_32b_lg": 0.8324999999999999,
+          "qwen25_3b_lg": 0.5925,
+          "qwen25_7b_lg": 0.6975
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@2",
+        "model_macro": 0.6096874999999999,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.37,
+          "gemma2_9b_it_lg": 0.8425,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.16875,
+          "mistral24b_lg": 0.47750000000000004,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.50625,
+          "qwen25_14b_lg": 0.7575,
+          "qwen25_32b_lg": 0.8462499999999998,
+          "qwen25_3b_lg": 0.49124999999999996,
+          "qwen25_7b_lg": 0.69375
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@2",
+        "model_macro": 0.6095833333333334,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.37,
+          "gemma2_9b_it_lg": 0.8400000000000001,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.16875,
+          "mistral24b_lg": 0.47750000000000004,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.50625,
+          "qwen25_14b_lg": 0.7575,
+          "qwen25_32b_lg": 0.8474999999999999,
+          "qwen25_3b_lg": 0.49124999999999996,
+          "qwen25_7b_lg": 0.69375
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@2",
+        "model_macro": 0.6078125,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.37,
+          "gemma2_9b_it_lg": 0.84375,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.16875,
+          "mistral24b_lg": 0.47750000000000004,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.50625,
+          "qwen25_14b_lg": 0.7575,
+          "qwen25_32b_lg": 0.8225,
+          "qwen25_3b_lg": 0.49124999999999996,
+          "qwen25_7b_lg": 0.69375
+        }
+      },
+      {
+        "method": "gp_thompson@4",
+        "model_macro": 0.6028125,
+        "per_model": {
+          "falcon3_7b_lg": 0.6025,
+          "gemma2_2b_it_lg": 0.3825,
+          "gemma2_9b_it_lg": 0.7962499999999999,
+          "llama31_8b_it_lg": 0.7325000000000002,
+          "llama32_3b_it_lg": 0.25625,
+          "mistral24b_lg": 0.5587500000000001,
+          "mistral7b_lg": 0.5925,
+          "phi35_mini_lg": 0.46375,
+          "qwen25_14b_lg": 0.7725,
+          "qwen25_32b_lg": 0.80375,
+          "qwen25_3b_lg": 0.5825,
+          "qwen25_7b_lg": 0.6900000000000001
+        }
+      },
+      {
+        "method": "gp_greedy@2",
+        "model_macro": 0.5962500000000001,
+        "per_model": {
+          "falcon3_7b_lg": 0.6362500000000001,
+          "gemma2_2b_it_lg": 0.37,
+          "gemma2_9b_it_lg": 0.8262499999999999,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.16875,
+          "mistral24b_lg": 0.48625000000000007,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.50625,
+          "qwen25_14b_lg": 0.74625,
+          "qwen25_32b_lg": 0.69875,
+          "qwen25_3b_lg": 0.49124999999999996,
+          "qwen25_7b_lg": 0.6987500000000001
+        }
+      },
+      {
+        "method": "random@7",
+        "model_macro": 0.5919791666666666,
+        "per_model": {
+          "falcon3_7b_lg": 0.57125,
+          "gemma2_2b_it_lg": 0.35125,
+          "gemma2_9b_it_lg": 0.77625,
+          "llama31_8b_it_lg": 0.7474999999999999,
+          "llama32_3b_it_lg": 0.30375,
+          "mistral24b_lg": 0.5824999999999999,
+          "mistral7b_lg": 0.5662499999999999,
+          "phi35_mini_lg": 0.45375,
+          "qwen25_14b_lg": 0.7462500000000001,
+          "qwen25_32b_lg": 0.8,
+          "qwen25_3b_lg": 0.51875,
+          "qwen25_7b_lg": 0.68625
+        }
+      },
+      {
+        "method": "random@8",
+        "model_macro": 0.5884375000000001,
+        "per_model": {
+          "falcon3_7b_lg": 0.57125,
+          "gemma2_2b_it_lg": 0.31875,
+          "gemma2_9b_it_lg": 0.8075000000000001,
+          "llama31_8b_it_lg": 0.7175,
+          "llama32_3b_it_lg": 0.28625,
+          "mistral24b_lg": 0.57125,
+          "mistral7b_lg": 0.5800000000000001,
+          "phi35_mini_lg": 0.47750000000000004,
+          "qwen25_14b_lg": 0.75,
+          "qwen25_32b_lg": 0.825,
+          "qwen25_3b_lg": 0.5,
+          "qwen25_7b_lg": 0.65625
+        }
+      },
+      {
+        "method": "gp_thompson@3",
+        "model_macro": 0.5855208333333334,
+        "per_model": {
+          "falcon3_7b_lg": 0.60625,
+          "gemma2_2b_it_lg": 0.36375,
+          "gemma2_9b_it_lg": 0.71875,
+          "llama31_8b_it_lg": 0.72875,
+          "llama32_3b_it_lg": 0.29125,
+          "mistral24b_lg": 0.5112500000000001,
+          "mistral7b_lg": 0.57125,
+          "phi35_mini_lg": 0.4425,
+          "qwen25_14b_lg": 0.7525000000000001,
+          "qwen25_32b_lg": 0.8,
+          "qwen25_3b_lg": 0.56125,
+          "qwen25_7b_lg": 0.67875
+        }
+      },
+      {
+        "method": "random@6",
+        "model_macro": 0.5793750000000001,
+        "per_model": {
+          "falcon3_7b_lg": 0.58125,
+          "gemma2_2b_it_lg": 0.355,
+          "gemma2_9b_it_lg": 0.71625,
+          "llama31_8b_it_lg": 0.7362499999999998,
+          "llama32_3b_it_lg": 0.255,
+          "mistral24b_lg": 0.54125,
+          "mistral7b_lg": 0.61875,
+          "phi35_mini_lg": 0.45,
+          "qwen25_14b_lg": 0.72,
+          "qwen25_32b_lg": 0.7975,
+          "qwen25_3b_lg": 0.525,
+          "qwen25_7b_lg": 0.65625
+        }
+      },
+      {
+        "method": "random@5",
+        "model_macro": 0.5676041666666667,
+        "per_model": {
+          "falcon3_7b_lg": 0.5625,
+          "gemma2_2b_it_lg": 0.37250000000000005,
+          "gemma2_9b_it_lg": 0.7537499999999999,
+          "llama31_8b_it_lg": 0.725,
+          "llama32_3b_it_lg": 0.20375000000000001,
+          "mistral24b_lg": 0.55,
+          "mistral7b_lg": 0.57875,
+          "phi35_mini_lg": 0.42874999999999996,
+          "qwen25_14b_lg": 0.7137499999999999,
+          "qwen25_32b_lg": 0.7837500000000001,
+          "qwen25_3b_lg": 0.47624999999999995,
+          "qwen25_7b_lg": 0.6625
+        }
+      },
+      {
+        "method": "random@4",
+        "model_macro": 0.5599999999999999,
+        "per_model": {
+          "falcon3_7b_lg": 0.545,
+          "gemma2_2b_it_lg": 0.35374999999999995,
+          "gemma2_9b_it_lg": 0.6849999999999999,
+          "llama31_8b_it_lg": 0.7325,
+          "llama32_3b_it_lg": 0.21375000000000002,
+          "mistral24b_lg": 0.5175,
+          "mistral7b_lg": 0.5887500000000001,
+          "phi35_mini_lg": 0.44499999999999995,
+          "qwen25_14b_lg": 0.72875,
+          "qwen25_32b_lg": 0.79125,
+          "qwen25_3b_lg": 0.5125,
+          "qwen25_7b_lg": 0.60625
+        }
+      },
+      {
+        "method": "gp_thompson@2",
+        "model_macro": 0.5454166666666667,
+        "per_model": {
+          "falcon3_7b_lg": 0.6,
+          "gemma2_2b_it_lg": 0.35750000000000004,
+          "gemma2_9b_it_lg": 0.615,
+          "llama31_8b_it_lg": 0.6762500000000001,
+          "llama32_3b_it_lg": 0.21875,
+          "mistral24b_lg": 0.51125,
+          "mistral7b_lg": 0.5825,
+          "phi35_mini_lg": 0.40750000000000003,
+          "qwen25_14b_lg": 0.7125,
+          "qwen25_32b_lg": 0.6799999999999999,
+          "qwen25_3b_lg": 0.51,
+          "qwen25_7b_lg": 0.67375
+        }
+      },
+      {
+        "method": "random@3",
+        "model_macro": 0.5168750000000001,
+        "per_model": {
+          "falcon3_7b_lg": 0.5775,
+          "gemma2_2b_it_lg": 0.325,
+          "gemma2_9b_it_lg": 0.64625,
+          "llama31_8b_it_lg": 0.7,
+          "llama32_3b_it_lg": 0.13125,
+          "mistral24b_lg": 0.44875,
+          "mistral7b_lg": 0.54875,
+          "phi35_mini_lg": 0.38999999999999996,
+          "qwen25_14b_lg": 0.6675,
+          "qwen25_32b_lg": 0.7325,
+          "qwen25_3b_lg": 0.4175,
+          "qwen25_7b_lg": 0.6175
+        }
+      },
+      {
+        "method": "prior_order@1",
+        "model_macro": 0.5157291666666667,
+        "per_model": {
+          "falcon3_7b_lg": 0.64,
+          "gemma2_2b_it_lg": 0.30874999999999997,
+          "gemma2_9b_it_lg": 0.5399999999999999,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.0,
+          "mistral24b_lg": 0.18625,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.395,
+          "qwen25_14b_lg": 0.7575,
+          "qwen25_32b_lg": 0.6425000000000001,
+          "qwen25_3b_lg": 0.49250000000000005,
+          "qwen25_7b_lg": 0.7
+        }
+      },
+      {
+        "method": "gp_greedy@1",
+        "model_macro": 0.5157291666666667,
+        "per_model": {
+          "falcon3_7b_lg": 0.64,
+          "gemma2_2b_it_lg": 0.30874999999999997,
+          "gemma2_9b_it_lg": 0.5399999999999999,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.0,
+          "mistral24b_lg": 0.18625,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.395,
+          "qwen25_14b_lg": 0.7575,
+          "qwen25_32b_lg": 0.6425000000000001,
+          "qwen25_3b_lg": 0.49250000000000005,
+          "qwen25_7b_lg": 0.7
+        }
+      },
+      {
+        "method": "gp_ucb_0.5@1",
+        "model_macro": 0.5157291666666667,
+        "per_model": {
+          "falcon3_7b_lg": 0.64,
+          "gemma2_2b_it_lg": 0.30874999999999997,
+          "gemma2_9b_it_lg": 0.5399999999999999,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.0,
+          "mistral24b_lg": 0.18625,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.395,
+          "qwen25_14b_lg": 0.7575,
+          "qwen25_32b_lg": 0.6425000000000001,
+          "qwen25_3b_lg": 0.49250000000000005,
+          "qwen25_7b_lg": 0.7
+        }
+      },
+      {
+        "method": "gp_ucb_1.0@1",
+        "model_macro": 0.5157291666666667,
+        "per_model": {
+          "falcon3_7b_lg": 0.64,
+          "gemma2_2b_it_lg": 0.30874999999999997,
+          "gemma2_9b_it_lg": 0.5399999999999999,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.0,
+          "mistral24b_lg": 0.18625,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.395,
+          "qwen25_14b_lg": 0.7575,
+          "qwen25_32b_lg": 0.6425000000000001,
+          "qwen25_3b_lg": 0.49250000000000005,
+          "qwen25_7b_lg": 0.7
+        }
+      },
+      {
+        "method": "gp_ucb_2.0@1",
+        "model_macro": 0.5157291666666667,
+        "per_model": {
+          "falcon3_7b_lg": 0.64,
+          "gemma2_2b_it_lg": 0.30874999999999997,
+          "gemma2_9b_it_lg": 0.5399999999999999,
+          "llama31_8b_it_lg": 0.7887500000000001,
+          "llama32_3b_it_lg": 0.0,
+          "mistral24b_lg": 0.18625,
+          "mistral7b_lg": 0.7375,
+          "phi35_mini_lg": 0.395,
+          "qwen25_14b_lg": 0.7575,
+          "qwen25_32b_lg": 0.6425000000000001,
+          "qwen25_3b_lg": 0.49250000000000005,
+          "qwen25_7b_lg": 0.7
+        }
+      },
+      {
+        "method": "random@2",
+        "model_macro": 0.48156250000000006,
+        "per_model": {
+          "falcon3_7b_lg": 0.54625,
+          "gemma2_2b_it_lg": 0.34500000000000003,
+          "gemma2_9b_it_lg": 0.5475,
+          "llama31_8b_it_lg": 0.6449999999999999,
+          "llama32_3b_it_lg": 0.12,
+          "mistral24b_lg": 0.43375,
+          "mistral7b_lg": 0.515,
+          "phi35_mini_lg": 0.37250000000000005,
+          "qwen25_14b_lg": 0.655,
+          "qwen25_32b_lg": 0.6300000000000001,
+          "qwen25_3b_lg": 0.4025,
+          "qwen25_7b_lg": 0.5662499999999999
+        }
+      },
+      {
+        "method": "gp_thompson@1",
+        "model_macro": 0.4736458333333333,
+        "per_model": {
+          "falcon3_7b_lg": 0.5549999999999999,
+          "gemma2_2b_it_lg": 0.365,
+          "gemma2_9b_it_lg": 0.4525,
+          "llama31_8b_it_lg": 0.6275,
+          "llama32_3b_it_lg": 0.06625,
+          "mistral24b_lg": 0.32,
+          "mistral7b_lg": 0.5700000000000001,
+          "phi35_mini_lg": 0.38750000000000007,
+          "qwen25_14b_lg": 0.63125,
+          "qwen25_32b_lg": 0.65125,
+          "qwen25_3b_lg": 0.43375,
+          "qwen25_7b_lg": 0.62375
+        }
+      },
+      {
+        "method": "random@1",
+        "model_macro": 0.4101041666666667,
+        "per_model": {
+          "falcon3_7b_lg": 0.4725,
+          "gemma2_2b_it_lg": 0.31875,
+          "gemma2_9b_it_lg": 0.375,
+          "llama31_8b_it_lg": 0.5475,
+          "llama32_3b_it_lg": 0.03875000000000001,
+          "mistral24b_lg": 0.33875,
+          "mistral7b_lg": 0.47124999999999995,
+          "phi35_mini_lg": 0.32249999999999995,
+          "qwen25_14b_lg": 0.6175,
+          "qwen25_32b_lg": 0.5900000000000001,
+          "qwen25_3b_lg": 0.3175,
+          "qwen25_7b_lg": 0.51125
+        }
+      }
+    ]
+  }
+}

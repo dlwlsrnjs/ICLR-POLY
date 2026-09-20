@@ -1,0 +1,115 @@
+{
+  "schema": "exp09_harmless_willingness_replay_v1",
+  "models": 17,
+  "frames": [
+    "plain",
+    "persona",
+    "fiction",
+    "pap",
+    "persona+fiction"
+  ],
+  "metric": "nonrefusal conditional on valid successful reconstruction",
+  "oracle": 0.9823688163350749,
+  "ranking": [
+    {
+      "method": "thompson@80",
+      "mean_test_nonrefusal": 0.9752014073413633
+    },
+    {
+      "method": "epsilon_greedy@80",
+      "mean_test_nonrefusal": 0.9736480360122496
+    },
+    {
+      "method": "thompson@40",
+      "mean_test_nonrefusal": 0.9642361857947623
+    },
+    {
+      "method": "ucb1@80",
+      "mean_test_nonrefusal": 0.9635879960112936
+    },
+    {
+      "method": "epsilon_greedy@40",
+      "mean_test_nonrefusal": 0.9623252926326493
+    },
+    {
+      "method": "round_robin@80",
+      "mean_test_nonrefusal": 0.9606676011088593
+    },
+    {
+      "method": "successive_halving@80",
+      "mean_test_nonrefusal": 0.9605016931584298
+    },
+    {
+      "method": "thompson@20",
+      "mean_test_nonrefusal": 0.9493662390415418
+    },
+    {
+      "method": "ucb1@40",
+      "mean_test_nonrefusal": 0.9419717406373597
+    },
+    {
+      "method": "epsilon_greedy@20",
+      "mean_test_nonrefusal": 0.9393006465650912
+    },
+    {
+      "method": "round_robin@40",
+      "mean_test_nonrefusal": 0.9376776286853238
+    },
+    {
+      "method": "successive_halving@40",
+      "mean_test_nonrefusal": 0.9332309596192484
+    },
+    {
+      "method": "thompson@10",
+      "mean_test_nonrefusal": 0.9314784958813174
+    },
+    {
+      "method": "ucb1@20",
+      "mean_test_nonrefusal": 0.9200809881702107
+    },
+    {
+      "method": "round_robin@20",
+      "mean_test_nonrefusal": 0.9154024920182398
+    },
+    {
+      "method": "successive_halving@20",
+      "mean_test_nonrefusal": 0.913137312832555
+    },
+    {
+      "method": "epsilon_greedy@10",
+      "mean_test_nonrefusal": 0.9130468401486611
+    },
+    {
+      "method": "ucb1@10",
+      "mean_test_nonrefusal": 0.9002758525922584
+    },
+    {
+      "method": "round_robin@10",
+      "mean_test_nonrefusal": 0.8900538342159798
+    },
+    {
+      "method": "successive_halving@10",
+      "mean_test_nonrefusal": 0.8897003981306202
+    },
+    {
+      "method": "successive_halving@5",
+      "mean_test_nonrefusal": 0.8622400679776339
+    },
+    {
+      "method": "thompson@5",
+      "mean_test_nonrefusal": 0.862191975354159
+    },
+    {
+      "method": "ucb1@5",
+      "mean_test_nonrefusal": 0.8599977716838394
+    },
+    {
+      "method": "epsilon_greedy@5",
+      "mean_test_nonrefusal": 0.8575432833487504
+    },
+    {
+      "method": "round_robin@5",
+      "mean_test_nonrefusal": 0.8554793783248413
+    }
+  ]
+}
