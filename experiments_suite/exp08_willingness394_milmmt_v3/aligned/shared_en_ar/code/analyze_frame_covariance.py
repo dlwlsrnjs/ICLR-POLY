@@ -140,6 +140,19 @@ def main():
         [provisional_nonrefusal(rows_by_item[item][frame]) for frame in FRAMES]
         for item in exact_common
     ], dtype=float)
+    source_groups = {}
+    for item in exact_common:
+        source_groups.setdefault(item.split('::', 1)[0], []).append(item)
+    stratified = {}
+    for source, source_items in sorted(source_groups.items()):
+        source_values = np.asarray([
+            [provisional_nonrefusal(rows_by_item[item][frame]) for frame in FRAMES]
+            for item in source_items
+        ], dtype=float)
+        stratified[source] = {
+            'items': len(source_items),
+            **binary_summary(source_values),
+        }
     per_frame_diagnostics = {}
     for frame in FRAMES:
         frame_rows = [frames[frame] for frames in rows_by_item.values()]
@@ -176,6 +189,7 @@ def main():
         },
         'per_frame_diagnostics': per_frame_diagnostics,
         'binary_willingness': binary_summary(values),
+        'binary_willingness_stratified_by_item_source': stratified,
         'continuous_diagnostics': {
             'answer_words': continuous_summary(
                 rows_by_item, exact_common,
