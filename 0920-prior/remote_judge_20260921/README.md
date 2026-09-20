@@ -28,3 +28,7 @@ cat process.json queue_status.json gpu0.json gpu1.json
 백그라운드 세션은 채팅 종료 후에도 유지됩니다. 재부팅 또는 SIGKILL 시 자동 복구는 보장하지 않습니다. 정상 정지는 process.json의 큐 PID에 SIGTERM을 보내면 자식 프로세스를 종료한 뒤 기존 큐를 복원합니다. GPU 메모리 여유는 공유 서버에서 변동되며, 부족하면 기다립니다. 같은 폴더에서 큐를 중복 실행하면 flock가 차단합니다.
 
 배치 확대 요청을 반영했습니다. OOM 발생 시 저장 결과를 유지하고 해당 작업 배치를 절반으로 내려 재시도합니다.
+
+## GPU0 배치 4 시험
+
+사용자 요청으로 GPU0만 batch 4로 재개합니다. `gpu0_batch_trial.py`가 원본 판정 코드를 별도 프로세스로 실행하며 CUDA OOM이면 `gpu0_batch_override.json`에 batch 2를 기록하고 저장된 valid 판정부터 재개합니다. 이후 모델에도 fallback batch 2를 유지합니다. GPU1 batch 16 및 실행 중 프로세스는 변경하지 않았습니다. run_one_gpu 원본은 `run_one_gpu.original.sh`에 보존했습니다. 판정 Python 코드/rubric/토큰 한도는 변경하지 않았습니다.
