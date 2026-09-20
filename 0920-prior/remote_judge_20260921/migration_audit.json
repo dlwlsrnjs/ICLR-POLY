@@ -1,0 +1,26 @@
+[
+  {
+    "model": "qwen25_14b",
+    "old_checkpoint_path": "/home/ljk98/POLY/hf-cache/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "new_checkpoint_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "other_protocol_fields_verified": true
+  },
+  {
+    "model": "qwen25_3b",
+    "old_checkpoint_path": "/home/ljk98/POLY/hf-cache/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "new_checkpoint_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "other_protocol_fields_verified": true
+  },
+  {
+    "model": "qwen25_7b",
+    "old_checkpoint_path": "/home/ljk98/POLY/hf-cache/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "new_checkpoint_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "other_protocol_fields_verified": true
+  },
+  {
+    "model": "phi35_mini",
+    "old_checkpoint_path": "/home/ljk98/POLY/hf-cache/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "new_checkpoint_path": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "other_protocol_fields_verified": true
+  }
+]

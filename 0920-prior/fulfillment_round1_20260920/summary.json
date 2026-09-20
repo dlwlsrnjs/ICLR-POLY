@@ -1,0 +1,3808 @@
+{
+  "time": 1789902560.3391435,
+  "total": 7503,
+  "judged": 7503,
+  "automatic_not_gold": true,
+  "groups": [
+    {
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "cell": "g12_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 39,
+          "partial": 27,
+          "none": 16,
+          "full": 8
+        },
+        "assessed": 51,
+        "full_rate_among_assessed": 0.1568627450980392,
+        "full_confirmed_fraction_all": 0.08888888888888889,
+        "partial_rate_among_assessed": 0.5294117647058824
+      },
+      "reconstructed": {
+        "total": 87,
+        "counts": {
+          "uncertain": 38,
+          "partial": 25,
+          "none": 16,
+          "full": 8
+        },
+        "assessed": 49,
+        "full_rate_among_assessed": 0.16326530612244897,
+        "full_confirmed_fraction_all": 0.09195402298850575,
+        "partial_rate_among_assessed": 0.5102040816326531
+      },
+      "reconstructed_nonrefusal": {
+        "total": 81,
+        "counts": {
+          "uncertain": 36,
+          "partial": 25,
+          "none": 12,
+          "full": 8
+        },
+        "assessed": 45,
+        "full_rate_among_assessed": 0.17777777777777778,
+        "full_confirmed_fraction_all": 0.09876543209876543,
+        "partial_rate_among_assessed": 0.5555555555555556
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "cell": "g12_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 26,
+          "uncertain": 34,
+          "partial": 28,
+          "full": 2
+        },
+        "assessed": 56,
+        "full_rate_among_assessed": 0.03571428571428571,
+        "full_confirmed_fraction_all": 0.022222222222222223,
+        "partial_rate_among_assessed": 0.5
+      },
+      "reconstructed": {
+        "total": 38,
+        "counts": {
+          "partial": 12,
+          "uncertain": 15,
+          "none": 9,
+          "full": 2
+        },
+        "assessed": 23,
+        "full_rate_among_assessed": 0.08695652173913043,
+        "full_confirmed_fraction_all": 0.05263157894736842,
+        "partial_rate_among_assessed": 0.5217391304347826
+      },
+      "reconstructed_nonrefusal": {
+        "total": 37,
+        "counts": {
+          "partial": 12,
+          "uncertain": 15,
+          "none": 8,
+          "full": 2
+        },
+        "assessed": 22,
+        "full_rate_among_assessed": 0.09090909090909091,
+        "full_confirmed_fraction_all": 0.05405405405405406,
+        "partial_rate_among_assessed": 0.5454545454545454
+      },
+      "missing_R": 1,
+      "missing_F": 0
+    },
+    {
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "cell": "g3_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 25,
+          "uncertain": 41,
+          "partial": 18,
+          "full": 6
+        },
+        "assessed": 49,
+        "full_rate_among_assessed": 0.12244897959183673,
+        "full_confirmed_fraction_all": 0.06666666666666667,
+        "partial_rate_among_assessed": 0.3673469387755102
+      },
+      "reconstructed": {
+        "total": 88,
+        "counts": {
+          "none": 24,
+          "uncertain": 41,
+          "partial": 17,
+          "full": 6
+        },
+        "assessed": 47,
+        "full_rate_among_assessed": 0.1276595744680851,
+        "full_confirmed_fraction_all": 0.06818181818181818,
+        "partial_rate_among_assessed": 0.3617021276595745
+      },
+      "reconstructed_nonrefusal": {
+        "total": 71,
+        "counts": {
+          "none": 12,
+          "uncertain": 37,
+          "partial": 16,
+          "full": 6
+        },
+        "assessed": 34,
+        "full_rate_among_assessed": 0.17647058823529413,
+        "full_confirmed_fraction_all": 0.08450704225352113,
+        "partial_rate_among_assessed": 0.47058823529411764
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "cell": "g3_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 37,
+          "none": 24,
+          "partial": 23,
+          "full": 6
+        },
+        "assessed": 53,
+        "full_rate_among_assessed": 0.11320754716981132,
+        "full_confirmed_fraction_all": 0.06666666666666667,
+        "partial_rate_among_assessed": 0.4339622641509434
+      },
+      "reconstructed": {
+        "total": 81,
+        "counts": {
+          "uncertain": 35,
+          "none": 20,
+          "partial": 20,
+          "full": 6
+        },
+        "assessed": 46,
+        "full_rate_among_assessed": 0.13043478260869565,
+        "full_confirmed_fraction_all": 0.07407407407407407,
+        "partial_rate_among_assessed": 0.43478260869565216
+      },
+      "reconstructed_nonrefusal": {
+        "total": 76,
+        "counts": {
+          "uncertain": 35,
+          "none": 15,
+          "partial": 20,
+          "full": 6
+        },
+        "assessed": 41,
+        "full_rate_among_assessed": 0.14634146341463414,
+        "full_confirmed_fraction_all": 0.07894736842105263,
+        "partial_rate_among_assessed": 0.4878048780487805
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "cell": "g5_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 37,
+          "none": 22,
+          "partial": 23,
+          "full": 8
+        },
+        "assessed": 53,
+        "full_rate_among_assessed": 0.1509433962264151,
+        "full_confirmed_fraction_all": 0.08888888888888889,
+        "partial_rate_among_assessed": 0.4339622641509434
+      },
+      "reconstructed": {
+        "total": 88,
+        "counts": {
+          "uncertain": 36,
+          "none": 22,
+          "partial": 22,
+          "full": 8
+        },
+        "assessed": 52,
+        "full_rate_among_assessed": 0.15384615384615385,
+        "full_confirmed_fraction_all": 0.09090909090909091,
+        "partial_rate_among_assessed": 0.4230769230769231
+      },
+      "reconstructed_nonrefusal": {
+        "total": 76,
+        "counts": {
+          "uncertain": 33,
+          "none": 14,
+          "partial": 21,
+          "full": 8
+        },
+        "assessed": 43,
+        "full_rate_among_assessed": 0.18604651162790697,
+        "full_confirmed_fraction_all": 0.10526315789473684,
+        "partial_rate_among_assessed": 0.4883720930232558
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "cell": "g5_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 24,
+          "uncertain": 41,
+          "full": 5,
+          "none": 20
+        },
+        "assessed": 49,
+        "full_rate_among_assessed": 0.10204081632653061,
+        "full_confirmed_fraction_all": 0.05555555555555555,
+        "partial_rate_among_assessed": 0.4897959183673469
+      },
+      "reconstructed": {
+        "total": 77,
+        "counts": {
+          "partial": 22,
+          "uncertain": 37,
+          "full": 4,
+          "none": 14
+        },
+        "assessed": 40,
+        "full_rate_among_assessed": 0.1,
+        "full_confirmed_fraction_all": 0.05194805194805195,
+        "partial_rate_among_assessed": 0.55
+      },
+      "reconstructed_nonrefusal": {
+        "total": 73,
+        "counts": {
+          "partial": 22,
+          "uncertain": 36,
+          "full": 4,
+          "none": 11
+        },
+        "assessed": 37,
+        "full_rate_among_assessed": 0.10810810810810811,
+        "full_confirmed_fraction_all": 0.0547945205479452,
+        "partial_rate_among_assessed": 0.5945945945945946
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "cell": "g8_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 25,
+          "uncertain": 36,
+          "none": 23,
+          "full": 6
+        },
+        "assessed": 54,
+        "full_rate_among_assessed": 0.1111111111111111,
+        "full_confirmed_fraction_all": 0.06666666666666667,
+        "partial_rate_among_assessed": 0.46296296296296297
+      },
+      "reconstructed": {
+        "total": 89,
+        "counts": {
+          "partial": 25,
+          "uncertain": 36,
+          "none": 22,
+          "full": 6
+        },
+        "assessed": 53,
+        "full_rate_among_assessed": 0.11320754716981132,
+        "full_confirmed_fraction_all": 0.06741573033707865,
+        "partial_rate_among_assessed": 0.4716981132075472
+      },
+      "reconstructed_nonrefusal": {
+        "total": 79,
+        "counts": {
+          "partial": 24,
+          "uncertain": 35,
+          "none": 14,
+          "full": 6
+        },
+        "assessed": 44,
+        "full_rate_among_assessed": 0.13636363636363635,
+        "full_confirmed_fraction_all": 0.0759493670886076,
+        "partial_rate_among_assessed": 0.5454545454545454
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "cell": "g8_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 37,
+          "partial": 26,
+          "none": 23,
+          "full": 4
+        },
+        "assessed": 53,
+        "full_rate_among_assessed": 0.07547169811320754,
+        "full_confirmed_fraction_all": 0.044444444444444446,
+        "partial_rate_among_assessed": 0.49056603773584906
+      },
+      "reconstructed": {
+        "total": 58,
+        "counts": {
+          "uncertain": 27,
+          "partial": 19,
+          "none": 10,
+          "full": 2
+        },
+        "assessed": 31,
+        "full_rate_among_assessed": 0.06451612903225806,
+        "full_confirmed_fraction_all": 0.034482758620689655,
+        "partial_rate_among_assessed": 0.6129032258064516
+      },
+      "reconstructed_nonrefusal": {
+        "total": 55,
+        "counts": {
+          "uncertain": 26,
+          "partial": 19,
+          "none": 8,
+          "full": 2
+        },
+        "assessed": 29,
+        "full_rate_among_assessed": 0.06896551724137931,
+        "full_confirmed_fraction_all": 0.03636363636363636,
+        "partial_rate_among_assessed": 0.6551724137931034
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "THUDM/glm-4-9b-chat-hf",
+      "cell": "g12_ordered_n6",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 54,
+        "counts": {
+          "none": 12,
+          "uncertain": 24,
+          "partial": 18
+        },
+        "assessed": 30,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.6
+      },
+      "reconstructed": {
+        "total": 20,
+        "counts": {
+          "partial": 9,
+          "uncertain": 9,
+          "none": 2
+        },
+        "assessed": 11,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.8181818181818182
+      },
+      "reconstructed_nonrefusal": {
+        "total": 20,
+        "counts": {
+          "partial": 9,
+          "uncertain": 9,
+          "none": 2
+        },
+        "assessed": 11,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.8181818181818182
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "THUDM/glm-4-9b-chat-hf",
+      "cell": "g12_shuffled_n6",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 54,
+        "counts": {
+          "uncertain": 29,
+          "partial": 4,
+          "none": 21
+        },
+        "assessed": 25,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.16
+      },
+      "reconstructed": {
+        "total": 20,
+        "counts": {
+          "none": 8,
+          "uncertain": 12
+        },
+        "assessed": 8,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.0
+      },
+      "reconstructed_nonrefusal": {
+        "total": 19,
+        "counts": {
+          "none": 8,
+          "uncertain": 11
+        },
+        "assessed": 8,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.0
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "THUDM/glm-4-9b-chat-hf",
+      "cell": "g3_ordered_n6",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 54,
+        "counts": {
+          "none": 12,
+          "uncertain": 27,
+          "partial": 13,
+          "full": 2
+        },
+        "assessed": 27,
+        "full_rate_among_assessed": 0.07407407407407407,
+        "full_confirmed_fraction_all": 0.037037037037037035,
+        "partial_rate_among_assessed": 0.48148148148148145
+      },
+      "reconstructed": {
+        "total": 49,
+        "counts": {
+          "none": 9,
+          "uncertain": 25,
+          "partial": 13,
+          "full": 2
+        },
+        "assessed": 24,
+        "full_rate_among_assessed": 0.08333333333333333,
+        "full_confirmed_fraction_all": 0.04081632653061224,
+        "partial_rate_among_assessed": 0.5416666666666666
+      },
+      "reconstructed_nonrefusal": {
+        "total": 49,
+        "counts": {
+          "none": 9,
+          "uncertain": 25,
+          "partial": 13,
+          "full": 2
+        },
+        "assessed": 24,
+        "full_rate_among_assessed": 0.08333333333333333,
+        "full_confirmed_fraction_all": 0.04081632653061224,
+        "partial_rate_among_assessed": 0.5416666666666666
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "THUDM/glm-4-9b-chat-hf",
+      "cell": "g3_shuffled_n6",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 54,
+        "counts": {
+          "none": 14,
+          "uncertain": 26,
+          "partial": 13,
+          "full": 1
+        },
+        "assessed": 28,
+        "full_rate_among_assessed": 0.03571428571428571,
+        "full_confirmed_fraction_all": 0.018518518518518517,
+        "partial_rate_among_assessed": 0.4642857142857143
+      },
+      "reconstructed": {
+        "total": 49,
+        "counts": {
+          "none": 12,
+          "uncertain": 24,
+          "partial": 12,
+          "full": 1
+        },
+        "assessed": 25,
+        "full_rate_among_assessed": 0.04,
+        "full_confirmed_fraction_all": 0.02040816326530612,
+        "partial_rate_among_assessed": 0.48
+      },
+      "reconstructed_nonrefusal": {
+        "total": 47,
+        "counts": {
+          "none": 11,
+          "uncertain": 23,
+          "partial": 12,
+          "full": 1
+        },
+        "assessed": 24,
+        "full_rate_among_assessed": 0.041666666666666664,
+        "full_confirmed_fraction_all": 0.02127659574468085,
+        "partial_rate_among_assessed": 0.5
+      },
+      "missing_R": 1,
+      "missing_F": 1
+    },
+    {
+      "model": "THUDM/glm-4-9b-chat-hf",
+      "cell": "g5_ordered_n6",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 54,
+        "counts": {
+          "uncertain": 24,
+          "none": 14,
+          "partial": 16
+        },
+        "assessed": 30,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5333333333333333
+      },
+      "reconstructed": {
+        "total": 43,
+        "counts": {
+          "uncertain": 20,
+          "none": 11,
+          "partial": 12
+        },
+        "assessed": 23,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5217391304347826
+      },
+      "reconstructed_nonrefusal": {
+        "total": 42,
+        "counts": {
+          "uncertain": 20,
+          "none": 10,
+          "partial": 12
+        },
+        "assessed": 22,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5454545454545454
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "THUDM/glm-4-9b-chat-hf",
+      "cell": "g5_shuffled_n6",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 54,
+        "counts": {
+          "uncertain": 29,
+          "none": 13,
+          "partial": 12
+        },
+        "assessed": 25,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.48
+      },
+      "reconstructed": {
+        "total": 33,
+        "counts": {
+          "partial": 10,
+          "uncertain": 16,
+          "none": 7
+        },
+        "assessed": 17,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5882352941176471
+      },
+      "reconstructed_nonrefusal": {
+        "total": 33,
+        "counts": {
+          "partial": 10,
+          "uncertain": 16,
+          "none": 7
+        },
+        "assessed": 17,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5882352941176471
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "THUDM/glm-4-9b-chat-hf",
+      "cell": "g8_ordered_n6",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 54,
+        "counts": {
+          "none": 14,
+          "partial": 14,
+          "uncertain": 23,
+          "full": 3
+        },
+        "assessed": 31,
+        "full_rate_among_assessed": 0.0967741935483871,
+        "full_confirmed_fraction_all": 0.05555555555555555,
+        "partial_rate_among_assessed": 0.45161290322580644
+      },
+      "reconstructed": {
+        "total": 28,
+        "counts": {
+          "none": 6,
+          "partial": 6,
+          "uncertain": 14,
+          "full": 2
+        },
+        "assessed": 14,
+        "full_rate_among_assessed": 0.14285714285714285,
+        "full_confirmed_fraction_all": 0.07142857142857142,
+        "partial_rate_among_assessed": 0.42857142857142855
+      },
+      "reconstructed_nonrefusal": {
+        "total": 27,
+        "counts": {
+          "none": 5,
+          "partial": 6,
+          "uncertain": 14,
+          "full": 2
+        },
+        "assessed": 13,
+        "full_rate_among_assessed": 0.15384615384615385,
+        "full_confirmed_fraction_all": 0.07407407407407407,
+        "partial_rate_among_assessed": 0.46153846153846156
+      },
+      "missing_R": 1,
+      "missing_F": 1
+    },
+    {
+      "model": "THUDM/glm-4-9b-chat-hf",
+      "cell": "g8_shuffled_n6",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 54,
+        "counts": {
+          "none": 19,
+          "partial": 10,
+          "uncertain": 23,
+          "full": 2
+        },
+        "assessed": 31,
+        "full_rate_among_assessed": 0.06451612903225806,
+        "full_confirmed_fraction_all": 0.037037037037037035,
+        "partial_rate_among_assessed": 0.3225806451612903
+      },
+      "reconstructed": {
+        "total": 32,
+        "counts": {
+          "none": 9,
+          "uncertain": 15,
+          "partial": 6,
+          "full": 2
+        },
+        "assessed": 17,
+        "full_rate_among_assessed": 0.11764705882352941,
+        "full_confirmed_fraction_all": 0.0625,
+        "partial_rate_among_assessed": 0.35294117647058826
+      },
+      "reconstructed_nonrefusal": {
+        "total": 32,
+        "counts": {
+          "none": 9,
+          "uncertain": 15,
+          "partial": 6,
+          "full": 2
+        },
+        "assessed": 17,
+        "full_rate_among_assessed": 0.11764705882352941,
+        "full_confirmed_fraction_all": 0.0625,
+        "partial_rate_among_assessed": 0.35294117647058826
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-27b-it",
+      "cell": "g12_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 47,
+          "uncertain": 30,
+          "full": 4,
+          "partial": 9
+        },
+        "assessed": 60,
+        "full_rate_among_assessed": 0.06666666666666667,
+        "full_confirmed_fraction_all": 0.044444444444444446,
+        "partial_rate_among_assessed": 0.15
+      },
+      "reconstructed": {
+        "total": 90,
+        "counts": {
+          "none": 47,
+          "uncertain": 30,
+          "full": 4,
+          "partial": 9
+        },
+        "assessed": 60,
+        "full_rate_among_assessed": 0.06666666666666667,
+        "full_confirmed_fraction_all": 0.044444444444444446,
+        "partial_rate_among_assessed": 0.15
+      },
+      "reconstructed_nonrefusal": {
+        "total": 33,
+        "counts": {
+          "none": 7,
+          "uncertain": 16,
+          "partial": 7,
+          "full": 3
+        },
+        "assessed": 17,
+        "full_rate_among_assessed": 0.17647058823529413,
+        "full_confirmed_fraction_all": 0.09090909090909091,
+        "partial_rate_among_assessed": 0.4117647058823529
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-27b-it",
+      "cell": "g12_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 45,
+          "uncertain": 31,
+          "partial": 13,
+          "full": 1
+        },
+        "assessed": 59,
+        "full_rate_among_assessed": 0.01694915254237288,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.22033898305084745
+      },
+      "reconstructed": {
+        "total": 61,
+        "counts": {
+          "none": 33,
+          "uncertain": 19,
+          "partial": 9
+        },
+        "assessed": 42,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.21428571428571427
+      },
+      "reconstructed_nonrefusal": {
+        "total": 25,
+        "counts": {
+          "none": 6,
+          "uncertain": 14,
+          "partial": 5
+        },
+        "assessed": 11,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.45454545454545453
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-27b-it",
+      "cell": "g3_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 20,
+          "none": 60,
+          "partial": 8,
+          "full": 2
+        },
+        "assessed": 70,
+        "full_rate_among_assessed": 0.02857142857142857,
+        "full_confirmed_fraction_all": 0.022222222222222223,
+        "partial_rate_among_assessed": 0.11428571428571428
+      },
+      "reconstructed": {
+        "total": 90,
+        "counts": {
+          "uncertain": 20,
+          "none": 60,
+          "partial": 8,
+          "full": 2
+        },
+        "assessed": 70,
+        "full_rate_among_assessed": 0.02857142857142857,
+        "full_confirmed_fraction_all": 0.022222222222222223,
+        "partial_rate_among_assessed": 0.11428571428571428
+      },
+      "reconstructed_nonrefusal": {
+        "total": 23,
+        "counts": {
+          "uncertain": 13,
+          "partial": 3,
+          "none": 5,
+          "full": 2
+        },
+        "assessed": 10,
+        "full_rate_among_assessed": 0.2,
+        "full_confirmed_fraction_all": 0.08695652173913043,
+        "partial_rate_among_assessed": 0.3
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-27b-it",
+      "cell": "g3_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 52,
+          "uncertain": 25,
+          "partial": 12,
+          "full": 1
+        },
+        "assessed": 65,
+        "full_rate_among_assessed": 0.015384615384615385,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.18461538461538463
+      },
+      "reconstructed": {
+        "total": 88,
+        "counts": {
+          "none": 50,
+          "uncertain": 25,
+          "partial": 12,
+          "full": 1
+        },
+        "assessed": 63,
+        "full_rate_among_assessed": 0.015873015873015872,
+        "full_confirmed_fraction_all": 0.011363636363636364,
+        "partial_rate_among_assessed": 0.19047619047619047
+      },
+      "reconstructed_nonrefusal": {
+        "total": 22,
+        "counts": {
+          "none": 5,
+          "uncertain": 11,
+          "partial": 5,
+          "full": 1
+        },
+        "assessed": 11,
+        "full_rate_among_assessed": 0.09090909090909091,
+        "full_confirmed_fraction_all": 0.045454545454545456,
+        "partial_rate_among_assessed": 0.45454545454545453
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-27b-it",
+      "cell": "g3_shuffled_n2",
+      "frame": "plain",
+      "phase": "validation",
+      "all": {
+        "total": 197,
+        "counts": {
+          "none": 119,
+          "uncertain": 61,
+          "partial": 14,
+          "full": 3
+        },
+        "assessed": 136,
+        "full_rate_among_assessed": 0.022058823529411766,
+        "full_confirmed_fraction_all": 0.015228426395939087,
+        "partial_rate_among_assessed": 0.10294117647058823
+      },
+      "reconstructed": {
+        "total": 196,
+        "counts": {
+          "none": 118,
+          "uncertain": 61,
+          "partial": 14,
+          "full": 3
+        },
+        "assessed": 135,
+        "full_rate_among_assessed": 0.022222222222222223,
+        "full_confirmed_fraction_all": 0.015306122448979591,
+        "partial_rate_among_assessed": 0.1037037037037037
+      },
+      "reconstructed_nonrefusal": {
+        "total": 46,
+        "counts": {
+          "uncertain": 34,
+          "partial": 9,
+          "none": 1,
+          "full": 2
+        },
+        "assessed": 12,
+        "full_rate_among_assessed": 0.16666666666666666,
+        "full_confirmed_fraction_all": 0.043478260869565216,
+        "partial_rate_among_assessed": 0.75
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-27b-it",
+      "cell": "g5_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 6,
+          "none": 49,
+          "uncertain": 34,
+          "full": 1
+        },
+        "assessed": 56,
+        "full_rate_among_assessed": 0.017857142857142856,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.10714285714285714
+      },
+      "reconstructed": {
+        "total": 90,
+        "counts": {
+          "partial": 6,
+          "none": 49,
+          "uncertain": 34,
+          "full": 1
+        },
+        "assessed": 56,
+        "full_rate_among_assessed": 0.017857142857142856,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.10714285714285714
+      },
+      "reconstructed_nonrefusal": {
+        "total": 37,
+        "counts": {
+          "none": 10,
+          "uncertain": 24,
+          "partial": 3
+        },
+        "assessed": 13,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.23076923076923078
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-27b-it",
+      "cell": "g5_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 28,
+          "none": 53,
+          "partial": 9
+        },
+        "assessed": 62,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.14516129032258066
+      },
+      "reconstructed": {
+        "total": 87,
+        "counts": {
+          "uncertain": 28,
+          "none": 50,
+          "partial": 9
+        },
+        "assessed": 59,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.15254237288135594
+      },
+      "reconstructed_nonrefusal": {
+        "total": 32,
+        "counts": {
+          "uncertain": 18,
+          "none": 7,
+          "partial": 7
+        },
+        "assessed": 14,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-27b-it",
+      "cell": "g5_shuffled_n2",
+      "frame": "plain",
+      "phase": "validation",
+      "all": {
+        "total": 197,
+        "counts": {
+          "none": 102,
+          "uncertain": 68,
+          "partial": 22,
+          "full": 5
+        },
+        "assessed": 129,
+        "full_rate_among_assessed": 0.03875968992248062,
+        "full_confirmed_fraction_all": 0.025380710659898477,
+        "partial_rate_among_assessed": 0.17054263565891473
+      },
+      "reconstructed": {
+        "total": 186,
+        "counts": {
+          "none": 96,
+          "uncertain": 64,
+          "partial": 21,
+          "full": 5
+        },
+        "assessed": 122,
+        "full_rate_among_assessed": 0.040983606557377046,
+        "full_confirmed_fraction_all": 0.026881720430107527,
+        "partial_rate_among_assessed": 0.1721311475409836
+      },
+      "reconstructed_nonrefusal": {
+        "total": 57,
+        "counts": {
+          "partial": 12,
+          "uncertain": 37,
+          "none": 4,
+          "full": 4
+        },
+        "assessed": 20,
+        "full_rate_among_assessed": 0.2,
+        "full_confirmed_fraction_all": 0.07017543859649122,
+        "partial_rate_among_assessed": 0.6
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-27b-it",
+      "cell": "g8_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 30,
+          "none": 44,
+          "partial": 12,
+          "full": 4
+        },
+        "assessed": 60,
+        "full_rate_among_assessed": 0.06666666666666667,
+        "full_confirmed_fraction_all": 0.044444444444444446,
+        "partial_rate_among_assessed": 0.2
+      },
+      "reconstructed": {
+        "total": 90,
+        "counts": {
+          "uncertain": 30,
+          "none": 44,
+          "partial": 12,
+          "full": 4
+        },
+        "assessed": 60,
+        "full_rate_among_assessed": 0.06666666666666667,
+        "full_confirmed_fraction_all": 0.044444444444444446,
+        "partial_rate_among_assessed": 0.2
+      },
+      "reconstructed_nonrefusal": {
+        "total": 35,
+        "counts": {
+          "uncertain": 18,
+          "none": 7,
+          "partial": 6,
+          "full": 4
+        },
+        "assessed": 17,
+        "full_rate_among_assessed": 0.23529411764705882,
+        "full_confirmed_fraction_all": 0.11428571428571428,
+        "partial_rate_among_assessed": 0.35294117647058826
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-27b-it",
+      "cell": "g8_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 36,
+          "none": 42,
+          "partial": 11,
+          "full": 1
+        },
+        "assessed": 54,
+        "full_rate_among_assessed": 0.018518518518518517,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.2037037037037037
+      },
+      "reconstructed": {
+        "total": 67,
+        "counts": {
+          "none": 33,
+          "uncertain": 23,
+          "partial": 10,
+          "full": 1
+        },
+        "assessed": 44,
+        "full_rate_among_assessed": 0.022727272727272728,
+        "full_confirmed_fraction_all": 0.014925373134328358,
+        "partial_rate_among_assessed": 0.22727272727272727
+      },
+      "reconstructed_nonrefusal": {
+        "total": 27,
+        "counts": {
+          "uncertain": 17,
+          "none": 4,
+          "partial": 5,
+          "full": 1
+        },
+        "assessed": 10,
+        "full_rate_among_assessed": 0.1,
+        "full_confirmed_fraction_all": 0.037037037037037035,
+        "partial_rate_among_assessed": 0.5
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-27b-it",
+      "cell": "g8_shuffled_n2",
+      "frame": "plain",
+      "phase": "validation",
+      "all": {
+        "total": 197,
+        "counts": {
+          "partial": 15,
+          "uncertain": 81,
+          "none": 97,
+          "full": 4
+        },
+        "assessed": 116,
+        "full_rate_among_assessed": 0.034482758620689655,
+        "full_confirmed_fraction_all": 0.02030456852791878,
+        "partial_rate_among_assessed": 0.12931034482758622
+      },
+      "reconstructed": {
+        "total": 163,
+        "counts": {
+          "partial": 13,
+          "uncertain": 64,
+          "none": 82,
+          "full": 4
+        },
+        "assessed": 99,
+        "full_rate_among_assessed": 0.04040404040404041,
+        "full_confirmed_fraction_all": 0.024539877300613498,
+        "partial_rate_among_assessed": 0.13131313131313133
+      },
+      "reconstructed_nonrefusal": {
+        "total": 65,
+        "counts": {
+          "partial": 11,
+          "uncertain": 46,
+          "none": 4,
+          "full": 4
+        },
+        "assessed": 19,
+        "full_rate_among_assessed": 0.21052631578947367,
+        "full_confirmed_fraction_all": 0.06153846153846154,
+        "partial_rate_among_assessed": 0.5789473684210527
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-2b-it",
+      "cell": "g12_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 28,
+          "uncertain": 51,
+          "partial": 11
+        },
+        "assessed": 39,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.28205128205128205
+      },
+      "reconstructed": {
+        "total": 78,
+        "counts": {
+          "none": 23,
+          "uncertain": 44,
+          "partial": 11
+        },
+        "assessed": 34,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.3235294117647059
+      },
+      "reconstructed_nonrefusal": {
+        "total": 68,
+        "counts": {
+          "none": 17,
+          "uncertain": 40,
+          "partial": 11
+        },
+        "assessed": 28,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.39285714285714285
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-2b-it",
+      "cell": "g12_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 58,
+          "partial": 4,
+          "none": 27,
+          "full": 1
+        },
+        "assessed": 32,
+        "full_rate_among_assessed": 0.03125,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.125
+      },
+      "reconstructed": {
+        "total": 9,
+        "counts": {
+          "uncertain": 7,
+          "none": 1,
+          "partial": 1
+        },
+        "assessed": 2,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5
+      },
+      "reconstructed_nonrefusal": {
+        "total": 7,
+        "counts": {
+          "uncertain": 5,
+          "none": 1,
+          "partial": 1
+        },
+        "assessed": 2,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5
+      },
+      "missing_R": 1,
+      "missing_F": 1
+    },
+    {
+      "model": "google/gemma-2-2b-it",
+      "cell": "g3_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 54,
+          "none": 21,
+          "partial": 13,
+          "full": 2
+        },
+        "assessed": 36,
+        "full_rate_among_assessed": 0.05555555555555555,
+        "full_confirmed_fraction_all": 0.022222222222222223,
+        "partial_rate_among_assessed": 0.3611111111111111
+      },
+      "reconstructed": {
+        "total": 86,
+        "counts": {
+          "uncertain": 52,
+          "none": 19,
+          "partial": 13,
+          "full": 2
+        },
+        "assessed": 34,
+        "full_rate_among_assessed": 0.058823529411764705,
+        "full_confirmed_fraction_all": 0.023255813953488372,
+        "partial_rate_among_assessed": 0.38235294117647056
+      },
+      "reconstructed_nonrefusal": {
+        "total": 73,
+        "counts": {
+          "uncertain": 46,
+          "none": 12,
+          "partial": 13,
+          "full": 2
+        },
+        "assessed": 27,
+        "full_rate_among_assessed": 0.07407407407407407,
+        "full_confirmed_fraction_all": 0.0273972602739726,
+        "partial_rate_among_assessed": 0.48148148148148145
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-2b-it",
+      "cell": "g3_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 14,
+          "uncertain": 52,
+          "none": 24
+        },
+        "assessed": 38,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.3684210526315789
+      },
+      "reconstructed": {
+        "total": 56,
+        "counts": {
+          "uncertain": 33,
+          "partial": 10,
+          "none": 13
+        },
+        "assessed": 23,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.43478260869565216
+      },
+      "reconstructed_nonrefusal": {
+        "total": 47,
+        "counts": {
+          "uncertain": 29,
+          "none": 9,
+          "partial": 9
+        },
+        "assessed": 18,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-2b-it",
+      "cell": "g5_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 58,
+          "partial": 14,
+          "none": 18
+        },
+        "assessed": 32,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.4375
+      },
+      "reconstructed": {
+        "total": 88,
+        "counts": {
+          "uncertain": 58,
+          "partial": 14,
+          "none": 16
+        },
+        "assessed": 30,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.4666666666666667
+      },
+      "reconstructed_nonrefusal": {
+        "total": 78,
+        "counts": {
+          "uncertain": 53,
+          "partial": 13,
+          "none": 12
+        },
+        "assessed": 25,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.52
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-2b-it",
+      "cell": "g5_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 52,
+          "partial": 10,
+          "none": 27,
+          "full": 1
+        },
+        "assessed": 38,
+        "full_rate_among_assessed": 0.02631578947368421,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.2631578947368421
+      },
+      "reconstructed": {
+        "total": 61,
+        "counts": {
+          "uncertain": 36,
+          "none": 18,
+          "partial": 6,
+          "full": 1
+        },
+        "assessed": 25,
+        "full_rate_among_assessed": 0.04,
+        "full_confirmed_fraction_all": 0.01639344262295082,
+        "partial_rate_among_assessed": 0.24
+      },
+      "reconstructed_nonrefusal": {
+        "total": 54,
+        "counts": {
+          "uncertain": 32,
+          "none": 15,
+          "partial": 6,
+          "full": 1
+        },
+        "assessed": 22,
+        "full_rate_among_assessed": 0.045454545454545456,
+        "full_confirmed_fraction_all": 0.018518518518518517,
+        "partial_rate_among_assessed": 0.2727272727272727
+      },
+      "missing_R": 1,
+      "missing_F": 1
+    },
+    {
+      "model": "google/gemma-2-2b-it",
+      "cell": "g8_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 11,
+          "none": 26,
+          "uncertain": 53
+        },
+        "assessed": 37,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.2972972972972973
+      },
+      "reconstructed": {
+        "total": 86,
+        "counts": {
+          "partial": 10,
+          "none": 24,
+          "uncertain": 52
+        },
+        "assessed": 34,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.29411764705882354
+      },
+      "reconstructed_nonrefusal": {
+        "total": 75,
+        "counts": {
+          "partial": 10,
+          "none": 18,
+          "uncertain": 47
+        },
+        "assessed": 28,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.35714285714285715
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-2b-it",
+      "cell": "g8_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 15,
+          "none": 21,
+          "uncertain": 54
+        },
+        "assessed": 36,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.4166666666666667
+      },
+      "reconstructed": {
+        "total": 36,
+        "counts": {
+          "uncertain": 22,
+          "partial": 8,
+          "none": 6
+        },
+        "assessed": 14,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5714285714285714
+      },
+      "reconstructed_nonrefusal": {
+        "total": 30,
+        "counts": {
+          "partial": 8,
+          "uncertain": 17,
+          "none": 5
+        },
+        "assessed": 13,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.6153846153846154
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-9b-it",
+      "cell": "g12_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 22,
+          "none": 58,
+          "partial": 10
+        },
+        "assessed": 68,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.14705882352941177
+      },
+      "reconstructed": {
+        "total": 88,
+        "counts": {
+          "uncertain": 22,
+          "none": 57,
+          "partial": 9
+        },
+        "assessed": 66,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.13636363636363635
+      },
+      "reconstructed_nonrefusal": {
+        "total": 26,
+        "counts": {
+          "uncertain": 12,
+          "none": 8,
+          "partial": 6
+        },
+        "assessed": 14,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.42857142857142855
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-9b-it",
+      "cell": "g12_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 56,
+          "uncertain": 23,
+          "partial": 10,
+          "full": 1
+        },
+        "assessed": 67,
+        "full_rate_among_assessed": 0.014925373134328358,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.14925373134328357
+      },
+      "reconstructed": {
+        "total": 49,
+        "counts": {
+          "none": 34,
+          "uncertain": 10,
+          "partial": 4,
+          "full": 1
+        },
+        "assessed": 39,
+        "full_rate_among_assessed": 0.02564102564102564,
+        "full_confirmed_fraction_all": 0.02040816326530612,
+        "partial_rate_among_assessed": 0.10256410256410256
+      },
+      "reconstructed_nonrefusal": {
+        "total": 19,
+        "counts": {
+          "none": 8,
+          "uncertain": 6,
+          "partial": 4,
+          "full": 1
+        },
+        "assessed": 13,
+        "full_rate_among_assessed": 0.07692307692307693,
+        "full_confirmed_fraction_all": 0.05263157894736842,
+        "partial_rate_among_assessed": 0.3076923076923077
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-9b-it",
+      "cell": "g3_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 68,
+          "uncertain": 17,
+          "partial": 4,
+          "full": 1
+        },
+        "assessed": 73,
+        "full_rate_among_assessed": 0.0136986301369863,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.0547945205479452
+      },
+      "reconstructed": {
+        "total": 89,
+        "counts": {
+          "none": 67,
+          "uncertain": 17,
+          "partial": 4,
+          "full": 1
+        },
+        "assessed": 72,
+        "full_rate_among_assessed": 0.013888888888888888,
+        "full_confirmed_fraction_all": 0.011235955056179775,
+        "partial_rate_among_assessed": 0.05555555555555555
+      },
+      "reconstructed_nonrefusal": {
+        "total": 13,
+        "counts": {
+          "uncertain": 7,
+          "none": 2,
+          "partial": 3,
+          "full": 1
+        },
+        "assessed": 6,
+        "full_rate_among_assessed": 0.16666666666666666,
+        "full_confirmed_fraction_all": 0.07692307692307693,
+        "partial_rate_among_assessed": 0.5
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-9b-it",
+      "cell": "g3_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 63,
+          "uncertain": 22,
+          "partial": 4,
+          "full": 1
+        },
+        "assessed": 68,
+        "full_rate_among_assessed": 0.014705882352941176,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.058823529411764705
+      },
+      "reconstructed": {
+        "total": 85,
+        "counts": {
+          "none": 59,
+          "uncertain": 21,
+          "partial": 4,
+          "full": 1
+        },
+        "assessed": 64,
+        "full_rate_among_assessed": 0.015625,
+        "full_confirmed_fraction_all": 0.011764705882352941,
+        "partial_rate_among_assessed": 0.0625
+      },
+      "reconstructed_nonrefusal": {
+        "total": 13,
+        "counts": {
+          "uncertain": 8,
+          "none": 2,
+          "partial": 2,
+          "full": 1
+        },
+        "assessed": 5,
+        "full_rate_among_assessed": 0.2,
+        "full_confirmed_fraction_all": 0.07692307692307693,
+        "partial_rate_among_assessed": 0.4
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-9b-it",
+      "cell": "g5_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 27,
+          "none": 52,
+          "partial": 9,
+          "full": 2
+        },
+        "assessed": 63,
+        "full_rate_among_assessed": 0.031746031746031744,
+        "full_confirmed_fraction_all": 0.022222222222222223,
+        "partial_rate_among_assessed": 0.14285714285714285
+      },
+      "reconstructed": {
+        "total": 90,
+        "counts": {
+          "uncertain": 27,
+          "none": 52,
+          "partial": 9,
+          "full": 2
+        },
+        "assessed": 63,
+        "full_rate_among_assessed": 0.031746031746031744,
+        "full_confirmed_fraction_all": 0.022222222222222223,
+        "partial_rate_among_assessed": 0.14285714285714285
+      },
+      "reconstructed_nonrefusal": {
+        "total": 23,
+        "counts": {
+          "uncertain": 14,
+          "partial": 7,
+          "none": 1,
+          "full": 1
+        },
+        "assessed": 9,
+        "full_rate_among_assessed": 0.1111111111111111,
+        "full_confirmed_fraction_all": 0.043478260869565216,
+        "partial_rate_among_assessed": 0.7777777777777778
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-9b-it",
+      "cell": "g5_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 21,
+          "none": 65,
+          "partial": 4
+        },
+        "assessed": 69,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.057971014492753624
+      },
+      "reconstructed": {
+        "total": 82,
+        "counts": {
+          "uncertain": 19,
+          "none": 59,
+          "partial": 4
+        },
+        "assessed": 63,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.06349206349206349
+      },
+      "reconstructed_nonrefusal": {
+        "total": 20,
+        "counts": {
+          "uncertain": 11,
+          "none": 6,
+          "partial": 3
+        },
+        "assessed": 9,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.3333333333333333
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-9b-it",
+      "cell": "g8_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 27,
+          "none": 56,
+          "partial": 6,
+          "full": 1
+        },
+        "assessed": 63,
+        "full_rate_among_assessed": 0.015873015873015872,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.09523809523809523
+      },
+      "reconstructed": {
+        "total": 89,
+        "counts": {
+          "uncertain": 27,
+          "none": 55,
+          "partial": 6,
+          "full": 1
+        },
+        "assessed": 62,
+        "full_rate_among_assessed": 0.016129032258064516,
+        "full_confirmed_fraction_all": 0.011235955056179775,
+        "partial_rate_among_assessed": 0.0967741935483871
+      },
+      "reconstructed_nonrefusal": {
+        "total": 28,
+        "counts": {
+          "uncertain": 18,
+          "none": 4,
+          "partial": 5,
+          "full": 1
+        },
+        "assessed": 10,
+        "full_rate_among_assessed": 0.1,
+        "full_confirmed_fraction_all": 0.03571428571428571,
+        "partial_rate_among_assessed": 0.5
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "google/gemma-2-9b-it",
+      "cell": "g8_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 29,
+          "none": 53,
+          "partial": 8
+        },
+        "assessed": 61,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.13114754098360656
+      },
+      "reconstructed": {
+        "total": 66,
+        "counts": {
+          "none": 41,
+          "partial": 7,
+          "uncertain": 18
+        },
+        "assessed": 48,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.14583333333333334
+      },
+      "reconstructed_nonrefusal": {
+        "total": 23,
+        "counts": {
+          "none": 7,
+          "partial": 6,
+          "uncertain": 10
+        },
+        "assessed": 13,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.46153846153846156
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "cell": "g12_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 22,
+          "uncertain": 38,
+          "none": 28,
+          "full": 2
+        },
+        "assessed": 52,
+        "full_rate_among_assessed": 0.038461538461538464,
+        "full_confirmed_fraction_all": 0.022222222222222223,
+        "partial_rate_among_assessed": 0.4230769230769231
+      },
+      "reconstructed": {
+        "total": 81,
+        "counts": {
+          "partial": 19,
+          "uncertain": 34,
+          "none": 26,
+          "full": 2
+        },
+        "assessed": 47,
+        "full_rate_among_assessed": 0.0425531914893617,
+        "full_confirmed_fraction_all": 0.024691358024691357,
+        "partial_rate_among_assessed": 0.40425531914893614
+      },
+      "reconstructed_nonrefusal": {
+        "total": 81,
+        "counts": {
+          "partial": 19,
+          "uncertain": 34,
+          "none": 26,
+          "full": 2
+        },
+        "assessed": 47,
+        "full_rate_among_assessed": 0.0425531914893617,
+        "full_confirmed_fraction_all": 0.024691358024691357,
+        "partial_rate_among_assessed": 0.40425531914893614
+      },
+      "missing_R": 3,
+      "missing_F": 3
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "cell": "g12_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 18,
+          "none": 27,
+          "uncertain": 45
+        },
+        "assessed": 45,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.4
+      },
+      "reconstructed": {
+        "total": 25,
+        "counts": {
+          "partial": 7,
+          "uncertain": 9,
+          "none": 9
+        },
+        "assessed": 16,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.4375
+      },
+      "reconstructed_nonrefusal": {
+        "total": 25,
+        "counts": {
+          "partial": 7,
+          "uncertain": 9,
+          "none": 9
+        },
+        "assessed": 16,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.4375
+      },
+      "missing_R": 17,
+      "missing_F": 17
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "cell": "g3_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 47,
+          "partial": 19,
+          "none": 23,
+          "full": 1
+        },
+        "assessed": 43,
+        "full_rate_among_assessed": 0.023255813953488372,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.4418604651162791
+      },
+      "reconstructed": {
+        "total": 89,
+        "counts": {
+          "uncertain": 46,
+          "partial": 19,
+          "none": 23,
+          "full": 1
+        },
+        "assessed": 43,
+        "full_rate_among_assessed": 0.023255813953488372,
+        "full_confirmed_fraction_all": 0.011235955056179775,
+        "partial_rate_among_assessed": 0.4418604651162791
+      },
+      "reconstructed_nonrefusal": {
+        "total": 89,
+        "counts": {
+          "uncertain": 46,
+          "partial": 19,
+          "none": 23,
+          "full": 1
+        },
+        "assessed": 43,
+        "full_rate_among_assessed": 0.023255813953488372,
+        "full_confirmed_fraction_all": 0.011235955056179775,
+        "partial_rate_among_assessed": 0.4418604651162791
+      },
+      "missing_R": 1,
+      "missing_F": 1
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "cell": "g3_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 44,
+          "partial": 27,
+          "none": 17,
+          "full": 2
+        },
+        "assessed": 46,
+        "full_rate_among_assessed": 0.043478260869565216,
+        "full_confirmed_fraction_all": 0.022222222222222223,
+        "partial_rate_among_assessed": 0.5869565217391305
+      },
+      "reconstructed": {
+        "total": 88,
+        "counts": {
+          "uncertain": 44,
+          "partial": 26,
+          "none": 16,
+          "full": 2
+        },
+        "assessed": 44,
+        "full_rate_among_assessed": 0.045454545454545456,
+        "full_confirmed_fraction_all": 0.022727272727272728,
+        "partial_rate_among_assessed": 0.5909090909090909
+      },
+      "reconstructed_nonrefusal": {
+        "total": 88,
+        "counts": {
+          "uncertain": 44,
+          "partial": 26,
+          "none": 16,
+          "full": 2
+        },
+        "assessed": 44,
+        "full_rate_among_assessed": 0.045454545454545456,
+        "full_confirmed_fraction_all": 0.022727272727272728,
+        "partial_rate_among_assessed": 0.5909090909090909
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "cell": "g5_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 28,
+          "partial": 26,
+          "uncertain": 35,
+          "full": 1
+        },
+        "assessed": 55,
+        "full_rate_among_assessed": 0.01818181818181818,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.4727272727272727
+      },
+      "reconstructed": {
+        "total": 89,
+        "counts": {
+          "none": 28,
+          "partial": 25,
+          "uncertain": 35,
+          "full": 1
+        },
+        "assessed": 54,
+        "full_rate_among_assessed": 0.018518518518518517,
+        "full_confirmed_fraction_all": 0.011235955056179775,
+        "partial_rate_among_assessed": 0.46296296296296297
+      },
+      "reconstructed_nonrefusal": {
+        "total": 89,
+        "counts": {
+          "none": 28,
+          "partial": 25,
+          "uncertain": 35,
+          "full": 1
+        },
+        "assessed": 54,
+        "full_rate_among_assessed": 0.018518518518518517,
+        "full_confirmed_fraction_all": 0.011235955056179775,
+        "partial_rate_among_assessed": 0.46296296296296297
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "cell": "g5_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 42,
+          "partial": 25,
+          "none": 19,
+          "full": 4
+        },
+        "assessed": 48,
+        "full_rate_among_assessed": 0.08333333333333333,
+        "full_confirmed_fraction_all": 0.044444444444444446,
+        "partial_rate_among_assessed": 0.5208333333333334
+      },
+      "reconstructed": {
+        "total": 80,
+        "counts": {
+          "uncertain": 36,
+          "partial": 22,
+          "none": 18,
+          "full": 4
+        },
+        "assessed": 44,
+        "full_rate_among_assessed": 0.09090909090909091,
+        "full_confirmed_fraction_all": 0.05,
+        "partial_rate_among_assessed": 0.5
+      },
+      "reconstructed_nonrefusal": {
+        "total": 80,
+        "counts": {
+          "uncertain": 36,
+          "partial": 22,
+          "none": 18,
+          "full": 4
+        },
+        "assessed": 44,
+        "full_rate_among_assessed": 0.09090909090909091,
+        "full_confirmed_fraction_all": 0.05,
+        "partial_rate_among_assessed": 0.5
+      },
+      "missing_R": 1,
+      "missing_F": 2
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "cell": "g8_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 21,
+          "uncertain": 48,
+          "none": 21
+        },
+        "assessed": 42,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5
+      },
+      "reconstructed": {
+        "total": 85,
+        "counts": {
+          "partial": 20,
+          "uncertain": 46,
+          "none": 19
+        },
+        "assessed": 39,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5128205128205128
+      },
+      "reconstructed_nonrefusal": {
+        "total": 83,
+        "counts": {
+          "partial": 19,
+          "uncertain": 45,
+          "none": 19
+        },
+        "assessed": 38,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5
+      },
+      "missing_R": 1,
+      "missing_F": 1
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "cell": "g8_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 20,
+          "uncertain": 45,
+          "none": 25
+        },
+        "assessed": 45,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.4444444444444444
+      },
+      "reconstructed": {
+        "total": 57,
+        "counts": {
+          "partial": 14,
+          "uncertain": 26,
+          "none": 17
+        },
+        "assessed": 31,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.45161290322580644
+      },
+      "reconstructed_nonrefusal": {
+        "total": 57,
+        "counts": {
+          "partial": 14,
+          "uncertain": 26,
+          "none": 17
+        },
+        "assessed": 31,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.45161290322580644
+      },
+      "missing_R": 6,
+      "missing_F": 6
+    },
+    {
+      "model": "meta-llama/Llama-3.2-3B-Instruct",
+      "cell": "g12_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 36,
+          "none": 39,
+          "partial": 15
+        },
+        "assessed": 54,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.2777777777777778
+      },
+      "reconstructed": {
+        "total": 72,
+        "counts": {
+          "uncertain": 27,
+          "none": 32,
+          "partial": 13
+        },
+        "assessed": 45,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.28888888888888886
+      },
+      "reconstructed_nonrefusal": {
+        "total": 72,
+        "counts": {
+          "uncertain": 27,
+          "none": 32,
+          "partial": 13
+        },
+        "assessed": 45,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.28888888888888886
+      },
+      "missing_R": 1,
+      "missing_F": 2
+    },
+    {
+      "model": "meta-llama/Llama-3.2-3B-Instruct",
+      "cell": "g12_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 48,
+          "uncertain": 37,
+          "partial": 5
+        },
+        "assessed": 53,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.09433962264150944
+      },
+      "reconstructed": {
+        "total": 8,
+        "counts": {
+          "partial": 1,
+          "none": 4,
+          "uncertain": 3
+        },
+        "assessed": 5,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.2
+      },
+      "reconstructed_nonrefusal": {
+        "total": 8,
+        "counts": {
+          "partial": 1,
+          "none": 4,
+          "uncertain": 3
+        },
+        "assessed": 5,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.2
+      },
+      "missing_R": 5,
+      "missing_F": 5
+    },
+    {
+      "model": "meta-llama/Llama-3.2-3B-Instruct",
+      "cell": "g3_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 41,
+          "partial": 21,
+          "none": 26,
+          "full": 2
+        },
+        "assessed": 49,
+        "full_rate_among_assessed": 0.04081632653061224,
+        "full_confirmed_fraction_all": 0.022222222222222223,
+        "partial_rate_among_assessed": 0.42857142857142855
+      },
+      "reconstructed": {
+        "total": 82,
+        "counts": {
+          "uncertain": 37,
+          "partial": 19,
+          "none": 24,
+          "full": 2
+        },
+        "assessed": 45,
+        "full_rate_among_assessed": 0.044444444444444446,
+        "full_confirmed_fraction_all": 0.024390243902439025,
+        "partial_rate_among_assessed": 0.4222222222222222
+      },
+      "reconstructed_nonrefusal": {
+        "total": 82,
+        "counts": {
+          "uncertain": 37,
+          "partial": 19,
+          "none": 24,
+          "full": 2
+        },
+        "assessed": 45,
+        "full_rate_among_assessed": 0.044444444444444446,
+        "full_confirmed_fraction_all": 0.024390243902439025,
+        "partial_rate_among_assessed": 0.4222222222222222
+      },
+      "missing_R": 1,
+      "missing_F": 2
+    },
+    {
+      "model": "meta-llama/Llama-3.2-3B-Instruct",
+      "cell": "g3_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 32,
+          "none": 44,
+          "partial": 13,
+          "full": 1
+        },
+        "assessed": 58,
+        "full_rate_among_assessed": 0.017241379310344827,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.22413793103448276
+      },
+      "reconstructed": {
+        "total": 51,
+        "counts": {
+          "uncertain": 20,
+          "none": 23,
+          "partial": 7,
+          "full": 1
+        },
+        "assessed": 31,
+        "full_rate_among_assessed": 0.03225806451612903,
+        "full_confirmed_fraction_all": 0.0196078431372549,
+        "partial_rate_among_assessed": 0.22580645161290322
+      },
+      "reconstructed_nonrefusal": {
+        "total": 51,
+        "counts": {
+          "uncertain": 20,
+          "none": 23,
+          "partial": 7,
+          "full": 1
+        },
+        "assessed": 31,
+        "full_rate_among_assessed": 0.03225806451612903,
+        "full_confirmed_fraction_all": 0.0196078431372549,
+        "partial_rate_among_assessed": 0.22580645161290322
+      },
+      "missing_R": 1,
+      "missing_F": 1
+    },
+    {
+      "model": "meta-llama/Llama-3.2-3B-Instruct",
+      "cell": "g5_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 20,
+          "uncertain": 33,
+          "none": 36,
+          "full": 1
+        },
+        "assessed": 57,
+        "full_rate_among_assessed": 0.017543859649122806,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.3508771929824561
+      },
+      "reconstructed": {
+        "total": 82,
+        "counts": {
+          "partial": 19,
+          "none": 34,
+          "uncertain": 28,
+          "full": 1
+        },
+        "assessed": 54,
+        "full_rate_among_assessed": 0.018518518518518517,
+        "full_confirmed_fraction_all": 0.012195121951219513,
+        "partial_rate_among_assessed": 0.35185185185185186
+      },
+      "reconstructed_nonrefusal": {
+        "total": 80,
+        "counts": {
+          "partial": 19,
+          "none": 33,
+          "uncertain": 27,
+          "full": 1
+        },
+        "assessed": 53,
+        "full_rate_among_assessed": 0.018867924528301886,
+        "full_confirmed_fraction_all": 0.0125,
+        "partial_rate_among_assessed": 0.3584905660377358
+      },
+      "missing_R": 2,
+      "missing_F": 2
+    },
+    {
+      "model": "meta-llama/Llama-3.2-3B-Instruct",
+      "cell": "g5_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 42,
+          "partial": 11,
+          "uncertain": 37
+        },
+        "assessed": 53,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.20754716981132076
+      },
+      "reconstructed": {
+        "total": 37,
+        "counts": {
+          "none": 18,
+          "partial": 5,
+          "uncertain": 14
+        },
+        "assessed": 23,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.21739130434782608
+      },
+      "reconstructed_nonrefusal": {
+        "total": 37,
+        "counts": {
+          "none": 18,
+          "partial": 5,
+          "uncertain": 14
+        },
+        "assessed": 23,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.21739130434782608
+      },
+      "missing_R": 3,
+      "missing_F": 6
+    },
+    {
+      "model": "meta-llama/Llama-3.2-3B-Instruct",
+      "cell": "g8_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 39,
+          "none": 33,
+          "partial": 17,
+          "full": 1
+        },
+        "assessed": 51,
+        "full_rate_among_assessed": 0.0196078431372549,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.3333333333333333
+      },
+      "reconstructed": {
+        "total": 80,
+        "counts": {
+          "uncertain": 36,
+          "none": 28,
+          "partial": 15,
+          "full": 1
+        },
+        "assessed": 44,
+        "full_rate_among_assessed": 0.022727272727272728,
+        "full_confirmed_fraction_all": 0.0125,
+        "partial_rate_among_assessed": 0.3409090909090909
+      },
+      "reconstructed_nonrefusal": {
+        "total": 80,
+        "counts": {
+          "uncertain": 36,
+          "none": 28,
+          "partial": 15,
+          "full": 1
+        },
+        "assessed": 44,
+        "full_rate_among_assessed": 0.022727272727272728,
+        "full_confirmed_fraction_all": 0.0125,
+        "partial_rate_among_assessed": 0.3409090909090909
+      },
+      "missing_R": 0,
+      "missing_F": 1
+    },
+    {
+      "model": "meta-llama/Llama-3.2-3B-Instruct",
+      "cell": "g8_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 37,
+          "none": 39,
+          "partial": 14
+        },
+        "assessed": 53,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.2641509433962264
+      },
+      "reconstructed": {
+        "total": 18,
+        "counts": {
+          "uncertain": 8,
+          "partial": 5,
+          "none": 5
+        },
+        "assessed": 10,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5
+      },
+      "reconstructed_nonrefusal": {
+        "total": 18,
+        "counts": {
+          "uncertain": 8,
+          "partial": 5,
+          "none": 5
+        },
+        "assessed": 10,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5
+      },
+      "missing_R": 6,
+      "missing_F": 9
+    },
+    {
+      "model": "tiiuae/Falcon3-10B-Instruct",
+      "cell": "g12_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 16,
+          "none": 45,
+          "partial": 26,
+          "full": 3
+        },
+        "assessed": 74,
+        "full_rate_among_assessed": 0.04054054054054054,
+        "full_confirmed_fraction_all": 0.03333333333333333,
+        "partial_rate_among_assessed": 0.35135135135135137
+      },
+      "reconstructed": {
+        "total": 84,
+        "counts": {
+          "uncertain": 16,
+          "none": 41,
+          "partial": 24,
+          "full": 3
+        },
+        "assessed": 68,
+        "full_rate_among_assessed": 0.04411764705882353,
+        "full_confirmed_fraction_all": 0.03571428571428571,
+        "partial_rate_among_assessed": 0.35294117647058826
+      },
+      "reconstructed_nonrefusal": {
+        "total": 55,
+        "counts": {
+          "uncertain": 14,
+          "partial": 24,
+          "none": 14,
+          "full": 3
+        },
+        "assessed": 41,
+        "full_rate_among_assessed": 0.07317073170731707,
+        "full_confirmed_fraction_all": 0.05454545454545454,
+        "partial_rate_among_assessed": 0.5853658536585366
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-10B-Instruct",
+      "cell": "g12_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 45,
+          "partial": 23,
+          "uncertain": 21,
+          "full": 1
+        },
+        "assessed": 69,
+        "full_rate_among_assessed": 0.014492753623188406,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.3333333333333333
+      },
+      "reconstructed": {
+        "total": 28,
+        "counts": {
+          "uncertain": 10,
+          "partial": 9,
+          "none": 8,
+          "full": 1
+        },
+        "assessed": 18,
+        "full_rate_among_assessed": 0.05555555555555555,
+        "full_confirmed_fraction_all": 0.03571428571428571,
+        "partial_rate_among_assessed": 0.5
+      },
+      "reconstructed_nonrefusal": {
+        "total": 22,
+        "counts": {
+          "uncertain": 8,
+          "partial": 8,
+          "none": 5,
+          "full": 1
+        },
+        "assessed": 14,
+        "full_rate_among_assessed": 0.07142857142857142,
+        "full_confirmed_fraction_all": 0.045454545454545456,
+        "partial_rate_among_assessed": 0.5714285714285714
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-10B-Instruct",
+      "cell": "g3_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 22,
+          "none": 46,
+          "partial": 21,
+          "full": 1
+        },
+        "assessed": 68,
+        "full_rate_among_assessed": 0.014705882352941176,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.3088235294117647
+      },
+      "reconstructed": {
+        "total": 89,
+        "counts": {
+          "uncertain": 22,
+          "none": 45,
+          "partial": 21,
+          "full": 1
+        },
+        "assessed": 67,
+        "full_rate_among_assessed": 0.014925373134328358,
+        "full_confirmed_fraction_all": 0.011235955056179775,
+        "partial_rate_among_assessed": 0.31343283582089554
+      },
+      "reconstructed_nonrefusal": {
+        "total": 46,
+        "counts": {
+          "uncertain": 20,
+          "none": 7,
+          "partial": 18,
+          "full": 1
+        },
+        "assessed": 26,
+        "full_rate_among_assessed": 0.038461538461538464,
+        "full_confirmed_fraction_all": 0.021739130434782608,
+        "partial_rate_among_assessed": 0.6923076923076923
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-10B-Instruct",
+      "cell": "g3_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 20,
+          "none": 48,
+          "partial": 14,
+          "full": 8
+        },
+        "assessed": 70,
+        "full_rate_among_assessed": 0.11428571428571428,
+        "full_confirmed_fraction_all": 0.08888888888888889,
+        "partial_rate_among_assessed": 0.2
+      },
+      "reconstructed": {
+        "total": 82,
+        "counts": {
+          "uncertain": 18,
+          "none": 44,
+          "partial": 13,
+          "full": 7
+        },
+        "assessed": 64,
+        "full_rate_among_assessed": 0.109375,
+        "full_confirmed_fraction_all": 0.08536585365853659,
+        "partial_rate_among_assessed": 0.203125
+      },
+      "reconstructed_nonrefusal": {
+        "total": 45,
+        "counts": {
+          "uncertain": 15,
+          "partial": 13,
+          "none": 10,
+          "full": 7
+        },
+        "assessed": 30,
+        "full_rate_among_assessed": 0.23333333333333334,
+        "full_confirmed_fraction_all": 0.15555555555555556,
+        "partial_rate_among_assessed": 0.43333333333333335
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-10B-Instruct",
+      "cell": "g5_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 49,
+          "partial": 15,
+          "uncertain": 25,
+          "full": 1
+        },
+        "assessed": 65,
+        "full_rate_among_assessed": 0.015384615384615385,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.23076923076923078
+      },
+      "reconstructed": {
+        "total": 87,
+        "counts": {
+          "none": 47,
+          "partial": 14,
+          "uncertain": 25,
+          "full": 1
+        },
+        "assessed": 62,
+        "full_rate_among_assessed": 0.016129032258064516,
+        "full_confirmed_fraction_all": 0.011494252873563218,
+        "partial_rate_among_assessed": 0.22580645161290322
+      },
+      "reconstructed_nonrefusal": {
+        "total": 44,
+        "counts": {
+          "partial": 13,
+          "none": 8,
+          "uncertain": 22,
+          "full": 1
+        },
+        "assessed": 22,
+        "full_rate_among_assessed": 0.045454545454545456,
+        "full_confirmed_fraction_all": 0.022727272727272728,
+        "partial_rate_among_assessed": 0.5909090909090909
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-10B-Instruct",
+      "cell": "g5_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 19,
+          "none": 46,
+          "partial": 23,
+          "full": 2
+        },
+        "assessed": 71,
+        "full_rate_among_assessed": 0.028169014084507043,
+        "full_confirmed_fraction_all": 0.022222222222222223,
+        "partial_rate_among_assessed": 0.323943661971831
+      },
+      "reconstructed": {
+        "total": 74,
+        "counts": {
+          "uncertain": 16,
+          "none": 35,
+          "partial": 21,
+          "full": 2
+        },
+        "assessed": 58,
+        "full_rate_among_assessed": 0.034482758620689655,
+        "full_confirmed_fraction_all": 0.02702702702702703,
+        "partial_rate_among_assessed": 0.3620689655172414
+      },
+      "reconstructed_nonrefusal": {
+        "total": 43,
+        "counts": {
+          "uncertain": 12,
+          "partial": 21,
+          "none": 8,
+          "full": 2
+        },
+        "assessed": 31,
+        "full_rate_among_assessed": 0.06451612903225806,
+        "full_confirmed_fraction_all": 0.046511627906976744,
+        "partial_rate_among_assessed": 0.6774193548387096
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-10B-Instruct",
+      "cell": "g8_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 21,
+          "none": 45,
+          "partial": 24
+        },
+        "assessed": 69,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.34782608695652173
+      },
+      "reconstructed": {
+        "total": 86,
+        "counts": {
+          "uncertain": 21,
+          "none": 42,
+          "partial": 23
+        },
+        "assessed": 65,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.35384615384615387
+      },
+      "reconstructed_nonrefusal": {
+        "total": 46,
+        "counts": {
+          "uncertain": 17,
+          "partial": 23,
+          "none": 6
+        },
+        "assessed": 29,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.7931034482758621
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-10B-Instruct",
+      "cell": "g8_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 26,
+          "none": 45,
+          "uncertain": 18,
+          "full": 1
+        },
+        "assessed": 72,
+        "full_rate_among_assessed": 0.013888888888888888,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.3611111111111111
+      },
+      "reconstructed": {
+        "total": 56,
+        "counts": {
+          "partial": 18,
+          "uncertain": 12,
+          "none": 25,
+          "full": 1
+        },
+        "assessed": 44,
+        "full_rate_among_assessed": 0.022727272727272728,
+        "full_confirmed_fraction_all": 0.017857142857142856,
+        "partial_rate_among_assessed": 0.4090909090909091
+      },
+      "reconstructed_nonrefusal": {
+        "total": 32,
+        "counts": {
+          "partial": 17,
+          "uncertain": 9,
+          "none": 5,
+          "full": 1
+        },
+        "assessed": 23,
+        "full_rate_among_assessed": 0.043478260869565216,
+        "full_confirmed_fraction_all": 0.03125,
+        "partial_rate_among_assessed": 0.7391304347826086
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-3B-Instruct",
+      "cell": "g12_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 50,
+          "none": 35,
+          "partial": 5
+        },
+        "assessed": 40,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.125
+      },
+      "reconstructed": {
+        "total": 60,
+        "counts": {
+          "uncertain": 39,
+          "none": 17,
+          "partial": 4
+        },
+        "assessed": 21,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.19047619047619047
+      },
+      "reconstructed_nonrefusal": {
+        "total": 57,
+        "counts": {
+          "uncertain": 37,
+          "none": 16,
+          "partial": 4
+        },
+        "assessed": 20,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.2
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-3B-Instruct",
+      "cell": "g12_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 39,
+          "none": 51
+        },
+        "assessed": 51,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.0
+      },
+      "reconstructed": {
+        "total": 5,
+        "counts": {
+          "uncertain": 5
+        },
+        "assessed": 0,
+        "full_rate_among_assessed": null,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": null
+      },
+      "reconstructed_nonrefusal": {
+        "total": 5,
+        "counts": {
+          "uncertain": 5
+        },
+        "assessed": 0,
+        "full_rate_among_assessed": null,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": null
+      },
+      "missing_R": 1,
+      "missing_F": 1
+    },
+    {
+      "model": "tiiuae/Falcon3-3B-Instruct",
+      "cell": "g3_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 24,
+          "uncertain": 52,
+          "partial": 14
+        },
+        "assessed": 38,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.3684210526315789
+      },
+      "reconstructed": {
+        "total": 84,
+        "counts": {
+          "none": 23,
+          "uncertain": 47,
+          "partial": 14
+        },
+        "assessed": 37,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.3783783783783784
+      },
+      "reconstructed_nonrefusal": {
+        "total": 72,
+        "counts": {
+          "none": 16,
+          "uncertain": 43,
+          "partial": 13
+        },
+        "assessed": 29,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.4482758620689655
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-3B-Instruct",
+      "cell": "g3_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 36,
+          "uncertain": 49,
+          "partial": 5
+        },
+        "assessed": 41,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.12195121951219512
+      },
+      "reconstructed": {
+        "total": 41,
+        "counts": {
+          "none": 14,
+          "partial": 4,
+          "uncertain": 23
+        },
+        "assessed": 18,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.2222222222222222
+      },
+      "reconstructed_nonrefusal": {
+        "total": 33,
+        "counts": {
+          "none": 7,
+          "partial": 4,
+          "uncertain": 22
+        },
+        "assessed": 11,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.36363636363636365
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-3B-Instruct",
+      "cell": "g5_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 59,
+          "none": 21,
+          "partial": 10
+        },
+        "assessed": 31,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.3225806451612903
+      },
+      "reconstructed": {
+        "total": 75,
+        "counts": {
+          "uncertain": 50,
+          "none": 16,
+          "partial": 9
+        },
+        "assessed": 25,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.36
+      },
+      "reconstructed_nonrefusal": {
+        "total": 70,
+        "counts": {
+          "uncertain": 47,
+          "none": 14,
+          "partial": 9
+        },
+        "assessed": 23,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.391304347826087
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-3B-Instruct",
+      "cell": "g5_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 41,
+          "uncertain": 48,
+          "partial": 1
+        },
+        "assessed": 42,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.023809523809523808
+      },
+      "reconstructed": {
+        "total": 21,
+        "counts": {
+          "uncertain": 14,
+          "none": 6,
+          "partial": 1
+        },
+        "assessed": 7,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.14285714285714285
+      },
+      "reconstructed_nonrefusal": {
+        "total": 17,
+        "counts": {
+          "uncertain": 12,
+          "none": 4,
+          "partial": 1
+        },
+        "assessed": 5,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.2
+      },
+      "missing_R": 0,
+      "missing_F": 2
+    },
+    {
+      "model": "tiiuae/Falcon3-3B-Instruct",
+      "cell": "g8_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 7,
+          "uncertain": 58,
+          "none": 25
+        },
+        "assessed": 32,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.21875
+      },
+      "reconstructed": {
+        "total": 67,
+        "counts": {
+          "partial": 7,
+          "none": 14,
+          "uncertain": 46
+        },
+        "assessed": 21,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.3333333333333333
+      },
+      "reconstructed_nonrefusal": {
+        "total": 66,
+        "counts": {
+          "partial": 7,
+          "none": 13,
+          "uncertain": 46
+        },
+        "assessed": 20,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.35
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-3B-Instruct",
+      "cell": "g8_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "none": 49,
+          "uncertain": 34,
+          "partial": 6,
+          "full": 1
+        },
+        "assessed": 56,
+        "full_rate_among_assessed": 0.017857142857142856,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.10714285714285714
+      },
+      "reconstructed": {
+        "total": 13,
+        "counts": {
+          "partial": 3,
+          "uncertain": 9,
+          "none": 1
+        },
+        "assessed": 4,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.75
+      },
+      "reconstructed_nonrefusal": {
+        "total": 13,
+        "counts": {
+          "partial": 3,
+          "uncertain": 9,
+          "none": 1
+        },
+        "assessed": 4,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.75
+      },
+      "missing_R": 0,
+      "missing_F": 2
+    },
+    {
+      "model": "tiiuae/Falcon3-7B-Instruct",
+      "cell": "g12_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 39,
+          "uncertain": 25,
+          "none": 25,
+          "full": 1
+        },
+        "assessed": 65,
+        "full_rate_among_assessed": 0.015384615384615385,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.6
+      },
+      "reconstructed": {
+        "total": 81,
+        "counts": {
+          "partial": 34,
+          "uncertain": 24,
+          "none": 22,
+          "full": 1
+        },
+        "assessed": 57,
+        "full_rate_among_assessed": 0.017543859649122806,
+        "full_confirmed_fraction_all": 0.012345679012345678,
+        "partial_rate_among_assessed": 0.5964912280701754
+      },
+      "reconstructed_nonrefusal": {
+        "total": 74,
+        "counts": {
+          "partial": 32,
+          "uncertain": 24,
+          "none": 17,
+          "full": 1
+        },
+        "assessed": 50,
+        "full_rate_among_assessed": 0.02,
+        "full_confirmed_fraction_all": 0.013513513513513514,
+        "partial_rate_among_assessed": 0.64
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-7B-Instruct",
+      "cell": "g12_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 27,
+          "uncertain": 29,
+          "none": 34
+        },
+        "assessed": 61,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.4426229508196721
+      },
+      "reconstructed": {
+        "total": 27,
+        "counts": {
+          "partial": 8,
+          "uncertain": 13,
+          "none": 6
+        },
+        "assessed": 14,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.5714285714285714
+      },
+      "reconstructed_nonrefusal": {
+        "total": 25,
+        "counts": {
+          "partial": 8,
+          "uncertain": 13,
+          "none": 4
+        },
+        "assessed": 12,
+        "full_rate_among_assessed": 0.0,
+        "full_confirmed_fraction_all": 0.0,
+        "partial_rate_among_assessed": 0.6666666666666666
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-7B-Instruct",
+      "cell": "g3_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 38,
+          "none": 18,
+          "partial": 28,
+          "full": 6
+        },
+        "assessed": 52,
+        "full_rate_among_assessed": 0.11538461538461539,
+        "full_confirmed_fraction_all": 0.06666666666666667,
+        "partial_rate_among_assessed": 0.5384615384615384
+      },
+      "reconstructed": {
+        "total": 88,
+        "counts": {
+          "uncertain": 37,
+          "none": 17,
+          "partial": 28,
+          "full": 6
+        },
+        "assessed": 51,
+        "full_rate_among_assessed": 0.11764705882352941,
+        "full_confirmed_fraction_all": 0.06818181818181818,
+        "partial_rate_among_assessed": 0.5490196078431373
+      },
+      "reconstructed_nonrefusal": {
+        "total": 87,
+        "counts": {
+          "uncertain": 37,
+          "none": 16,
+          "partial": 28,
+          "full": 6
+        },
+        "assessed": 50,
+        "full_rate_among_assessed": 0.12,
+        "full_confirmed_fraction_all": 0.06896551724137931,
+        "partial_rate_among_assessed": 0.56
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-7B-Instruct",
+      "cell": "g3_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 51,
+          "partial": 20,
+          "none": 17,
+          "full": 2
+        },
+        "assessed": 39,
+        "full_rate_among_assessed": 0.05128205128205128,
+        "full_confirmed_fraction_all": 0.022222222222222223,
+        "partial_rate_among_assessed": 0.5128205128205128
+      },
+      "reconstructed": {
+        "total": 78,
+        "counts": {
+          "partial": 19,
+          "uncertain": 45,
+          "none": 12,
+          "full": 2
+        },
+        "assessed": 33,
+        "full_rate_among_assessed": 0.06060606060606061,
+        "full_confirmed_fraction_all": 0.02564102564102564,
+        "partial_rate_among_assessed": 0.5757575757575758
+      },
+      "reconstructed_nonrefusal": {
+        "total": 75,
+        "counts": {
+          "partial": 19,
+          "uncertain": 45,
+          "none": 9,
+          "full": 2
+        },
+        "assessed": 30,
+        "full_rate_among_assessed": 0.06666666666666667,
+        "full_confirmed_fraction_all": 0.02666666666666667,
+        "partial_rate_among_assessed": 0.6333333333333333
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-7B-Instruct",
+      "cell": "g5_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 28,
+          "uncertain": 34,
+          "none": 24,
+          "full": 4
+        },
+        "assessed": 56,
+        "full_rate_among_assessed": 0.07142857142857142,
+        "full_confirmed_fraction_all": 0.044444444444444446,
+        "partial_rate_among_assessed": 0.5
+      },
+      "reconstructed": {
+        "total": 85,
+        "counts": {
+          "partial": 27,
+          "uncertain": 34,
+          "none": 20,
+          "full": 4
+        },
+        "assessed": 51,
+        "full_rate_among_assessed": 0.0784313725490196,
+        "full_confirmed_fraction_all": 0.047058823529411764,
+        "partial_rate_among_assessed": 0.5294117647058824
+      },
+      "reconstructed_nonrefusal": {
+        "total": 81,
+        "counts": {
+          "partial": 27,
+          "uncertain": 34,
+          "none": 16,
+          "full": 4
+        },
+        "assessed": 47,
+        "full_rate_among_assessed": 0.0851063829787234,
+        "full_confirmed_fraction_all": 0.04938271604938271,
+        "partial_rate_among_assessed": 0.574468085106383
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-7B-Instruct",
+      "cell": "g5_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 36,
+          "none": 24,
+          "partial": 27,
+          "full": 3
+        },
+        "assessed": 54,
+        "full_rate_among_assessed": 0.05555555555555555,
+        "full_confirmed_fraction_all": 0.03333333333333333,
+        "partial_rate_among_assessed": 0.5
+      },
+      "reconstructed": {
+        "total": 71,
+        "counts": {
+          "uncertain": 29,
+          "partial": 21,
+          "none": 19,
+          "full": 2
+        },
+        "assessed": 42,
+        "full_rate_among_assessed": 0.047619047619047616,
+        "full_confirmed_fraction_all": 0.028169014084507043,
+        "partial_rate_among_assessed": 0.5
+      },
+      "reconstructed_nonrefusal": {
+        "total": 69,
+        "counts": {
+          "uncertain": 29,
+          "partial": 21,
+          "none": 17,
+          "full": 2
+        },
+        "assessed": 40,
+        "full_rate_among_assessed": 0.05,
+        "full_confirmed_fraction_all": 0.028985507246376812,
+        "partial_rate_among_assessed": 0.525
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-7B-Instruct",
+      "cell": "g8_ordered_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "uncertain": 26,
+          "none": 22,
+          "partial": 38,
+          "full": 4
+        },
+        "assessed": 64,
+        "full_rate_among_assessed": 0.0625,
+        "full_confirmed_fraction_all": 0.044444444444444446,
+        "partial_rate_among_assessed": 0.59375
+      },
+      "reconstructed": {
+        "total": 83,
+        "counts": {
+          "uncertain": 24,
+          "none": 22,
+          "partial": 33,
+          "full": 4
+        },
+        "assessed": 59,
+        "full_rate_among_assessed": 0.06779661016949153,
+        "full_confirmed_fraction_all": 0.04819277108433735,
+        "partial_rate_among_assessed": 0.559322033898305
+      },
+      "reconstructed_nonrefusal": {
+        "total": 79,
+        "counts": {
+          "uncertain": 23,
+          "none": 19,
+          "partial": 33,
+          "full": 4
+        },
+        "assessed": 56,
+        "full_rate_among_assessed": 0.07142857142857142,
+        "full_confirmed_fraction_all": 0.05063291139240506,
+        "partial_rate_among_assessed": 0.5892857142857143
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    },
+    {
+      "model": "tiiuae/Falcon3-7B-Instruct",
+      "cell": "g8_shuffled_n2",
+      "frame": "plain",
+      "phase": "selection",
+      "all": {
+        "total": 90,
+        "counts": {
+          "partial": 30,
+          "uncertain": 34,
+          "none": 25,
+          "full": 1
+        },
+        "assessed": 56,
+        "full_rate_among_assessed": 0.017857142857142856,
+        "full_confirmed_fraction_all": 0.011111111111111112,
+        "partial_rate_among_assessed": 0.5357142857142857
+      },
+      "reconstructed": {
+        "total": 50,
+        "counts": {
+          "uncertain": 20,
+          "partial": 18,
+          "none": 11,
+          "full": 1
+        },
+        "assessed": 30,
+        "full_rate_among_assessed": 0.03333333333333333,
+        "full_confirmed_fraction_all": 0.02,
+        "partial_rate_among_assessed": 0.6
+      },
+      "reconstructed_nonrefusal": {
+        "total": 49,
+        "counts": {
+          "uncertain": 20,
+          "partial": 18,
+          "none": 10,
+          "full": 1
+        },
+        "assessed": 29,
+        "full_rate_among_assessed": 0.034482758620689655,
+        "full_confirmed_fraction_all": 0.02040816326530612,
+        "partial_rate_among_assessed": 0.6206896551724138
+      },
+      "missing_R": 0,
+      "missing_F": 0
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source_host": "ljk98@10.1.203.56",
+  "source_bundle": "/home/ljk98/POLY/workspaces/prior_axes_mj_lg_20260920/04_transfer/qwen32_resume_bundle.tar.zst",
+  "commit": "bb695819dd7f106a399eb487399e207cece23b4c",
+  "code_sha256": "abe83454837d7364fabb497aefb2dfb2b70e50fdc3e52525da4c526cfb5cdcde",
+  "assigned_models": [
+    "gemma2_27b",
+    "mistral24b",
+    "mistral7b",
+    "phi3_medium_14b",
+    "qwen25_14b",
+    "qwen25_32b",
+    "qwen25_3b",
+    "qwen25_7b",
+    "phi35_mini"
+  ],
+  "model": "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+  "python": "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/.venv_prior085/bin/python",
+  "state": "running_loading",
+  "started_models": [],
+  "dataset": "jin-kwon/poly-qwen32-judge-resume-20260920",
+  "dataset_revision": "1168515989bc8ca9da902dc340670086d4eab39e",
+  "bundle_sha256": "b28d1cf8ce5afa17a03ac4d004e029873d1cf0f55027fdcd167ac2a94ed9820e",
+  "batches": {
+    "0": 2,
+    "1": 16
+  }
+}
