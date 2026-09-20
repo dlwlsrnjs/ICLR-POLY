@@ -10,6 +10,7 @@ import re
 import shutil
 import subprocess
 import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from grid_contract import digest
 from run_io import load_run, answer_section
 
@@ -32,7 +33,7 @@ def prepare(run, repo):
         dest = judge/'code'/name
         if dest.exists() and dest.read_bytes() != content: raise ValueError('Judge code changed; use a new run')
         dest.write_bytes(content); hashes[name] = hashlib.sha256(content).hexdigest()
-    hashes['judge_reconstruction_equivalence.py'] = hashlib.sha256((repo/'scripts/judge_reconstruction_equivalence.py').read_bytes()).hexdigest()
+    hashes['judge_reconstruction_equivalence.py'] = hashlib.sha256(Path(__file__).with_name('reconstruction_judge.py').read_bytes()).hexdigest()
     inputs = [{'key': x['key'], 'original_request': x['original_request'], 'response': answer_section(x['response']),
                'finish_reason': x['finish_reason']} for x in responses]
     reconstruction_inputs = [{'key': x['key'], 'item_id': x['id'], 'condition': x['cell'],
@@ -73,7 +74,7 @@ if __name__ == '__main__':
         # This is the same equivalence judge as the MJ/LG grid, independently loaded.
         if a.model_path.resolve().name != 'a09a35458c702b33eeacc393d103063234e8bc28':
             raise ValueError('Reconstruction judge must use the panel Qwen2.5-7B snapshot')
-        cmd = [sys.executable, str(a.repo.resolve()/'scripts/judge_reconstruction_equivalence.py'),
+        cmd = [sys.executable, str(Path(__file__).with_name('reconstruction_judge.py')),
                '--input', str(judge/'inputs/reconstruction.jsonl'), '--outdir', str(judge/'reconstruction'),
                '--model', str(a.model_path.resolve()), '--device', 'cuda:0', '--batch-size', '16']
     else:

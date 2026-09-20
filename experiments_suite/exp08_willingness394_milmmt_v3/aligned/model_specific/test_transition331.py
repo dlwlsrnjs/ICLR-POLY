@@ -1,6 +1,14 @@
 import unittest
+import subprocess,sys
+from pathlib import Path
 from transition331 import paired_metrics
 class TransitionTests(unittest.TestCase):
+ def test_judge_cli_from_unrelated_directory(self):
+  root=Path(__file__).resolve().parent
+  for name in ["judge_local.py","reconstruction_judge.py"]:
+   result=subprocess.run([sys.executable,str(root/name),"--help"],cwd="/tmp",capture_output=True,text=True)
+   self.assertEqual(result.returncode,0,result.stderr)
+
  def rows(self,refuse=True):
   return [dict(before_R=i<40,after_R=i<90,before_refusal=False,after_refusal=refuse) for i in range(100)]
  def test_paired_reconstruction_and_refusal_required(self):
