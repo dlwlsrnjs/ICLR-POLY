@@ -1,6 +1,6 @@
 # 0920-prior — 331개 과잉거절 데이터와 모델별 이해축·의지축 인수인계
 
-**최신 인수인계 지시:** [Hugging Face에 보관한 기존331개 다국어 번역](TRANSLATIONS_HF.md)을 먼저 확보하고, 사용자와 언어·QA기준·공통 문항을 합의한 뒤 그 자료부터 이어서 진행합니다.
+**최신 인수인계 지시:** [Hugging Face에 보관한 331개 다국어 번역](TRANSLATIONS_HF.md)의 검증 완료 revision을 고정하고, [GPU 작업공간 안내](GPU_WORKSPACE.md)에 정리된 단일 작업 루트에서 [이해축 v2](UNDERSTANDING_AXIS_V2.md)부터 이어서 진행합니다.
 
 기록 기준: **2026-09-20 18:05:54 KST**. 실행 코드는 이 저장소의 `experiments_suite/exp08_willingness394_milmmt_v3/aligned/`에 있습니다. 이 폴더는 최근 실험의 목적, 실제 완료 범위, 고정 환경, 오류와 후속 작업을 인수인계하기 위한 문서·설정 스냅샷입니다. 문서 작성 때문에 실험이나 설정을 새로 변경하지 않았습니다.
 
@@ -28,6 +28,9 @@
 | [ENVIRONMENT.md](ENVIRONMENT.md) | 실제 가상환경, 모델·토크나이저 핀, 생성/판정 고정값 |
 | [STATUS.md](STATUS.md) | 모델별 결과, 실행 큐, 오류와 완료 범위 |
 | [HANDOFF.md](HANDOFF.md) | 작업 분담, 재개·모니터링, 남은 문제와 산출물 |
+| [GPU_WORKSPACE.md](GPU_WORKSPACE.md) | 현재 서버의 단일 작업 루트, 완료 결과의 실제 경로, Slurm 실행 위치와 혼동 방지 규칙 |
+| [UNDERSTANDING_AXIS_V2.md](UNDERSTANDING_AXIS_V2.md) | 검증 완료 331개 은행에 적용할 32조건 이해축 및 R/F/Y 규칙 |
+| [gpu-workspace.snapshot.json](gpu-workspace.snapshot.json) | 17모델×MJ/LG 완료 증거를 receipt 기준으로 정리한 기계 판독 스냅샷 |
 | [configs.snapshot.json](configs.snapshot.json) | 17개 모델의 원래 pinned 설정, n2 비교 계약, 판정 프로토콜 |
 | [runtime.snapshot.json](runtime.snapshot.json) | 기록 시점 상태·프로세스 명령·결과 스냅샷; 실시간 상태가 아님 |
 | [environment.snapshot.json](environment.snapshot.json) | 확인한 Python/패키지·경로 |

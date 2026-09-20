@@ -1,0 +1,48 @@
+{
+  "schema": "poly-gpu-workspace-handoff-v1",
+  "observed_at": "2026-09-20T12:45:44Z",
+  "workspace": "/home/ljk98/POLY/workspaces/prior_axes_mj_lg_20260920",
+  "harmless331": {
+    "local_release": "/home/ljk98/POLY/prior331_runs/translation_repair_20260920/hf_release_all2317_accepted_v3",
+    "hf_repo": "jin-kwon/0920-prior-overrefusal331-multilingual",
+    "hf_revision": "8899f2bde0ae466dc9c0106cba8d3ae3abcb7722",
+    "english_originals": 331,
+    "translation_pairs": 2317,
+    "qa_accepted": 2317,
+    "qa_needs_review": 0,
+    "understanding_axis": "not_started",
+    "willingness_axis": "wait_for_validated_understanding_anchor"
+  },
+  "historical_mj_lg": {
+    "primary_snapshot": "/home/ljk98/POLY/snapshot_out/20260919_primary_large_complete_v1",
+    "primary_complete_pairs": 10,
+    "primary_raw_rows": 452000,
+    "primary_arms": 1600,
+    "distributed_root": "/home/ljk98/POLY/dist_full_grid",
+    "distributed_uploaded_and_receipted_pairs": 14,
+    "generated_locally_upload_incomplete_pairs": [
+      "qwen25_3b_mj"
+    ],
+    "no_local_completion_evidence_pairs": [
+      "gemma2_2b_it_lg",
+      "gemma2_2b_it_mj",
+      "gemma2_9b_it_mj",
+      "llama31_8b_it_lg",
+      "llama31_8b_it_mj",
+      "llama32_3b_it_lg",
+      "llama32_3b_it_mj",
+      "qwen25_7b_lg",
+      "qwen25_7b_mj"
+    ],
+    "expected_model_dataset_pairs": 34,
+    "completion_rule": "A distributed pair is complete only when its remote readback receipt exists."
+  },
+  "slurm_observation": {
+    "queue_jobs": 0,
+    "nodes": {
+      "h200-0": "idle",
+      "h200-1": "idle",
+      "rtx6000-0": "idle"
+    }
+  }
+}
