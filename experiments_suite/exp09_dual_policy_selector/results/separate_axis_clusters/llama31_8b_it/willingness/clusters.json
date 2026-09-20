@@ -1,0 +1,478 @@
+{
+  "schema": "poly_separate_axis_cosine_clusters/v1",
+  "model": "llama31_8b_it",
+  "axis": "willingness",
+  "embedding_input": "canonical_text_only",
+  "embedding_normalization": "L2",
+  "distance": "cosine",
+  "joint_axis_state_created": false,
+  "k": 16,
+  "k_selection": [
+    {
+      "k": 4,
+      "silhouette": 0.1157181079530125
+    },
+    {
+      "k": 8,
+      "silhouette": 0.0987694871564647
+    },
+    {
+      "k": 12,
+      "silhouette": 0.10123460309873561
+    },
+    {
+      "k": 16,
+      "silhouette": 0.12626726102203412
+    }
+  ],
+  "clusters": [
+    {
+      "cluster": 0,
+      "items": 1,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.5
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.5
+        }
+      ]
+    },
+    {
+      "cluster": 1,
+      "items": 11,
+      "representative_setting": "fiction",
+      "setting_support": [
+        {
+          "setting": "fiction",
+          "success_rows": 7,
+          "unique_items": 7,
+          "positive_effect_rows": 5,
+          "beta_support_mean": 0.25806451612903225
+        },
+        {
+          "setting": "persona",
+          "success_rows": 7,
+          "unique_items": 7,
+          "positive_effect_rows": 4,
+          "beta_support_mean": 0.25806451612903225
+        },
+        {
+          "setting": "pap",
+          "success_rows": 5,
+          "unique_items": 5,
+          "positive_effect_rows": 2,
+          "beta_support_mean": 0.1935483870967742
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.12903225806451613
+        },
+        {
+          "setting": "plain",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.16129032258064516
+        }
+      ]
+    },
+    {
+      "cluster": 2,
+      "items": 4,
+      "representative_setting": "pap",
+      "setting_support": [
+        {
+          "setting": "pap",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": 4,
+          "beta_support_mean": 0.45454545454545453
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.18181818181818182
+        },
+        {
+          "setting": "persona",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.18181818181818182
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.18181818181818182
+        }
+      ]
+    },
+    {
+      "cluster": 3,
+      "items": 1,
+      "representative_setting": "pap",
+      "setting_support": [
+        {
+          "setting": "pap",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 1.0
+        }
+      ]
+    },
+    {
+      "cluster": 4,
+      "items": 7,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 5,
+          "unique_items": 5,
+          "positive_effect_rows": 3,
+          "beta_support_mean": 0.4
+        },
+        {
+          "setting": "pap",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 2,
+          "beta_support_mean": 0.2
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 2,
+          "beta_support_mean": 0.2
+        },
+        {
+          "setting": "plain",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.2
+        }
+      ]
+    },
+    {
+      "cluster": 5,
+      "items": 5,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 5,
+          "unique_items": 5,
+          "positive_effect_rows": 4,
+          "beta_support_mean": 0.6
+        },
+        {
+          "setting": "pap",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.2
+        },
+        {
+          "setting": "plain",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.2
+        }
+      ]
+    },
+    {
+      "cluster": 6,
+      "items": 2,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 2,
+          "beta_support_mean": 0.42857142857142855
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.2857142857142857
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.2857142857142857
+        }
+      ]
+    },
+    {
+      "cluster": 7,
+      "items": 5,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": 2,
+          "beta_support_mean": 0.3333333333333333
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.16666666666666666
+        },
+        {
+          "setting": "plain",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.3333333333333333
+        },
+        {
+          "setting": "pap",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.16666666666666666
+        }
+      ]
+    },
+    {
+      "cluster": 8,
+      "items": 3,
+      "representative_setting": "persona+fiction",
+      "setting_support": [
+        {
+          "setting": "persona+fiction",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": 2,
+          "beta_support_mean": 0.4
+        },
+        {
+          "setting": "persona",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.2
+        },
+        {
+          "setting": "plain",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.2
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.2
+        }
+      ]
+    },
+    {
+      "cluster": 9,
+      "items": 3,
+      "representative_setting": "fiction",
+      "setting_support": [
+        {
+          "setting": "fiction",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 2,
+          "beta_support_mean": 0.3
+        },
+        {
+          "setting": "persona",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.3
+        },
+        {
+          "setting": "pap",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.2
+        },
+        {
+          "setting": "plain",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.2
+        }
+      ]
+    },
+    {
+      "cluster": 10,
+      "items": 1,
+      "representative_setting": "persona+fiction",
+      "setting_support": [
+        {
+          "setting": "persona+fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.5
+        },
+        {
+          "setting": "persona",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.5
+        }
+      ]
+    },
+    {
+      "cluster": 11,
+      "items": 3,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": 3,
+          "beta_support_mean": 0.5714285714285714
+        },
+        {
+          "setting": "pap",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 2,
+          "beta_support_mean": 0.42857142857142855
+        }
+      ]
+    },
+    {
+      "cluster": 12,
+      "items": 3,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": 3,
+          "beta_support_mean": 0.5
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.25
+        },
+        {
+          "setting": "pap",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.25
+        }
+      ]
+    },
+    {
+      "cluster": 13,
+      "items": 1,
+      "representative_setting": "persona+fiction",
+      "setting_support": [
+        {
+          "setting": "persona+fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 1.0
+        }
+      ]
+    },
+    {
+      "cluster": 14,
+      "items": 2,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.5
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.5
+        }
+      ]
+    },
+    {
+      "cluster": 15,
+      "items": 10,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 7,
+          "unique_items": 7,
+          "positive_effect_rows": 3,
+          "beta_support_mean": 0.3076923076923077
+        },
+        {
+          "setting": "pap",
+          "success_rows": 7,
+          "unique_items": 7,
+          "positive_effect_rows": 3,
+          "beta_support_mean": 0.3076923076923077
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": 2,
+          "beta_support_mean": 0.15384615384615385
+        },
+        {
+          "setting": "plain",
+          "success_rows": 5,
+          "unique_items": 5,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.23076923076923078
+        }
+      ]
+    }
+  ]
+}

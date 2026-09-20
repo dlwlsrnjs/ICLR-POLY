@@ -1,5 +1,10 @@
 # exp09 — harmless-only와 harmful-confirmation 선택기 비교
 
+> **현재 기준 결과:** 331 성공 은행, 영어 BGE cosine cluster, 축별 GP와 response-state/OOD 정책까지
+> 구현·탐색·held-out 평가를 완료했다. 최종 설정과 수치는
+> [`results/OPTIMAL_PIPELINE_REPORT.md`](results/OPTIMAL_PIPELINE_REPORT.md)에 있다. 아래의
+> “빠른 replay” 절은 개발 과정의 historical 결과이며 현재 최종 정책이 아니다.
+
 이 실험은 동일한 prior, arm 공간, split, 점수 함수를 사용해 다음 두 정책을 비교한다.
 
 - **H0 (harmless-only)**: 331 은행의 동적 무해 probe만 관측하고 arm을 고른다. 실제 harmful
@@ -9,11 +14,10 @@
 
 ## 사전 고정 규칙
 
-1. arm은 이해축 `(g, order, n)`과 의지축 `frame`으로 분해한다.
-   최종 공간은 이해축 `4 g × 2 order × 4 n = 32`와 의지축
-   `plain/persona/fiction/PAP/persona+fiction = 5`의 교차곱, 총 **160 arm**이다.
-   단, 문항이 OOD이거나 해당 cosine cluster에서 plain 대비 positive willingness effect가 검증된
-   frame이 하나도 없으면 억지로 160개를 탐색하지 않고 plain의 32-arm 이해축 subspace로 fallback한다.
+1. 이해축 `(g, order, n)`의 32개 설정과 의지축 `frame`의 5개 설정은 **끝까지 별도 상태**로 둔다.
+   별도 성공 은행·embedding·cluster·posterior·GP-UCB·정지 규칙을 사용하며 두 확률을 곱하거나
+   `joint_160` posterior를 만들지 않는다. renderer만 각 축에서 확정한 설정값 하나씩을 받아 프롬프트를
+   생성한다. 160개 조합은 이미 수집된 응답 table lookup과 joint baseline B1에만 존재한다.
 2. 이해축 클러스터 중심에는 의미 재구성에 성공한 지점만, 의지축 중심에는 재구성 성공 문항에서
    frame의 paired 수행 효과가 확인된 지점만 넣는다. 실패점은 중심에서 제외하지만 경계 관측으로 보존한다.
 3. selection/calibration과 final test 문항은 분리한다. test harmful 응답은 arm 선택에 사용하지 않는다.
@@ -58,7 +62,7 @@ uv run --with numpy --with scipy --with scikit-learn python code/text_routing_sw
 ```
 
 `text_routing_sweep.py`는 word/character/combined TF-IDF cosine kNN, text k-means, scenario routing,
-joint arm score와 이해·의지 factorized score를 함께 비교한다. 바깥 test label은 router 선택에 쓰지 않고
+과거 joint arm score와 이해·의지 factorized score를 함께 비교한다. 바깥 test label은 router 선택에 쓰지 않고
 각 바깥 split의 calibration 절반에서 방법을 선택한다. 단, calibration의 historical harmful label을
 사용하므로 결과는 text routing의 가능성을 보는 상한 simulation이며 H0의 결과가 아니다.
 
@@ -101,22 +105,29 @@ GitHub의 기존 구현을 확인하면 서로 다른 세 공간이 있다.
 따라서 새 정책의 입력 라우팅은 아래처럼 별도 계층으로 명시한다.
 
 ```text
-target text
-  -> frozen text encoder
+target English text
+  -> frozen BAAI/bge-large-en-v1.5 encoder
   -> L2-normalized query embedding
-  -> cosine top-k over the 331 harmless originals (multilingual input은 같은 item의 번역 view 포함)
-  -> similarity-weighted vote over those items' validated understanding/willingness cluster IDs
-  -> cluster-conditioned arm prior
-  -> 이 값을 그대로 GP의 prior mean μ0(c)로 사용
-  -> H0 harmless-only 추천 또는 H3-H8 GP-UCB residual update
+  -> understanding success cluster and willingness-effect cluster are routed separately
+  -> separate harmless observations update two separate axis states
+  -> separate GP-UCB acquisition; renderer consumes the two selected values
 ```
 
 여기서 text cosine은 **어느 prior cluster로 들어갈지** 정하고, GP kernel은 그 cluster 안에서
 **어느 arm을 다음에 시험할지** 정한다. 둘을 같은 similarity로 취급하지 않는다.
 
-## 최종 온라인 루프: success-gated text cluster → free probe → MJ/LG GP-UCB
+## 현재 주 후보: full-evidence soft kNN → 축별 posterior → MJ/LG 확인
 
-선택기는 모델 전체에 하나의 평균 prior를 주는 방식이 아니다. **각 MJ/LG 원문마다** 아래 루프를
+현재의 단순화된 주 후보 `P9_full_evidence_soft_knn`은 hard cluster와 수동 OOD gate를 필수 구성요소로
+두지 않는다. 331개 영어 원문의 가까운 이웃에서 성공과 실패를 모두 사용해 축별 weighted Beta prior를
+만든다. invalid는 결측이며, 의지축에서는 `R=0`도 의지 실패로 세지 않고 `R=1` cohort의 fulfillment
+성공/실패만 쓴다. 무해 probe는 두 posterior를 별도로 갱신하고, 정지 시 이해축과 의지축 각각의
+posterior-mean argmax를 선택한다. 상세 고정값은
+`config/full_evidence_two_axis_online.json`에 있다.
+
+## Success-only hard-cluster ablation: free probe → MJ/LG GP-UCB
+
+아래는 P2--P8 비교를 위해 보존한 success-only hard-cluster 계열이다. **각 MJ/LG 원문마다** 아래 루프를
 독립적으로 실행한다.
 
 1. 331개 무해 원문의 embedding을 L2 정규화하고 cosine 기반 cluster를 고정한다. MJ/LG 원문은 가장
@@ -194,12 +205,13 @@ test에 맞춰 바꾸지 않는다. 현재 저장소에는 이 text-cosine index
 정책으로 사용하지 않는다. 331 R/F/Y 결과가 완성되면 동일 코드를 success/effect-gated cluster prior로
 교체하고, 내부 validation이 고른 하나의 정책을 held-out test에 적용한다.
 
-## 최적 정책 선택은 아직 진행 중
+## 최적 정책 선택 결과
 
-구체적인 후보 사다리, 이해/의지 별도 cluster, harmless plateau/entropy 정지, WildGuard 상태 전이와
-oracle 90% 비용 기준은 `OPTIMAL_POLICY_PROTOCOL.md`에 사전 고정했다. 초기의 160-arm 고정을 철회하고
-32/64/96/160도 selection split에서 비교한다. 이는 후속 17-model 분석에서 96-arm이 소예산 양쪽
-데이터셋에서 더 안정적이었던 반면, 160-arm은 MJ에서 탐색을 희석시킨 결과를 반영한다.
+118개 정책/하이퍼파라미터 후보를 selection에서 비교하고 shortlist를 validation에서 골랐다.
+데이터셋별 동결 정책은 MJ `P5_response_state_dynamic`, LG `P9_full_evidence_soft_knn`이며, MJ/LG
+equal-macro로 고른 통일 배포 정책은 `P5_response_state_dynamic`이다. 이 선택은 모델별 사후 최적화가
+아니며 test feedback도 쓰지 않는다. 모든 방법은 이해축과 의지축을 별도로 유지한다. 자세한
+설정·budget curve·기준선 차이는 `results/OPTIMAL_PIPELINE_REPORT.md`를 본다.
 
 `code/static_policy_ablation.py`는 새 331 결과 전에 가능한 B0--P1 기준선을 만든다. 20 split,
 harmful cap 12의 현재 historical replay에서 prior의 budget-AUC 이득은 arm 공간에 따라 MJ
@@ -207,7 +219,8 @@ harmful cap 12의 현재 historical replay에서 prior의 budget-AUC 이득은 a
 budget 3에서는 B96에서 MJ `0.393 -> 0.464`, LG `0.521 -> 0.624`였다. LG B64의 additive prior GP는
 family-macro oracle 90%를 5 batch에 넘었지만 flat GP는 12 batch 안에 넘지 못했다. MJ는 어떤 정책도
 family-macro oracle 90%를 12 batch 안에 넘지 못했으므로, 이 결과만으로 목표 절감을 달성했다고
-주장하지 않는다. P2--P5의 cosine/repeated/axis/state ablation이 바로 이 남은 차이를 검증한다.
+주장하지 않는다. 이 historical 결과 뒤에 P2--P10의 cosine/repeated/axis/state/full-evidence
+ablation을 수행했으며 현재 결론은 위 최종 보고서를 따른다.
 
 또한 위 빠른 historical hybrid replay는 기존 item matrix와 정규식의 제약 때문에
 `8개 n=2 이해 cell × plain/persona/fiction 3개 = 24 arm`만 사용했다. PAP,

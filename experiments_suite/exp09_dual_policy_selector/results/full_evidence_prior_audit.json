@@ -1,0 +1,297 @@
+{
+  "schema": "poly_full_evidence_prior_audit/v1",
+  "rules": {
+    "understanding": "valid R success and failure retained; invalid missing",
+    "willingness": "only valid R=1 cohort; valid fulfillment success and failure retained; R=0 missing for this axis"
+  },
+  "totals": {
+    "understanding": {
+      "rows": 180064,
+      "valid_success": 125005,
+      "valid_failure": 55058,
+      "invalid": 1
+    },
+    "willingness": {
+      "rows": 28135,
+      "eligible_r1": 23379,
+      "valid_success": 2708,
+      "valid_failure": 20671,
+      "reconstruction_failure": 4741,
+      "invalid_or_missing_judge": 15
+    }
+  },
+  "models": {
+    "falcon3_10b": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 7958,
+        "valid_failure": 2634,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1316,
+        "valid_success": 135,
+        "valid_failure": 1181,
+        "reconstruction_failure": 338,
+        "invalid_or_missing_judge": 1
+      }
+    },
+    "falcon3_3b": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 3122,
+        "valid_failure": 7470,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1268,
+        "valid_success": 72,
+        "valid_failure": 1196,
+        "reconstruction_failure": 387,
+        "invalid_or_missing_judge": 0
+      }
+    },
+    "falcon3_7b": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 6958,
+        "valid_failure": 3634,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1339,
+        "valid_success": 204,
+        "valid_failure": 1135,
+        "reconstruction_failure": 314,
+        "invalid_or_missing_judge": 2
+      }
+    },
+    "gemma2_27b": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 9616,
+        "valid_failure": 976,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1537,
+        "valid_success": 134,
+        "valid_failure": 1403,
+        "reconstruction_failure": 117,
+        "invalid_or_missing_judge": 1
+      }
+    },
+    "gemma2_2b_it": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 4779,
+        "valid_failure": 5813,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1464,
+        "valid_success": 75,
+        "valid_failure": 1389,
+        "reconstruction_failure": 191,
+        "invalid_or_missing_judge": 0
+      }
+    },
+    "gemma2_9b_it": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 8859,
+        "valid_failure": 1733,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1518,
+        "valid_success": 118,
+        "valid_failure": 1400,
+        "reconstruction_failure": 135,
+        "invalid_or_missing_judge": 2
+      }
+    },
+    "glm4_9b": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 6275,
+        "valid_failure": 4317,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1443,
+        "valid_success": 132,
+        "valid_failure": 1311,
+        "reconstruction_failure": 212,
+        "invalid_or_missing_judge": 0
+      }
+    },
+    "llama31_8b_it": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 8063,
+        "valid_failure": 2529,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1424,
+        "valid_success": 115,
+        "valid_failure": 1309,
+        "reconstruction_failure": 230,
+        "invalid_or_missing_judge": 1
+      }
+    },
+    "llama32_3b_it": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 4675,
+        "valid_failure": 5916,
+        "invalid": 1
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 628,
+        "valid_success": 35,
+        "valid_failure": 593,
+        "reconstruction_failure": 1026,
+        "invalid_or_missing_judge": 1
+      }
+    },
+    "mistral24b": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 9727,
+        "valid_failure": 865,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1545,
+        "valid_success": 272,
+        "valid_failure": 1273,
+        "reconstruction_failure": 110,
+        "invalid_or_missing_judge": 0
+      }
+    },
+    "mistral7b": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 7181,
+        "valid_failure": 3411,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1312,
+        "valid_success": 135,
+        "valid_failure": 1177,
+        "reconstruction_failure": 342,
+        "invalid_or_missing_judge": 1
+      }
+    },
+    "phi35_mini": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 5874,
+        "valid_failure": 4718,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1367,
+        "valid_success": 252,
+        "valid_failure": 1115,
+        "reconstruction_failure": 286,
+        "invalid_or_missing_judge": 2
+      }
+    },
+    "phi3_medium_14b": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 7775,
+        "valid_failure": 2817,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1330,
+        "valid_success": 170,
+        "valid_failure": 1160,
+        "reconstruction_failure": 324,
+        "invalid_or_missing_judge": 1
+      }
+    },
+    "qwen25_14b": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 9639,
+        "valid_failure": 953,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1545,
+        "valid_success": 286,
+        "valid_failure": 1259,
+        "reconstruction_failure": 110,
+        "invalid_or_missing_judge": 0
+      }
+    },
+    "qwen25_32b": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 9814,
+        "valid_failure": 778,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1575,
+        "valid_success": 260,
+        "valid_failure": 1315,
+        "reconstruction_failure": 78,
+        "invalid_or_missing_judge": 2
+      }
+    },
+    "qwen25_3b": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 6510,
+        "valid_failure": 4082,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1374,
+        "valid_success": 82,
+        "valid_failure": 1292,
+        "reconstruction_failure": 280,
+        "invalid_or_missing_judge": 1
+      }
+    },
+    "qwen25_7b": {
+      "understanding": {
+        "rows": 10592,
+        "valid_success": 8180,
+        "valid_failure": 2412,
+        "invalid": 0
+      },
+      "willingness": {
+        "rows": 1655,
+        "eligible_r1": 1394,
+        "valid_success": 231,
+        "valid_failure": 1163,
+        "reconstruction_failure": 261,
+        "invalid_or_missing_judge": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,1878 @@
+{
+  "schema": "poly_separate_axis_cosine_clusters/v1",
+  "model": "mistral7b",
+  "axis": "understanding",
+  "embedding_input": "canonical_text_only",
+  "embedding_normalization": "L2",
+  "distance": "cosine",
+  "joint_axis_state_created": false,
+  "k": 8,
+  "k_selection": [
+    {
+      "k": 4,
+      "silhouette": 0.053049820993800456
+    },
+    {
+      "k": 8,
+      "silhouette": 0.08109718578292772
+    },
+    {
+      "k": 12,
+      "silhouette": 0.06384913623470172
+    },
+    {
+      "k": 16,
+      "silhouette": 0.06403498563515664
+    }
+  ],
+  "clusters": [
+    {
+      "cluster": 0,
+      "items": 38,
+      "representative_setting": "g5_ordered_n2",
+      "setting_support": [
+        {
+          "setting": "g5_ordered_n2",
+          "success_rows": 37,
+          "unique_items": 37,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04274465691788527
+        },
+        {
+          "setting": "g3_ordered_n6",
+          "success_rows": 34,
+          "unique_items": 34,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03937007874015748
+        },
+        {
+          "setting": "g3_ordered_n2",
+          "success_rows": 34,
+          "unique_items": 34,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03937007874015748
+        },
+        {
+          "setting": "g5_ordered_n4",
+          "success_rows": 33,
+          "unique_items": 33,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03824521934758155
+        },
+        {
+          "setting": "g3_shuffled_n8",
+          "success_rows": 33,
+          "unique_items": 33,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03824521934758155
+        },
+        {
+          "setting": "g3_shuffled_n6",
+          "success_rows": 33,
+          "unique_items": 33,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03824521934758155
+        },
+        {
+          "setting": "g3_shuffled_n4",
+          "success_rows": 33,
+          "unique_items": 33,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03824521934758155
+        },
+        {
+          "setting": "g8_ordered_n6",
+          "success_rows": 31,
+          "unique_items": 31,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.0359955005624297
+        },
+        {
+          "setting": "g8_ordered_n2",
+          "success_rows": 31,
+          "unique_items": 31,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.0359955005624297
+        },
+        {
+          "setting": "g5_shuffled_n8",
+          "success_rows": 31,
+          "unique_items": 31,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.0359955005624297
+        },
+        {
+          "setting": "g5_ordered_n6",
+          "success_rows": 31,
+          "unique_items": 31,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.0359955005624297
+        },
+        {
+          "setting": "g5_shuffled_n4",
+          "success_rows": 30,
+          "unique_items": 30,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03487064116985377
+        },
+        {
+          "setting": "g3_ordered_n8",
+          "success_rows": 30,
+          "unique_items": 30,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03487064116985377
+        },
+        {
+          "setting": "g3_ordered_n4",
+          "success_rows": 30,
+          "unique_items": 30,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03487064116985377
+        },
+        {
+          "setting": "g8_ordered_n8",
+          "success_rows": 28,
+          "unique_items": 28,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03262092238470191
+        },
+        {
+          "setting": "g8_ordered_n4",
+          "success_rows": 28,
+          "unique_items": 28,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03262092238470191
+        },
+        {
+          "setting": "g5_shuffled_n6",
+          "success_rows": 28,
+          "unique_items": 28,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03262092238470191
+        },
+        {
+          "setting": "g5_ordered_n8",
+          "success_rows": 28,
+          "unique_items": 28,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03262092238470191
+        },
+        {
+          "setting": "g12_ordered_n6",
+          "success_rows": 26,
+          "unique_items": 26,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.030371203599550055
+        },
+        {
+          "setting": "g12_ordered_n2",
+          "success_rows": 26,
+          "unique_items": 26,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.030371203599550055
+        },
+        {
+          "setting": "g5_shuffled_n2",
+          "success_rows": 25,
+          "unique_items": 25,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.02924634420697413
+        },
+        {
+          "setting": "g8_shuffled_n8",
+          "success_rows": 24,
+          "unique_items": 24,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.0281214848143982
+        },
+        {
+          "setting": "g8_shuffled_n4",
+          "success_rows": 24,
+          "unique_items": 24,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.0281214848143982
+        },
+        {
+          "setting": "g3_shuffled_n2",
+          "success_rows": 23,
+          "unique_items": 23,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.02699662542182227
+        },
+        {
+          "setting": "g8_shuffled_n6",
+          "success_rows": 22,
+          "unique_items": 22,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.025871766029246346
+        },
+        {
+          "setting": "g12_ordered_n4",
+          "success_rows": 21,
+          "unique_items": 21,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.024746906636670417
+        },
+        {
+          "setting": "g12_ordered_n8",
+          "success_rows": 20,
+          "unique_items": 20,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.023622047244094488
+        },
+        {
+          "setting": "g12_shuffled_n8",
+          "success_rows": 19,
+          "unique_items": 19,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.02249718785151856
+        },
+        {
+          "setting": "g12_shuffled_n6",
+          "success_rows": 19,
+          "unique_items": 19,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.02249718785151856
+        },
+        {
+          "setting": "g8_shuffled_n2",
+          "success_rows": 18,
+          "unique_items": 18,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.021372328458942633
+        },
+        {
+          "setting": "g12_shuffled_n2",
+          "success_rows": 14,
+          "unique_items": 14,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.01687289088863892
+        },
+        {
+          "setting": "g12_shuffled_n4",
+          "success_rows": 13,
+          "unique_items": 13,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.015748031496062992
+        }
+      ]
+    },
+    {
+      "cluster": 1,
+      "items": 27,
+      "representative_setting": "g3_shuffled_n4",
+      "setting_support": [
+        {
+          "setting": "g3_shuffled_n4",
+          "success_rows": 25,
+          "unique_items": 25,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04146730462519936
+        },
+        {
+          "setting": "g5_ordered_n8",
+          "success_rows": 23,
+          "unique_items": 23,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03827751196172249
+        },
+        {
+          "setting": "g5_ordered_n2",
+          "success_rows": 23,
+          "unique_items": 23,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03827751196172249
+        },
+        {
+          "setting": "g3_ordered_n8",
+          "success_rows": 23,
+          "unique_items": 23,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03827751196172249
+        },
+        {
+          "setting": "g3_ordered_n4",
+          "success_rows": 23,
+          "unique_items": 23,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03827751196172249
+        },
+        {
+          "setting": "g8_ordered_n4",
+          "success_rows": 22,
+          "unique_items": 22,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03668261562998405
+        },
+        {
+          "setting": "g5_ordered_n6",
+          "success_rows": 22,
+          "unique_items": 22,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03668261562998405
+        },
+        {
+          "setting": "g5_ordered_n4",
+          "success_rows": 22,
+          "unique_items": 22,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03668261562998405
+        },
+        {
+          "setting": "g3_shuffled_n8",
+          "success_rows": 22,
+          "unique_items": 22,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03668261562998405
+        },
+        {
+          "setting": "g3_shuffled_n6",
+          "success_rows": 22,
+          "unique_items": 22,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03668261562998405
+        },
+        {
+          "setting": "g3_shuffled_n2",
+          "success_rows": 22,
+          "unique_items": 22,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03668261562998405
+        },
+        {
+          "setting": "g12_ordered_n6",
+          "success_rows": 22,
+          "unique_items": 22,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03668261562998405
+        },
+        {
+          "setting": "g5_shuffled_n2",
+          "success_rows": 21,
+          "unique_items": 21,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03508771929824561
+        },
+        {
+          "setting": "g3_ordered_n6",
+          "success_rows": 21,
+          "unique_items": 21,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03508771929824561
+        },
+        {
+          "setting": "g3_ordered_n2",
+          "success_rows": 21,
+          "unique_items": 21,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03508771929824561
+        },
+        {
+          "setting": "g8_ordered_n8",
+          "success_rows": 20,
+          "unique_items": 20,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03349282296650718
+        },
+        {
+          "setting": "g12_ordered_n2",
+          "success_rows": 20,
+          "unique_items": 20,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03349282296650718
+        },
+        {
+          "setting": "g8_ordered_n2",
+          "success_rows": 19,
+          "unique_items": 19,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03189792663476874
+        },
+        {
+          "setting": "g8_ordered_n6",
+          "success_rows": 18,
+          "unique_items": 18,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.030303030303030304
+        },
+        {
+          "setting": "g12_ordered_n8",
+          "success_rows": 18,
+          "unique_items": 18,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.030303030303030304
+        },
+        {
+          "setting": "g5_shuffled_n8",
+          "success_rows": 17,
+          "unique_items": 17,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.028708133971291867
+        },
+        {
+          "setting": "g5_shuffled_n4",
+          "success_rows": 17,
+          "unique_items": 17,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.028708133971291867
+        },
+        {
+          "setting": "g12_ordered_n4",
+          "success_rows": 17,
+          "unique_items": 17,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.028708133971291867
+        },
+        {
+          "setting": "g8_shuffled_n6",
+          "success_rows": 16,
+          "unique_items": 16,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.02711323763955343
+        },
+        {
+          "setting": "g8_shuffled_n4",
+          "success_rows": 16,
+          "unique_items": 16,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.02711323763955343
+        },
+        {
+          "setting": "g8_shuffled_n8",
+          "success_rows": 14,
+          "unique_items": 14,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.023923444976076555
+        },
+        {
+          "setting": "g8_shuffled_n2",
+          "success_rows": 14,
+          "unique_items": 14,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.023923444976076555
+        },
+        {
+          "setting": "g5_shuffled_n6",
+          "success_rows": 14,
+          "unique_items": 14,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.023923444976076555
+        },
+        {
+          "setting": "g12_shuffled_n8",
+          "success_rows": 13,
+          "unique_items": 13,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.022328548644338118
+        },
+        {
+          "setting": "g12_shuffled_n4",
+          "success_rows": 13,
+          "unique_items": 13,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.022328548644338118
+        },
+        {
+          "setting": "g12_shuffled_n6",
+          "success_rows": 10,
+          "unique_items": 10,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.017543859649122806
+        },
+        {
+          "setting": "g12_shuffled_n2",
+          "success_rows": 5,
+          "unique_items": 5,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.009569377990430622
+        }
+      ]
+    },
+    {
+      "cluster": 2,
+      "items": 36,
+      "representative_setting": "g3_ordered_n4",
+      "setting_support": [
+        {
+          "setting": "g3_ordered_n4",
+          "success_rows": 35,
+          "unique_items": 35,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.045743329097839895
+        },
+        {
+          "setting": "g3_shuffled_n4",
+          "success_rows": 33,
+          "unique_items": 33,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.043202033036848796
+        },
+        {
+          "setting": "g5_ordered_n6",
+          "success_rows": 31,
+          "unique_items": 31,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04066073697585769
+        },
+        {
+          "setting": "g8_ordered_n2",
+          "success_rows": 30,
+          "unique_items": 30,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03939008894536213
+        },
+        {
+          "setting": "g3_shuffled_n6",
+          "success_rows": 30,
+          "unique_items": 30,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03939008894536213
+        },
+        {
+          "setting": "g8_ordered_n6",
+          "success_rows": 29,
+          "unique_items": 29,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03811944091486658
+        },
+        {
+          "setting": "g5_ordered_n2",
+          "success_rows": 29,
+          "unique_items": 29,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03811944091486658
+        },
+        {
+          "setting": "g3_ordered_n8",
+          "success_rows": 29,
+          "unique_items": 29,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03811944091486658
+        },
+        {
+          "setting": "g3_ordered_n6",
+          "success_rows": 29,
+          "unique_items": 29,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03811944091486658
+        },
+        {
+          "setting": "g3_ordered_n2",
+          "success_rows": 29,
+          "unique_items": 29,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03811944091486658
+        },
+        {
+          "setting": "g5_shuffled_n4",
+          "success_rows": 28,
+          "unique_items": 28,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.036848792884371026
+        },
+        {
+          "setting": "g5_ordered_n4",
+          "success_rows": 27,
+          "unique_items": 27,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.035578144853875476
+        },
+        {
+          "setting": "g3_shuffled_n8",
+          "success_rows": 27,
+          "unique_items": 27,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.035578144853875476
+        },
+        {
+          "setting": "g5_shuffled_n8",
+          "success_rows": 26,
+          "unique_items": 26,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03430749682337993
+        },
+        {
+          "setting": "g3_shuffled_n2",
+          "success_rows": 26,
+          "unique_items": 26,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03430749682337993
+        },
+        {
+          "setting": "g12_ordered_n2",
+          "success_rows": 26,
+          "unique_items": 26,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03430749682337993
+        },
+        {
+          "setting": "g5_shuffled_n2",
+          "success_rows": 25,
+          "unique_items": 25,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03303684879288437
+        },
+        {
+          "setting": "g5_ordered_n8",
+          "success_rows": 25,
+          "unique_items": 25,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03303684879288437
+        },
+        {
+          "setting": "g8_shuffled_n6",
+          "success_rows": 23,
+          "unique_items": 23,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.030495552731893267
+        },
+        {
+          "setting": "g8_ordered_n4",
+          "success_rows": 23,
+          "unique_items": 23,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.030495552731893267
+        },
+        {
+          "setting": "g5_shuffled_n6",
+          "success_rows": 23,
+          "unique_items": 23,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.030495552731893267
+        },
+        {
+          "setting": "g12_ordered_n6",
+          "success_rows": 23,
+          "unique_items": 23,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.030495552731893267
+        },
+        {
+          "setting": "g8_ordered_n8",
+          "success_rows": 22,
+          "unique_items": 22,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.029224904701397714
+        },
+        {
+          "setting": "g8_shuffled_n8",
+          "success_rows": 20,
+          "unique_items": 20,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.026683608640406607
+        },
+        {
+          "setting": "g8_shuffled_n4",
+          "success_rows": 19,
+          "unique_items": 19,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.025412960609911054
+        },
+        {
+          "setting": "g12_ordered_n4",
+          "success_rows": 17,
+          "unique_items": 17,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.022871664548919948
+        },
+        {
+          "setting": "g12_ordered_n8",
+          "success_rows": 16,
+          "unique_items": 16,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.021601016518424398
+        },
+        {
+          "setting": "g8_shuffled_n2",
+          "success_rows": 13,
+          "unique_items": 13,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.017789072426937738
+        },
+        {
+          "setting": "g12_shuffled_n8",
+          "success_rows": 13,
+          "unique_items": 13,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.017789072426937738
+        },
+        {
+          "setting": "g12_shuffled_n6",
+          "success_rows": 10,
+          "unique_items": 10,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.01397712833545108
+        },
+        {
+          "setting": "g12_shuffled_n2",
+          "success_rows": 10,
+          "unique_items": 10,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.01397712833545108
+        },
+        {
+          "setting": "g12_shuffled_n4",
+          "success_rows": 9,
+          "unique_items": 9,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.012706480304955527
+        }
+      ]
+    },
+    {
+      "cluster": 3,
+      "items": 4,
+      "representative_setting": "g8_shuffled_n8",
+      "setting_support": [
+        {
+          "setting": "g8_shuffled_n8",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03759398496240601
+        },
+        {
+          "setting": "g8_shuffled_n6",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03759398496240601
+        },
+        {
+          "setting": "g8_ordered_n6",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03759398496240601
+        },
+        {
+          "setting": "g8_ordered_n4",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03759398496240601
+        },
+        {
+          "setting": "g5_shuffled_n8",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03759398496240601
+        },
+        {
+          "setting": "g5_shuffled_n6",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03759398496240601
+        },
+        {
+          "setting": "g5_shuffled_n4",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03759398496240601
+        },
+        {
+          "setting": "g5_shuffled_n2",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03759398496240601
+        },
+        {
+          "setting": "g5_ordered_n4",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03759398496240601
+        },
+        {
+          "setting": "g3_shuffled_n8",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03759398496240601
+        },
+        {
+          "setting": "g3_shuffled_n6",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03759398496240601
+        },
+        {
+          "setting": "g3_ordered_n6",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03759398496240601
+        },
+        {
+          "setting": "g12_ordered_n4",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03759398496240601
+        },
+        {
+          "setting": "g12_ordered_n2",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03759398496240601
+        },
+        {
+          "setting": "g8_shuffled_n4",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03007518796992481
+        },
+        {
+          "setting": "g8_ordered_n2",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03007518796992481
+        },
+        {
+          "setting": "g5_ordered_n2",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03007518796992481
+        },
+        {
+          "setting": "g3_shuffled_n4",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03007518796992481
+        },
+        {
+          "setting": "g3_ordered_n8",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03007518796992481
+        },
+        {
+          "setting": "g3_ordered_n4",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03007518796992481
+        },
+        {
+          "setting": "g3_ordered_n2",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03007518796992481
+        },
+        {
+          "setting": "g12_shuffled_n6",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03007518796992481
+        },
+        {
+          "setting": "g12_shuffled_n4",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03007518796992481
+        },
+        {
+          "setting": "g12_shuffled_n2",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03007518796992481
+        },
+        {
+          "setting": "g12_ordered_n6",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03007518796992481
+        },
+        {
+          "setting": "g8_ordered_n8",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.022556390977443608
+        },
+        {
+          "setting": "g5_ordered_n8",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.022556390977443608
+        },
+        {
+          "setting": "g5_ordered_n6",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.022556390977443608
+        },
+        {
+          "setting": "g3_shuffled_n2",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.022556390977443608
+        },
+        {
+          "setting": "g12_ordered_n8",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.022556390977443608
+        },
+        {
+          "setting": "g8_shuffled_n2",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.015037593984962405
+        },
+        {
+          "setting": "g12_shuffled_n8",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.015037593984962405
+        }
+      ]
+    },
+    {
+      "cluster": 4,
+      "items": 40,
+      "representative_setting": "g5_ordered_n2",
+      "setting_support": [
+        {
+          "setting": "g5_ordered_n2",
+          "success_rows": 37,
+          "unique_items": 37,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.038267875125881166
+        },
+        {
+          "setting": "g12_ordered_n2",
+          "success_rows": 37,
+          "unique_items": 37,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.038267875125881166
+        },
+        {
+          "setting": "g8_ordered_n2",
+          "success_rows": 36,
+          "unique_items": 36,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03726082578046324
+        },
+        {
+          "setting": "g5_ordered_n8",
+          "success_rows": 36,
+          "unique_items": 36,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03726082578046324
+        },
+        {
+          "setting": "g3_shuffled_n8",
+          "success_rows": 36,
+          "unique_items": 36,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03726082578046324
+        },
+        {
+          "setting": "g3_ordered_n8",
+          "success_rows": 36,
+          "unique_items": 36,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03726082578046324
+        },
+        {
+          "setting": "g3_ordered_n2",
+          "success_rows": 36,
+          "unique_items": 36,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03726082578046324
+        },
+        {
+          "setting": "g5_shuffled_n8",
+          "success_rows": 35,
+          "unique_items": 35,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03625377643504532
+        },
+        {
+          "setting": "g5_shuffled_n4",
+          "success_rows": 35,
+          "unique_items": 35,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03625377643504532
+        },
+        {
+          "setting": "g3_shuffled_n6",
+          "success_rows": 35,
+          "unique_items": 35,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03625377643504532
+        },
+        {
+          "setting": "g3_shuffled_n4",
+          "success_rows": 34,
+          "unique_items": 34,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.035246727089627394
+        },
+        {
+          "setting": "g3_ordered_n6",
+          "success_rows": 34,
+          "unique_items": 34,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.035246727089627394
+        },
+        {
+          "setting": "g8_ordered_n8",
+          "success_rows": 33,
+          "unique_items": 33,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03423967774420947
+        },
+        {
+          "setting": "g5_ordered_n6",
+          "success_rows": 33,
+          "unique_items": 33,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03423967774420947
+        },
+        {
+          "setting": "g3_shuffled_n2",
+          "success_rows": 33,
+          "unique_items": 33,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03423967774420947
+        },
+        {
+          "setting": "g3_ordered_n4",
+          "success_rows": 33,
+          "unique_items": 33,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03423967774420947
+        },
+        {
+          "setting": "g8_shuffled_n8",
+          "success_rows": 31,
+          "unique_items": 31,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.032225579053373615
+        },
+        {
+          "setting": "g8_shuffled_n6",
+          "success_rows": 31,
+          "unique_items": 31,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.032225579053373615
+        },
+        {
+          "setting": "g8_ordered_n6",
+          "success_rows": 31,
+          "unique_items": 31,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.032225579053373615
+        },
+        {
+          "setting": "g8_ordered_n4",
+          "success_rows": 31,
+          "unique_items": 31,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.032225579053373615
+        },
+        {
+          "setting": "g5_ordered_n4",
+          "success_rows": 31,
+          "unique_items": 31,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.032225579053373615
+        },
+        {
+          "setting": "g5_shuffled_n6",
+          "success_rows": 27,
+          "unique_items": 27,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.028197381671701913
+        },
+        {
+          "setting": "g5_shuffled_n2",
+          "success_rows": 27,
+          "unique_items": 27,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.028197381671701913
+        },
+        {
+          "setting": "g12_ordered_n6",
+          "success_rows": 27,
+          "unique_items": 27,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.028197381671701913
+        },
+        {
+          "setting": "g12_ordered_n4",
+          "success_rows": 26,
+          "unique_items": 26,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.027190332326283987
+        },
+        {
+          "setting": "g8_shuffled_n4",
+          "success_rows": 25,
+          "unique_items": 25,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.026183282980866064
+        },
+        {
+          "setting": "g8_shuffled_n2",
+          "success_rows": 25,
+          "unique_items": 25,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.026183282980866064
+        },
+        {
+          "setting": "g12_shuffled_n8",
+          "success_rows": 23,
+          "unique_items": 23,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.02416918429003021
+        },
+        {
+          "setting": "g12_ordered_n8",
+          "success_rows": 21,
+          "unique_items": 21,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.022155085599194362
+        },
+        {
+          "setting": "g12_shuffled_n6",
+          "success_rows": 18,
+          "unique_items": 18,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.019133937562940583
+        },
+        {
+          "setting": "g12_shuffled_n4",
+          "success_rows": 15,
+          "unique_items": 15,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.016112789526686808
+        },
+        {
+          "setting": "g12_shuffled_n2",
+          "success_rows": 13,
+          "unique_items": 13,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.014098690835850957
+        }
+      ]
+    },
+    {
+      "cluster": 5,
+      "items": 69,
+      "representative_setting": "g3_ordered_n4",
+      "setting_support": [
+        {
+          "setting": "g3_ordered_n4",
+          "success_rows": 63,
+          "unique_items": 63,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.044975404075895994
+        },
+        {
+          "setting": "g3_shuffled_n8",
+          "success_rows": 61,
+          "unique_items": 61,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04356992269852424
+        },
+        {
+          "setting": "g3_shuffled_n6",
+          "success_rows": 60,
+          "unique_items": 60,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04286718200983837
+        },
+        {
+          "setting": "g5_ordered_n2",
+          "success_rows": 59,
+          "unique_items": 59,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.0421644413211525
+        },
+        {
+          "setting": "g3_ordered_n2",
+          "success_rows": 59,
+          "unique_items": 59,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.0421644413211525
+        },
+        {
+          "setting": "g5_shuffled_n8",
+          "success_rows": 58,
+          "unique_items": 58,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04146170063246662
+        },
+        {
+          "setting": "g3_shuffled_n4",
+          "success_rows": 58,
+          "unique_items": 58,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04146170063246662
+        },
+        {
+          "setting": "g3_ordered_n8",
+          "success_rows": 58,
+          "unique_items": 58,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04146170063246662
+        },
+        {
+          "setting": "g3_ordered_n6",
+          "success_rows": 58,
+          "unique_items": 58,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04146170063246662
+        },
+        {
+          "setting": "g5_ordered_n8",
+          "success_rows": 55,
+          "unique_items": 55,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03935347856640899
+        },
+        {
+          "setting": "g5_shuffled_n4",
+          "success_rows": 54,
+          "unique_items": 54,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03865073787772312
+        },
+        {
+          "setting": "g5_ordered_n6",
+          "success_rows": 54,
+          "unique_items": 54,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03865073787772312
+        },
+        {
+          "setting": "g5_ordered_n4",
+          "success_rows": 54,
+          "unique_items": 54,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03865073787772312
+        },
+        {
+          "setting": "g8_ordered_n2",
+          "success_rows": 50,
+          "unique_items": 50,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.035839775122979624
+        },
+        {
+          "setting": "g3_shuffled_n2",
+          "success_rows": 50,
+          "unique_items": 50,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.035839775122979624
+        },
+        {
+          "setting": "g8_ordered_n4",
+          "success_rows": 47,
+          "unique_items": 47,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03373155305692199
+        },
+        {
+          "setting": "g5_shuffled_n2",
+          "success_rows": 46,
+          "unique_items": 46,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03302881236823612
+        },
+        {
+          "setting": "g8_shuffled_n8",
+          "success_rows": 42,
+          "unique_items": 42,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.030217849613492623
+        },
+        {
+          "setting": "g8_ordered_n6",
+          "success_rows": 41,
+          "unique_items": 41,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.029515108924806747
+        },
+        {
+          "setting": "g5_shuffled_n6",
+          "success_rows": 38,
+          "unique_items": 38,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.027406886858749122
+        },
+        {
+          "setting": "g8_ordered_n8",
+          "success_rows": 37,
+          "unique_items": 37,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.026704146170063246
+        },
+        {
+          "setting": "g12_ordered_n2",
+          "success_rows": 37,
+          "unique_items": 37,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.026704146170063246
+        },
+        {
+          "setting": "g8_shuffled_n6",
+          "success_rows": 35,
+          "unique_items": 35,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.025298664792691498
+        },
+        {
+          "setting": "g8_shuffled_n4",
+          "success_rows": 34,
+          "unique_items": 34,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.024595924104005622
+        },
+        {
+          "setting": "g12_ordered_n4",
+          "success_rows": 32,
+          "unique_items": 32,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.023190442726633873
+        },
+        {
+          "setting": "g12_shuffled_n8",
+          "success_rows": 25,
+          "unique_items": 25,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.018271257905832748
+        },
+        {
+          "setting": "g12_ordered_n6",
+          "success_rows": 25,
+          "unique_items": 25,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.018271257905832748
+        },
+        {
+          "setting": "g8_shuffled_n2",
+          "success_rows": 24,
+          "unique_items": 24,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.017568517217146872
+        },
+        {
+          "setting": "g12_shuffled_n4",
+          "success_rows": 23,
+          "unique_items": 23,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.016865776528460996
+        },
+        {
+          "setting": "g12_ordered_n8",
+          "success_rows": 23,
+          "unique_items": 23,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.016865776528460996
+        },
+        {
+          "setting": "g12_shuffled_n6",
+          "success_rows": 22,
+          "unique_items": 22,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.016163035839775124
+        },
+        {
+          "setting": "g12_shuffled_n2",
+          "success_rows": 9,
+          "unique_items": 9,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.007027406886858749
+        }
+      ]
+    },
+    {
+      "cluster": 6,
+      "items": 73,
+      "representative_setting": "g3_shuffled_n6",
+      "setting_support": [
+        {
+          "setting": "g3_shuffled_n6",
+          "success_rows": 66,
+          "unique_items": 66,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04135802469135803
+        },
+        {
+          "setting": "g3_ordered_n2",
+          "success_rows": 66,
+          "unique_items": 66,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04135802469135803
+        },
+        {
+          "setting": "g5_ordered_n2",
+          "success_rows": 65,
+          "unique_items": 65,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.040740740740740744
+        },
+        {
+          "setting": "g3_ordered_n6",
+          "success_rows": 65,
+          "unique_items": 65,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.040740740740740744
+        },
+        {
+          "setting": "g3_ordered_n4",
+          "success_rows": 65,
+          "unique_items": 65,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.040740740740740744
+        },
+        {
+          "setting": "g3_shuffled_n4",
+          "success_rows": 63,
+          "unique_items": 63,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03950617283950617
+        },
+        {
+          "setting": "g3_ordered_n8",
+          "success_rows": 63,
+          "unique_items": 63,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03950617283950617
+        },
+        {
+          "setting": "g8_ordered_n2",
+          "success_rows": 59,
+          "unique_items": 59,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.037037037037037035
+        },
+        {
+          "setting": "g5_ordered_n6",
+          "success_rows": 59,
+          "unique_items": 59,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.037037037037037035
+        },
+        {
+          "setting": "g5_ordered_n4",
+          "success_rows": 58,
+          "unique_items": 58,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03641975308641975
+        },
+        {
+          "setting": "g5_shuffled_n8",
+          "success_rows": 57,
+          "unique_items": 57,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03580246913580247
+        },
+        {
+          "setting": "g3_shuffled_n8",
+          "success_rows": 56,
+          "unique_items": 56,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03518518518518519
+        },
+        {
+          "setting": "g12_ordered_n2",
+          "success_rows": 56,
+          "unique_items": 56,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03518518518518519
+        },
+        {
+          "setting": "g8_ordered_n4",
+          "success_rows": 53,
+          "unique_items": 53,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03333333333333333
+        },
+        {
+          "setting": "g8_ordered_n6",
+          "success_rows": 52,
+          "unique_items": 52,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03271604938271605
+        },
+        {
+          "setting": "g5_shuffled_n4",
+          "success_rows": 52,
+          "unique_items": 52,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03271604938271605
+        },
+        {
+          "setting": "g5_ordered_n8",
+          "success_rows": 50,
+          "unique_items": 50,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03148148148148148
+        },
+        {
+          "setting": "g8_ordered_n8",
+          "success_rows": 49,
+          "unique_items": 49,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.030864197530864196
+        },
+        {
+          "setting": "g3_shuffled_n2",
+          "success_rows": 48,
+          "unique_items": 48,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.030246913580246913
+        },
+        {
+          "setting": "g5_shuffled_n2",
+          "success_rows": 47,
+          "unique_items": 47,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.02962962962962963
+        },
+        {
+          "setting": "g12_ordered_n4",
+          "success_rows": 46,
+          "unique_items": 46,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.029012345679012345
+        },
+        {
+          "setting": "g5_shuffled_n6",
+          "success_rows": 45,
+          "unique_items": 45,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.028395061728395062
+        },
+        {
+          "setting": "g12_ordered_n6",
+          "success_rows": 45,
+          "unique_items": 45,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.028395061728395062
+        },
+        {
+          "setting": "g8_shuffled_n4",
+          "success_rows": 44,
+          "unique_items": 44,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.027777777777777776
+        },
+        {
+          "setting": "g12_ordered_n8",
+          "success_rows": 44,
+          "unique_items": 44,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.027777777777777776
+        },
+        {
+          "setting": "g8_shuffled_n6",
+          "success_rows": 43,
+          "unique_items": 43,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.027160493827160494
+        },
+        {
+          "setting": "g8_shuffled_n8",
+          "success_rows": 35,
+          "unique_items": 35,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.022222222222222223
+        },
+        {
+          "setting": "g8_shuffled_n2",
+          "success_rows": 35,
+          "unique_items": 35,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.022222222222222223
+        },
+        {
+          "setting": "g12_shuffled_n8",
+          "success_rows": 34,
+          "unique_items": 34,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.021604938271604937
+        },
+        {
+          "setting": "g12_shuffled_n4",
+          "success_rows": 27,
+          "unique_items": 27,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.01728395061728395
+        },
+        {
+          "setting": "g12_shuffled_n6",
+          "success_rows": 26,
+          "unique_items": 26,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.016666666666666666
+        },
+        {
+          "setting": "g12_shuffled_n2",
+          "success_rows": 15,
+          "unique_items": 15,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.009876543209876543
+        }
+      ]
+    },
+    {
+      "cluster": 7,
+      "items": 44,
+      "representative_setting": "g8_ordered_n2",
+      "setting_support": [
+        {
+          "setting": "g8_ordered_n2",
+          "success_rows": 41,
+          "unique_items": 41,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.043523316062176166
+        },
+        {
+          "setting": "g3_shuffled_n6",
+          "success_rows": 40,
+          "unique_items": 40,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04248704663212435
+        },
+        {
+          "setting": "g8_ordered_n6",
+          "success_rows": 39,
+          "unique_items": 39,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04145077720207254
+        },
+        {
+          "setting": "g5_ordered_n2",
+          "success_rows": 39,
+          "unique_items": 39,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04145077720207254
+        },
+        {
+          "setting": "g5_shuffled_n8",
+          "success_rows": 38,
+          "unique_items": 38,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04041450777202073
+        },
+        {
+          "setting": "g5_ordered_n8",
+          "success_rows": 38,
+          "unique_items": 38,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04041450777202073
+        },
+        {
+          "setting": "g3_ordered_n6",
+          "success_rows": 38,
+          "unique_items": 38,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04041450777202073
+        },
+        {
+          "setting": "g3_ordered_n2",
+          "success_rows": 38,
+          "unique_items": 38,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.04041450777202073
+        },
+        {
+          "setting": "g3_ordered_n8",
+          "success_rows": 37,
+          "unique_items": 37,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.039378238341968914
+        },
+        {
+          "setting": "g8_ordered_n8",
+          "success_rows": 36,
+          "unique_items": 36,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.0383419689119171
+        },
+        {
+          "setting": "g5_ordered_n6",
+          "success_rows": 36,
+          "unique_items": 36,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.0383419689119171
+        },
+        {
+          "setting": "g5_ordered_n4",
+          "success_rows": 36,
+          "unique_items": 36,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.0383419689119171
+        },
+        {
+          "setting": "g3_shuffled_n8",
+          "success_rows": 36,
+          "unique_items": 36,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.0383419689119171
+        },
+        {
+          "setting": "g3_shuffled_n4",
+          "success_rows": 36,
+          "unique_items": 36,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.0383419689119171
+        },
+        {
+          "setting": "g3_ordered_n4",
+          "success_rows": 35,
+          "unique_items": 35,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03730569948186528
+        },
+        {
+          "setting": "g12_ordered_n2",
+          "success_rows": 33,
+          "unique_items": 33,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.035233160621761656
+        },
+        {
+          "setting": "g8_ordered_n4",
+          "success_rows": 31,
+          "unique_items": 31,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03316062176165803
+        },
+        {
+          "setting": "g5_shuffled_n4",
+          "success_rows": 31,
+          "unique_items": 31,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.03316062176165803
+        },
+        {
+          "setting": "g8_shuffled_n8",
+          "success_rows": 29,
+          "unique_items": 29,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.031088082901554404
+        },
+        {
+          "setting": "g5_shuffled_n6",
+          "success_rows": 25,
+          "unique_items": 25,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.02694300518134715
+        },
+        {
+          "setting": "g3_shuffled_n2",
+          "success_rows": 25,
+          "unique_items": 25,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.02694300518134715
+        },
+        {
+          "setting": "g5_shuffled_n2",
+          "success_rows": 24,
+          "unique_items": 24,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.025906735751295335
+        },
+        {
+          "setting": "g8_shuffled_n6",
+          "success_rows": 23,
+          "unique_items": 23,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.024870466321243522
+        },
+        {
+          "setting": "g12_ordered_n4",
+          "success_rows": 23,
+          "unique_items": 23,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.024870466321243522
+        },
+        {
+          "setting": "g12_shuffled_n8",
+          "success_rows": 20,
+          "unique_items": 20,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.021761658031088083
+        },
+        {
+          "setting": "g8_shuffled_n4",
+          "success_rows": 19,
+          "unique_items": 19,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.02072538860103627
+        },
+        {
+          "setting": "g12_ordered_n8",
+          "success_rows": 19,
+          "unique_items": 19,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.02072538860103627
+        },
+        {
+          "setting": "g12_ordered_n6",
+          "success_rows": 19,
+          "unique_items": 19,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.02072538860103627
+        },
+        {
+          "setting": "g12_shuffled_n6",
+          "success_rows": 15,
+          "unique_items": 15,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.016580310880829015
+        },
+        {
+          "setting": "g8_shuffled_n2",
+          "success_rows": 14,
+          "unique_items": 14,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.015544041450777202
+        },
+        {
+          "setting": "g12_shuffled_n4",
+          "success_rows": 14,
+          "unique_items": 14,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.015544041450777202
+        },
+        {
+          "setting": "g12_shuffled_n2",
+          "success_rows": 6,
+          "unique_items": 6,
+          "positive_effect_rows": null,
+          "beta_support_mean": 0.007253886010362694
+        }
+      ]
+    }
+  ]
+}

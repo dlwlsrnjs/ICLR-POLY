@@ -1,0 +1,170 @@
+{
+  "schema": "poly_separate_axis_cosine_clusters/v1",
+  "model": "gemma2_9b_it",
+  "axis": "willingness",
+  "embedding_input": "canonical_text_only",
+  "embedding_normalization": "L2",
+  "distance": "cosine",
+  "joint_axis_state_created": false,
+  "k": 4,
+  "k_selection": [
+    {
+      "k": 4,
+      "silhouette": 0.1019940555889518
+    },
+    {
+      "k": 8,
+      "silhouette": 0.08320495904876282
+    },
+    {
+      "k": 12,
+      "silhouette": 0.06124273112421424
+    },
+    {
+      "k": 16,
+      "silhouette": 0.0816229876284846
+    }
+  ],
+  "clusters": [
+    {
+      "cluster": 0,
+      "items": 30,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 22,
+          "unique_items": 22,
+          "positive_effect_rows": 19,
+          "beta_support_mean": 0.46
+        },
+        {
+          "setting": "pap",
+          "success_rows": 12,
+          "unique_items": 12,
+          "positive_effect_rows": 7,
+          "beta_support_mean": 0.26
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": 2,
+          "beta_support_mean": 0.08
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 2,
+          "beta_support_mean": 0.06
+        },
+        {
+          "setting": "plain",
+          "success_rows": 6,
+          "unique_items": 6,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.14
+        }
+      ]
+    },
+    {
+      "cluster": 1,
+      "items": 20,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 16,
+          "unique_items": 16,
+          "positive_effect_rows": 16,
+          "beta_support_mean": 0.5666666666666667
+        },
+        {
+          "setting": "pap",
+          "success_rows": 6,
+          "unique_items": 6,
+          "positive_effect_rows": 6,
+          "beta_support_mean": 0.23333333333333334
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 2,
+          "beta_support_mean": 0.1
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 2,
+          "beta_support_mean": 0.1
+        }
+      ]
+    },
+    {
+      "cluster": 2,
+      "items": 9,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 7,
+          "unique_items": 7,
+          "positive_effect_rows": 7,
+          "beta_support_mean": 0.4444444444444444
+        },
+        {
+          "setting": "pap",
+          "success_rows": 5,
+          "unique_items": 5,
+          "positive_effect_rows": 5,
+          "beta_support_mean": 0.3333333333333333
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": 3,
+          "beta_support_mean": 0.2222222222222222
+        }
+      ]
+    },
+    {
+      "cluster": 3,
+      "items": 19,
+      "representative_setting": "pap",
+      "setting_support": [
+        {
+          "setting": "pap",
+          "success_rows": 11,
+          "unique_items": 11,
+          "positive_effect_rows": 9,
+          "beta_support_mean": 0.3333333333333333
+        },
+        {
+          "setting": "persona",
+          "success_rows": 10,
+          "unique_items": 10,
+          "positive_effect_rows": 8,
+          "beta_support_mean": 0.3055555555555556
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 7,
+          "unique_items": 7,
+          "positive_effect_rows": 6,
+          "beta_support_mean": 0.2222222222222222
+        },
+        {
+          "setting": "plain",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.1388888888888889
+        }
+      ]
+    }
+  ]
+}

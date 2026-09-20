@@ -1,0 +1,102 @@
+{
+  "schema": "poly_separate_axis_cluster_index/v1",
+  "embedding_model": "/home/ljk98/POLY/hf-cache/hub/models--BAAI--bge-large-en-v1.5/snapshots/d4aa6901d3a41ba39fb536a557fa166f842b0e09",
+  "pooling": "CLS (model-card 1_Pooling setting)",
+  "query_instruction": "Represent this sentence for searching relevant passages: ",
+  "normalization": "L2",
+  "similarity": "cosine",
+  "joint_prior_created": false,
+  "joint_embedding_created": false,
+  "deployment_start": "global_anonymous clusters; target model name is unavailable",
+  "global_anonymous": {
+    "understanding_k": 12,
+    "willingness_k": 4
+  },
+  "models": [
+    {
+      "model": "falcon3_10b",
+      "understanding_k": 4,
+      "willingness_k": 16
+    },
+    {
+      "model": "falcon3_3b",
+      "understanding_k": 16,
+      "willingness_k": 16
+    },
+    {
+      "model": "falcon3_7b",
+      "understanding_k": 12,
+      "willingness_k": 16
+    },
+    {
+      "model": "gemma2_27b",
+      "understanding_k": 8,
+      "willingness_k": 8
+    },
+    {
+      "model": "gemma2_2b_it",
+      "understanding_k": 8,
+      "willingness_k": 12
+    },
+    {
+      "model": "gemma2_9b_it",
+      "understanding_k": 8,
+      "willingness_k": 4
+    },
+    {
+      "model": "glm4_9b",
+      "understanding_k": 16,
+      "willingness_k": 12
+    },
+    {
+      "model": "llama31_8b_it",
+      "understanding_k": 8,
+      "willingness_k": 16
+    },
+    {
+      "model": "llama32_3b_it",
+      "understanding_k": 8,
+      "willingness_k": 16
+    },
+    {
+      "model": "mistral24b",
+      "understanding_k": 8,
+      "willingness_k": 12
+    },
+    {
+      "model": "mistral7b",
+      "understanding_k": 8,
+      "willingness_k": 16
+    },
+    {
+      "model": "phi35_mini",
+      "understanding_k": 16,
+      "willingness_k": 16
+    },
+    {
+      "model": "phi3_medium_14b",
+      "understanding_k": 16,
+      "willingness_k": 16
+    },
+    {
+      "model": "qwen25_14b",
+      "understanding_k": 12,
+      "willingness_k": 4
+    },
+    {
+      "model": "qwen25_32b",
+      "understanding_k": 4,
+      "willingness_k": 8
+    },
+    {
+      "model": "qwen25_3b",
+      "understanding_k": 16,
+      "willingness_k": 16
+    },
+    {
+      "model": "qwen25_7b",
+      "understanding_k": 4,
+      "willingness_k": 8
+    }
+  ]
+}

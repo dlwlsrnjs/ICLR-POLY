@@ -1,0 +1,310 @@
+{
+  "schema": "poly_separate_axis_cosine_clusters/v1",
+  "model": "qwen25_32b",
+  "axis": "willingness",
+  "embedding_input": "canonical_text_only",
+  "embedding_normalization": "L2",
+  "distance": "cosine",
+  "joint_axis_state_created": false,
+  "k": 8,
+  "k_selection": [
+    {
+      "k": 4,
+      "silhouette": 0.08463003248402923
+    },
+    {
+      "k": 8,
+      "silhouette": 0.08625374411939449
+    },
+    {
+      "k": 12,
+      "silhouette": 0.07446524371745877
+    },
+    {
+      "k": 16,
+      "silhouette": 0.08374096790020172
+    }
+  ],
+  "clusters": [
+    {
+      "cluster": 0,
+      "items": 32,
+      "representative_setting": "pap",
+      "setting_support": [
+        {
+          "setting": "pap",
+          "success_rows": 27,
+          "unique_items": 27,
+          "positive_effect_rows": 11,
+          "beta_support_mean": 0.4117647058823529
+        },
+        {
+          "setting": "persona",
+          "success_rows": 16,
+          "unique_items": 16,
+          "positive_effect_rows": 4,
+          "beta_support_mean": 0.25
+        },
+        {
+          "setting": "plain",
+          "success_rows": 20,
+          "unique_items": 20,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.3088235294117647
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.029411764705882353
+        }
+      ]
+    },
+    {
+      "cluster": 1,
+      "items": 12,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 12,
+          "unique_items": 12,
+          "positive_effect_rows": 4,
+          "beta_support_mean": 0.35135135135135137
+        },
+        {
+          "setting": "pap",
+          "success_rows": 10,
+          "unique_items": 10,
+          "positive_effect_rows": 3,
+          "beta_support_mean": 0.2972972972972973
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.05405405405405406
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.05405405405405406
+        },
+        {
+          "setting": "plain",
+          "success_rows": 8,
+          "unique_items": 8,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.24324324324324326
+        }
+      ]
+    },
+    {
+      "cluster": 2,
+      "items": 11,
+      "representative_setting": "pap",
+      "setting_support": [
+        {
+          "setting": "pap",
+          "success_rows": 8,
+          "unique_items": 8,
+          "positive_effect_rows": 3,
+          "beta_support_mean": 0.3333333333333333
+        },
+        {
+          "setting": "persona",
+          "success_rows": 7,
+          "unique_items": 7,
+          "positive_effect_rows": 3,
+          "beta_support_mean": 0.2962962962962963
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.07407407407407407
+        },
+        {
+          "setting": "plain",
+          "success_rows": 7,
+          "unique_items": 7,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.2962962962962963
+        }
+      ]
+    },
+    {
+      "cluster": 3,
+      "items": 15,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 12,
+          "unique_items": 12,
+          "positive_effect_rows": 5,
+          "beta_support_mean": 0.38235294117647056
+        },
+        {
+          "setting": "pap",
+          "success_rows": 11,
+          "unique_items": 11,
+          "positive_effect_rows": 5,
+          "beta_support_mean": 0.35294117647058826
+        },
+        {
+          "setting": "plain",
+          "success_rows": 8,
+          "unique_items": 8,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.2647058823529412
+        }
+      ]
+    },
+    {
+      "cluster": 4,
+      "items": 4,
+      "representative_setting": "pap",
+      "setting_support": [
+        {
+          "setting": "pap",
+          "success_rows": 4,
+          "unique_items": 4,
+          "positive_effect_rows": 2,
+          "beta_support_mean": 0.4166666666666667
+        },
+        {
+          "setting": "persona",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.3333333333333333
+        },
+        {
+          "setting": "plain",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.25
+        }
+      ]
+    },
+    {
+      "cluster": 5,
+      "items": 3,
+      "representative_setting": "pap",
+      "setting_support": [
+        {
+          "setting": "pap",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": 1,
+          "beta_support_mean": 0.4
+        },
+        {
+          "setting": "plain",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.3
+        },
+        {
+          "setting": "persona",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.3
+        }
+      ]
+    },
+    {
+      "cluster": 6,
+      "items": 26,
+      "representative_setting": "pap",
+      "setting_support": [
+        {
+          "setting": "pap",
+          "success_rows": 18,
+          "unique_items": 18,
+          "positive_effect_rows": 8,
+          "beta_support_mean": 0.3064516129032258
+        },
+        {
+          "setting": "persona",
+          "success_rows": 18,
+          "unique_items": 18,
+          "positive_effect_rows": 7,
+          "beta_support_mean": 0.3064516129032258
+        },
+        {
+          "setting": "plain",
+          "success_rows": 16,
+          "unique_items": 16,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.27419354838709675
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 3,
+          "unique_items": 3,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.06451612903225806
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.04838709677419355
+        }
+      ]
+    },
+    {
+      "cluster": 7,
+      "items": 18,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 15,
+          "unique_items": 15,
+          "positive_effect_rows": 9,
+          "beta_support_mean": 0.38095238095238093
+        },
+        {
+          "setting": "pap",
+          "success_rows": 11,
+          "unique_items": 11,
+          "positive_effect_rows": 6,
+          "beta_support_mean": 0.2857142857142857
+        },
+        {
+          "setting": "plain",
+          "success_rows": 8,
+          "unique_items": 8,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.21428571428571427
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 2,
+          "unique_items": 2,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.07142857142857142
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 1,
+          "unique_items": 1,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.047619047619047616
+        }
+      ]
+    }
+  ]
+}

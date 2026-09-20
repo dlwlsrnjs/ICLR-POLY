@@ -1,0 +1,198 @@
+{
+  "schema": "poly_separate_axis_cosine_clusters/v1",
+  "model": "global_anonymous",
+  "axis": "willingness",
+  "embedding_input": "canonical_text_only",
+  "embedding_normalization": "L2",
+  "distance": "cosine",
+  "joint_axis_state_created": false,
+  "k": 4,
+  "k_selection": [
+    {
+      "k": 4,
+      "silhouette": 0.07354978445623894
+    },
+    {
+      "k": 8,
+      "silhouette": 0.06317878248155148
+    },
+    {
+      "k": 12,
+      "silhouette": 0.06182499474400946
+    },
+    {
+      "k": 16,
+      "silhouette": 0.045821525592104645
+    }
+  ],
+  "clusters": [
+    {
+      "cluster": 0,
+      "items": 72,
+      "representative_setting": "pap",
+      "setting_support": [
+        {
+          "setting": "pap",
+          "success_rows": 338,
+          "unique_items": 63,
+          "positive_effect_rows": 185,
+          "beta_support_mean": 0.3438133874239351
+        },
+        {
+          "setting": "persona",
+          "success_rows": 270,
+          "unique_items": 51,
+          "positive_effect_rows": 135,
+          "beta_support_mean": 0.2748478701825558
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 100,
+          "unique_items": 35,
+          "positive_effect_rows": 59,
+          "beta_support_mean": 0.10243407707910751
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 68,
+          "unique_items": 29,
+          "positive_effect_rows": 34,
+          "beta_support_mean": 0.06997971602434078
+        },
+        {
+          "setting": "plain",
+          "success_rows": 205,
+          "unique_items": 47,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.20892494929006086
+        }
+      ]
+    },
+    {
+      "cluster": 1,
+      "items": 51,
+      "representative_setting": "persona",
+      "setting_support": [
+        {
+          "setting": "persona",
+          "success_rows": 237,
+          "unique_items": 42,
+          "positive_effect_rows": 145,
+          "beta_support_mean": 0.3269230769230769
+        },
+        {
+          "setting": "pap",
+          "success_rows": 201,
+          "unique_items": 37,
+          "positive_effect_rows": 112,
+          "beta_support_mean": 0.2774725274725275
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 79,
+          "unique_items": 26,
+          "positive_effect_rows": 56,
+          "beta_support_mean": 0.10989010989010989
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 81,
+          "unique_items": 29,
+          "positive_effect_rows": 54,
+          "beta_support_mean": 0.11263736263736264
+        },
+        {
+          "setting": "plain",
+          "success_rows": 125,
+          "unique_items": 32,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.17307692307692307
+        }
+      ]
+    },
+    {
+      "cluster": 2,
+      "items": 48,
+      "representative_setting": "pap",
+      "setting_support": [
+        {
+          "setting": "pap",
+          "success_rows": 231,
+          "unique_items": 38,
+          "positive_effect_rows": 126,
+          "beta_support_mean": 0.28641975308641976
+        },
+        {
+          "setting": "persona",
+          "success_rows": 205,
+          "unique_items": 37,
+          "positive_effect_rows": 100,
+          "beta_support_mean": 0.254320987654321
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 118,
+          "unique_items": 31,
+          "positive_effect_rows": 69,
+          "beta_support_mean": 0.1469135802469136
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 102,
+          "unique_items": 35,
+          "positive_effect_rows": 62,
+          "beta_support_mean": 0.1271604938271605
+        },
+        {
+          "setting": "plain",
+          "success_rows": 149,
+          "unique_items": 30,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.18518518518518517
+        }
+      ]
+    },
+    {
+      "cluster": 3,
+      "items": 28,
+      "representative_setting": "pap",
+      "setting_support": [
+        {
+          "setting": "pap",
+          "success_rows": 69,
+          "unique_items": 22,
+          "positive_effect_rows": 51,
+          "beta_support_mean": 0.3431372549019608
+        },
+        {
+          "setting": "persona",
+          "success_rows": 56,
+          "unique_items": 17,
+          "positive_effect_rows": 40,
+          "beta_support_mean": 0.27941176470588236
+        },
+        {
+          "setting": "fiction",
+          "success_rows": 23,
+          "unique_items": 11,
+          "positive_effect_rows": 18,
+          "beta_support_mean": 0.11764705882352941
+        },
+        {
+          "setting": "persona+fiction",
+          "success_rows": 22,
+          "unique_items": 13,
+          "positive_effect_rows": 16,
+          "beta_support_mean": 0.11274509803921569
+        },
+        {
+          "setting": "plain",
+          "success_rows": 29,
+          "unique_items": 12,
+          "positive_effect_rows": 0,
+          "beta_support_mean": 0.14705882352941177
+        }
+      ]
+    }
+  ]
+}
