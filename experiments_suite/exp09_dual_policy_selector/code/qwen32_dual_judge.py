@@ -157,13 +157,19 @@ def run_stage(name: str, source: list[dict], out: Path, tokenizer, backend, batc
             print(json.dumps({"stage": name, "completed": len(done) + offset + len(group), "total": len(source), "elapsed": round(time.time() - started, 1)}), flush=True)
 
 
-def merge_shards(outdir: Path, source: list[dict], num_shards: int, protocol: dict) -> None:
+def merge_shards(outdir: Path, source: list[dict], num_shards: int, protocol: dict, stage: str = "both") -> None:
     """Merge independently written judge shards without concurrent-file corruption."""
     expected = {row["key"] for row in source}
-    for stage in ("reconstruction", "fulfillment"):
+    stages = ("reconstruction", "fulfillment") if stage == "both" else (stage,)
+    for stage_name in stages:
         merged: dict[str, dict] = {}
+        canonical = outdir / f"{stage_name}.jsonl"
+        if canonical.exists():
+            for row in rows(canonical):
+                if row.get("valid") is True:
+                    merged[row["key"]] = row
         for shard_index in range(num_shards):
-            path = outdir / f"{stage}.shard-{shard_index:02d}-of-{num_shards:02d}.jsonl"
+            path = outdir / f"{stage_name}.shard-{shard_index:02d}-of-{num_shards:02d}.jsonl"
             if not path.exists():
                 raise RuntimeError(f"Missing shard: {path}")
             for row in rows(path):
@@ -172,8 +178,8 @@ def merge_shards(outdir: Path, source: list[dict], num_shards: int, protocol: di
         missing = expected - merged.keys()
         extra = merged.keys() - expected
         if missing or extra:
-            raise RuntimeError(f"Incomplete {stage} merge: missing={len(missing)} extra={len(extra)}")
-        target = outdir / f"{stage}.jsonl"
+            raise RuntimeError(f"Incomplete {stage_name} merge: missing={len(missing)} extra={len(extra)}")
+        target = outdir / f"{stage_name}.jsonl"
         temporary = target.with_suffix(".jsonl.tmp")
         with temporary.open("w", encoding="utf-8") as handle:
             for row in source:
@@ -219,7 +225,7 @@ def main() -> None:
         "fulfillment_rubric_sha256": hashlib.sha256(FULFILL_SYSTEM.encode()).hexdigest(),
     }
     if args.merge_only:
-        merge_shards(outdir, source, args.num_shards, protocol)
+        merge_shards(outdir, source, args.num_shards, protocol, args.stage)
         print(json.dumps({"stage": "merged", "run": str(args.run), "rows": len(source)}), flush=True)
         return
     suffix = "" if args.num_shards == 1 else f".shard-{args.shard_index:02d}-of-{args.num_shards:02d}"
@@ -228,6 +234,12 @@ def main() -> None:
         raise RuntimeError("Protocol or source responses changed")
     protocol_file.write_text(json.dumps(protocol, indent=2) + "\n")
     if args.num_shards > 1:
+        if args.stage in {"reconstruction", "fulfillment"}:
+            canonical = outdir / f"{args.stage}.jsonl"
+            canonical_done = {
+                row["key"] for row in rows(canonical) if row.get("valid") is True
+            } if canonical.exists() else set()
+            source = [row for row in source if row["key"] not in canonical_done]
         source = [row for index, row in enumerate(source) if index % args.num_shards == args.shard_index]
     tokenizer = AutoTokenizer.from_pretrained(args.model, local_files_only=True)
     backend = TransformersBackend(args.model, tokenizer)
