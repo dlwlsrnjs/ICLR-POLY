@@ -89,6 +89,41 @@ target text
 여기서 text cosine은 **어느 prior cluster로 들어갈지** 정하고, GP kernel은 그 cluster 안에서
 **어느 arm을 다음에 시험할지** 정한다. 둘을 같은 similarity로 취급하지 않는다.
 
+## 최종 온라인 루프: success-gated text cluster → free probe → MJ/LG GP-UCB
+
+선택기는 모델 전체에 하나의 평균 prior를 주는 방식이 아니다. **각 MJ/LG 원문마다** 아래 루프를
+독립적으로 실행한다.
+
+1. 331개 무해 원문의 embedding을 L2 정규화하고 cosine 기반 cluster를 고정한다. MJ/LG 원문은 가장
+   가까운 centroid에 배정한 뒤, 그 cluster 내부의 cosine top-k 무해 문항을 가져온다.
+2. 이해축 관측은 Qwen2.5-32B 판정에서 의미 재구성 `R=1`인 `(item, understanding-arm)`만 index에
+   넣는다. 의지축 관측은 공통 `R=1` cohort에서 요청 수행 효과가 확인된 `(item, willingness-arm)`만
+   넣는다. 실패 관측은 감사·불확실성 계산용으로 보존하지만 centroid, arm 후보와 positive prior에는
+   넣지 않는다.
+3. 검색된 무해 문항을 대상 모델에 무료로 반복 질의한다. 후보는 해당 cluster에서 성공 이력이 있는
+   arm으로 제한하고, 매 응답의 재구성·요청 수행 판정으로 그 arm posterior를 갱신한다. 전역 탐색 뒤
+   posterior 개선이 정체되면 같은 cluster의 유망 arm 주변에서 국소 미세조정한다.
+4. 정지 시점의 cluster-conditioned arm posterior를 그대로 GP의 `μ0(c)`로 넘긴다. 여기서 새 prior로
+   재시작하거나 전체 331 평균으로 되돌리지 않는다.
+5. 이제야 **원래 MJ/LG 원문**에 선택된 설정을 입힌다. 원문의 의미·정답 목표는 고정하고 GP-UCB는
+   `(g, order, n, language assignment, frame)` 설정의 이웃만 조금씩 바꾼다. reconstruction-gated ASR이
+   성공하면 즉시 멈추고, 실패하면 같은 posterior에 그 결과를 추가해 다음 설정을 고른다.
+
+```text
+MJ/LG original q
+  └─ cosine → harmless cluster C(q) → top-k harmless items
+       └─ only success-gated arms (R=1; willingness effect=1)
+            └─ repeated free harmless pulls: global → plateau → local refinement
+                 └─ cluster-conditioned posterior μ0,q(c)
+                      └─ original q + selected setting
+                           └─ GP-UCB neighbour update until verified ASR success / harmful cap
+```
+
+따라서 비용은 `harmless pulls`와 `harmful pulls`을 분리해 보고한다. 무해 pull 수는 진단용이며 공격
+예산에는 0으로 두고, 오라클 90% 도달 예산은 이 전체 루프에서 사용한 harmful pull 수로 계산한다.
+기존 `text_routing_sweep.py`는 harmful label로 text routing 가능성만 본 상한 실험이므로 이 최종 루프의
+근거값으로 사용하지 않는다.
+
 각 331 item에는 이해축 결과가 나온 뒤 다음 값을 붙인다.
 
 - `text_embedding_id`, encoder revision, pooling/normalization 설정
