@@ -1,0 +1,23 @@
+{
+  "repo_id": "jin-kwon/poly-qwen32-judge-resume-20260920",
+  "revision": "df97ce10500f484f5480bf1f647a32814eaede38",
+  "path": "results/gpu_server_20260921/gemma2_27b",
+  "complete": false,
+  "coverage": {
+    "reconstruction": {
+      "valid_unique": 10592,
+      "seen_unique": 10592,
+      "unresolved": 0,
+      "invalid_attempts_in_history": 0
+    },
+    "fulfillment": {
+      "valid_unique": 1266,
+      "seen_unique": 1266,
+      "unresolved": 9326,
+      "invalid_attempts_in_history": 0
+    }
+  },
+  "url": "https://huggingface.co/datasets/jin-kwon/poly-qwen32-judge-resume-20260920/tree/df97ce10500f484f5480bf1f647a32814eaede38/results/gpu_server_20260921/gemma2_27b",
+  "verified_files": 35,
+  "verified_at": 1789926610.2201753
+}

@@ -1,0 +1,99 @@
+{
+  "scope": "external server: fulfillment ONLY; this GPU server: reconstruction ONLY",
+  "models": [
+    "gemma2_27b",
+    "mistral7b",
+    "phi3_medium_14b",
+    "qwen25_14b",
+    "qwen25_32b",
+    "qwen25_3b",
+    "qwen25_7b",
+    "phi35_mini"
+  ],
+  "completed_mistral24b_revision": "1d937797b12dd0af83499ac2215eb28a6d0727fc",
+  "source_dataset_revision": "1168515989bc8ca9da902dc340670086d4eab39e",
+  "judge_code_commit": "bb695819dd7f106a399eb487399e207cece23b4c",
+  "coverage_at_handoff": {
+    "gemma2_27b": {
+      "reconstruction": {
+        "valid_unique": 10592,
+        "remaining": 0
+      },
+      "fulfillment": {
+        "valid_unique": 1266,
+        "remaining": 9326
+      }
+    },
+    "mistral7b": {
+      "reconstruction": {
+        "valid_unique": 2544,
+        "remaining": 8048
+      },
+      "fulfillment": {
+        "valid_unique": 0,
+        "remaining": 10592
+      }
+    },
+    "phi3_medium_14b": {
+      "reconstruction": {
+        "valid_unique": 160,
+        "remaining": 10432
+      },
+      "fulfillment": {
+        "valid_unique": 0,
+        "remaining": 10592
+      }
+    },
+    "qwen25_14b": {
+      "reconstruction": {
+        "valid_unique": 0,
+        "remaining": 10592
+      },
+      "fulfillment": {
+        "valid_unique": 0,
+        "remaining": 10592
+      }
+    },
+    "qwen25_32b": {
+      "reconstruction": {
+        "valid_unique": 0,
+        "remaining": 10592
+      },
+      "fulfillment": {
+        "valid_unique": 0,
+        "remaining": 10592
+      }
+    },
+    "qwen25_3b": {
+      "reconstruction": {
+        "valid_unique": 188,
+        "remaining": 10404
+      },
+      "fulfillment": {
+        "valid_unique": 0,
+        "remaining": 10592
+      }
+    },
+    "qwen25_7b": {
+      "reconstruction": {
+        "valid_unique": 0,
+        "remaining": 10592
+      },
+      "fulfillment": {
+        "valid_unique": 0,
+        "remaining": 10592
+      }
+    },
+    "phi35_mini": {
+      "reconstruction": {
+        "valid_unique": 0,
+        "remaining": 10592
+      },
+      "fulfillment": {
+        "valid_unique": 0,
+        "remaining": 10592
+      }
+    }
+  },
+  "time": 1789926817.2002547
+}
