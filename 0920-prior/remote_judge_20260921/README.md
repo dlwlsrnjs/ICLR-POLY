@@ -34,3 +34,9 @@ cat process.json queue_status.json gpu0.json gpu1.json
 사용자 요청으로 GPU0만 batch 4로 재개합니다. `gpu0_batch_trial.py`가 원본 판정 코드를 별도 프로세스로 실행하며 CUDA OOM이면 `gpu0_batch_override.json`에 batch 2를 기록하고 저장된 valid 판정부터 재개합니다. 이후 모델에도 fallback batch 2를 유지합니다. GPU1 batch 16 및 실행 중 프로세스는 변경하지 않았습니다. run_one_gpu 원본은 `run_one_gpu.original.sh`에 보존했습니다. 판정 Python 코드/rubric/토큰 한도는 변경하지 않았습니다.
 
 사용자의 추가 요청으로 GPU0 batch 8을 시험합니다. CUDA OOM이면 8 → 4 → 2 순서로 낮추고 해당 값을 이후 모델에도 유지합니다. GPU1 batch 16은 계속 실행합니다.
+
+## Gemma2-27B 우선 병렬 처리
+
+사용자 요청으로 Gemma의 남은 수행 판정을 bb69581의 기본 index-modulo 방식 8개 shard로 분할했습니다. 기존 canonical 결과는 gemma_dual_gpu/*before_split.jsonl에 보존하고 유효 결과를 해당 shard에 미리 채웠습니다. 재구성은 전부 재사용합니다. gemma_dual_gpu.py가 GPU 0(batch 2), GPU 1(batch 16)에 다음 shard를 동적으로 배정합니다. GPU1에서 시작됐던 Mistral7B는 저장 결과를 유지한 채 중지했습니다. 기존 run_assigned 부모는 SIGSTOP 상태이며, Gemma shard 처리·검증·canonical 병합 후 SIGCONT하여 Mistral7B와 나머지 큐를 재개합니다. 기존 GPU 대기 큐 복원은 원래 run_assigned가 담당합니다.
+
+진행 상태: gemma_dual_gpu/status.json 및 shard별 JSON/로그. 합쳐진 결과는 기존 all/judge_qwen32/{reconstruction,fulfillment}.jsonl입니다. 실패 후에도 shard 파일과 원본 백업은 남습니다. supervisor를 강제로 중단했다면 기존 shard 파일 때문에 그대로 재시작하지 말고 상태를 확인해 수동 재개해야 합니다.
