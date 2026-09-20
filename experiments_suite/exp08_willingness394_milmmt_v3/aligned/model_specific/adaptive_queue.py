@@ -103,6 +103,16 @@ def candidates(obs,n):
  out.sort(key=lambda x:(not x['passes'],-abs(x['curve']['change'] or 0),-float(x['metrics']['R_gain'] or 0),x['after']))
  return out
 
+def gpu_budget(model):
+ total,free=[float(x.strip()) for x in subprocess.check_output(['nvidia-smi','--id=0','--query-gpu=memory.total,memory.free','--format=csv,noheader,nounits'],text=True).strip().split(',')]
+ idx=model/'model.safetensors.index.json'
+ if idx.exists():weights=json.loads(idx.read_text())['metadata']['total_size']/1024**2
+ else:
+  files=list(model.glob('*.safetensors')) or list(model.glob('pytorch_model*.bin'))
+  if not files:raise ValueError('Cannot estimate model memory '+str(model))
+  weights=sum(x.stat().st_size for x in files)/1024**2
+ return dict(total_mib=total,free_mib=free,required_mib=weights+8192,ready=free>=weights+8192,utilization=min(.90,max(.01,(free-4096)/total)))
+
 def main():
  p=argparse.ArgumentParser();p.add_argument('--run',type=Path,required=True);p.add_argument('--old-run',type=Path,required=True);p.add_argument('--repo',type=Path,required=True);p.add_argument('--cache',type=Path,required=True);p.add_argument('--aux-cache',type=Path,required=True);p.add_argument('--wait-pid',type=int,default=0);a=p.parse_args();run=a.run;old=a.old_run;run.mkdir(parents=True,exist_ok=True)
  lock=(run/'queue.lock').open('w');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
@@ -111,16 +121,30 @@ def main():
  save(run/'QUEUE_PLAN.json',newplan)
  def status(stage,**kw):save(run/'status.json',dict(stage=stage,time=time.time(),**kw))
  def command(stage,args,artifacts):
-  marker=run/'completed_stages'/f'{stage}.json';cmd=[sys.executable]+list(map(str,args));identity=dict(command=cmd,script_sha256=sha(Path(args[0])))
+  marker=run/'completed_stages'/f'{stage}.json';cmd=[sys.executable]+list(map(str,args));identity_cmd=list(cmd)
+  if '--memory-utilization' in identity_cmd:identity_cmd[identity_cmd.index('--memory-utilization')+1]='dynamic_free_memory'
+  identity=dict(command=identity_cmd,script_sha256=sha(Path(args[0])))
   if marker.exists():
    prior=json.loads(marker.read_text())
    if prior['identity']!=identity or any(not Path(p).exists() or sha(Path(p))!=h for p,h in prior['artifacts'].items()):raise ValueError('Changed completed stage '+stage)
    return
   while (run/'PAUSE').exists():status('paused_between_stages',next_stage=stage);time.sleep(5)
   if (run/'STOP').exists():raise KeyboardInterrupt
+  cap='0.90'
+  if Path(args[0]).name in ['collect.py','queue_judge.py']:
+   model=Path(cmd[cmd.index('--model-path')+1])
+   while True:
+    budget=gpu_budget(model)
+    if budget['ready']:break
+    status('waiting_for_gpu',next_stage=stage,**budget)
+    if (run/'STOP').exists():raise KeyboardInterrupt
+    time.sleep(20)
+   cap=str(round(budget['utilization'],4))
+   if '--memory-utilization' in cmd:cmd[cmd.index('--memory-utilization')+1]=cap
+   with (run/'gpu_allocations.jsonl').open('a') as f:f.write(json.dumps(dict(stage=stage,time=time.time(),**budget))+'\n')
   status(stage)
   with (run/(stage+'.log')).open('a') as log:
-   subprocess.run(cmd,env=dict(os.environ,CUDA_VISIBLE_DEVICES='0',VLLM_USE_V1='0',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1'),stdout=log,stderr=subprocess.STDOUT,check=True)
+   subprocess.run(cmd,env=dict(os.environ,CUDA_VISIBLE_DEVICES='0',VLLM_USE_V1='0',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',POLY_GPU_MEMORY_UTILIZATION=cap),stdout=log,stderr=subprocess.STDOUT,check=True)
   if any(not x.exists() for x in artifacts):raise ValueError('Missing output for '+stage)
   save(marker,dict(identity=identity,artifacts={str(x):sha(x) for x in artifacts}))
  q7=a.cache/'models--Qwen--Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28';wg=a.aux_cache/'models--allenai--wildguard/snapshots/cbba4823f3e8020e5a74a5e29bf85072def6f2ff'
@@ -128,13 +152,22 @@ def main():
   model=a.cache/('models--'+cfg['target_model'].replace('/','--'))/'snapshots'/cfg['target_revision']
   command(tag+'_'+phase+'_collect',[ROOT.parent/'collect.py','--run',dest,'--gpu','0','--model-path',model,'--memory-utilization','.90','--batch-size','16'],[dest/'responses.jsonl'])
   for kind,path,artifact in [('reconstruction',q7,'judge/reconstruction/restricted_reconstruction_audit.jsonl'),('wildguard',wg,'judge/outputs/wildguard.jsonl')]:
-   command(tag+'_'+phase+'_'+kind,[ROOT/'judge_local.py',kind,'--run',dest,'--repo',a.repo,'--model-path',path,'--gpu','0'],[dest/artifact])
+   command(tag+'_'+phase+'_'+kind,[ROOT/'queue_judge.py',kind,'--run',dest,'--repo',a.repo,'--model-path',path,'--gpu','0'],[dest/artifact])
  try:
   while a.wait_pid and active(a.wait_pid):status('waiting_current_stage',pid=a.wait_pid);time.sleep(5)
   results=json.loads((run/'results.json').read_text()) if (run/'results.json').exists() else {}
-  for m in sorted(plan['models'],key=lambda x:(x['model']!='qwen25_7b',x['model'])):
-   tag=m['model']
+  pending=sorted(plan['models'],key=lambda x:(x['model']!='qwen25_7b',x['model']));deferred=0
+  while pending:
+   m=pending.pop(0);tag=m['model']
    if results.get(tag,{}).get('status') in ['complete','no_selection_knee','validation_not_confirmed']:continue
+   base=json.loads((ROOT.parent/'shared_en_ar/configs'/f'{tag}.json').read_text());model=a.cache/('models--'+base['target_model'].replace('/','--'))/'snapshots'/base['target_revision'];budget=gpu_budget(model)
+   if not budget['ready']:
+    pending.append(m);deferred+=1
+    status('deferring_model_for_gpu',model=tag,pending=[x['model'] for x in pending],**budget)
+    if (run/'STOP').exists():raise KeyboardInterrupt
+    if deferred>=len(pending):time.sleep(20);deferred=0
+    continue
+   deferred=0
    try:
     n=int(m['edge']['after'].rsplit('n',1)[1]);cells=[f'g{g}_{o}_n{n}' for o in ['ordered','shuffled'] for g in [12,8,5,3]]
     scan=prepare_cells(run,a.repo,old,tag,cells,'selection',plan['splits']);cfg=json.loads((scan/'manifest.json').read_text())['config'];collect_and_judge(tag,'selection',scan,cfg)
