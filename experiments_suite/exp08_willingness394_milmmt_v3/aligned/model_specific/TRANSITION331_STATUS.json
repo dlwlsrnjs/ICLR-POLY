@@ -1,0 +1,110 @@
+{
+  "captured_at": "2026-09-20T01:42:51.430397+00:00",
+  "run": "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/runs/willingness331_transition_refusal_20260920",
+  "status": {
+    "stage": "qwen25_7b_probe_collect",
+    "command": [
+      "/tmp/poly-model-anchors-20260920/experiments_suite/exp08_willingness394_milmmt_v3/aligned/collect.py",
+      "--run",
+      "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/runs/willingness331_transition_refusal_20260920/probes/qwen25_7b",
+      "--gpu",
+      "0",
+      "--model-path",
+      "/home/ubuntu/342/jinkwon/hf_cache/hub/models--Qwen--Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28",
+      "--memory-utilization",
+      ".90",
+      "--batch-size",
+      "16"
+    ]
+  },
+  "tests_passed": 5,
+  "target_items": 331,
+  "new_results_not_yet_available": true,
+  "probe_coverage": {
+    "qwen25_7b": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    },
+    "gemma2_2b_it": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    },
+    "qwen25_3b": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    },
+    "gemma2_27b": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    },
+    "falcon3_3b": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    },
+    "mistral7b": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    },
+    "mistral24b": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    },
+    "qwen25_14b": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    },
+    "phi35_mini": {
+      "eligible_items": 166,
+      "blocked_items": 165,
+      "jobs": 332
+    },
+    "llama32_3b_it": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    },
+    "qwen25_32b": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    },
+    "falcon3_10b": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    },
+    "gemma2_9b_it": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    },
+    "glm4_9b": {
+      "eligible_items": 166,
+      "blocked_items": 165,
+      "jobs": 332
+    },
+    "phi3_medium_14b": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    },
+    "falcon3_7b": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    },
+    "llama31_8b_it": {
+      "eligible_items": 287,
+      "blocked_items": 44,
+      "jobs": 574
+    }
+  }
+}

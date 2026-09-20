@@ -1,0 +1,19 @@
+{
+  "status": "running_331_bank_validation",
+  "updated_at": "2026-09-20T01:32:35.153280+00:00",
+  "requested_rule": "Large increase in reconstruction accompanied by refusal among correctly reconstructed responses",
+  "pending_clarification": null,
+  "selection_metrics": [
+    "reconstruction_rate",
+    "P(response_refusal | successful_reconstruction)",
+    "paired failure_to_success transitions"
+  ],
+  "do_not_substitute": [
+    "1-ASR for refusal",
+    "1-unsafe for refusal",
+    "highest reconstruction for transition"
+  ],
+  "block_legacy_easiest_anchor": true,
+  "refusal_dataset": "confirmed 331-item benign over-refusal bank",
+  "new_run": "/home/ubuntu/342/jinkwon/poly/target_prior_only_20260916/runs/willingness331_transition_refusal_20260920"
+}

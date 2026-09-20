@@ -49,6 +49,10 @@ def main():
   write(run/'continuation_status.json',dict(stage='waiting_frozen_anchors'))
   while alive(processes['calibration']['pid'],'calibrate.py'):time.sleep(10)
   if not (run/'anchor_decisions.json').exists():raise RuntimeError('Calibration did not produce frozen anchors; inspect calibration.log')
+  gate_path=run/'WILLINGNESS_GATE.json'
+  if gate_path.exists() and json.loads(gate_path.read_text()).get('status')!='approved_transition_anchor':
+   write(run/'continuation_status.json',dict(stage='awaiting_transition_refusal_anchor',reason='Legacy easiest-anchor decisions must not launch willingness collection'))
+   return
   decisions=json.loads((run/'anchor_decisions.json').read_text())['models']
   frozen=[x for x in decisions if x['status']=='frozen']
   failures=[dict(model=x['model'],stage='anchor_not_frozen') for x in decisions if x['status']!='frozen'];completed=[]
