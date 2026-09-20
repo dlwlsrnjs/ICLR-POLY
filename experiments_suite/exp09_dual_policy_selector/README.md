@@ -194,6 +194,21 @@ test에 맞춰 바꾸지 않는다. 현재 저장소에는 이 text-cosine index
 정책으로 사용하지 않는다. 331 R/F/Y 결과가 완성되면 동일 코드를 success/effect-gated cluster prior로
 교체하고, 내부 validation이 고른 하나의 정책을 held-out test에 적용한다.
 
+## 최적 정책 선택은 아직 진행 중
+
+구체적인 후보 사다리, 이해/의지 별도 cluster, harmless plateau/entropy 정지, WildGuard 상태 전이와
+oracle 90% 비용 기준은 `OPTIMAL_POLICY_PROTOCOL.md`에 사전 고정했다. 초기의 160-arm 고정을 철회하고
+32/64/96/160도 selection split에서 비교한다. 이는 후속 17-model 분석에서 96-arm이 소예산 양쪽
+데이터셋에서 더 안정적이었던 반면, 160-arm은 MJ에서 탐색을 희석시킨 결과를 반영한다.
+
+`code/static_policy_ablation.py`는 새 331 결과 전에 가능한 B0--P1 기준선을 만든다. 20 split,
+harmful cap 12의 현재 historical replay에서 prior의 budget-AUC 이득은 arm 공간에 따라 MJ
+`+0.010--+0.042`, LG `+0.031--+0.079`였다(각 공간에서 가장 좋은 prior GP와 가장 좋은 flat GP 비교).
+budget 3에서는 B96에서 MJ `0.393 -> 0.464`, LG `0.521 -> 0.624`였다. LG B64의 additive prior GP는
+family-macro oracle 90%를 5 batch에 넘었지만 flat GP는 12 batch 안에 넘지 못했다. MJ는 어떤 정책도
+family-macro oracle 90%를 12 batch 안에 넘지 못했으므로, 이 결과만으로 목표 절감을 달성했다고
+주장하지 않는다. P2--P5의 cosine/repeated/axis/state ablation이 바로 이 남은 차이를 검증한다.
+
 또한 위 빠른 historical hybrid replay는 기존 item matrix와 정규식의 제약 때문에
 `8개 n=2 이해 cell × plain/persona/fiction 3개 = 24 arm`만 사용했다. PAP,
 persona+fiction과 `n=4/6/8`을 포함하지 않은 회귀 시험이므로 최종 160-arm 성능으로 해석하지 않는다.

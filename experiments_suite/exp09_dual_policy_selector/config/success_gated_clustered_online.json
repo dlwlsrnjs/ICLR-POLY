@@ -1,7 +1,7 @@
 {
   "schema": "exp09_success_gated_clustered_online/v1",
   "routing_unit": "one original MJ/LG item",
-  "final_arm_space": {
+  "candidate_arm_space": {
     "understanding_axis": {
       "size": 32,
       "factors": {
@@ -15,6 +15,13 @@
       "frames": ["plain", "persona", "fiction", "pap", "persona+fiction"]
     },
     "cross_product_size": 160,
+    "selection_candidates": {
+      "A32": ["plain"],
+      "B64": ["plain", "persona"],
+      "B96": ["plain", "persona", "fiction"],
+      "C160": ["plain", "persona", "fiction", "pap", "persona+fiction"]
+    },
+    "freeze_rule": "select one space on the selection split by oracle-recovery then harmful cost; never choose on final test",
     "prior_factorization": "mu0_q(understanding, willingness) = R_q(understanding) * W_q(willingness)",
     "eligibility": "understanding reconstruction success AND positive willingness effect on the common reconstruction-success cohort",
     "fallback": "if the routed cluster has no validated positive willingness effect or is OOD/low-confidence, restrict to the 32-arm plain understanding subspace"
